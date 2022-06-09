@@ -1,0 +1,9 @@
+#nav {
+  font-weight: 600;
+  text-shadow: -1px 0px 1px orange;
+}
+#nav .nav-item:hover {
+  background-color: burlywood;
+  border-radius: 3px;
+  transition: 0.8s;
+}
