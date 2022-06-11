@@ -30,6 +30,7 @@ Route::get('/card', function () {
         'title' => 'CARD'
     ]);
 });
+
 Route::get('/service', function () {
     return view('service', [
         'title' => 'SERVICE'

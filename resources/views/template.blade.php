@@ -252,6 +252,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="pages/layout/top-nav.html" class="nav-link">
+                                <i class="nav-icon fas fa-columns"></i>
+                                <p>
+                                    Top bar
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/card" class="nav-link">
                                 <i class="nav-icon fas fa-columns"></i>
                                 <p>
