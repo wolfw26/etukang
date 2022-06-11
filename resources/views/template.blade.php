@@ -170,11 +170,29 @@
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="fas fa-user"></i>
+                        <span class="badge badge-warning navbar-badge">15</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-users mr-2"></i>Profile
+                            <span class="float-right text-muted text-sm">12 hours</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item bg-danger rounded-pill sm-3">
+                            Log-out
+                            <span class="float-right text-muted text-sm">2 days</span>
+                        </a>
+                    </div>
+                </li>
+                <!-- <li class="nav-item">
                     <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
                         <i class="fas fa-th-large"></i>
                     </a>
-                </li>
+                </li> -->
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -182,23 +200,23 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-light-dark elevation-4" style="background-image: url('img/batik-wayang.png');background-size:cover; ">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a href="index3.html" class="brand-link" style="background-color: orange ;">
                 <!-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
-                <h2 class="brand-text font-weight-light"><strong class="text-danger" style="font-weight: 900; font-size:5rem;opacity: .8">E-</strong> <span style="text-shadow: 2px 3px 3px grey; font-size:2rem">TUKANG</span>
+                <h2 class="brand-text font-weight-light" style="text-shadow: 4px 1px 5px white ;"><strong class="text-danger" style="font-weight: 900; font-size:5rem;opacity: .8">E-</strong> <span style="text-shadow: 2px 3px 8px grey; font-size:2rem">TUKANG</span>
                 </h2>
             </a>
 
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <!-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
                         <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">Alexander Pierce</a>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- SidebarSearch Form -->
                 <div class="form-inline">
@@ -224,6 +242,46 @@
                                 <p>
                                     Calendar
                                     <span class="badge badge-info right">2</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/gallery.html" class="nav-link">
+                                <i class="nav-icon far fa-image"></i>
+                                <p>
+                                    Proyek
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin/pekerja" class="nav-link">
+                                <i class="nav-icon fas fa-user-shield"></i>
+                                <p>
+                                    Pekerja
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin/biaya" class="nav-link">
+                                <i class="nav-icon fas fa-book-open"></i>
+                                <p>
+                                    Data Biaya
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin/pembayaran" class="nav-link">
+                                <i class="nav-icon fas fa-book-reader"></i>
+                                <p>
+                                    Data Pembayaran
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="admin/client" class="nav-link">
+                                <i class="nav-icon far fa-user"></i>
+                                <p>
+                                    Data Client
                                 </p>
                             </a>
                         </li>
