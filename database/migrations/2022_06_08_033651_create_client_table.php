@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('jk');
             $table->String('no_ktp');
             $table->String('no_telp');
+            $table->foreignId('users_id');
             $table->timestamps();
         });
     }

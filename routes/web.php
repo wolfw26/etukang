@@ -1,8 +1,10 @@
 <?php
 
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\ProyekController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,37 +17,18 @@ use App\Http\Controllers\userController;
 |
 */
 
-// Route::get('/about', function () {
-//     return view('welcome');
-// });
-
-// === ADMIN ====
 Route::get('/', function () {
     return view('home', [
         'title' => 'HOME'
     ]);
 });
-Route::get('/card', function () {
-    return view('component.card.contact', [
-        'title' => 'CARD'
-    ]);
-});
+Route::get('admin/proyek', [ProyekController::class, 'index']);
 
-Route::get('/service', function () {
-    return view('service', [
-        'title' => 'SERVICE'
-    ]);
-});
-Route::get('/blog', [BlogController::class, 'index']);
-Route::get('/kontak', function () {
-    return view('kontak', [
-        'title' => 'KONTAK'
-    ]);
-});
-Route::get('/product', function () {
-    return view('product', [
-        'title' => 'PRODUK'
-    ]);
-});
+// ADMIN
+
+// Route::get('/blog', [BlogController::class, 'index']);
+
+
+
 // === User ===
-Route::get('/user', [userController::class, 'index']);
+// Route::get('/user', [userController::class, 'index']);
