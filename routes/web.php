@@ -17,11 +17,41 @@ use App\Http\Controllers\ProyekController;
 |
 */
 
-Route::get('/', function () {
-    return view('home', [
-        'title' => 'HOME'
-    ]);
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', function () {
+        return view('home', [
+            'title' => 'HOME'
+        ]);
+    });
+    Route::get('/proyek', function () {
+        return view('admin.proyek', [
+            'title' => 'HOME'
+        ]);
+    });
+    Route::get('/pekerja', function () {
+        return view('admin.pekerja', [
+            'title' => 'HOME'
+        ]);
+    });
+    Route::get('/client', function () {
+        return view('admin.client', [
+            'title' => 'HOME'
+        ]);
+    });
+    Route::get('/biaya', function () {
+        return view('admin.biaya', [
+            'title' => 'HOME'
+        ]);
+    });
+    Route::get('/pembayaran', function () {
+        return view('admin.pembayaran', [
+            'title' => 'HOME'
+        ]);
+    });
 });
+
+
+
 Route::get('admin/proyek', [ProyekController::class, 'index']);
 
 // ADMIN

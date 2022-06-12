@@ -246,7 +246,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="admin/proyek" class="nav-link">
+                            <a href="{{ url('admin/proyek') }}" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
                                     Proyek
@@ -254,7 +254,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="admin/pekerja" class="nav-link">
+                            <a href="{{ url('admin/pekerja') }}" class="nav-link">
                                 <i class="nav-icon fas fa-user-shield"></i>
                                 <p>
                                     Pekerja
@@ -262,7 +262,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="admin/biaya" class="nav-link">
+                            <a href="{{ url('admin/biaya') }}" class="nav-link">
                                 <i class="nav-icon fas fa-book-open"></i>
                                 <p>
                                     Data Biaya
@@ -270,7 +270,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="admin/pembayaran" class="nav-link">
+                            <a href="{{ url('admin/pembayaran') }}" class="nav-link">
                                 <i class="nav-icon fas fa-book-reader"></i>
                                 <p>
                                     Data Pembayaran
@@ -278,7 +278,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="admin/client" class="nav-link">
+                            <a href="{{ url('admin/client') }}" class="nav-link">
                                 <i class="nav-icon far fa-user"></i>
                                 <p>
                                     Data Client
@@ -318,7 +318,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/card" class="nav-link">
+                            <a href="{{ url('/card') }}" class="nav-link">
                                 <i class="nav-icon fas fa-columns"></i>
                                 <p>
                                     Card
