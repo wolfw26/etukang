@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('jk');
             $table->string('riwayat');
             $table->text('Lain');
-            $table->foreignId('users_id')->references('id')->on('users');
+            $table->foreignId('users_id');
 
             $table->timestamps();
         });
