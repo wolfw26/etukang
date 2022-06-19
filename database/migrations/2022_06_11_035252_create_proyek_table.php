@@ -21,8 +21,8 @@ return new class extends Migration
             $table->date('tanggal_selesai');
             $table->string('panjang');
             $table->string('lebar');
-            $table->foreignId('client_id');
-            $table->foreignId('pekerja_id');
+            $table->foreignId('client_id')->references('id')->on('client');
+            $table->foreignId('pekerja_id')->references('id')->on('pekerja');
             $table->timestamps();
         });
     }

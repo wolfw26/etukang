@@ -17,6 +17,18 @@ use App\Http\Controllers\ProyekController;
 |
 */
 
+Route::get('/card', function () {
+    return view('component.card.contact', [
+        'title' => 'card'
+    ]);
+});
+Route::get('/', function () {
+    return view('login', [
+        'title' => 'Login'
+    ]);
+});
+
+
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', function () {
         return view('home', [
