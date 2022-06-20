@@ -1,3 +1,4 @@
+{{-- @dd($data) --}}
 @extends('component.template')
 @section('konten')
 <h1>Halaman <strong style="color: brown;">Pekerja</strong></h1>
@@ -22,62 +23,44 @@
                         #
                     </th>
                     <th style="width: 20%">
-                        Project Name
+                        Nama pekerja
                     </th>
                     <th style="width: 30%">
-                        Team Members
+                        Nama Tukang
                     </th>
                     <th>
-                        Project Progress
+                        Alamat
                     </th>
                     <th style="width: 8%" class="text-center">
-                        Status
+                        KTP
                     </th>
                     <th style="width: 20%">
                     </th>
                 </tr>
             </thead>
             <tbody>
+                @foreach ( $data as $d )
                 <tr>
                     <td>
                         #
                     </td>
                     <td>
                         <a>
-                            AdminLTE v3
+                            <strong class=" text-uppercase" style="color: rgb(15, 3, 105) ">{{ $d->nama_pekerja }}</strong>
                         </a>
                         <br />
                         <small>
-                            Created 01.01.2019
+                            Created {{ $d->created_at }}
                         </small>
                     </td>
                     <td>
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar.png">
-                            </li>
-                            <li class="list-inline-item">
-                                <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar2.png">
-                            </li>
-                            <li class="list-inline-item">
-                                <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar3.png">
-                            </li>
-                            <li class="list-inline-item">
-                                <img alt="Avatar" class="table-avatar" src="../../dist/img/avatar4.png">
-                            </li>
-                        </ul>
+                        <p>{{ $d->tukang->nama }}</p>
                     </td>
                     <td class="project_progress">
-                        <div class="progress progress-sm">
-                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
-                            </div>
-                        </div>
-                        <small>
-                            57% Complete
-                        </small>
+                        <p>{{ $d->alamat }}</p>
                     </td>
                     <td class="project-state">
-                        <span class="badge badge-success">Success</span>
+                        <span class="badge badge-success">{{ $d->foto_ktp }}</span>
                     </td>
                     <td class="project-actions text-right">
                         <a class="btn btn-primary btn-sm" href="#">
@@ -85,7 +68,7 @@
                             </i>
                             View
                         </a>
-                        <a class="btn btn-info btn-sm" href="#">
+                        <a class="btn btn-info btn-sm" href="#" data-toggle="modal" data-target="#Tambah">
                             <i class="fas fa-pencil-alt">
                             </i>
                             Edit
@@ -97,6 +80,8 @@
                         </a>
                     </td>
                 </tr>
+                @endforeach
+
         </table>
     </div>
 </div>

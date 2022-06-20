@@ -1,9 +1,24 @@
 {{-- @dd($data) --}}
 @extends('component.template')
 @section('konten')
-<div class="card-header mb-3">
-    <a href="http://" class="btn btn-outline-success" data-toggle="modal" data-target="#Tambah">Tambah</a>
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6 text-center">
+                <h1 class="m-0">
+                    <h1>Halaman <strong style="color: brown;">Data Proyek All</strong></h1>
+                </h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="http://" class="btn btn-outline-success" data-toggle="modal" data-target="#Tambah">Tambah</a></li>
+                    <!-- <li class="breadcrumb-item active">Dashboard v1</li> -->
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
 </div>
+
 
 <div class="row">
     <div class="card card-solid">
@@ -12,20 +27,17 @@
                 @foreach ( $data as $d )
                 <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch flex-column">
                     <div class="card bg-light d-flex flex-fill">
-                        <div class="card-header text-muted border-bottom-0">
-                            Digital Strategist
+                        <div class="card-header border-bottom-0 text-center" style="color: #cc3300; font-weight:700">
+                            {{ $d->nama_proyek }}
                         </div>
                         <div class="card-body pt-0">
 
                             <div class="text-center">
-                                <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid ">
+                                <img src="{{ asset('img/alat.jpg') }}" alt="user-avatar" class="img-rounded shadow img-fluid ">
                             </div>
-                            <h2 class="lead text-center"><b class=" border-bottom" style="color: #cc3300; font-weight:700">{{ $d->nama_proyek }}</b> <br>
-                            {{ $d->tanggal_proyek }}</h2>
-                            <div class="row">
-
-                                <p class="text-muted text-sm"><b>Pemilik: </b> {{ $d->client->nama }} </p>
-                                <p class="text-muted text-sm"><b>Alamat: </b> {{ $d->alamat }} </p>
+                            {{-- <span class="lead text-center"><b class=" border-bottom" style="color: #cc3300; font-weight:700">{{ $d->nama_proyek }}</b></span> --}}
+                            <div class="row m-3">
+                                <p class="text-muted text-sm"><b>Pemilik: </b> {{ $d->client->nama }} </p><br>
                                 <ul class="ml-4 mb-0 fa-ul text-muted">
                                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Alamat: {{ $d->alamat }}</li>
                                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>

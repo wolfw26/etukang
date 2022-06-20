@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\ProyekController;
+use App\Http\Controllers\PekerjaController;
 
 /*
 |--------------------------------------------------------------------------
