@@ -11,9 +11,9 @@ class Proyek extends Model
     protected $table = 'proyek';
     protected $guarded = ['id'];
 
-    public function Kontraktor()
+    public function Material()
     {
-        return $this->belongsTo(Kontraktor::class);
+        return $this->belongsTo(Material::class);
     }
     public function tukang()
     {
@@ -21,7 +21,7 @@ class Proyek extends Model
     }
     public function dataproyek()
     {
-        return $this->belongsTo(DataProyek::class);
+        return $this->hasMany(DataProyek::class);
     }
     public function client()
     {
