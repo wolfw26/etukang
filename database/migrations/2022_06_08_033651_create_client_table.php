@@ -20,10 +20,10 @@ return new class extends Migration
             $table->string('tempat_lahir');
             $table->text('alamat');
             $table->string('jk');
-            $table->int('no_ktp');
+            $table->integer('no_ktp');
             $table->string('foto_ktp');
-            $table->int('no_telp');
-            $table->int('no_rek');
+            $table->integer('no_telp');
+            $table->integer('no_rek');
             $table->foreignId('users_id');
             $table->timestamps();
         });

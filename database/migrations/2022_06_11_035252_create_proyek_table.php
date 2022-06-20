@@ -19,12 +19,12 @@ return new class extends Migration
             $table->string('jenis_proyek');
             $table->text('alamat');
             $table->string('luas_tanah');
-            $table->int('panjang_rumah');
-            $table->int('lebar_rumah');
+            $table->integer('panjang_rumah');
+            $table->integer('lebar_rumah');
             $table->string('satuan');
             $table->string('status');
-            $table->foreign('tukang_id');
-            $table->foreign('client_id');
+            $table->foreignId('tukang_id');
+            $table->foreignId('client_id');
 
             $table->timestamps();
         });

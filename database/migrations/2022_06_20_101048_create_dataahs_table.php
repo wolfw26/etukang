@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('kode_ahs');
             $table->string('nama_ahs');
             $table->string('rincian_pekerjaan');
-            $table->int('volume');
+            $table->integer('volume');
             $table->string('satuan');
-            $table->int('harga_satuan');
-            $table->int('jumlah');
+            $table->integer('harga_satuan');
+            $table->integer('jumlah');
             $table->foreignId('rab_id');
             $table->timestamps();
         });
