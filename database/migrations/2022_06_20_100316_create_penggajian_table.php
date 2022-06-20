@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('penggajian', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_pekerja');
+            $table->text('alamat');
+            $table->string('foto_ktp');
+            $table->foreignId('tukang_id');
             $table->timestamps();
         });
     }
