@@ -15,8 +15,19 @@ class tukangSeeder extends Seeder
      */
     public function run()
     {
-        tukang::create([
-            'pekerja_id' => '1',
+        Tukang::create([
+            'nama' => 'Abdul latif',
+            'alamat' => 'Jl. Babat - Jombang',
+            'no_ktp' => '0199286547737',
+            'foto_ktp' => 'abdul_latif.png',
+            'jk' => 'Laki-laki',
+        ]);
+        Tukang::create([
+            'nama' => 'Iqbal al makmur',
+            'alamat' => 'Jl. Babat - Bojonegoro',
+            'no_ktp' => '0199286547644',
+            'foto_ktp' => 'iqbal.png',
+            'jk' => 'Laki-laki',
         ]);
     }
 }

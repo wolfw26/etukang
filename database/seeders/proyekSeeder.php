@@ -16,20 +16,41 @@ class proyekSeeder extends Seeder
     public function run()
     {
         Proyek::create([
-            'nama_proyek' => 'Pembangunan Rumah',
-            'alamat' => 'Jl. Soutoyo S gg bina bahari no 13',
-            'tanggal_proyek' => '2020-12-20',
-            'tanggal_selesai' => '2022-12-20',
+            'nama_proyek' => 'Pembangunan rumah 2 lantai',
+            'jenis_proyek' => 'Pembangunan',
+            'alamat' => 'Jl. Soetoyo S ',
+            'luas_tanah' => '10 x 12',
+            'panjang_rumah' => '6',
+            'lebar_rumah' => '6',
+            'satuan' => 'M2',
+            'status' => 'Rencana',
+            'tukang_id' => '1',
             'client_id' => '1',
-            'tukang_id' => '1'
+        ]);
+
+        Proyek::create([
+            'nama_proyek' => 'Pembangunan rumah ',
+            'jenis_proyek' => 'Pembangunan',
+            'alamat' => 'Jl. Babat-Jombang  ',
+            'luas_tanah' => '10 x 12',
+            'panjang_rumah' => '6',
+            'lebar_rumah' => '6',
+            'satuan' => 'M2',
+            'status' => 'berjalan',
+            'tukang_id' => '1',
+            'client_id' => '2',
         ]);
         Proyek::create([
-            'nama_proyek' => 'Pembangunan Rumah',
-            'alamat' => 'Jl. Soutoyo S gg bina bahari no 13',
-            'tanggal_proyek' => '2020-12-20',
-            'tanggal_selesai' => '2022-12-20',
-            'client_id' => '2',
-            'tukang_id' => '1'
+            'nama_proyek' => 'Pembangunan rumah ',
+            'jenis_proyek' => 'Pembangunan',
+            'alamat' => 'Jl. Babat-Bojonegoro  ',
+            'luas_tanah' => '10 x 12',
+            'panjang_rumah' => '6',
+            'lebar_rumah' => '6',
+            'satuan' => 'M2',
+            'status' => 'perencanaan',
+            'tukang_id' => '2',
+            'client_id' => '3',
         ]);
     }
 }

@@ -13,7 +13,7 @@ class Proyek extends Model
 
     public function Material()
     {
-        return $this->belongsTo(Material::class);
+        return $this->hasMany(Material::class);
     }
     public function tukang()
     {
@@ -26,5 +26,9 @@ class Proyek extends Model
     public function client()
     {
         return $this->belongsTo(Client::class);
+    }
+    public function rab()
+    {
+        return $this->hasMany(Rab::class);
     }
 }

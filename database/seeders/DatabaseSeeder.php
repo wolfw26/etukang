@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
             clientSeeder::class,
             pekerjaSeeder::class,
             proyekSeeder::class,
-            tukangSeeder::class
+            tukangSeeder::class,
+            dataproyekSeeder::class
         ]);
     }
 }

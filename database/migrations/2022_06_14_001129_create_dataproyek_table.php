@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('dataproyek', function (Blueprint $table) {
             $table->id();
             $table->String('nama_data');
+            $table->integer('jumlah');
             $table->String('satuan');
             $table->foreignId('proyek_id');
             $table->timestamps();
