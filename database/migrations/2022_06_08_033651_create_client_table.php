@@ -16,10 +16,14 @@ return new class extends Migration
         Schema::create('client', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->date('tgl_lahir');
+            $table->string('tempat_lahir');
             $table->text('alamat');
             $table->string('jk');
-            $table->String('no_ktp');
-            $table->String('no_telp');
+            $table->int('no_ktp');
+            $table->string('foto_ktp');
+            $table->int('no_telp');
+            $table->int('no_rek');
             $table->foreignId('users_id');
             $table->timestamps();
         });

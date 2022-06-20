@@ -16,11 +16,16 @@ return new class extends Migration
         Schema::create('proyek', function (Blueprint $table) {
             $table->id();
             $table->string('nama_proyek');
-            $table->string('alamat');
-            $table->date('tanggal_proyek');
-            $table->date('tanggal_selesai');
-            $table->foreignId('client_id');
-            $table->foreignId('tukang_id');
+            $table->string('jenis_proyek');
+            $table->text('alamat');
+            $table->string('luas_tanah');
+            $table->int('panjang_rumah');
+            $table->int('lebar_rumah');
+            $table->string('satuan');
+            $table->string('status');
+            $table->foreign('tukang_id');
+            $table->foreign('client_id');
+
             $table->timestamps();
         });
     }

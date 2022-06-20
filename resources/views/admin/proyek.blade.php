@@ -1,3 +1,4 @@
+{{-- @dd($data) --}}
 @extends('component.template')
 @section('konten')
 <div class="card-header mb-3">
@@ -8,6 +9,7 @@
     <div class="card card-solid">
         <div class="card-body pb-0">
             <div class="row g-0">
+                @foreach ( $data as $d )
                 <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch flex-column">
                     <div class="card bg-light d-flex flex-fill">
                         <div class="card-header text-muted border-bottom-0">
@@ -18,12 +20,14 @@
                             <div class="text-center">
                                 <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid ">
                             </div>
-                            <h2 class="lead text-center"><b>Nicole Pearson</b></h2>
+                            <h2 class="lead text-center"><b>{{ $d->nama_proyek }}</b> <br>
+                            {{ $d->tanggal_proyek }}</h2>
                             <div class="row">
 
-                                <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                                <p class="text-muted text-sm"><b>Pemilik: </b> {{ $d->client->nama }} </p>
+                                <p class="text-muted text-sm"><b>Alamat: </b> {{ $d->alamat }} </p>
                                 <ul class="ml-4 mb-0 fa-ul text-muted">
-                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
+                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Alamat: {{ $d->alamat }}</li>
                                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
                                 </ul>
 
@@ -34,46 +38,14 @@
                                 <a href="#" class="btn btn-sm bg-teal">
                                     <i class="fas fa-comments"></i>
                                 </a>
-                                <a href="#" class="btn btn-sm btn-primary">
-                                    <i class="fas fa-user"></i> View Profile
+                                <a href="/admin/proyek/{{ $d->id }}" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-user"></i> Detail
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch flex-column">
-                    <div class="card bg-light d-flex flex-fill">
-                        <div class="card-header text-muted border-bottom-0">
-                            Digital Statistic
-                        </div>
-                        <div class="card-body pt-0">
-
-                            <div class="text-center">
-                                <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid ">
-                            </div>
-                            <h2 class="lead text-center"><b>Imanuel Georgia</b></h2>
-                            <div class="row">
-
-                                <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
-                                <ul class="ml-4 mb-0 fa-ul text-muted">
-                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
-                                </ul>
-
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <div class="text-right">
-                                <a href="#" class="btn btn-sm bg-teal">
-                                    <i class="fas fa-comments"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-primary">
-                                    <i class="fas fa-user"></i> View Profile
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
                 <!-- /card -->
             </div>
             <!-- /row -->

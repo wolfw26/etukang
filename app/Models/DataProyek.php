@@ -2,16 +2,14 @@
 
 namespace App\Models;
 
-use GuzzleHttp\Handler\Proxy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Client extends Model
+class DataProyek extends Model
 {
     use HasFactory;
-    protected $table = 'client';
+    protected $table = 'dataproyek';
     protected $guarded = ['id'];
-
 
     public function proyek()
     {

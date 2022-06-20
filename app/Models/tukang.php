@@ -2,19 +2,23 @@
 
 namespace App\Models;
 
-use GuzzleHttp\Handler\Proxy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Client extends Model
+class tukang extends Model
 {
     use HasFactory;
-    protected $table = 'client';
+    protected $table = 'tukang';
     protected $guarded = ['id'];
 
 
+    public function pekerja()
+    {
+        return $this->belongsTo(Pekerja::class);
+    }
+
     public function proyek()
     {
-        return $this->belongsTo(Proyek::class);
+        return $this->hasMany(Proyek::class);
     }
 }

@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('tukang', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pekerja_id');
+            $table->string('nama');
+            $table->text('alamat');
+            $table->int('no_ktp');
+            $table->string('foto_ktp');
+            $table->string('jk');
             $table->timestamps();
         });
     }
