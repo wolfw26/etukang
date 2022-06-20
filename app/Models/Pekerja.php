@@ -14,6 +14,10 @@ class Pekerja extends Model
 
     public function tukang()
     {
-        return $this->belongsTo(tukang::class);
+        return $this->belongsTo(Tukang::class);
+    }
+    public function penggajian()
+    {
+        return $this->hasMany(Penggajian::class);
     }
 }
