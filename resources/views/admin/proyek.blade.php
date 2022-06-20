@@ -20,7 +20,7 @@
                             <div class="text-center">
                                 <img src="../../dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid ">
                             </div>
-                            <h2 class="lead text-center"><b>{{ $d->nama_proyek }}</b> <br>
+                            <h2 class="lead text-center"><b class=" border-bottom" style="color: #cc3300; font-weight:700">{{ $d->nama_proyek }}</b> <br>
                             {{ $d->tanggal_proyek }}</h2>
                             <div class="row">
 
