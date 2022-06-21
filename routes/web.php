@@ -7,6 +7,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\ProyekController;
 use App\Http\Controllers\PekerjaController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,8 @@ use App\Http\Controllers\PekerjaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/card', function () {
     return view('component.card.contact', [

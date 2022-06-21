@@ -60,24 +60,25 @@
                     </div>
                 </div>
             </div>
-            <div class="col p-2 rounded-left-75" style="background: linear-gradient(to top, #ffffff 3%, #cc0000 98%); height: 100vh ;">
+            <div class="col p-2 shadow-lg" style="background: linear-gradient(to top, #ffffff 3%, #cc0000 98%); height: 100vh ;">
                 <div class="container-fluid">
                     <div class="container-fluid">
                         <div class="card shadow-md" style="margin-top:20vh; ">
                             <div class="card-header p-1">
-                                <div class="card-header rounded-top text-center p-3" style="background:#cc0000;font-weight:900; height:100%; font-size:20px; margin-bottom:2px">
+                                <div class="card-header rounded-top text-center p-3 bg-info" style="font-weight:900; height:100%; font-size:20px; margin-bottom:2px">
                                     <a href="{{ asset('assets/index2.html') }}" style="color:white;text-shadow: 3px 2px 4px gray ">Registrasi</a>
                                 </div>
                             </div>
                             <div class="card-body">
                                 <div class="card-body login-card-body  rounded-bottom">
-                                    <form action="/register">
+                                    <form action="/register" method="POST">
                                         @csrf
+
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="Username" name="username" required autocomplete="off">
+                                            <input type="text" class="form-control" placeholder="username" name="username" required autocomplete="off">
                                         </div>
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="Email" name="username" required autocomplete="off">
+                                            <input type="email" class="form-control" placeholder="Email" name="email" required autocomplete="off">
                                         </div>
                                         <div class="input-group mb-3">
                                             <input type="password" class="form-control" placeholder="Password" name="password" required>
