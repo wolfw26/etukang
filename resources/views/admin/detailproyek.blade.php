@@ -8,71 +8,33 @@
         </div>
         <div class="card-body">
             <div class="row">
-                <h5 class="card-title ">{{ $data->nama }}</h5>
+                <h5 class="card-title ">Tukang : {{ $tukang }}</h5>
             </div>
 
             <div class="row m-3">
                 <div class="col-6 ">
                     <div class="card-body">
-                        <table class="table table-bordered">
-                            <thead>
+                        <table class="table table-bordered table-striped">
+                            <thead class=" bg-gradient-maroon">
                                 <tr>
                                     <th style="width: 10px">#</th>
-                                    <th>ket</th>
-                                    <th>Value</th>
+                                    <th>Keterangan</th>
+                                    <th>Jumlah</th>
+                                    <th>Satuan</th>
+
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($data as $d )
                                 <tr>
                                     <td></td>
-                                    <th>nama</th>
-                                    <td>{{ $data->nama }}</td>
+                                    <th> {{ $d->nama_data }} </th>
+                                    <td>{{ $d->jumlah }}</td>
+                                    <td>{{ $d->satuan }}</td>
+
                                 </tr>
-                                <tr>
-                                    <td></td>
-                                    <th>Tukang</th>
-                                    <td>{{ $data->nama_tukang }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <th>Alamat</th>
-                                    <td>{{ $data->alamat }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <th>Panjang Tanah</th>
-                                    <td>{{ $data->panjang_tanah }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <th>Lebar Tanah</th>
-                                    <td>{{ $data->lebar_tanah }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <th>Tipe Rumah</th>
-                                    <td>{{ $data->tipe_rumah }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <th>Jum. Kamar</th>
-                                    <td>{{ $data->jumlah_kamar}}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <th>Jum. Kmr Mandi</th>
-                                    <td>{{ $data->jumlah_kamar_mandi }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <th>Status</th>
-                                    <td>{{ $data->status }}</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <th>Doc</th>
-                                    <td>{{ $data->doc }}</td>
-                                </tr>
+                                @endforeach
+
                             </tbody>
                         </table>
                     </div>

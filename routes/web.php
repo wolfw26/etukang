@@ -41,7 +41,7 @@ Route::group(['prefix' => 'admin'], function () {
             'title' => 'HOME'
         ]);
     });
-    Route::get('/proyek/{dataproyek}', [ProyekController::class, 'show']);
+    Route::get('/proyek/{proyek}', [ProyekController::class, 'show']);
     Route::get('/pekerja', [PekerjaController::class, 'index']);
     Route::get('/client', function () {
         return view('admin.client', [

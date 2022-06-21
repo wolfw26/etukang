@@ -4,13 +4,13 @@
     <div class="row">
         <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box">
-                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-image"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">CPU Traffic</span>
+                    <span class="info-box-text">Proyek</span>
                     <span class="info-box-number">
                         10
-                        <small>%</small>
+                        <!-- <small>%</small> -->
                     </span>
                 </div>
                 <!-- /.info-box-content -->
@@ -20,11 +20,11 @@
         <!-- /.col -->
         <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
-                <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+                <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-user-shield"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Likes</span>
-                    <span class="info-box-number">41,410</span>
+                    <span class="info-box-text">Tukang</span>
+                    <span class="info-box-number">4</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -37,11 +37,11 @@
 
         <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box mb-3">
-                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-user"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Sales</span>
-                    <span class="info-box-number">760</span>
+                    <span class="info-box-text">Client</span>
+                    <span class="info-box-number">20</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -70,7 +70,24 @@
         <div class="row">
             <div class="col col-md-8 border-dark">
                 <div class="card">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quod maxime porro nulla dolore ipsa ea, impedit consequatur molestias accusamus! Eveniet reprehenderit ducimus commodi praesentium reiciendis ex sunt quae ad.</p>
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-target="#carouselExampleIndicators" data-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-target="#carouselExampleIndicators" data-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-target="#carouselExampleIndicators" data-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{{ asset('img/alat.jpg') }}" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('img/batik-wayang.png') }}" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('img/laptop.jpg') }}" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col">

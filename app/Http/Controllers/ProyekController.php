@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DataProyek;
 use App\Models\Proyek;
+use App\Models\Tukang;
+use App\Models\DataProyek;
 use Illuminate\Http\Request;
 
 class ProyekController extends Controller
@@ -15,11 +16,13 @@ class ProyekController extends Controller
             'data' => Proyek::all()
         ]);
     }
-    public function show(DataProyek $dataproyek)
+    public function show(Proyek $proyek)
     {
         return view('admin.detailproyek', [
             'title' => 'Proyek',
-            'data' => $dataproyek
+            // 'nama' => $proyek->tukang->nama,
+            'data' =>  $proyek->dataproyek,
+            'tukang' => $proyek->tukang->nama
         ]);
     }
 }
