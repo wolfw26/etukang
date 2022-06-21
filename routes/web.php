@@ -40,14 +40,11 @@ Route::group(['prefix' => 'admin'], function () {
             'title' => 'HOME'
         ]);
     });
-    Route::get('/proyek', function () {
-        return view('admin.proyek', [
-            'title' => 'HOME'
-        ]);
-    });
+    Route::get('/tukang', [TukangController::class, 'index'])->name('tukang');
+    Route::get('/proyek', [ProyekController::class, 'index'])->name('proyek');
     Route::get('/proyek/{proyek}', [ProyekController::class, 'show']);
     Route::get('/pekerja', [PekerjaController::class, 'index']);
-    Route::get('/client', [ClientController::class, 'index']);
+    Route::get('/client', [ClientController::class, 'index'])->name('client');
     Route::get('/client/{client}', [ClientController::class, 'index']);
     Route::get('/biaya', function () {
         return view('admin.biaya', [

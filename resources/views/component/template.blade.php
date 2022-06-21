@@ -309,8 +309,16 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('admin/pekerja') }}" class="nav-link">
+                            <a href="{{ url('admin/tukang') }}" class="nav-link">
                                 <i class="nav-icon fas fa-user-shield"></i>
+                                <p>
+                                    Tukang
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('admin/pekerja') }}" class="nav-link">
+                                <i class="nav-icon fas fa-user-friends"></i>
                                 <p>
                                     Pekerja
                                 </p>
@@ -491,6 +499,14 @@
     <script src="{{ asset('dist/js/demo.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+    <script>
+        $(function() {
+            //Date picker
+            $('#reservationdate').datetimepicker({
+                format: 'L'
+            });
+        })
+    </script>
 </body>
 
 </html>

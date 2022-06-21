@@ -85,27 +85,64 @@
 <div class="modal fade" id="Tambah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header  bg-blue">
                 <h5 class="modal-title" id="exampleModalLabel">Input Data Proyek</h5>
             </div>
             <div class="modal-body">
-                <div class="form-floating mb-3 mt-3">
-                    <label for="nama">Nama Proyek</label>
-                    <input type="text" class="form-control" id="nama" placeholder="Nama Proyek" name="nama">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-3 mt-3">
+                            <label for="nama">1. Nama Proyek</label>
+                            <input type="text" class="form-control" id="nama" placeholder="Nama Proyek" name="nama">
+                        </div>
+                        <div class="form-floating mb-3 mt-3">
+                            <label for="alamat">2. Alamat Proyek</label>
+                            <input type="text" class="form-control" id="alamat" placeholder="alamat Proyek" name="alamat">
+                        </div>
+                        <div class="form-floating mb-3 mt-3">
+                            <label for="jenis_proyek">3. Jenis Proyek</label>
+                            <select class="form-select form-control" id="jenis_proyek" name="jenis_proyek">
+                                <option class=" active" disabled>Jenis-Proyek</option>
+                                <option value="pembangunan">Pembangunan</option>
+                                <option value="renovasi">Renovasi</option>
+                            </select>
+                        </div>
+                        <div class="form-floating mb-3 mt-3">
+                            <label for="luas_tanah">4. Luas Tanah</label>
+                            <input type="text" class="form-control" id="luas_tanah" placeholder="Luas Tanah Cth.24 (6 x 4) " name="luas_tanah">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-3 mt-3">
+                            <label for="panjang_tanah">5. Panjang Tanah</label>
+                            <input type="text" class="form-control" id="panjang_tanah" placeholder="Panjang dari Bangunan" name="panjang_tanah">
+                        </div>
+                        <div class="form-floating mb-3 mt-3">
+                            <label for="lebar_tanah">6. Lebar Tanah</label>
+                            <input type="text" class="form-control" id="lebar_tanah" placeholder="Lebar dari bangunan" name="lebar_tanah">
+                        </div>
+                        <div class="form-floating mb-3 mt-3">
+                            <label for="satuan">7. Satuan</label>
+                            <input type="text" class="form-control" id="satuan" placeholder="M / m2/ m3" name="satuan">
+                        </div>
+                        <div class="form-floating mb-3 mt-3">
+                            <label for="tukang">8. Tukang/ Kepala lapangan</label>
+                            <select class="form-select form-control" id="tukang" name="tukang">
+                                <option class=" active" disabled>Pilih Kepala Lapangan</option>
+                                <option value="pembangunan">Pak Iqbal</option>
+                                <option value="renovasi">Roni</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-floating mb-3 mt-3">
-                    <label for="alamat">Alamat Proyek</label>
-                    <input type="text" class="form-control" id="alamat" placeholder="alamat Proyek" name="alamat">
-                </div>
-                <div class="form-floating mb-3 mt-3">
-                    <label for="jenis_proyek">Jenis Proyek</label>
-                    <input type="text" class="form-control" id="jenis_proyek" placeholder="jenis_proyek" name="jenis_proyek">
-                </div>
+
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary">Tambah</button>
             </div>
+
         </div>
     </div>
 </div>
