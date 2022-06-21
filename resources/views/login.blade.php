@@ -23,10 +23,10 @@
     </style>
 </head>
 
-<body class="hold-transition login-page" style="background: url('/img/alat.jpg');background-size: cover; background-attachment: fixed; background-position: 0 -20rem;">
+<body class="hold-transition login-page">
     <div class="container-fluid" style="height: 100vh ;">
-        <div class="row">
-            <div class="col-8" style="margin-top:15vh ; padding:4px;">
+        <div class="row " style="background: url('/img/alat.jpg');background-size: cover; background-attachment: fixed; background-position: 0 -20rem;">
+            <div class="col-8" style="margin-top:25vh ; padding:4px;  ">
                 <div class="container-fluid ">
                     <div class="container p-3">
                         <div class="login-box mx-auto m-2 d-block bg-transparent">
@@ -60,33 +60,32 @@
                     </div>
                 </div>
             </div>
-            <div class="col p-2 bg-white m-0" style="height: 100vh ;">
+            <div class="col p-2 rounded-left-75" style="background: linear-gradient(to top, #ffffff 3%, #cc0000 98%); height: 100vh ;">
                 <div class="container-fluid">
                     <div class="container-fluid">
-                        <div class="card shadow-md">
+                        <div class="card shadow-md" style="margin-top:20vh; ">
                             <div class="card-header p-1">
-                                <div class="card-header rounded-top text-center p-3" style="background:gray;font-weight:900; height:100%; margin-bottom:2px">
-                                    <a href="{{ asset('assets/index2.html') }}" style="color:black;text-shadow: 3px 2px 4px gray ">Registrasi</a>
+                                <div class="card-header rounded-top text-center p-3" style="background:#cc0000;font-weight:900; height:100%; font-size:20px; margin-bottom:2px">
+                                    <a href="{{ asset('assets/index2.html') }}" style="color:white;text-shadow: 3px 2px 4px gray ">Registrasi</a>
                                 </div>
                             </div>
                             <div class="card-body">
                                 <div class="card-body login-card-body  rounded-bottom">
-                                    <form action="">
+                                    <form action="/register">
+                                        @csrf
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control" placeholder="Username" name="username" required autocomplete="off">
-                                            <div class="input-group-append">
-                                                <div class="input-group-text">
-                                                    <span class="fas fa-envelope"></span>
-                                                </div>
-                                            </div>
+                                        </div>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" placeholder="Email" name="username" required autocomplete="off">
                                         </div>
                                         <div class="input-group mb-3">
                                             <input type="password" class="form-control" placeholder="Password" name="password" required>
-                                            <div class="input-group-append">
+                                            <!-- <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="fas fa-lock"></span>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                         <div class="col-4"><button type="submit" class="btn btn-primary btn-block">Daftar</button></div>
                                     </form>
