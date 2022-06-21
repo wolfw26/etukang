@@ -6,8 +6,13 @@ use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
-    public function store()
+    public function store(Request $request)
     {
-        return request()->all();
+        $request->validate([
+            'username' => 'required|max:100',
+            'email' => 'required|email:dns|unique:users|max:100',
+            'password' => 'required|min:8'
+        ]);
+        dd("Berhasil");
     }
 }

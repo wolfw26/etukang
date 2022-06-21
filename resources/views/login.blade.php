@@ -75,13 +75,35 @@
                                         @csrf
 
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="username" name="username" required autocomplete="off">
+                                            <input type="text" class="form-control @error('username') is-invalid
+                                            @enderror " placeholder="username" name="username" required autocomplete="off" value="{{ old('username') }}">
+                                            @error('username')
+                                            <div class="invalid-feedback">
+                                                Username Salah
+                                            </div>
+                                            @enderror
+
                                         </div>
                                         <div class="input-group mb-3">
-                                            <input type="email" class="form-control" placeholder="Email" name="email" required autocomplete="off">
+                                            <input type="email" class="form-control @error('email')
+                                                is-invalid
+                                            @enderror" placeholder="Email" name="email" required autocomplete="off" value="{{ old('email') }}">
+                                            @error('email')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
+
                                         <div class="input-group mb-3">
-                                            <input type="password" class="form-control" placeholder="Password" name="password" required>
+                                            <input type="password" class="form-control @error('password')
+                                                is-invalid
+                                            @enderror" placeholder="Password" name="password" required>
+                                            @error('password')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                             <!-- <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="fas fa-lock"></span>

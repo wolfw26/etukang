@@ -80,4 +80,34 @@
     </div>
     <!-- /card-solid -->
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="Tambah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Input Data Proyek</h5>
+            </div>
+            <div class="modal-body">
+                <div class="form-floating mb-3 mt-3">
+                    <label for="nama">Nama Proyek</label>
+                    <input type="text" class="form-control" id="nama" placeholder="Nama Proyek" name="nama">
+                </div>
+                <div class="form-floating mb-3 mt-3">
+                    <label for="alamat">Alamat Proyek</label>
+                    <input type="text" class="form-control" id="alamat" placeholder="alamat Proyek" name="alamat">
+                </div>
+                <div class="form-floating mb-3 mt-3">
+                    <label for="jenis_proyek">Jenis Proyek</label>
+                    <input type="text" class="form-control" id="jenis_proyek" placeholder="jenis_proyek" name="jenis_proyek">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Tambah</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /modal -->
 @endsection
