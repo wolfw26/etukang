@@ -10,11 +10,10 @@ class PekerjaController extends Controller
 {
     public function index()
     {
-        $dt = Pekerja::with('tukang');
+        $dt = Pekerja::all();
         return view('admin.pekerja', [
             'title' => 'Pekerja',
-            'data' => $dt
-            // 'tukang' => Tukang::where('id', $pekerja->tukang_id),
+            'data' => $dt,
         ]);
     }
 }

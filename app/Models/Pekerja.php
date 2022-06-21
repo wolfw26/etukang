@@ -20,4 +20,8 @@ class Pekerja extends Model
     {
         return $this->hasMany(Penggajian::class);
     }
+    public function proyeks()
+    {
+        return $this->belongsToThrough(Penggajian::class);
+    }
 }

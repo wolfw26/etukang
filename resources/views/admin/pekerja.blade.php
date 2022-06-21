@@ -1,4 +1,4 @@
-@dd($data)
+{{-- @dd($data) --}}
 @extends('component.template')
 @section('konten')
 <h1>Halaman <strong style="color: brown;">Pekerja</strong></h1>
@@ -22,19 +22,23 @@
                     <th style="width: 1%">
                         #
                     </th>
-                    <th style="width: 20%">
+                    <th style="width: 15%">
                         Nama pekerja
                     </th>
-                    <th style="width: 30%">
+                    <th style="width: 20%">
                         Nama Tukang
                     </th>
-                    <th>
+                    <th style="width: 15%">
                         Alamat
                     </th>
-                    <th style="width: 8%" class="text-center">
+                    <th style="width: 3%" class="text-center">
                         KTP
                     </th>
                     <th style="width: 20%">
+                        Proyek
+                    </th>
+                    <th style="width: 20%">
+                        Aksi
                     </th>
                 </tr>
             </thead>
@@ -61,6 +65,14 @@
                     </td>
                     <td class="project-state">
                         <span class="badge badge-success">{{ $d->foto_ktp }}</span>
+                    </td>
+                    <td class="project-state">
+                        @foreach ($d->tukang->proyek as $p )
+                        <strong>
+                            {{ $p->nama_proyek }}
+                    </strong>
+                    <p>{{ $p->alamat }}</p>
+                    @endforeach
                     </td>
                     <td class="project-actions text-right">
                         <a class="btn btn-primary btn-sm" href="#">
