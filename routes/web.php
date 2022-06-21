@@ -3,6 +3,7 @@
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\ProyekController;
 use App\Http\Controllers\PekerjaController;
@@ -43,11 +44,7 @@ Route::group(['prefix' => 'admin'], function () {
     });
     Route::get('/proyek/{proyek}', [ProyekController::class, 'show']);
     Route::get('/pekerja', [PekerjaController::class, 'index']);
-    Route::get('/client', function () {
-        return view('admin.client', [
-            'title' => 'HOME'
-        ]);
-    });
+    Route::get('/client', [ClientController::class, 'index']);
     Route::get('/biaya', function () {
         return view('admin.biaya', [
             'title' => 'HOME'
