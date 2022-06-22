@@ -200,7 +200,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-light-dark elevation-4" style="background-image: url('img/batik-wayang.png');background-size:cover; ">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link" style="background-color: orange ;">
+            <a href="/admin" class="brand-link" style="background-color: orange ;">
                 <!-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
                 <h4 class="brand-text font-weight-light" style="text-shadow: 4px 1px 5px white ;"><strong class="text-danger" style="font-weight: 900; font-size:15px;opacity: .8">Pembangunan</strong> <br><span style="text-shadow: 2px 3px 8px grey; font-size:2rem">Dan Renovasi</span>
                 </h4>

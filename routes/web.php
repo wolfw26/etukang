@@ -3,9 +3,10 @@
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\ClientController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProyekController;
+use App\Http\Controllers\TukangController;
 use App\Http\Controllers\PekerjaController;
 use App\Http\Controllers\RegisterController;
 

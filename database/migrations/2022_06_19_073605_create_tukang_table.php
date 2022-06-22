@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('no_ktp');
             $table->string('foto_ktp');
             $table->string('jk');
+            $table->string('no_telp');
             $table->timestamps();
         });
     }

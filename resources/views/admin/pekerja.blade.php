@@ -2,18 +2,18 @@
 @extends('component.template')
 @section('konten')
 <h1>Halaman <strong style="color: brown;">Pekerja</strong></h1>
-<div class="card">
+<div class="card m-2">
     <div class="card-header">
         <h3 class="card-title">Projects</h3>
 
-        <div class="card-tools">
+        <!-- <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                 <i class="fas fa-minus"></i>
             </button>
             <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
                 <i class="fas fa-times"></i>
             </button>
-        </div>
+        </div> -->
     </div>
     <div class="card-body p-0">
         <table class="table table-striped projects">
@@ -70,22 +70,22 @@
                         @foreach ($d->tukang->proyek as $p )
                         <strong>
                             {{ $p->nama_proyek }}
-                    </strong>
-                    <p>{{ $p->alamat }}</p>
-                    @endforeach
+                        </strong>
+                        <p>{{ $p->alamat }}</p>
+                        @endforeach
                     </td>
                     <td class="project-actions text-right">
-                        <a class="btn btn-primary btn-sm" href="#">
+                        <a class="badge badge-primary btn-sm" href="#">
                             <i class="fas fa-folder">
                             </i>
                             View
                         </a>
-                        <a class="btn btn-info btn-sm" href="#" data-toggle="modal" data-target="#Tambah">
+                        <a class="badge badge-info btn-sm" href="#" data-toggle="modal" data-target="#Tambah">
                             <i class="fas fa-pencil-alt">
                             </i>
                             Edit
                         </a>
-                        <a class="btn btn-danger btn-sm" href="#">
+                        <a class="badge badge-danger btn-sm" href="#">
                             <i class="fas fa-trash">
                             </i>
                             Delete
