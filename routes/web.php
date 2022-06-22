@@ -8,6 +8,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProyekController;
 use App\Http\Controllers\TukangController;
 use App\Http\Controllers\PekerjaController;
+use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -46,6 +47,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/proyek/{proyek}', [ProyekController::class, 'show']);
     Route::get('/pekerja', [PekerjaController::class, 'index']);
     Route::get('/client', [ClientController::class, 'index'])->name('client');
+    Route::get('/material', [MaterialController::class, 'index'])->name('material');
     Route::get('/client/{client}', [ClientController::class, 'index']);
     Route::get('/biaya', function () {
         return view('admin.biaya', [

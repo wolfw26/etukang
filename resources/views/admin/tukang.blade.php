@@ -1,6 +1,6 @@
 @extends('component.template')
 @section('konten')
-<h1>Halaman <strong style="color: brown;">Pekerja</strong></h1>
+<h1>Halaman <strong style="color: brown;">Tukang</strong></h1>
 <div class="card m-2">
     <div class="card-header d-flex justify-content-between">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#TambahTukang">

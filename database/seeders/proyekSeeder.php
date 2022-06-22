@@ -23,7 +23,7 @@ class proyekSeeder extends Seeder
             'panjang_rumah' => '6',
             'lebar_rumah' => '6',
             'satuan' => 'M2',
-            'status' => 'Rencana',
+            'status' => 'perencanaan',
             'tukang_id' => '1',
             'client_id' => '1',
         ]);
