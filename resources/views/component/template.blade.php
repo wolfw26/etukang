@@ -503,7 +503,7 @@
         $(function() {
             //Date picker
             $('#reservationdate').datetimepicker({
-                format: 'L'
+                dateFormat: 'yy-mm-dd'
             });
         })
     </script>
