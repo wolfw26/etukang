@@ -107,7 +107,7 @@
                 <h5 class="modal-title" id="exampleModalLabel">Input Data Client</h5>
             </div>
             <div class="modal-body">
-                <form action="/admin/tukang" method="post">
+                <form action="/admin/tukang" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-floating mb-3 mt-3">
                         <label for="nama">1. Nama </label>
@@ -122,9 +122,8 @@
                         <input type="number" class="form-control" id="no_ktp" placeholder="No KTP ..." name="no_ktp">
                     </div>
                     <div class="custom-file">
-                        <label for="customFile">4. Foto KTP</label>
-                        <input type="file" class="custom-file-input" id="customFile" name="customFile">
-                        <label class="custom-file-label" for="customFile"> Foto KTP</label>
+                        <label for="image" class="form-label">4. Foto KTP</label><br>
+                        <input type="file" class="fornm-control" id="image" name="image">
                     </div>
                     <div class="form-floating mb-3 mt-3">
                         <label for="">6. Jenis Kelamin</label>

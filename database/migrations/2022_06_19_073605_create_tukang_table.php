@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->text('alamat');
             $table->string('no_ktp');
-            $table->string('foto_ktp');
+            $table->string('foto_ktp')->nullable();
             $table->string('jk');
             $table->string('no_telp');
             $table->timestamps();

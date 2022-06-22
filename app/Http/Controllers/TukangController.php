@@ -16,6 +16,16 @@ class TukangController extends Controller
     }
     public function store(Request $request)
     {
-        return $request;
+        $validateData = $request->validate([
+            'nama' => 'required|max:100',
+            'alamat' => 'required|string',
+            'no_ktp' => 'required|integer|min:8',
+            'foto_ktp' => 'string|image',
+            'jk' => 'required|string',
+            'no_telp' => 'required|integer'
+        ]);
+
+        Tukang::create($request->all());
+        return redirect()->route('tukang');
     }
 }
