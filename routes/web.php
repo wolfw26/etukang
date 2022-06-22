@@ -43,6 +43,7 @@ Route::group(['prefix' => 'admin'], function () {
         ]);
     });
     Route::get('/tukang', [TukangController::class, 'index'])->name('tukang');
+    Route::post('/tukang', [TukangController::class, 'store'])->name('tukang');
     Route::get('/proyek', [ProyekController::class, 'index'])->name('proyek');
     Route::get('/proyek/{proyek}', [ProyekController::class, 'show']);
     Route::get('/pekerja', [PekerjaController::class, 'index']);

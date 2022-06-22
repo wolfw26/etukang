@@ -14,4 +14,8 @@ class TukangController extends Controller
             'data' => Tukang::all()
         ]);
     }
+    public function store(Request $request)
+    {
+        return $request;
+    }
 }

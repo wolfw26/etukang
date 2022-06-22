@@ -4,8 +4,19 @@
 <h1>Halaman <strong style="color: brown;">Pekerja</strong></h1>
 <div class="card m-2">
     <div class="card-header">
-        <h3 class="card-title">Projects</h3>
-
+        <div class="row">
+            <div class="container-fluid p-0  d-flex justify-content-between">
+                <div class="col-7"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#TambahClient">
+                        Tambah
+                    </button> <br></div>
+                <div class="col-5">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-success" type="button" id="button-addon2">Button</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                 <i class="fas fa-minus"></i>

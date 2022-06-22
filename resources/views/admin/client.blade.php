@@ -7,9 +7,22 @@
         <div class="card card-solid">
             <div class="card-body pb-0">
                 <div class="card-header mb-3">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#TambahClient">
+                    <div class="row">
+                        <div class="container-fluid p-1  d-flex justify-content-between">
+                            <div class="col-7"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#TambahClient">
+                                    Tambah
+                                </button> <br></div>
+                            <div class="col-5">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                    <button class="btn btn-outline-success" type="button" id="button-addon2">Button</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#TambahClient">
                         Tambah
-                    </button>
+                    </button> -->
                 </div>
                 <div class="row g-0">
                     @foreach ( $data as $d )
