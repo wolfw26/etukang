@@ -16,7 +16,7 @@ class TukangController extends Controller
     }
     public function store(Request $request)
     {
-        $validateData = $request->validate([
+        $request->validate([
             'nama' => 'required|max:100',
             'alamat' => 'required|string',
             'no_ktp' => 'required|integer|min:8',
@@ -26,6 +26,6 @@ class TukangController extends Controller
         ]);
 
         Tukang::create($request->all());
-        return redirect()->route('tukang');
+        return redirect()->route('tukang')->with('sukses', 'Data Berhasil Ditambah');
     }
 }

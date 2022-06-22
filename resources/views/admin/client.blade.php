@@ -91,63 +91,74 @@
                 <h5 class="modal-title" id="exampleModalLabel">Input Data Client</h5>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col">
-                        <div class="form-floating mb-3 mt-3">
-                            <label for="nama">1. Nama </label>
-                            <input type="text" class="form-control" id="nama" placeholder="Nama Proyek" name="nama">
-                        </div>
-                        <div class="row">
-                            <div class="col-5">
-                                <!-- Date -->
-                                <div class="form-floating">
-                                    <label>2. Date:</label>
-                                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" />
-                                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                <form action="{{ url('admin/client') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="nama">1. Nama </label>
+                                <input type="text" class="form-control" id="nama" placeholder="Nama Proyek" name="nama">
+                            </div>
+                            <div class="row">
+                                <div class="col-5">
+                                    <!-- Date -->
+                                    <div class="form-floating">
+                                        <label>2. Date:</label>
+                                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" name="tgl_lahir" data-target="#reservationdate" />
+                                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-6 m-3">
-                                <div class="form-floating mb-3 mt-3">
-                                    <input type="text" class="form-control" id="nama" placeholder="Tempat Lahir" name="nama">
+                                <div class="col-6 m-3">
+                                    <div class="form-floating mb-3 mt-3">
+                                        <input type="text" class="form-control" id="tempat_lahir" placeholder="Tempat Lahir" name="tempat_lahir">
+                                    </div>
                                 </div>
                             </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="alamat">3. Alamat </label>
+                                <input type="text" class="form-control" id="alamat" placeholder="Alamat Lengkap" name="alamat">
+                            </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="jk">4. Jenis Kelamin</label>
+                                <select class="form-select form-control" id="jk" name="jk">
+                                    <option class=" active" disabled>Jenis Kelamin</option>
+                                    <option value="laki-laki">Laki-laki</option>
+                                    <option value="pembangunan">Perempuan</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-floating mb-3 mt-3">
-                            <label for="alamat">3. Alamat </label>
-                            <input type="text" class="form-control" id="alamat" placeholder="Alamat Lengkap" name="alamat">
-                        </div>
-                        <div class="form-floating mb-3 mt-3">
-                            <label for="">4. Jenis Kelamin</label>
-                            <select class="form-select form-control" id="" name="">
-                                <option class=" active" disabled>Jenis Kelamin</option>
-                                <option value="laki-laki">Laki-laki</option>
-                                <option value="pembangunan">Perempuan</option>
-                            </select>
+                        <div class="col">
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="no_ktp">5. No KTP </label>
+                                <input type="number" class="form-control" id="no_ktp" placeholder="No KTP ..." name="no_ktp">
+                            </div>
+                            <div class="custom-file">
+                                <label for="image" class="form-label">6. Foto KTP</label><br>
+                                <input type="file" class="fornm-floating" id="foto_ktp" name="foto_ktp">
+                            </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="no_telp">7. No Telp. </label>
+                                <input type="number" class="form-control" id="no_telp" placeholder="No Telpon aktif ..." name="no_telp">
+                            </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="username">8. Username </label>
+                                <input type="text" class="form-control" id="username" placeholder="Username ..." name="username">
+                            </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="no_telp">9. password </label>
+                                <input type="text" class="form-control" id="password" placeholder="Password akun" name="password">
+                            </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="form-floating mb-3 mt-3">
-                            <label for="no_ktp">5. No KTP </label>
-                            <input type="number" class="form-control" id="no_ktp" placeholder="No KTP ..." name="no_ktp">
-                        </div>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">6. Choose file</label>
-                        </div>
-                        <div class="form-floating mb-3 mt-3">
-                            <label for="no_telp">7. No Telp. </label>
-                            <input type="number" class="form-control" id="no_telp" placeholder="No Telpon aktif ..." name="no_telp">
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Tambah</button>
+                <button type="submit" class="btn btn-primary">Tambah</button>
+                </form>
             </div>
         </div>
     </div>

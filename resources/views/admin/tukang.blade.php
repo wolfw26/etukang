@@ -1,5 +1,16 @@
 @extends('component.template')
 @section('konten')
+<div class="row">
+    <div class="col-4">
+        @if (session('sukses'))
+        <div class="alert alert-success d-flex justify-content-between">
+            {{ session('sukses') }}
+            <button type="button" class="btn btn-secondary" data-dismiss="alert">x</button>
+        </div>
+    </div>
+    @endif
+</div>
+</div>
 <h1>Halaman <strong style="color: brown;">Tukang</strong></h1>
 <div class="card m-2">
     <div class="card-header">
@@ -111,19 +122,24 @@
                     @csrf
                     <div class="form-floating mb-3 mt-3">
                         <label for="nama">1. Nama </label>
-                        <input type="text" class="form-control" id="nama" placeholder="Nama Tukang" name="nama">
+                        <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama Tukang" name="nama" value=" {{ old('nama') }} ">
+                        @error('nama')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     <div class="form-floating mb-3 mt-3">
                         <label for="alamat">2. Alamat </label>
-                        <input type="text" class="form-control" id="alamat" placeholder="Alamat Lengkap" name="alamat">
+                        <input type="text" class="form-control" id="alamat" placeholder="Alamat Lengkap" name="alamat" value=" {{ old('alamat') }}">
                     </div>
                     <div class="form-floating mb-3 mt-3">
                         <label for="no_ktp">3. No KTP </label>
-                        <input type="number" class="form-control" id="no_ktp" placeholder="No KTP ..." name="no_ktp">
+                        <input type="number" class="form-control" id="no_ktp" placeholder="No KTP ..." name="no_ktp" value=" {{ old('no_ktp') }}">
                     </div>
                     <div class="custom-file">
                         <label for="image" class="form-label">4. Foto KTP</label><br>
-                        <input type="file" class="fornm-control" id="image" name="image">
+                        <input type="file" class="fornm-control" id="image" name="image" value=" {{ old('image') }}">
                     </div>
                     <div class="form-floating mb-3 mt-3">
                         <label for="">6. Jenis Kelamin</label>
@@ -135,7 +151,7 @@
                     </div>
                     <div class="form-floating mb-3 mt-3">
                         <label for="no_telp">7. No Telp. </label>
-                        <input type="number" class="form-control" id="no_telp" placeholder="No Telpon aktif ..." name="no_telp">
+                        <input type="number" class="form-control" id="no_telp" placeholder="No Telpon aktif ..." name="no_telp" value=" {{ old('no_telp') }}">
                     </div>
             </div>
             <div class="modal-footer">

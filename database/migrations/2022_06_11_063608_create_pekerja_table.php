@@ -18,7 +18,10 @@ return new class extends Migration
             $table->string('nama_pekerja');
             $table->foreignId('tukang_id');
             $table->text('alamat');
+            $table->text('jenis_kelamin');
             $table->string('foto_ktp');
+            $table->string('no_telp');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

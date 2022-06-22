@@ -118,7 +118,7 @@
                 <h5 class="modal-title" id="exampleModalLabel">Input Data Pekerja</h5>
             </div>
             <div class="modal-body">
-                <form action="/admin/tukang" method="post">
+                <form action="/admin/pekerja" method="post">
                     @csrf
                     <div class="form-floating mb-3 mt-3">
                         <label for="nama">1. Nama </label>
@@ -127,10 +127,6 @@
                     <div class="form-floating mb-3 mt-3">
                         <label for="alamat">2. Alamat </label>
                         <input type="text" class="form-control" id="alamat" placeholder="Alamat Lengkap" name="alamat">
-                    </div>
-                    <div class="form-floating mb-3 mt-3">
-                        <label for="no_ktp">3. No KTP </label>
-                        <input type="number" class="form-control" id="no_ktp" placeholder="No KTP ..." name="no_ktp">
                     </div>
                     <div class="custom-file">
                         <label for="customFile">4. Foto KTP</label>
