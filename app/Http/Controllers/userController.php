@@ -3,15 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 
-class userController extends Controller
+class UserController extends Controller
 {
-    public function index()
+    public function store(Request $request)
     {
-        return view('user.home', [
-            'title' => 'USER',
-
-        ]);
+        $data = $request::all();
     }
 }

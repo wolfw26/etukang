@@ -22,7 +22,7 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::post('/register', [RegisterController::class, 'store']);
+Route::post('/register', [RegisterController::class, 'store'])->name('register');
 
 Route::get('/card', function () {
     return view('component.card.contact', [
@@ -33,7 +33,7 @@ Route::get('/', function () {
     return view('login', [
         'title' => 'Login'
     ]);
-});
+})->name('login');
 
 
 Route::group(['prefix' => 'admin'], function () {

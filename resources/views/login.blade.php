@@ -80,8 +80,14 @@
                                 </div>
                             </div>
                             <div class="card-body">
+                                @if (session('status'))
+                                <div class="alert alert-success d-flex justify-content-between">
+                                    {{ session('status') }}
+                                    <button type="button" class="btn btn-secondary" data-dismiss="alert">x</button>
+                                </div>
+                                @endif
                                 <div class="card-body login-card-body  rounded-bottom">
-                                    <form action="/register" method="POST">
+                                    <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control @error('nama') is-invalid
@@ -148,7 +154,12 @@
 
 
 
-
+                                        <!-- <div class="form-floating mb-3 mt-3">
+                                            <select class="form-select form-control" id="rule" name="rule">
+                                                <option value="client">Client</option>
+                                            </select>
+                                        </div> -->
+                                        <input type="hidden" name="rule" id="rule" value="client">
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control @error('username') is-invalid
                                             @enderror " placeholder="username" name="username" required autocomplete="off" value="{{ old('username') }}">
@@ -184,6 +195,7 @@
                                                 </div>
                                             </div> -->
                                         </div>
+
                                         <div class="col-4"><button type="submit" class="btn btn-primary btn-block">Daftar</button></div>
                                     </form>
                                 </div>
