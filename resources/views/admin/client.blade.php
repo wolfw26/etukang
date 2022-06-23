@@ -1,7 +1,19 @@
 {{-- @dd($data) --}}
 @extends('component.template')
 @section('konten')
-<h1>Halaman <strong style="color: brown;">Client</strong></h1>
+<div class="row">
+    <div class="col-7">
+        <h1>Halaman <strong style="color: brown;">Client</strong></h1>
+    </div>
+    <div class="col-4">
+        @if (session('ditambah'))
+        <div class="alert alert-success d-flex justify-content-between">
+            {{ session('ditambah') }}
+            <button type="button" class="btn btn-secondary" data-dismiss="alert">x</button>
+        </div>
+        @endif
+    </div>
+</div>
 <div class="row">
     <div class="container-fluid">
         <div class="card card-solid">
@@ -47,6 +59,9 @@
                             </div>
                             <div class="card-footer">
                                 <div class="text-right">
+                                    <a href=" {{ route('client') }}/del/{{ $d->id }} " class="btn btn-sm bg-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
                                     <a href="#" class="btn btn-sm bg-teal">
                                         <i class="fas fa-comments"></i>
                                     </a>
@@ -97,13 +112,11 @@
                         <div class="col">
                             <div class="form-floating mb-3 mt-3">
                                 <label for="nama">1. Nama </label>
-                                <input type="text" class="form-control" id="nama" placeholder="Nama Proyek" name="nama">
+                                <input type="text" class="form-control" id="nama" placeholder="Nama Proyek" name="nama" required>
                             </div>
                             <div class="row">
                                 <div class="col-6">
-                                    <input type="date" class="form-control mb-2" id="tanggal" name="tanggal" required data-toggle="datetimepicker">
-                                    <!-- \d{4}-\d{2}-\d{2} -->
-                                    <!-- <span class="validity"></span> -->
+                                    <input type="date" class="form-control mb-2" id="kalender" name="kalender" required data-toggle="datetimepicker">
                                 </div>
                                 <div class="col-6">
                                     <div class="input-group mb-3">
@@ -115,7 +128,7 @@
                             </div>
                             <div class="form-floating mb-3 mt-3">
                                 <label for="alamat">3. Alamat </label>
-                                <input type="text" class="form-control" id="alamat" placeholder="Alamat Lengkap" name="alamat">
+                                <input type="text" class="form-control" id="alamat" placeholder="Alamat Lengkap" name="alamat" required>
                             </div>
                             <div class="form-floating mb-3 mt-3">
                                 <label for="jk">4. Jenis Kelamin</label>
@@ -127,13 +140,13 @@
                             </div>
                             <div class="form-floating mb-3 mt-3">
                                 <label for="no_telp">5. No Telp. </label>
-                                <input type="number" class="form-control" id="no_telp" placeholder="No Telpon aktif ..." name="no_telp">
+                                <input type="number" class="form-control" id="no_telp" placeholder="No Telpon aktif ..." name="no_telp" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-floating mb-3 mt-3">
                                 <label for="no_ktp">6. No KTP </label>
-                                <input type="number" class="form-control" id="no_ktp" placeholder="No KTP ..." name="no_ktp">
+                                <input type="number" class="form-control" id="no_ktp" placeholder="No KTP ..." name="no_ktp" required>
                             </div>
                             <div class="custom-file">
                                 <label for="image" class="form-label">7. Foto KTP</label><br>
@@ -142,15 +155,22 @@
 
                             <div class="form-floating mb-3 mt-3">
                                 <label for="name">8. username </label>
-                                <input type="text" class="form-control" id="name" placeholder="username ..." name="name">
+                                <input type="text" class="form-control" id="name" placeholder="username ..." name="name" required>
                             </div>
                             <div class="form-floating mb-3 mt-3">
                                 <label for="email">9. Email </label>
-                                <input type="text" class="form-control" id="email" placeholder="Email@mail.com ..." name="email">
+                                <input type="text" class="form-control @error('email')
+                                    is-invalid
+                                @enderror " id="email" placeholder="Email@mail.com ..." name="email" value=" {{ old('email') }}" required>
+                                @error('email')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3 mt-3">
                                 <label for="no_telp">10. password </label>
-                                <input type="text" class="form-control" id="password" placeholder="Password akun" name="password">
+                                <input type="text" class="form-control" id="password" placeholder="Password akun" name="password" required>
                             </div>
                         </div>
                     </div>

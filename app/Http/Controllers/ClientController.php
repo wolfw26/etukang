@@ -19,7 +19,6 @@ class ClientController extends Controller
     }
     public function store(Request $request)
     {
-        $data = $request->all();
 
         $data = $request->all();
 
@@ -32,7 +31,7 @@ class ClientController extends Controller
 
         $client = new Client;
         $client->nama = $data['nama'];
-        $client->tgl_lahir = $data['tanggal'];
+        $client->tgl_lahir = $data['kalender'];
         $client->tempat_lahir = $data['tempat_lahir'];
         $client->alamat = $data['alamat'];
         $client->jk = $data['jk'];
@@ -42,6 +41,13 @@ class ClientController extends Controller
         $client->users_id = $user->id;
         $client->save();
 
-        return redirect()->back()->with('status', 'Ditambahkan');
+        return redirect()->back()->with('ditambah', 'Ditambahkan');
+    }
+    public function trash($id)
+    {
+        $data = Client::find($id);
+
+        $data->delete();
+        return redirect()->back()->with('ditambah', 'Dihapus');
     }
 }

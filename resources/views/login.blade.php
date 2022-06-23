@@ -34,17 +34,18 @@
 </head>
 
 <body class="hold-transition login-page">
-    <div class="container-fluid" style="height: 100vh ;">
-        <div class="row" style="background: url('/img/alat.jpg');background-size: cover; background-attachment: fixed; background-position: 0 -20rem;">
+    <div class="container-fluid" style="height: 100% ;">
+        <div class="row" style="height: 100% ; background: url('/img/alat.jpg');background-size: cover; background-attachment: fixed; background-position: -30vh -15rem;">
+
             <div class="col-8" style="margin-top:25vh ; padding:4px;  ">
                 <div class="container-fluid ">
                     <div class="container p-3">
                         <div class="login-box mx-auto m-2 d-block bg-transparent">
-                            <div class="card bg-transparent">
-                                <div class="card-header rounded-top" style="background-color: rgba(172, 66, 66, 0.988); font-weight:900; height:100%; margin-bottom:2px">
+                            <div class="card bg-transparent shadow-md">
+                                <div class="card-header rounded-top" style="background-color: lime; font-weight:900; height:100%; margin-bottom:2px">
                                     <a href="{{ asset('assets/index2.html') }}" style="color: white; text-shadow: 3px 2px 4px gray ">LOGIN</a>
                                 </div>
-                                <div class="card-body login-card-body  rounded-bottom">
+                                <div class="card-body login-card-body  rounded-bottom p-5" style="height: 40vh ;">
                                     <form action="">
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control" placeholder="Username" name="username" required autocomplete="off">
@@ -62,146 +63,143 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-4"><button type="submit" class="btn btn-primary btn-block">Masuk</button></div>
+                                        <div class="col-4"><button type="submit" class="btn   btn-block" style="background-color: lime;">Masuk</button></div>
                                     </form>
+                                </div>
+                                <div class="card-footer rounded-bottom" style="background-color: lime;">
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col p-0 shadow-lg" id="right" style="background: white; background-size: cover; ">
-                <div class="container-fluid">
-                    <div class="container-fluid">
-                        <div class="card shadow-lg mt-2">
-                            <div class="card-header p-1">
-                                <div class="card-header rounded-top text-center p-3 bg-info" style="font-weight:900; height:100%; font-size:20px; margin-bottom:2px">
-                                    <a href="{{ asset('assets/index2.html') }}" style="color:white;text-shadow: 3px 2px 4px gray ">Registrasi</a>
-                                </div>
+            <div class="col p-0" id="right">
+                <div class="container-fluid border-left border-10" style="width: 50vh ; margin-right:0">
+                    <div class="card shadow-lg mt-2">
+                        <div class="card-header p-1">
+                            <div class="card-header rounded-top text-center p-3 bg-primary" style="font-weight:900; height:100%; font-size:20px; margin-bottom:2px">
+                                <a href="{{ asset('assets/index2.html') }}" style="color:white;text-shadow: 3px 2px 4px gray ">Registrasi</a>
                             </div>
-                            <div class="card-body">
-                                @if (session('status'))
-                                <div class="alert alert-success d-flex justify-content-between">
-                                    {{ session('status') }}
-                                    <button type="button" class="btn btn-secondary" data-dismiss="alert">x</button>
-                                </div>
-                                @endif
-                                <div class="card-body login-card-body  rounded-bottom">
-                                    <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control @error('nama') is-invalid
+                        </div>
+                        <div class="card-body">
+                            @if (session('status'))
+                            <div class="alert alert-success d-flex justify-content-between">
+                                {{ session('status') }}
+                                <button type="button" class="btn btn-secondary" data-dismiss="alert">x</button>
+                            </div>
+                            @endif
+                            <div class="card-body login-card-body  rounded-bottom">
+                                <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control @error('nama') is-invalid
                                             @enderror " placeholder="Nama Lengkap" name="nama" required autocomplete="off" value="{{ old('nama') }}">
-                                            @error('nama')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                            @enderror
+                                        @error('nama')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
                                         </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <input type="date" class="form-control mb-2" id="tanggal" name="tanggal" required data-toggle="datetimepicker">
-                                                <!-- \d{4}-\d{2}-\d{2} -->
-                                                <!-- <span class="validity"></span> -->
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="input-group mb-3">
-                                                    <input type="text" name="tempat_lahir" id="tempat_lahir" placeholder="Tempat Lahir" required class="form-control border-right @error('tempat_lahir')
+                                        @enderror
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <input type="date" class="form-control mb-2" id="tanggal" name="tanggal" required data-toggle="datetimepicker">
+
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="input-group mb-3">
+                                                <input type="text" name="tempat_lahir" id="tempat_lahir" placeholder="Tempat Lahir" required class="form-control border-right @error('tempat_lahir')
                                                     is-invalid
                                                     @enderror">
-                                                </div>
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control @error('alamat') is-invalid
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control @error('alamat') is-invalid
                                             @enderror " placeholder="Alamat Lengkap" name="alamat" required value="{{ old('alamat') }}" autocomplete="off">
-                                            @error('alamat')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                            @enderror
+                                        @error('alamat')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
                                         </div>
-                                        <div class="form-floating mb-3 mt-3">
-                                            <select class="form-select form-control" id="jk" name="jk">
-                                                <option class="active" disabled>Jenis Kelamin</option>
-                                                <option value="laki-laki">Laki-laki</option>
-                                                <option value="pembangunan">Perempuan</option>
-                                            </select>
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control @error('no_ktp') is-invalid
+                                        @enderror
+                                    </div>
+                                    <div class="form-floating mb-3 mt-3">
+                                        <select class="form-select form-control" id="jk" name="jk">
+                                            <option class="active" disabled>Jenis Kelamin</option>
+                                            <option value="laki-laki">Laki-laki</option>
+                                            <option value="pembangunan">Perempuan</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control @error('no_ktp') is-invalid
                                             @enderror " placeholder="No KTP" name="no_ktp" required autocomplete="off" value="{{ old('no_ktp') }}">
-                                            @error('no_ktp')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                            @enderror
+                                        @error('no_ktp')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
                                         </div>
-                                        <label for="foto_ktp">Foto KTP</label>
-                                        <div class="custom-file">
-                                            <input type="file" class="fornm-control" id="foto_ktp" name="foto_ktp" value=" {{ old('foto_ktp') }}">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <input type="number" class="form-control @error('no_telp') is-invalid
+                                        @enderror
+                                    </div>
+                                    <label for="foto_ktp">Foto KTP</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="fornm-control" id="foto_ktp" name="foto_ktp" value=" {{ old('foto_ktp') }}">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="number" class="form-control @error('no_telp') is-invalid
                                             @enderror " placeholder="No telp" name="no_telp" required autocomplete="off" value="{{ old('no_telp') }}">
-                                            @error('no_telp')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                            @enderror
+                                        @error('no_telp')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
                                         </div>
+                                        @enderror
+                                    </div>
 
 
 
-                                        <!-- <div class="form-floating mb-3 mt-3">
+                                    <!-- <div class="form-floating mb-3 mt-3">
                                             <select class="form-select form-control" id="rule" name="rule">
                                                 <option value="client">Client</option>
                                             </select>
                                         </div> -->
-                                        <input type="hidden" name="rule" id="rule" value="client">
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control @error('username') is-invalid
+                                    <input type="hidden" name="rule" id="rule" value="client">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control @error('username') is-invalid
                                             @enderror " placeholder="username" name="username" required autocomplete="off" value="{{ old('username') }}">
-                                            @error('username')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                            @enderror
+                                        @error('username')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
                                         </div>
-                                        <div class="input-group mb-3">
-                                            <input type="email" class="form-control @error('email')
+                                        @enderror
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="email" class="form-control @error('email')
                                                 is-invalid
                                             @enderror " placeholder="Email" name="email" required autocomplete="off" value=" {{ old('email') }}">
-                                            @error('email')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                            @enderror
+                                        @error('email')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
                                         </div>
+                                        @enderror
+                                    </div>
 
-                                        <div class="input-group mb-3">
-                                            <input type="password" class="form-control @error('password')
+                                    <div class="input-group mb-3">
+                                        <input type="password" class="form-control @error('password')
                                                 is-invalid
                                             @enderror" placeholder="Password" name="password" required>
-                                            @error('password')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                            @enderror
-                                            <!-- <div class="input-group-append">
-                                                <div class="input-group-text">
-                                                    <span class="fas fa-lock"></span>
-                                                </div>
-                                            </div> -->
+                                        @error('password')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
                                         </div>
+                                        @enderror
 
-                                        <div class="col-4"><button type="submit" class="btn btn-primary btn-block">Daftar</button></div>
-                                    </form>
-                                </div>
+                                    </div>
+
+                                    <div class="col-4"><button type="submit" class="btn btn-primary btn-block">Daftar</button></div>
+                                </form>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

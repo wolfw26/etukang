@@ -500,12 +500,12 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
     <script>
-        $(function() {
-            //Date picker
-            $('#tanggal').datetimepicker({
-                dateFormat: 'yy-mm-dd'
-            });
-        })
+        // $(function() {
+        //     //Date picker
+        //     $('#kalender').datetimepicker({
+        //         dateFormat: 'yy-mm-dd'
+        //     });
+        // })
     </script>
 </body>
 

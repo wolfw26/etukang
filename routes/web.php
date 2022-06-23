@@ -43,13 +43,18 @@ Route::group(['prefix' => 'admin'], function () {
         ]);
     });
     Route::get('/tukang', [TukangController::class, 'index'])->name('tukang');
+    Route::get('/tukang/del/{id}', [TukangController::class, 'trash']);
     Route::post('/tukang', [TukangController::class, 'store'])->name('store.tukang');
+
     Route::get('/proyek', [ProyekController::class, 'index'])->name('proyek');
     Route::get('/proyek/{proyek}', [ProyekController::class, 'show']);
+
     Route::get('/pekerja', [PekerjaController::class, 'index']);
+
     Route::get('/client', [ClientController::class, 'index'])->name('client');
     Route::post('/client', [ClientController::class, 'store'])->name('store.client');
-    Route::get('/client/{client}', [ClientController::class, 'detail']);
+
+    Route::get('/client/del/{client}', [ClientController::class, 'trash']);
     Route::get('/material', [MaterialController::class, 'index'])->name('material');
     Route::get('/biaya', function () {
         return view('admin.biaya', [

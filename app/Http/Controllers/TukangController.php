@@ -28,4 +28,12 @@ class TukangController extends Controller
         Tukang::create($request->all());
         return redirect()->route('tukang')->with('sukses', 'Data Berhasil Ditambah');
     }
+
+    public function trash($id)
+    {
+
+        $data = Tukang::find($id);
+        $data->delete();
+        return redirect()->back()->with('sukses', 'Data Berhasil Terhapus');
+    }
 }

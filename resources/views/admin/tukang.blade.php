@@ -97,7 +97,7 @@
                             </i>
                             Edit
                         </a>
-                        <a class="badge badge-danger btn-sm" href="#">
+                        <a class="badge badge-danger btn-md" href=" {{ route('tukang') }}/del/{{$d->id}}">
                             <i class="fas fa-trash">
                             </i>
                             Delete
