@@ -36,32 +36,33 @@ Route::get('/', function () {
 })->name('login');
 
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'adm'], function () {
     Route::get('/', function () {
-        return view('home', [
+        return view('admin.home', [
             'title' => 'HOME'
         ]);
-    });
-    Route::get('/tukang', [TukangController::class, 'index'])->name('tukang');
-    Route::get('/tukang/del/{id}', [TukangController::class, 'trash']);
-    Route::post('/tukang', [TukangController::class, 'store'])->name('store.tukang');
+    })->name('admin.home');
+    Route::get('/tukang/', [TukangController::class, 'index'])->name('tukang');
+    Route::get('/tukang/del/{id}', [TukangController::class, 'trash'])->name('tukang.delete');
+    Route::post('/tukang/', [TukangController::class, 'store'])->name('tukang.add');
 
-    Route::get('/proyek', [ProyekController::class, 'index'])->name('proyek');
-    Route::get('/proyek/{proyek}', [ProyekController::class, 'show']);
+    Route::get('/proyek/', [ProyekController::class, 'index'])->name('proyek');
+    Route::get('/proyek/{proyek}', [ProyekController::class, 'show'])->name('proyek.show');
 
-    Route::get('/pekerja', [PekerjaController::class, 'index']);
+    Route::get('/pekerja/', [PekerjaController::class, 'index']);
 
-    Route::get('/client', [ClientController::class, 'index'])->name('client');
-    Route::post('/client', [ClientController::class, 'store'])->name('store.client');
+    Route::get('/client/', [ClientController::class, 'index'])->name('client');
+    Route::post('/client/', [ClientController::class, 'store'])->name('client.add');
+    Route::post('/client/d/{id}', [ClientController::class, 'trash'])->name('client.delete');
 
     Route::get('/client/del/{client}', [ClientController::class, 'trash']);
-    Route::get('/material', [MaterialController::class, 'index'])->name('material');
-    Route::get('/biaya', function () {
+    Route::get('/material/', [MaterialController::class, 'index'])->name('material');
+    Route::get('/biaya/', function () {
         return view('admin.biaya', [
             'title' => 'HOME'
         ]);
     });
-    Route::get('/pembayaran', function () {
+    Route::get('/pembayaran/', function () {
         return view('admin.pembayaran', [
             'title' => 'HOME'
         ]);

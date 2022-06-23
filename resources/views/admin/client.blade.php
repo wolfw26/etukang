@@ -5,9 +5,9 @@
     <div class="col-7">
         <h1>Halaman <strong style="color: brown;">Client</strong></h1>
     </div>
-    <div class="col-4">
+    <div class="col-2">
         @if (session('ditambah'))
-        <div class="alert alert-success d-flex justify-content-between">
+        <div class="alert alert-sm alert-success d-flex justify-content-between">
             {{ session('ditambah') }}
             <button type="button" class="btn btn-secondary" data-dismiss="alert">x</button>
         </div>
@@ -40,7 +40,7 @@
                     @foreach ( $data as $d )
                     <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch flex-column">
                         <div class="card bg-light d-flex flex-fill" style="width: 30vh">
-                            <div class="card-header border-bottom text-center" style="color: #cc3300; font-weight:700">
+                            <div class="card-header border-bottom text-center" style="color: navy; font-weight:700">
                                 {{ $d->nama }}
                             </div>
                             <div class="card-body pt-0">
@@ -59,7 +59,7 @@
                             </div>
                             <div class="card-footer">
                                 <div class="text-right">
-                                    <a href=" {{ route('client') }}/del/{{ $d->id }} " class="btn btn-sm bg-danger">
+                                    <a href=" {{ route('client') }}/del/{{ $d->id }} " onclick="return confirm('Hapus Data   {{ $d->nama }} ');" class="btn btn-sm bg-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                     <a href="#" class="btn btn-sm bg-teal">
@@ -81,7 +81,7 @@
             <div class="card-footer">
                 <nav aria-label="Contacts Page Navigation">
                     <ul class="pagination justify-content-center m-0">
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active"><a class="page-link bg-navy" href="#">1</a></li>
                         <li class="page-item"><a class="page-link" href="#">2</a></li>
                         <li class="page-item"><a class="page-link" href="#">3</a></li>
                         <li class="page-item"><a class="page-link" href="#">4</a></li>

@@ -52,7 +52,7 @@
                         Alamat
                     </th>
                     <th style="width: 15%">
-                        KTP
+                        No. Telp
                     </th>
                     <th style="width: 3%" class="text-center">
                         Foto KTP
@@ -67,7 +67,7 @@
             </thead>
             <tbody>
                 @foreach ( $data as $d )
-                <tr>
+                <tr class="text-center">
                     <td>
                         #
                     </td>
@@ -78,7 +78,7 @@
                         <p>{{ $d->alamat }}</p>
                     </td>
                     <td class="project-state">
-                        <span>{{ $d->no_ktp }} </span>
+                        <span>{{ $d->no_telp }} </span>
                     </td>
                     <td class="project-state">
                         <span>{{ $d->foto_ktp }} </span>
@@ -97,7 +97,7 @@
                             </i>
                             Edit
                         </a>
-                        <a class="badge badge-danger btn-md" href=" {{ route('tukang') }}/del/{{$d->id}}">
+                        <a class="badge badge-danger btn-md" onclick="return confirm('Hapus Data Tukang  {{ $d->nama }} ');" href=" {{ route('tukang') }}/del/{{$d->id}}">
                             <i class="fas fa-trash">
                             </i>
                             Delete

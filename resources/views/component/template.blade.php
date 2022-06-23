@@ -27,7 +27,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
     <!-- Style -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href=" {{ asset('style.css') }}">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -49,7 +49,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ url('admin/') }}" class="nav-link">Home</a>
+                    <a href="{{ url('/adm/') }}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -196,13 +196,13 @@
             </ul>
         </nav>
         <!-- /.navbar -->
-
+        <!-- style="background-image: url('img/batik-wayang.png');background-size:cover; -->
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-light-dark elevation-4" style="background-image: url('img/batik-wayang.png');background-size:cover; ">
+        <aside class="main-sidebar sidebar-dark-light elevation-4 bg-navy" style=" color:white; font-weight:700">
             <!-- Brand Logo -->
-            <a href="/admin" class="brand-link" style="background-color: orange ;">
+            <a href=" {{ route('admin.home')}}" class="brand-link">
                 <!-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
-                <h4 class="brand-text font-weight-light" style="text-shadow: 4px 1px 5px white ;"><strong class="text-danger" style="font-weight: 900; font-size:15px;opacity: .8">Pembangunan</strong> <br><span style="text-shadow: 2px 3px 8px grey; font-size:2rem">Dan Renovasi</span>
+                <h4 class="brand-text font-weight-light  text-center" style="text-shadow: 4px 1px 5px rgb(0, 0, 0) ;"><strong class="text-light" style="font-weight: 900; font-size:2rem;opacity: .8"> <strong>SI -</strong>  jasa</strong> <br><span style="text-shadow: 2px 3px 8px rgba(110, 52, 216, 0.553); font-size:20px">Pembangunan Dan Renovasi</span>
                 </h4>
             </a>
 
@@ -231,7 +231,7 @@
                 </div>
 
                 <!-- Sidebar Menu -->
-                <nav class="mt-2 " id="nav">
+                <nav class="mt-2" id="nav">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
@@ -246,7 +246,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ url('admin/proyek') }}" class="nav-link">
+                                    <a href="{{ url('adm/proyek') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Semua Data</p>
                                     </a>
@@ -301,7 +301,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('admin/client') }}" class="nav-link">
+                            <a href="{{ url('adm/client') }}" class="nav-link">
                                 <i class="nav-icon far fa-user"></i>
                                 <p>
                                     Data Client
@@ -309,7 +309,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('admin/tukang') }}" class="nav-link">
+                            <a href="{{ url('adm/tukang') }}" class="nav-link">
                                 <i class="nav-icon fas fa-user-shield"></i>
                                 <p>
                                     Tukang
@@ -317,7 +317,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('admin/pekerja') }}" class="nav-link">
+                            <a href="{{ url('adm/pekerja') }}" class="nav-link">
                                 <i class="nav-icon fas fa-user-friends"></i>
                                 <p>
                                     Pekerja
@@ -325,7 +325,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('admin/biaya') }}" class="nav-link">
+                            <a href="{{ url('adm/biaya') }}" class="nav-link">
                                 <i class="nav-icon fas fa-book-open"></i>
                                 <p>
                                     Data Biaya
@@ -333,7 +333,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('admin/pembayaran') }}" class="nav-link">
+                            <a href="{{ url('adm/pembayaran') }}" class="nav-link">
                                 <i class="nav-icon fas fa-book-reader"></i>
                                 <p>
                                     Data Pembayaran
@@ -341,7 +341,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('admin/material') }}" class="nav-link">
+                            <a href="{{ url('adm/material') }}" class="nav-link">
                                 <i class="nav-icon fas fa-arrow-circle-right"></i>
                                 <p>
                                     Data Material
@@ -349,7 +349,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('admin/material') }}" class="nav-link">
+                            <a href="{{ url('adm/material') }}" class="nav-link">
                                 <i class="fas fa-hammer nav-icon"></i>
                                 <p>
                                     Data Alat
