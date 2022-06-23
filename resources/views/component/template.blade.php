@@ -502,7 +502,7 @@
     <script>
         $(function() {
             //Date picker
-            $('#reservationdate').datetimepicker({
+            $('#tanggal').datetimepicker({
                 dateFormat: 'yy-mm-dd'
             });
         })

@@ -100,21 +100,16 @@
                                 <input type="text" class="form-control" id="nama" placeholder="Nama Proyek" name="nama">
                             </div>
                             <div class="row">
-                                <div class="col-5">
-                                    <!-- Date -->
-                                    <div class="form-floating">
-                                        <label>2. Date:</label>
-                                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                            <input type="text" class="form-control datetimepicker-input" name="tgl_lahir" data-target="#reservationdate" />
-                                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-6">
+                                    <input type="date" class="form-control mb-2" id="tanggal" name="tanggal" required data-toggle="datetimepicker">
+                                    <!-- \d{4}-\d{2}-\d{2} -->
+                                    <!-- <span class="validity"></span> -->
                                 </div>
-                                <div class="col-6 m-3">
-                                    <div class="form-floating mb-3 mt-3">
-                                        <input type="text" class="form-control" id="tempat_lahir" placeholder="Tempat Lahir" name="tempat_lahir">
+                                <div class="col-6">
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="tempat_lahir" id="tempat_lahir" placeholder="Tempat Lahir" required class="form-control border-right @error('tempat_lahir')
+                                                    is-invalid
+                                                    @enderror">
                                     </div>
                                 </div>
                             </div>
@@ -130,26 +125,31 @@
                                     <option value="pembangunan">Perempuan</option>
                                 </select>
                             </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="no_telp">5. No Telp. </label>
+                                <input type="number" class="form-control" id="no_telp" placeholder="No Telpon aktif ..." name="no_telp">
+                            </div>
                         </div>
                         <div class="col">
                             <div class="form-floating mb-3 mt-3">
-                                <label for="no_ktp">5. No KTP </label>
+                                <label for="no_ktp">6. No KTP </label>
                                 <input type="number" class="form-control" id="no_ktp" placeholder="No KTP ..." name="no_ktp">
                             </div>
                             <div class="custom-file">
-                                <label for="image" class="form-label">6. Foto KTP</label><br>
+                                <label for="image" class="form-label">7. Foto KTP</label><br>
                                 <input type="file" class="fornm-floating" id="foto_ktp" name="foto_ktp">
                             </div>
+
                             <div class="form-floating mb-3 mt-3">
-                                <label for="no_telp">7. No Telp. </label>
-                                <input type="number" class="form-control" id="no_telp" placeholder="No Telpon aktif ..." name="no_telp">
+                                <label for="name">8. username </label>
+                                <input type="text" class="form-control" id="name" placeholder="username ..." name="name">
                             </div>
                             <div class="form-floating mb-3 mt-3">
-                                <label for="username">8. Username </label>
-                                <input type="text" class="form-control" id="username" placeholder="Username ..." name="username">
+                                <label for="email">9. Email </label>
+                                <input type="text" class="form-control" id="email" placeholder="Email@mail.com ..." name="email">
                             </div>
                             <div class="form-floating mb-3 mt-3">
-                                <label for="no_telp">9. password </label>
+                                <label for="no_telp">10. password </label>
                                 <input type="text" class="form-control" id="password" placeholder="Password akun" name="password">
                             </div>
                         </div>
