@@ -118,41 +118,67 @@
                 <h5 class="modal-title" id="exampleModalLabel">Input Data Client</h5>
             </div>
             <div class="modal-body">
-                <form action="/admin/tukang" method="post" enctype="multipart/form-data">
+                <form action="/adm/tukang" method="post" enctype="multipart/form-data">
                     @csrf
-                    <div class="form-floating mb-3 mt-3">
-                        <label for="nama">1. Nama </label>
-                        <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama Tukang" name="nama" value=" {{ old('nama') }} ">
-                        @error('nama')
-                        <div class="invalid-feedback">
-                            {{ $message }}
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="nama">1. Nama </label>
+                                <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Nama Tukang" name="nama" value=" {{ old('nama') }} ">
+                                @error('nama')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="alamat">2. Alamat </label>
+                                <input type="text" class="form-control" id="alamat" placeholder="Alamat Lengkap" name="alamat" value=" {{ old('alamat') }}">
+                            </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="no_ktp">3. No KTP </label>
+                                <input type="number" class="form-control" id="no_ktp" placeholder="No KTP ..." name="no_ktp" value=" {{ old('no_ktp') }}">
+                            </div>
+                            <div class="custom-file">
+                                <label for="image" class="form-label">4. Foto KTP</label><br>
+                                <input type="file" class="fornm-control" id="image" name="image" value=" {{ old('image') }}">
+                            </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="">6. Jenis Kelamin</label>
+                                <select class="form-select form-control" id="jk" name="jk">
+                                    <option class=" active" disabled>Jenis Kelamin</option>
+                                    <option value="laki-laki">Laki-laki</option>
+                                    <option value="pembangunan">Perempuan</option>
+                                </select>
+                            </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="no_telp">7. No Telp. </label>
+                                <input type="number" class="form-control" id="no_telp" placeholder="No Telpon aktif ..." name="no_telp" value=" {{ old('no_telp') }}">
+                            </div>
                         </div>
-                        @enderror
+                        <div class="col-6">
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="">8. Pendidikan</label>
+                                <select class="form-select form-control" id="pendidikan" name="pendidikan">
+                                    <option class=" active" disabled>Pendidikan..</option>
+                                    <option value="mi">SD/MI</option>
+                                    <option value="mts">SMP/MTS</option>
+                                    <option value="ma">SMA/MA</option>
+                                    <option value="s1">S1</option>
+                                </select>
+                            </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="keahlian">9. Keahlian </label>
+                                <input type="text" class="form-control" id="keahlian" placeholder="Keahlian .." name="keahlian" value=" {{ old('keahlian') }}">
+                            </div>
+                            <div class="form-floating">
+                                <label for="lain">10. Lain-Lain ..</label>
+                                <textarea class="form-control" placeholder="Tentang, keahlian, riwayat dll" id="lain" name="lain" style="height: 100px"></textarea>
+
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-floating mb-3 mt-3">
-                        <label for="alamat">2. Alamat </label>
-                        <input type="text" class="form-control" id="alamat" placeholder="Alamat Lengkap" name="alamat" value=" {{ old('alamat') }}">
-                    </div>
-                    <div class="form-floating mb-3 mt-3">
-                        <label for="no_ktp">3. No KTP </label>
-                        <input type="number" class="form-control" id="no_ktp" placeholder="No KTP ..." name="no_ktp" value=" {{ old('no_ktp') }}">
-                    </div>
-                    <div class="custom-file">
-                        <label for="image" class="form-label">4. Foto KTP</label><br>
-                        <input type="file" class="fornm-control" id="image" name="image" value=" {{ old('image') }}">
-                    </div>
-                    <div class="form-floating mb-3 mt-3">
-                        <label for="">6. Jenis Kelamin</label>
-                        <select class="form-select form-control" id="jk" name="jk">
-                            <option class=" active" disabled>Jenis Kelamin</option>
-                            <option value="laki-laki">Laki-laki</option>
-                            <option value="pembangunan">Perempuan</option>
-                        </select>
-                    </div>
-                    <div class="form-floating mb-3 mt-3">
-                        <label for="no_telp">7. No Telp. </label>
-                        <input type="number" class="form-control" id="no_telp" placeholder="No Telpon aktif ..." name="no_telp" value=" {{ old('no_telp') }}">
-                    </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

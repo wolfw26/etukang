@@ -30,7 +30,7 @@ class TukangController extends Controller
             'no_ktp' => 'required|integer|min:8',
             'foto_ktp' => 'string|image',
             'jk' => 'required|string',
-            'no_telp' => 'required|integer'
+            'no_telp' => 'required|integer',
         ]);
 
         Tukang::create($request->all());

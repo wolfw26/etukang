@@ -1,12 +1,7 @@
 @extends('component.template')
 @section('konten')
-<div class="container-fluid">
-    <div class="row">
-        <div class="alert alert-success alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h5><i class="icon fas fa-check"></i> Alert!</h5>
-            Success alert preview. This alert is dismissable.
-        </div>
+<div class="container-fluid m-0">
+    <div class="row p-4">
         <div class="col-5">
             <!-- About Me Box -->
             <div class="card card-primary">
@@ -15,7 +10,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <strong><i class="fas fa-book mr-1"></i> Education</strong>
+                    <strong><i class="fas fa-book mr-1"></i> Pendidikan</strong>
 
                     <p class="text-muted">
                         B.S. in Computer Science from the University of Tennessee at Knoxville
@@ -23,13 +18,13 @@
 
                     <hr>
 
-                    <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+                    <strong><i class="fas fa-map-marker-alt mr-1"></i> Alamat</strong>
 
                     <p class="text-muted">Malibu, California</p>
 
                     <hr>
 
-                    <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
+                    <strong><i class="fas fa-pencil-alt mr-1"></i> Keahlian</strong>
 
                     <p class="text-muted">
                         <span class="tag tag-danger">UI Design</span>
@@ -57,7 +52,7 @@
 
                     <h3 class="profile-username text-center"> {{ $data->nama }} </h3>
 
-                    <p class="text-muted text-center">Software Engineer</p>
+                    <p class="text-muted text-center">Kepala Proyek / Tukang</p>
 
                     <ul class="list-group list-group-unbordered mb-3">
                         <li class="list-group-item">
@@ -70,8 +65,6 @@
                             <b>No. Telp</b> <a class="float-right"> {{ $data->no_telp }} </a>
                         </li>
                     </ul>
-
-                    <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
                 </div>
                 <!-- /.card-body -->
             </div>

@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('foto_ktp')->nullable();
             $table->string('jk');
             $table->string('no_telp');
+            $table->string('pendidikan')->nullable();
+            $table->string('keahlian')->nullable();
+            $table->string('lain')->nullable();
             $table->timestamps();
         });
     }
