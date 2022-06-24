@@ -2,6 +2,7 @@
 @extends('component.template')
 @section('konten')
 <h1>Halaman <strong style="color: brown;">Pekerja</strong></h1>
+
 <div class="card m-2">
     <div class="card-header">
         <div class="row">
@@ -9,11 +10,14 @@
                 <div class="col-7"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#TambahPekerja">
                         Tambah
                     </button> <br></div>
-                <div class="col-5">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-success" type="button" id="button-addon2">Button</button>
-                    </div>
+                <div class="col-5 d-sm-flex justify-content-center ">
+                    <a href="{{ url()->previous() }}" class="btn-sm  m-2 p-1"> <i class=" fas fa-arrow-left"> </i> </a> <br>
+                    <form action="/adm/pekerja">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2" name="cari" value=" {{ request('cari') }} ">
+                            <button class="btn btn-outline-warning bg-navy" type="submit" id="button-addon2">cari</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -86,7 +90,7 @@
                         @endforeach
                     </td>
                     <td class="project-actions text-right">
-                        <a class="badge badge-primary btn-sm" href="#">
+                        <a class="badge badge-primary btn-sm" href="/adm/pekerja/{{ $d->id }}">
                             <i class="fas fa-folder">
                             </i>
                             View

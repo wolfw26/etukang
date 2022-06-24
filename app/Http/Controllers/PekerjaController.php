@@ -10,10 +10,10 @@ class PekerjaController extends Controller
 {
     public function index()
     {
-        $dt = Pekerja::all();
+
         return view('admin.pekerja', [
             'title' => 'Pekerja',
-            'data' => $dt,
+            'data' => Pekerja::latest()->Cari(request(['cari']))->get()
         ]);
     }
 }

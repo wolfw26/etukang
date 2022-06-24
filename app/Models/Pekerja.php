@@ -12,6 +12,14 @@ class Pekerja extends Model
     protected $guarded = ['id'];
 
 
+    public function scopeCari($query, array $cari)
+    {
+        if (isset($cari['cari']) ? $cari['cari'] : false) {
+            return $query->where('nama_pekerja', 'like', '%' . request('cari') . '%')
+                ->orwhere('alamat', 'like', '%' . request('cari') . '%');
+        }
+    }
+
     public function tukang()
     {
         return $this->belongsTo(Tukang::class);
