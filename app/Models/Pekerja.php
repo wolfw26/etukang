@@ -18,6 +18,10 @@ class Pekerja extends Model
             return $query->where('nama_pekerja', 'like', '%' . request('cari') . '%')
                 ->orwhere('alamat', 'like', '%' . request('cari') . '%');
         }
+        $query->when($cari['cari'] ?? false, function ($query, $cari) {
+            return $query->where('nama_pekerja', 'like', '%' . $cari . '%')
+                ->orwhere('alamat', 'like', '%' . $cari . '%');
+        });
     }
 
     public function tukang()
