@@ -18,54 +18,72 @@ class dataproyekSeeder extends Seeder
         DataProyek::create([
             'nama_data' => 'Kamar Mandi',
             'jumlah' => '2',
-            'satuan' => 'bh',
+            'panjang' => '3',
+            'lebar' => '4',
+            'satuan' => 'm2',
             'proyek_id' => '1',
         ]);
         DataProyek::create([
             'nama_data' => 'Kamar tidur',
             'jumlah' => '4',
-            'satuan' => 'bh',
+            'panjang' => '3',
+            'lebar' => '3',
+            'satuan' => 'm2',
             'proyek_id' => '1',
         ]);
         DataProyek::create([
             'nama_data' => 'ruang tamu',
             'jumlah' => '4',
+            'panjang' => '4',
+            'lebar' => '6',
             'satuan' => 'm2',
             'proyek_id' => '1',
         ]);
         DataProyek::create([
             'nama_data' => 'Kamar Mandi',
             'jumlah' => '1',
-            'satuan' => 'bh',
+            'panjang' => '3',
+            'lebar' => '4',
+            'satuan' => 'm2',
             'proyek_id' => '2',
         ]);
         DataProyek::create([
             'nama_data' => 'Kamar tidur',
             'jumlah' => '4',
-            'satuan' => 'bh',
+            'panjang' => '4',
+            'lebar' => '3',
+            'satuan' => 'm2',
             'proyek_id' => '2',
         ]);
         DataProyek::create([
             'nama_data' => 'ruang tamu',
             'jumlah' => '5',
+            'panjang' => '4',
+            'lebar' => '4',
             'satuan' => 'm2',
             'proyek_id' => '2',
         ]);
         DataProyek::create([
             'nama_data' => 'Kamar Mandi',
             'jumlah' => '2',
-            'satuan' => 'bh',
+            'panjang' => '3',
+            'lebar' => '4',
+            'satuan' => 'm2',
             'proyek_id' => '3',
         ]);
         DataProyek::create([
             'nama_data' => 'Kamar tidur',
             'jumlah' => '3',
-            'satuan' => 'bh',
+            'panjang' => '3',
+            'lebar' => '3',
+            'satuan' => 'm2',
             'proyek_id' => '3',
         ]);
         DataProyek::create([
             'nama_data' => 'ruang tamu',
             'jumlah' => '4',
+            'panjang' => '4',
+            'lebar' => '3',
             'satuan' => 'm2',
             'proyek_id' => '3',
         ]);

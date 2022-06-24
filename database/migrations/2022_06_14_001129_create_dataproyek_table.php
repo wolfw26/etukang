@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->String('nama_data');
             $table->integer('jumlah');
+            $table->integer('panjang');
+            $table->integer('lebar');
             $table->String('satuan');
             $table->foreignId('proyek_id');
             $table->timestamps();

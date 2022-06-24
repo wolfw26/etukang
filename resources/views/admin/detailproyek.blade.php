@@ -20,6 +20,8 @@
                                     <th style="width: 10px">#</th>
                                     <th>Keterangan</th>
                                     <th>Jumlah</th>
+                                    <th>Panjang</th>
+                                    <th>Lebar</th>
                                     <th>Satuan</th>
 
                                 </tr>
@@ -30,6 +32,8 @@
                                     <td></td>
                                     <th> {{ $d->nama_data }} </th>
                                     <td>{{ $d->jumlah }}</td>
+                                    <td>{{ $d->panjang }}</td>
+                                    <td>{{ $d->lebar }}</td>
                                     <td>{{ $d->satuan }}</td>
 
                                 </tr>
