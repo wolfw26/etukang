@@ -30,10 +30,11 @@ class TukangController extends Controller
             'nama' => 'required|max:100',
             'alamat' => 'required|string',
             'no_ktp' => 'required|integer|min:8',
-            'foto_ktp' => 'string|image',
+            'foto_ktp' => 'image',
+            'foto_ktp' => 'image',
             'jk' => 'required|string',
             'no_telp' => 'required|integer',
-            'email' => 'required|unique:users',
+            'email' => 'required|unique:users|email',
             'password' => 'min:8|required'
         ]);
         $data = $request->all();
@@ -49,12 +50,13 @@ class TukangController extends Controller
         $tukang->nama = $data['nama'];
         $tukang->alamat = $data['alamat'];
         $tukang->no_ktp = $data['no_ktp'];
-        $tukang->foto_ktp = $data['image'];
+        $tukang->foto_ktp = $request->file('image')->store('tukang-img');
         $tukang->jk = $data['jk'];
         $tukang->no_telp = $data['no_telp'];
         $tukang->pendidikan = $data['pendidikan'];
         $tukang->keahlian = $data['keahlian'];
         $tukang->lain = $data['lain'];
+        $tukang->foto = $request->file('foto')->store('tukang-img');
         $tukang->users_id = $user->id;
         $tukang->save();
         return redirect()->route('tukang')->with('sukses', 'Data Berhasil Ditambah');

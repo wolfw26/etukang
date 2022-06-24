@@ -18,12 +18,13 @@ return new class extends Migration
             $table->string('nama');
             $table->text('alamat');
             $table->string('no_ktp');
-            $table->string('foto_ktp')->nullable();
+            $table->string('foto_ktp')->default("tukang-img/user.png");
             $table->string('jk');
             $table->string('no_telp');
             $table->string('pendidikan')->nullable();
             $table->string('keahlian')->nullable();
             $table->string('lain')->nullable();
+            $table->string('foto')->default("tukang-img/user.png");
             $table->foreignId('users_id');
             $table->timestamps();
         });

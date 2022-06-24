@@ -7,8 +7,9 @@
             {{ session('sukses') }}
             <button type="button" class="btn btn-secondary" data-dismiss="alert">x</button>
         </div>
+        @endif
     </div>
-    @endif
+
 </div>
 </div>
 <h1>Halaman <strong style="color: brown;">Tukang</strong></h1>
@@ -54,7 +55,7 @@
                     <th style="width: 15%">
                         No. Telp
                     </th>
-                    <th style="width: 3%" class="text-center">
+                    <th style="width: 10%" class="text-center">
                         Foto KTP
                     </th>
                     <th style="width: 20%">
@@ -81,7 +82,7 @@
                         <span>{{ $d->no_telp }} </span>
                     </td>
                     <td class="project-state">
-                        <span>{{ $d->foto_ktp }} </span>
+                        <img src="{{ asset( $d->foto_ktp) }}" alt="user-avatar" class="img-circle shadow img-fluid " style="width: 300px; height:100px">
                     </td>
                     <td class="project-state">
                         <span>{{ $d->jk }} </span>
@@ -141,7 +142,7 @@
                             </div>
                             <div class="custom-file">
                                 <label for="image" class="form-label">4. Foto KTP</label><br>
-                                <input type="file" class="fornm-control" id="image" name="image" value=" {{ old('image') }}">
+                                <input type="file" class="form-control" id="image" name="image" value=" {{ old('image') }}">
                             </div>
                             <div class="form-floating mb-3 mt-3">
                                 <label for="">6. Jenis Kelamin</label>
@@ -154,6 +155,10 @@
                             <div class="form-floating mb-3 mt-3">
                                 <label for="no_telp">7. No Telp. </label>
                                 <input type="number" class="form-control" id="no_telp" placeholder="No Telpon aktif ..." name="no_telp" value=" {{ old('no_telp') }}">
+                            </div>
+                            <div class="custom-file">
+                                <label for="foto" class="form-label">Foto </label><br>
+                                <input type="file" class="form-control" id="foto" name="foto" value=" {{ old('foto') }}">
                             </div>
                         </div>
                         <div class="col-6">
