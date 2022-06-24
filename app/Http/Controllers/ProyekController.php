@@ -25,4 +25,25 @@ class ProyekController extends Controller
             'tukang' => $proyek->tukang->nama
         ]);
     }
+    public function store()
+    {
+        return view('admin.proyek', [
+            'title' => 'Proyek',
+            'data' => Proyek::all()
+        ]);
+    }
+    public function trash()
+    {
+        return view('admin.proyek', [
+            'title' => 'Proyek',
+            'data' => Proyek::all()
+        ]);
+    }
+    public function update()
+    {
+        return view('admin.proyek', [
+            'title' => 'Proyek',
+            'data' => Proyek::all()
+        ]);
+    }
 }

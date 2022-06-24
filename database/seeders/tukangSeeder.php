@@ -21,7 +21,11 @@ class tukangSeeder extends Seeder
             'no_ktp' => '0199286547737',
             'foto_ktp' => 'abdul_latif.png',
             'jk' => 'Laki-laki',
-            'no_telp' => '087566352234'
+            'no_telp' => '087566352234',
+            'pendidikan' => 'sma/smk',
+            'keahlian' => 'Tukang',
+            'lain' => 'Melakukan Pemabngunan Rumah',
+            'users_id' => '1',
         ]);
         Tukang::create([
             'nama' => 'Iqbal al makmur',
@@ -29,7 +33,11 @@ class tukangSeeder extends Seeder
             'no_ktp' => '0199286547644',
             'foto_ktp' => 'iqbal.png',
             'jk' => 'Laki-laki',
-            'no_telp' => '098876774342'
+            'no_telp' => '098876774342',
+            'pendidikan' => 's1',
+            'keahlian' => 'Tukang',
+            'lain' => 'Pembangunan Rumah',
+            'users_id' => '2',
         ]);
     }
 }

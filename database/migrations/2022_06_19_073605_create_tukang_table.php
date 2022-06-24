@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('pendidikan')->nullable();
             $table->string('keahlian')->nullable();
             $table->string('lain')->nullable();
+            $table->foreignId('users_id');
             $table->timestamps();
         });
     }

@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Query\Expression;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -21,7 +22,7 @@ return new class extends Migration
             $table->text('alamat');
             $table->string('jk');
             $table->string('no_ktp');
-            $table->string('foto_ktp')->nullable();
+            $table->string('foto_ktp')->default("client-img/default.png");
             $table->string('no_telp');
             // $table->string('no_rek');
             $table->foreignId('users_id');

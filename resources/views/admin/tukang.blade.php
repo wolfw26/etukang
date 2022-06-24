@@ -174,7 +174,25 @@
                             <div class="form-floating">
                                 <label for="lain">10. Lain-Lain ..</label>
                                 <textarea class="form-control" placeholder="Tentang, keahlian, riwayat dll" id="lain" name="lain" style="height: 100px"></textarea>
-
+                            </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="username"> Username </label>
+                                <input type="text" class="form-control" id="username" placeholder="username .." name="username" value=" {{ old('username') }}">
+                            </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="email"> E-Mail </label>
+                                <input type="text" class="form-control @error('email')
+                                is-invalid
+                                @enderror " id="email" placeholder="email .." name="email" value=" {{ old('email') }}">
+                                @error('email')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="password">Password </label>
+                                <input type="password" class="form-control" id="password" placeholder="password .." name="password" value=" {{ old('password') }}">
                             </div>
                         </div>
                     </div>

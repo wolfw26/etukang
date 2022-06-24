@@ -22,7 +22,6 @@ class clientSeeder extends Seeder
             'alamat' => 'Banjarmasin Barat',
             'jk' => 'Laki-laki',
             'no_ktp' => '094889584',
-            'foto_ktp' => 'ktpindra.png',
             'no_telp' => '098877667765',
             'users_id' => '4',
         ]);
@@ -33,7 +32,6 @@ class clientSeeder extends Seeder
             'alamat' => 'denanyar Jombang',
             'jk' => 'Perempuan',
             'no_ktp' => '9095885885',
-            'foto_ktp' => 'bulurah.png',
             'no_telp' => '098867885344',
 
             'users_id' => '5',
@@ -45,7 +43,6 @@ class clientSeeder extends Seeder
             'alamat' => 'kepohbaru bojonegoro',
             'jk' => 'Laki-laki',
             'no_ktp' => '83475888944875',
-            'foto_ktp' => 'cakanto.png',
             'no_telp' => '092243778654',
 
             'users_id' => '5',

@@ -21,6 +21,7 @@ class ClientController extends Controller
     {
 
         $data = $request->all();
+        $img = $request->file('foto_ktp')->store('client-img');
 
         $user = new User;
         $user->name = $data['name'];
@@ -36,7 +37,7 @@ class ClientController extends Controller
         $client->alamat = $data['alamat'];
         $client->jk = $data['jk'];
         $client->no_ktp = $data['no_ktp'];
-        $client->foto_ktp = $data['foto_ktp'];
+        $client->foto_ktp = $img;
         $client->no_telp = $data['no_telp'];
         $client->users_id = $user->id;
         $client->save();

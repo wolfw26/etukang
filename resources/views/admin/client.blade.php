@@ -47,7 +47,7 @@
                             </div>
                             <div class="card-body pt-0">
                                 <div class="text-center">
-                                    <img src="{{ asset('img/alat.jpg') }}" alt="user-avatar" class="img-circle shadow img-fluid " style="width: 120px; height:120px">
+                                    <img src="{{ asset( $d->foto_ktp) }}" alt="user-avatar" class="img-circle shadow img-fluid " style="width: 120px; height:120px">
                                 </div>
                                 <div class="row mt-2">
                                     <div class="container-fluid">
