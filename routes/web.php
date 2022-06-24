@@ -45,6 +45,7 @@ Route::group(['prefix' => 'adm'], function () {
     Route::get('/tukang/', [TukangController::class, 'index'])->name('tukang');
     Route::get('/tukang/del/{id}', [TukangController::class, 'trash'])->name('tukang.delete');
     Route::post('/tukang/', [TukangController::class, 'store'])->name('tukang.add');
+    Route::get('/tukang/{tukang:id}', [TukangController::class, 'detail'])->name('tukang.detail');
 
     Route::get('/proyek/', [ProyekController::class, 'index'])->name('proyek');
     Route::get('/proyek/{proyek}', [ProyekController::class, 'show'])->name('proyek.show');

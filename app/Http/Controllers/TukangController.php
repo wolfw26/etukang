@@ -14,6 +14,14 @@ class TukangController extends Controller
             'data' => Tukang::all()
         ]);
     }
+    public function detail(Tukang $tukang)
+    {
+        // dd($tukang);
+        return view('admin.detailtukang', [
+            'title' => 'Tukang',
+            'data' => $tukang
+        ]);
+    }
     public function store(Request $request)
     {
         $request->validate([

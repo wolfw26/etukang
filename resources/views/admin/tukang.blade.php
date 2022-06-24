@@ -87,7 +87,7 @@
                         <span>{{ $d->jk }} </span>
                     </td>
                     <td class="project-actions text-right">
-                        <a class="badge badge-primary btn-sm" href="/detail">
+                        <a class="badge badge-primary btn-sm" href="/adm/tukang/{{ $d->id }}">
                             <i class="fas fa-folder">
                             </i>
                             View

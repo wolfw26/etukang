@@ -2,17 +2,19 @@
 @extends('component.template')
 @section('konten')
 <div class="row">
-    <div class="col-7">
+    <div class="col-10">
         <h1>Halaman <strong style="color: brown;">Client</strong></h1>
     </div>
     <div class="col-2">
         @if (session('ditambah'))
-        <div class="alert alert-sm alert-success d-flex justify-content-between">
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-check"></i> Berhasil</h5>
             {{ session('ditambah') }}
-            <button type="button" class="btn btn-secondary" data-dismiss="alert">x</button>
         </div>
-        @endif
     </div>
+    @endif
+</div>
 </div>
 <div class="row">
     <div class="container-fluid">
@@ -106,7 +108,7 @@
                 <h5 class="modal-title" id="exampleModalLabel">Input Data Client</h5>
             </div>
             <div class="modal-body">
-                <form action="{{ url('admin/client') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ url('adm/client') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col">
