@@ -18,7 +18,7 @@ class TukangController extends Controller
     public function detail(Tukang $tukang)
     {
         // dd($tukang);
-        return view('admin.detailtukang', [
+        return view('admin.detail.detailtukang', [
             'title' => 'Tukang',
             'data' => $tukang
         ]);

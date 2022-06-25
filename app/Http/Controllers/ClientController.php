@@ -47,7 +47,7 @@ class ClientController extends Controller
 
     public function detail(Client $client)
     {
-        return view('admin.detailclient', [
+        return view('admin.detail.detailclient', [
             'Title' => 'Detail Client',
             'data' => $client
         ]);
