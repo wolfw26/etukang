@@ -69,6 +69,12 @@ class TukangController extends Controller
         $data->delete();
         return redirect()->back()->with('sukses', 'Data Berhasil Terhapus');
     }
+    public function edit()
+    {
+        return view('admin.edit.edittukang',[
+            'title' => 'Edit'
+    ]);
+    }
     public function update($id)
     {
 

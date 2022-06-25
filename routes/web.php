@@ -39,6 +39,7 @@ Route::group(['prefix' => 'adm'], function () {
     Route::get('/tukang/del/{id}', [TukangController::class, 'trash'])->name('tukang.delete');
     Route::post('/tukang/', [TukangController::class, 'store'])->name('tukang.add');
     Route::get('/tukang/{tukang:id}', [TukangController::class, 'detail'])->name('tukang.detail');
+    Route::get('/tukang/{tukang:id}/edit', [TukangController::class, 'edit'])->name('tukang.edit');
 
     Route::get('/proyek/', [ProyekController::class, 'index'])->name('proyek')->middleware(['auth']);
     Route::get('/proyek/{proyek}', [ProyekController::class, 'show'])->name('proyek.show');
