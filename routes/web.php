@@ -4,6 +4,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProyekController;
 use App\Http\Controllers\TukangController;
@@ -23,13 +24,8 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::post('/register', [RegisterController::class, 'store'])->name('register');
-
-Route::get('/card', function () {
-    return view('component.card.contact', [
-        'title' => 'card'
-    ]);
-});
-Route::get('/', ['LoginController@index'])->name('login');
+Route::get('/', [LoginController::class, 'index'])->name('login');
+Route::post('/', [LoginController::class, 'login'])->name('login.log');
 
 
 Route::group(['prefix' => 'adm'], function () {
@@ -51,7 +47,7 @@ Route::group(['prefix' => 'adm'], function () {
     Route::get('/client/', [ClientController::class, 'index'])->name('client');
     Route::get('/client/{client:id}', [ClientController::class, 'detail'])->name('client.detail');
     Route::post('/client/', [ClientController::class, 'store'])->name('client.add');
-    Route::post('/client/d/{id}', [ClientController::class, 'trash'])->name('client.delete');
+    Route::get('/client/d/{id}', [ClientController::class, 'trash'])->name('client.delete');
     Route::post('/client/e/{client:id}', [ClientController::class, 'edit'])->name('client.edit');
 
     // Route::get('/client/del/{client}', [ClientController::class, 'trash']);

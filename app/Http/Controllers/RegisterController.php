@@ -5,18 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
     public function store(Request $request)
     {
-
         $data = $request->all();
-
+        if (!isset($data['foto_ktp'])) {
+            $data['foto_ktp'] = "client-img/default.png";
+        }
+        $email = $request->validate([
+            'email' => 'required|unique:users|email'
+        ]);
         $user = new User;
         $user->name = $data['username'];
-        $user->email = $data['email'];
-        $user->password = $data['password'];
+        $user->email = $email['email'];
+        $user->password = Hash::make($data['password']);
         $user->rule = $data['rule'];
         $user->save();
 
@@ -32,6 +37,6 @@ class RegisterController extends Controller
         $client->users_id = $user->id;
         $client->save();
 
-        return redirect()->back()->with('status', 'Registrasi Berhasil');
+        return redirect()->back()->with('sukses', 'Registrasi Berhasil');
     }
 }

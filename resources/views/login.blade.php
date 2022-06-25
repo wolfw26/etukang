@@ -42,26 +42,47 @@
                     <div class="container p-3">
                         <div class="login-box mx-auto m-2 d-block bg-transparent">
                             <div class="card bg-transparent shadow-md">
+                                @if (session('loginError'))
+                                <div class="alert alert-warning d-flex justify-content-between">
+                                    {{ session('loginError') }}
+                                    <button type="button" class="btn btn-secondary" data-dismiss="alert">x</button>
+                                </div>
+                                @endif
                                 <div class="card-header rounded-top" style="background-color: lime; font-weight:900; height:100%; margin-bottom:2px">
                                     <a href="{{ asset('assets/index2.html') }}" style="color: white; text-shadow: 3px 2px 4px gray ">LOGIN</a>
                                 </div>
                                 <div class="card-body login-card-body  rounded-bottom p-5" style="height: 40vh ;">
-                                    <form action="">
+                                    <form action="/" method="POST">
+                                        @csrf
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="Username" name="username" required autocomplete="off">
+                                            <input type="text" class="form-control @error('name')
+                                                is-invalid
+                                            @enderror " placeholder="Username" name="name" required autocomplete="off" value=" {{ old('name') }} ">
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="fas fa-envelope"></span>
                                                 </div>
+                                                @error('name')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <input type="password" class="form-control" placeholder="Password" name="password" required>
+                                            <input type="password" class="form-control @error('password')
+                                                is-invalid
+                                            @enderror " placeholder="Password" name="password" required>
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="fas fa-lock"></span>
                                                 </div>
                                             </div>
+                                            @error('password')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                            @enderror
                                         </div>
                                         <div class="col-4"><button type="submit" class="btn   btn-block" style="background-color: lime;">Masuk</button></div>
                                     </form>
@@ -83,9 +104,9 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            @if (session('status'))
+                            @if (session('sukses'))
                             <div class="alert alert-success d-flex justify-content-between">
-                                {{ session('status') }}
+                                {{ session('sukses') }}
                                 <button type="button" class="btn btn-secondary" data-dismiss="alert">x</button>
                             </div>
                             @endif

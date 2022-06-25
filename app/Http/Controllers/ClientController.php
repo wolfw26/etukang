@@ -57,8 +57,11 @@ class ClientController extends Controller
     public function trash($id)
     {
         $data = Client::find($id);
+        $user = User::find($data->users_id);
 
         $data->delete();
+        $user->delete();
+
         return redirect()->back()->with('ditambah', 'Dihapus');
     }
     public function edit($id)

@@ -66,7 +66,7 @@
                             </div>
                             <div class="card-footer">
                                 <div class="text-right">
-                                    <a href=" {{ route('client') }}/del/{{ $d->id }} " onclick="return confirm('Hapus Data   {{ $d->nama }} ');" class="btn btn-sm bg-danger">
+                                    <a href=" {{ route('client') }}/d/{{ $d->id }} " onclick="return confirm('Hapus Data   {{ $d->nama }} ');" class="btn btn-sm bg-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                     <a href=" {{ Route('client.edit',$d->id) }} " class="btn btn-sm bg-teal">
