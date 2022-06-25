@@ -67,7 +67,7 @@
                                     <a href="#" class="btn btn-sm bg-teal">
                                         <i class="fas fa-comments"></i>
                                     </a>
-                                    <a href="/admin/client/show/{{ $d->id }}" class="btn btn-sm btn-primary">
+                                    <a href="/adm/client/{{ $d->id }}" class="btn btn-sm btn-primary">
                                         <i class="fas fa-user"></i> Detail
                                     </a>
                                 </div>

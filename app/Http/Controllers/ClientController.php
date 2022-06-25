@@ -44,6 +44,11 @@ class ClientController extends Controller
 
         return redirect()->back()->with('ditambah', 'Ditambahkan');
     }
+
+    public function detail(Client $id)
+    {
+    }
+
     public function trash($id)
     {
         $data = Client::find($id);

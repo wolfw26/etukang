@@ -53,10 +53,11 @@ Route::group(['prefix' => 'adm'], function () {
     Route::get('/pekerja/', [PekerjaController::class, 'index']);
 
     Route::get('/client/', [ClientController::class, 'index'])->name('client');
+    Route::get('/client/{client:id}', [ClientController::class, 'detail'])->name('client.detail');
     Route::post('/client/', [ClientController::class, 'store'])->name('client.add');
     Route::post('/client/d/{id}', [ClientController::class, 'trash'])->name('client.delete');
 
-    Route::get('/client/del/{client}', [ClientController::class, 'trash']);
+    // Route::get('/client/del/{client}', [ClientController::class, 'trash']);
     Route::get('/material/', [MaterialController::class, 'index'])->name('material');
     Route::get('/biaya/', function () {
         return view('admin.biaya', [

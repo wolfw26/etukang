@@ -37,5 +37,16 @@ class tukangSeeder extends Seeder
             'lain' => 'Pembangunan Rumah',
             'users_id' => '2',
         ]);
+        Tukang::create([
+            'nama' => 'Ikhwan',
+            'alamat' => 'Jl. pantura',
+            'no_ktp' => '019928888444',
+            'jk' => 'Laki-laki',
+            'no_telp' => '090076774342',
+            'pendidikan' => 's1',
+            'keahlian' => 'Tukang',
+            'lain' => 'Pembangunan Rumah',
+            'users_id' => '3',
+        ]);
     }
 }
