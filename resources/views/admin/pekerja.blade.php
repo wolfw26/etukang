@@ -111,6 +111,7 @@
 
         </table>
     </div>
+    {{ $data->links() }}
 </div>
 
 

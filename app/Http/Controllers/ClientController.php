@@ -14,7 +14,7 @@ class ClientController extends Controller
     {
         return view('admin.client', [
             'title' => 'Client',
-            'data' => Client::latest()->Cari(request(['cari']))->get()
+            'data' => Client::latest()->Cari(request(['cari']))->paginate(8)->withQueryString()
         ]);
     }
     public function store(Request $request)

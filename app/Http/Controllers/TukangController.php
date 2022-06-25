@@ -12,7 +12,7 @@ class TukangController extends Controller
     {
         return view('admin.tukang', [
             'title' => 'Tukang',
-            'data' => Tukang::latest()->Cari(request(['cari']))->get()
+            'data' => Tukang::latest()->Cari(request(['cari']))->paginate(4)->withQueryString()
         ]);
     }
     public function detail(Tukang $tukang)

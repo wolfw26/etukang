@@ -173,19 +173,23 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="fas fa-user"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i>Profile
+                            <i class="fas fa-users mr-2"></i> {{ Auth::user()->name }}
                             <span class="float-right text-muted text-sm">12 hours</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item bg-danger rounded-pill sm-3">
+                        <form action="/logout" method="POST" >
+                            @csrf
+                            <button class="dropdown-item  sm-3">Log-out
+                                <i class=" fas fa-arrow-right"></i></button>
+                        </form>
+                        {{-- <a href="#" class="dropdown-item  sm-3">
                             Log-out
-                            <span class="float-right text-muted text-sm">2 days</span>
-                        </a>
+                            <i class=" fas fa-arrow-right"></i>
+                        </a> --}}
                     </div>
                 </li>
                 <!-- <li class="nav-item">

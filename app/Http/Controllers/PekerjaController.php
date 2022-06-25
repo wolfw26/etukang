@@ -13,7 +13,7 @@ class PekerjaController extends Controller
 
         return view('admin.pekerja', [
             'title' => 'Pekerja',
-            'data' => Pekerja::latest()->Cari(request(['cari']))->get()
+            'data' => Pekerja::latest()->Cari(request(['cari']))->paginate(3)->withQueryString()
         ]);
     }
 }
