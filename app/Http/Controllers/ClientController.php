@@ -45,8 +45,12 @@ class ClientController extends Controller
         return redirect()->back()->with('ditambah', 'Ditambahkan');
     }
 
-    public function detail(Client $id)
+    public function detail(Client $client)
     {
+        return view('admin.detailclient', [
+            'Title' => 'Detail Client',
+            'data' => $client
+        ]);
     }
 
     public function trash($id)
