@@ -14,7 +14,7 @@ class ClientController extends Controller
     {
         return view('admin.client', [
             'title' => 'Client',
-            'data' => Client::all()
+            'data' => Client::latest()->Cari(request(['cari']))->get()
         ]);
     }
     public function store(Request $request)
@@ -47,14 +47,23 @@ class ClientController extends Controller
 
     public function detail(Client $client)
     {
+        return "Detail";
         return view('admin.detail.detailclient', [
-            'Title' => 'Detail Client',
+            'title' => 'Detail Client',
             'data' => $client
         ]);
     }
 
     public function trash($id)
     {
+        $data = Client::find($id);
+
+        $data->delete();
+        return redirect()->back()->with('ditambah', 'Dihapus');
+    }
+    public function edit($id)
+    {
+        return "edit";
         $data = Client::find($id);
 
         $data->delete();

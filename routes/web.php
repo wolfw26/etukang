@@ -29,11 +29,7 @@ Route::get('/card', function () {
         'title' => 'card'
     ]);
 });
-Route::get('/', function () {
-    return view('login', [
-        'title' => 'Login'
-    ]);
-})->name('login');
+Route::get('/', ['LoginController@index'])->name('login');
 
 
 Route::group(['prefix' => 'adm'], function () {
@@ -56,6 +52,7 @@ Route::group(['prefix' => 'adm'], function () {
     Route::get('/client/{client:id}', [ClientController::class, 'detail'])->name('client.detail');
     Route::post('/client/', [ClientController::class, 'store'])->name('client.add');
     Route::post('/client/d/{id}', [ClientController::class, 'trash'])->name('client.delete');
+    Route::post('/client/e/{client:id}', [ClientController::class, 'edit'])->name('client.edit');
 
     // Route::get('/client/del/{client}', [ClientController::class, 'trash']);
     Route::get('/material/', [MaterialController::class, 'index'])->name('material');

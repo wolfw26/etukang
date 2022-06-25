@@ -27,9 +27,14 @@
                                     Tambah
                                 </button> <br></div>
                             <div class="col-5">
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                    <button class="btn btn-outline-success" type="button" id="button-addon2">Button</button>
+                                <div class=" d-sm-flex justify-content-center ">
+                                    <a href="{{ url()->previous() }}" class="btn-sm  m-2 p-1"> <i class=" fas fa-arrow-left"> </i> </a> <br>
+                                    <form action="/adm/client">
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2" name="cari" value=" {{ request('cari') }} ">
+                                            <button class="btn btn-outline-warning bg-navy" type="submit" id="button-addon2">cari</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -64,8 +69,8 @@
                                     <a href=" {{ route('client') }}/del/{{ $d->id }} " onclick="return confirm('Hapus Data   {{ $d->nama }} ');" class="btn btn-sm bg-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
-                                    <a href="#" class="btn btn-sm bg-teal">
-                                        <i class="fas fa-comments"></i>
+                                    <a href=" {{ Route('client.edit',$d->id) }} " class="btn btn-sm bg-teal">
+                                        <i class="fas fa-edit" title="Edit" ></i>
                                     </a>
                                     <a href="/adm/client/{{ $d->id }}" class="btn btn-sm btn-primary">
                                         <i class="fas fa-user"></i> Detail

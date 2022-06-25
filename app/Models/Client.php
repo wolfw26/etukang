@@ -12,6 +12,18 @@ class Client extends Model
     protected $table = 'client';
     protected $guarded = ['id'];
 
+    public function scopeCari($query, array $cari)
+    {
+        if (isset($cari['cari']) ? $cari['cari'] : false) {
+            return $query->where('nama', 'like', '%' . request('cari') . '%')
+                ->orwhere('alamat', 'like', '%' . request('cari') . '%');
+        }
+        // $query->when($cari['cari'] ?? false, function ($query, $cari) {
+        //     return $query->where('nama_pekerja', 'like', '%' . $cari . '%')
+        //         ->orwhere('alamat', 'like', '%' . $cari . '%');
+        // });
+    }
+
 
     public function proyek()
     {

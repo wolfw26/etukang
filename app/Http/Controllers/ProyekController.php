@@ -18,11 +18,13 @@ class ProyekController extends Controller
     }
     public function show(Proyek $proyek)
     {
-        return view('admin.detailproyek', [
+        return view('admin.detail.detailproyek', [
             'title' => 'Proyek',
             // 'nama' => $proyek->tukang->nama,
+            'client' => $proyek->client,
             'data' =>  $proyek->dataproyek,
-            'tukang' => $proyek->tukang->nama
+            'tukang' => $proyek->tukang,
+            'proyek' => $proyek
         ]);
     }
     public function store()

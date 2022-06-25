@@ -2,7 +2,40 @@
 @section('konten')
 <div class="container-fluid m-0">
     <div class="row p-4">
-        <div class="col-5">
+        <div class="col-7">
+            <div class="card card-navy card-outline">
+                <div class="card-body box-profile">
+                    <div class="text-center">
+                        <img class="profile-user-img img-fluid img-circle" src=" {{ asset( $data->foto) }} " alt="User profile picture">
+                    </div>
+
+                    <h3 class="profile-username text-center"> {{ $data->nama }} </h3>
+
+                    <p class="text-muted text-center">Kepala Proyek / Tukang</p>
+
+                    <ul class="list-group list-group-unbordered mb-3">
+                        <li class="list-group-item">
+                            <b>NO. KTP</b> <a class="float-right">{{ $data->no_ktp }}</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Jenis Kelamin</b> <a class="float-right"> {{ $data->jk }} </a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>No. Telp</b> <a class="float-right"> {{ $data->no_telp }} </a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Pendidikan</b> <a class="float-right"> {{ $data->pendidikan }} </a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Foto KTP</b> <a class="float-right"> <img src=" {{ asset($data->foto_ktp) }} " alt="" width="50px" height="50px" > </a>
+
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.card-body -->
+            </div>
+        </div>
+        <div class="col">
             <!-- About Me Box -->
             <div class="card card-primary">
                 <div class="card-header">
@@ -39,35 +72,7 @@
                 <!-- /.card-body -->
             </div>
         </div>
-        <div class="col">
-            <div class="card card-navy card-outline">
-                <div class="card-body box-profile">
-                    <div class="text-center">
-                        <img class="profile-user-img img-fluid img-circle" src=" {{ asset( $data->foto) }} " alt="User profile picture">
-                    </div>
 
-                    <h3 class="profile-username text-center"> {{ $data->nama }} </h3>
-
-                    <p class="text-muted text-center">Kepala Proyek / Tukang</p>
-
-                    <ul class="list-group list-group-unbordered mb-3">
-                        <li class="list-group-item">
-                            <b>NO. KTP</b> <a class="float-right">{{ $data->no_ktp }}</a>
-                        </li>
-                        <li class="list-group-item">
-                            <b>Jenis Kelamin</b> <a class="float-right"> {{ $data->jk }} </a>
-                        </li>
-                        <li class="list-group-item">
-                            <b>No. Telp</b> <a class="float-right"> {{ $data->no_telp }} </a>
-                        </li>
-                        <li class="list-group-item">
-                            <b>Pendidikan</b> <a class="float-right"> {{ $data->pendidikan }} </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.card-body -->
-            </div>
-        </div>
     </div>
 </div>
 
