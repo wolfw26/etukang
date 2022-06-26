@@ -30,7 +30,7 @@ class TukangController extends Controller
             'nama' => 'required|max:100',
             'alamat' => 'required|string',
             'no_ktp' => 'required|integer|min:8',
-            'foto_ktp' => 'image',
+            'foto' => 'image',
             'foto_ktp' => 'image',
             'jk' => 'required|string',
             'no_telp' => 'required|integer',
@@ -69,17 +69,60 @@ class TukangController extends Controller
         $data->delete();
         return redirect()->back()->with('sukses', 'Data Berhasil Terhapus');
     }
-    public function edit()
+    public function edit(Tukang $tukang)
     {
-        return view('admin.edit.edittukang',[
-            'title' => 'Edit'
-    ]);
+        return view('admin.edit.edittukang', [
+            'title' => 'Edit',
+            'data' =>  $tukang
+        ]);
     }
-    public function update($id)
+    public function update(Request $request, Tukang $tukang)
     {
 
-        $data = Tukang::find($id);
-        $data->delete();
-        return redirect()->back()->with('sukses', 'Data Berhasil Terhapus');
+
+        $data = $request->validate([
+            'nama' => 'required|max:100',
+            'alamat' => 'required|string',
+            'no_ktp' => 'required|min:8',
+            'foto_ktp' => 'nullable',
+            'jk' => 'required|string',
+            'no_telp' => 'required',
+            'pendidikan' => 'required|string',
+            'keahlian' => 'string',
+            'lain' => 'string',
+            'foto' => 'nullable'
+        ]);
+
+        //     dd($request->foto_ktp->store('tukang-img'));
+        // $data = $request->all();
+        // $foto_ktp = $request->file('foto_ktp')->store('tukang-img');
+        // $foto = $request->file('foto')->store('tukang-img');
+        $data = $request;
+        $tukang = Tukang::find($tukang->id);
+        if (isset($data['foto_ktp'])) {
+            $foto_ktp = $data->file('foto_ktp')->store('tukang_img');
+        }else{
+            $foto_ktp = $tukang->foto_ktp;
+        }
+
+        if(isset($data['foto'])){
+            $foto = $data->file('foto')->store('tukang_img');
+        }else{
+            $foto = $tukang->foto;
+        }
+
+            $tukang->nama = $data['nama'];
+            $tukang->alamat = $data['alamat'];
+            $tukang->no_ktp = $data['no_ktp'];
+            $tukang->foto_ktp = $foto_ktp;
+            $tukang->jk = $data['jk'];
+            $tukang->no_telp = $data['no_telp'];
+            $tukang->pendidikan = $data['pendidikan'];
+            $tukang->keahlian = $data['keahlian'];
+            $tukang->lain = $data['lain'];
+            $tukang->foto = $foto;
+            $tukang->save();
+        return redirect(route('tukang'))->with('sukses', 'Data Berhasil diubah');
     }
+    // $ktp = $request->file('foto_ktp')->store('client-img');
 }
