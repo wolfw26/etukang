@@ -1,3 +1,4 @@
+{{-- @dd($data) --}}
 @extends('component.template')
 @section('konten')<div class="row">
 
@@ -7,13 +8,13 @@
         <div class="row mb-2">
             <div class="col-sm-6 text-center">
                 <h1 class="m-0">
-                    <h1>Halaman <strong style="color: brown;">Data Proyek All</strong></h1>
+                    <h1>Halaman <strong style="color: brown;">Renovasi</strong></h1>
                 </h1>
             </div><!-- /.col -->
             <div class="col-4">
-                @if (session('tambah'))
+                @if (session('sukses'))
                 <div class="alert alert-success d-flex justify-content-between">
-                    {{ session('tambah') }}
+                    {{ session('sukses') }}
                     <button type="button" class="btn btn-secondary" data-dismiss="alert">x</button>
                 </div>
                 @elseif (session('hapus'))
@@ -25,7 +26,7 @@
             </div>
             <div class="col-sm-2">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="http://" class="btn btn-outline-success" data-toggle="modal" data-target="#Tambah" id="TambahProyek">Tambah</a></li>
+                    <li class="breadcrumb-item"><a href="http://" class="btn btn-outline-success" data-toggle="modal" data-target="#Tambah" id="TambahRenovasi">Tambah</a></li>
                     <!-- <li class="breadcrumb-item active">Dashboard v1</li> -->
                 </ol>
             </div><!-- /.col -->
@@ -108,67 +109,45 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col">
-                        <form action="/adm/proyek/" method="post">
-                            @csrf
                         <div class="form-floating mb-3 mt-3">
-                            <label for="nama">1. Nama Proyek</label>
-                            <input type="text" class="form-control" id="nama_proyek" placeholder="Nama Proyek" name="nama_proyek">
+                            <label for="nama">Nama Proyek</label>
+                            <input type="text" class="form-control" id="nama" placeholder="Nama Proyek" name="nama">
                         </div>
                         <div class="form-floating mb-3 mt-3">
-                            <label for="alamat">2. Alamat Proyek</label>
+                            <label for="alamat">Alamat Proyek</label>
                             <input type="text" class="form-control" id="alamat" placeholder="alamat Proyek" name="alamat">
                         </div>
-                        <div class="form-floating mb-3 mt-3">
-                            <label for="jenis_proyek">3. Jenis Proyek</label>
-                            <select class="form-select form-control" id="jenis_proyek" name="jenis_proyek">
-                                <option class=" active" disabled>Jenis-Proyek</option>
-                                <option value="pembangunan">Pembangunan</option>
-                                <option value="renovasi">Renovasi</option>
-                            </select>
-                        </div>
-                        <div class="form-floating mb-3 mt-3">
-                            <label for="luas_tanah">4. Luas Tanah</label>
-                            <input type="text" class="form-control" id="luas_tanah" placeholder="Luas Tanah Cth.24 (6 x 4) " name="luas_tanah">
-                        </div>
+                        <input type="hidden" name="jenis_proyek" id="jenis_proyek" value="renovasi">
                     </div>
                     <div class="col">
                         <div class="form-floating mb-3 mt-3">
-                            <label for="panjang_tanah">5. Panjang Tanah</label>
+                            <label for="panjang_tanah">Panjang</label>
                             <input type="text" class="form-control" id="panjang_tanah" placeholder="Panjang dari Bangunan" name="panjang_tanah">
                         </div>
                         <div class="form-floating mb-3 mt-3">
-                            <label for="lebar_tanah">6. Lebar Tanah</label>
+                            <label for="lebar_tanah">Lebar</label>
                             <input type="text" class="form-control" id="lebar_tanah" placeholder="Lebar dari bangunan" name="lebar_tanah">
                         </div>
                         <div class="form-floating mb-3 mt-3">
-                            <label for="satuan">7. Satuan</label>
+                            <label for="satuan">Satuan</label>
                             <input type="text" class="form-control" id="satuan" placeholder="M / m2/ m3" name="satuan">
                         </div>
                         <div class="form-floating mb-3 mt-3">
-                            <label for="client">8. Client</label>
-                            <select class="form-select form-control" id="client" name="client">
-                                <option class=" active" disabled>Pilih Kepala Lapangan</option>
-                                @foreach ($client as $d)
-                                    <option value="{{ $d->id }}">{{ $d->nama }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-floating mb-3 mt-3">
-                            <label for="tukang">9. Tukang/ Kepala lapangan</label>
+                            <label for="tukang">Tukang/ Kepala lapangan</label>
                             <select class="form-select form-control" id="tukang" name="tukang">
                                 <option class=" active" disabled>Pilih Kepala Lapangan</option>
-                                @foreach ($tukang as $d)
-                                    <option value="{{ $d->id }}">{{ $d->nama }}</option>
-                                @endforeach
+                                <option value="pembangunan">Pak Iqbal</option>
+                                <option value="renovasi">Roni</option>
                             </select>
                         </div>
                     </div>
                 </div>
+
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Tambah</button>
-            </form>
+                <button type="button" class="btn btn-primary">Tambah</button>
             </div>
 
         </div>

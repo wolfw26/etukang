@@ -44,12 +44,16 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/tukang/{tukang:id}/edit', [TukangController::class, 'edit'])->name('tukang.edit');
         Route::put('/tukang/{tukang:id}', [TukangController::class, 'update'])->name('tukang.update');
 
-
+        // Proyek
         Route::get('/proyek/', [ProyekController::class, 'index'])->name('proyek');
+        Route::post('/proyek/', [ProyekController::class, 'store'])->name('proyek.add');
         Route::get('/proyek/{proyek}', [ProyekController::class, 'show'])->name('proyek.show');
-
+        Route::get('/proyek/del/{id}', [ProyekController::class, 'trash'])->name('proyek.delete');
+        // renovasi
+        // Route::get('/renovasi/' [])
+        //Pekerja
         Route::get('/pekerja/', [PekerjaController::class, 'index']);
-
+        // Client
         Route::get('/client/', [ClientController::class, 'index'])->name('client');
         Route::get('/client/{client:id}', [ClientController::class, 'detail'])->name('client.detail');
         Route::post('/client/', [ClientController::class, 'store'])->name('client.add');

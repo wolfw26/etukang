@@ -181,7 +181,7 @@
                             <span class="float-right text-muted text-sm">12 hours</span>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <form action="/logout" method="POST" >
+                        <form action="/logout" method="POST">
                             @csrf
                             <button class="dropdown-item  sm-3">Log-out
                                 <i class=" fas fa-arrow-right"></i></button>
@@ -206,7 +206,7 @@
             <!-- Brand Logo -->
             <a href=" {{ route('admin.home')}}" class="brand-link">
                 <!-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
-                <h4 class="brand-text font-weight-light  text-center" style="text-shadow: 4px 1px 5px rgb(0, 0, 0) ;"><strong class="text-light" style="font-weight: 900; font-size:2rem;opacity: .8"> <strong>SI -</strong>  jasa</strong> <br><span style="text-shadow: 2px 3px 8px rgba(110, 52, 216, 0.553); font-size:20px">Pembangunan Dan Renovasi</span>
+                <h4 class="brand-text font-weight-light  text-center" style="text-shadow: 4px 1px 5px rgb(0, 0, 0) ;"><strong class="text-light" style="font-weight: 900; font-size:2rem;opacity: .8"> <strong>SI -</strong> jasa</strong> <br><span style="text-shadow: 2px 3px 8px rgba(110, 52, 216, 0.553); font-size:20px">Pembangunan Dan Renovasi</span>
                 </h4>
             </a>
 
@@ -284,6 +284,12 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>All Data</p>
+                                    </a>
+                                </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
