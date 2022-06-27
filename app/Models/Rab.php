@@ -13,6 +13,6 @@ class Rab extends Model
 
     public function ahs()
     {
-        return $this->hasMany(DataAhs::class);
+        return $this->hasMany(Ahs::class);
     }
 }
