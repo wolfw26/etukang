@@ -12,6 +12,7 @@ use App\Http\Controllers\PekerjaController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RegisterController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +25,7 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::post('/register', [RegisterController::class, 'store'])->name('register');
-Route::get('/', [LoginController::class, 'index'])->name('login');
+Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/', [LoginController::class, 'login'])->name('login.log');
 Route::post('/logout', [LoginController::class, 'logout'])->name('login.logout');
 
@@ -44,6 +45,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/tukang/{tukang:id}/edit', [TukangController::class, 'edit'])->name('tukang.edit');
         Route::put('/tukang/{tukang:id}', [TukangController::class, 'update'])->name('tukang.update');
 
+
+
         // Proyek
         Route::get('/proyek/', [ProyekController::class, 'index'])->name('proyek');
         Route::post('/proyek/', [ProyekController::class, 'store'])->name('proyek.add');
@@ -58,10 +61,15 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/client/{client:id}', [ClientController::class, 'detail'])->name('client.detail');
         Route::post('/client/', [ClientController::class, 'store'])->name('client.add');
         Route::get('/client/d/{id}', [ClientController::class, 'trash'])->name('client.delete');
-        Route::post('/client/e/{client:id}', [ClientController::class, 'edit'])->name('client.edit');
+        Route::get('/client/{client:id}/edit', [ClientController::class, 'edit'])->name('client.edit');
+        Route::put('/client/{client:id}', [ClientController::class, 'update'])->name('client.update');
 
-        // Route::get('/client/del/{client}', [ClientController::class, 'trash']);
+        // material
+
         Route::get('/material/', [MaterialController::class, 'index'])->name('material');
+        Route::post('/material/{material:id}/edit', [MaterialController::class, 'edit'])->name('material.edit');
+        Route::post('/material/', [MaterialController::class, 'store'])->name('material.add');
+
         Route::get('/biaya/', function () {
             return view('admin.biaya', [
                 'title' => 'HOME'

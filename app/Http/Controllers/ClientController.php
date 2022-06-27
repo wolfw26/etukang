@@ -63,12 +63,18 @@ class ClientController extends Controller
 
         return redirect()->back()->with('ditambah', 'Dihapus');
     }
-    public function edit($id)
+    public function edit(Client $client)
     {
-        return "edit";
-        $data = Client::find($id);
+        return view('admin.edit.clientedit', [
+            'title' => 'Edit',
+            'data' => $client
+        ]);
+    }
 
-        $data->delete();
-        return redirect()->back()->with('ditambah', 'Dihapus');
+    public function update(Client $client)
+    {
+        return view('admin.edit.clientedit', [
+            'title' => 'Edit'
+        ]);
     }
 }

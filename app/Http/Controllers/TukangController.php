@@ -78,8 +78,6 @@ class TukangController extends Controller
     }
     public function update(Request $request, Tukang $tukang)
     {
-
-
         $data = $request->validate([
             'nama' => 'required|max:100',
             'alamat' => 'required|string',
@@ -101,27 +99,27 @@ class TukangController extends Controller
         $tukang = Tukang::find($tukang->id);
         if (isset($data['foto_ktp'])) {
             $foto_ktp = $data->file('foto_ktp')->store('tukang_img');
-        }else{
+        } else {
             $foto_ktp = $tukang->foto_ktp;
         }
 
-        if(isset($data['foto'])){
+        if (isset($data['foto'])) {
             $foto = $data->file('foto')->store('tukang_img');
-        }else{
+        } else {
             $foto = $tukang->foto;
         }
 
-            $tukang->nama = $data['nama'];
-            $tukang->alamat = $data['alamat'];
-            $tukang->no_ktp = $data['no_ktp'];
-            $tukang->foto_ktp = $foto_ktp;
-            $tukang->jk = $data['jk'];
-            $tukang->no_telp = $data['no_telp'];
-            $tukang->pendidikan = $data['pendidikan'];
-            $tukang->keahlian = $data['keahlian'];
-            $tukang->lain = $data['lain'];
-            $tukang->foto = $foto;
-            $tukang->save();
+        $tukang->nama = $data['nama'];
+        $tukang->alamat = $data['alamat'];
+        $tukang->no_ktp = $data['no_ktp'];
+        $tukang->foto_ktp = $foto_ktp;
+        $tukang->jk = $data['jk'];
+        $tukang->no_telp = $data['no_telp'];
+        $tukang->pendidikan = $data['pendidikan'];
+        $tukang->keahlian = $data['keahlian'];
+        $tukang->lain = $data['lain'];
+        $tukang->foto = $foto;
+        $tukang->save();
         return redirect(route('tukang'))->with('sukses', 'Data Berhasil diubah');
     }
     // $ktp = $request->file('foto_ktp')->store('client-img');

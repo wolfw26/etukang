@@ -3,8 +3,26 @@
 <h1>Halaman <strong style="color: brown;">Tukang</strong></h1>
 <div class="container">
     <div class="alert bg-gradient-navy">
-        <button class="btn btn-success" data-toggle="modal" data-target="#TambahMaterial">Tambah</button>
+        <div class="row">
+            <div class="col-6">
+                <button class="btn btn-success" data-toggle="modal" data-target="#TambahMaterial">Tambah</button>
+            </div>
+            <div class="col-6">
+                @if (session('tambah'))
+                <div class="alert alert-success d-flex justify-content-between">
+                    {{ session('tambah') }}
+                    <button type="button" class="btn btn-secondary" data-dismiss="alert">x</button>
+                </div>
+                @elseif (session('hapus'))
+                <div class="alert alert-warning d-flex justify-content-between">
+                    {{ session('hapus') }}
+                    <button type="button" class="btn btn-secondary" data-dismiss="alert">x</button>
+                </div>
+                @endif
+            </div>
+        </div>
     </div>
+
     <div class="row">
         <div class="col-7">
             <div class="card">
@@ -13,7 +31,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">No.</th>
+                                <th scope="col">Aksi</th>
                                 <th scope="col">Material</th>
                                 <th scope="col">Satuan</th>
                                 <th scope="col">Harga Satuan</th>
@@ -24,7 +42,14 @@
                         <tbody>
                             @foreach ($data as $d )
                             <tr>
-                                <th scope="row">1</th>
+                                <th scope="row">
+                                    <a href=" {{ route('material') }}/d/{{ $d->id }} " onclick="return confirm('Hapus Data   {{ $d->nama_material }} ');" class="btn btn-sm bg-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                    <a href=" {{ Route('material.edit',$d->id) }} " class="btn btn-sm bg-teal">
+                                        <i class="fas fa-edit" title="Edit" ></i>
+                                    </a>
+                                </th>
                                 <td> {{ $d->nama_material}}</td>
                                 <td> {{ $d->satuan}}</td>
                                 <td> {{ $d->harga_satuan}}</td>
@@ -89,13 +114,15 @@
                 <h5 class="modal-title" id="exampleModalLabel">Tambah Data Material</h5>
             </div>
             <div class="modal-body">
+                <form action="{{ route('material.add') }}" method="post">
+                    @csrf
                 <div class="row">
                     <div class="col-8">
                         <div class="form-floating mb-3 mt-3">
-                        <label for="material">1. Material </label>
-                        <input type="text" class="form-control" id="material" placeholder="material" name="material">
+                            <label for="material">1. Material </label>
+                            <input type="text" class="form-control" id="nama_material" placeholder="material" name="nama_material">
+                        </div>
                     </div>
-                </div>
                     <div class="col-4">
                         <div class="form-floating mb-3 mt-3">
                             <label for="satuan">2. satuan </label>
@@ -104,21 +131,32 @@
                     </div>
                 </div>
                 <div class="form-floating mb-3 mt-3">
-                    <label for="harga">3. Harga Satuan </label>
-                    <input type="text" class="form-control" id="harga" placeholder="harga Tukang" name="harga">
+                    <label for="harga_satuan">3. Harga Satuan </label>
+                    <input type="integer" class="form-control" id="harga_satuan" placeholder="Harga Satuan .." name="harga_satuan">
                 </div>
                 <div class="form-floating mb-3 mt-3">
                     <label for="jumlah">4. Jumlah </label>
-                    <input type="text" class="form-control" id="jumlah" placeholder="jumlah material" name="jumlah">
+                    <input type="integer" class="form-control" id="jumlah" placeholder="jumlah material" name="jumlah">
                 </div>
                 <div class="form-floating mb-3 mt-3">
-                    <label for="total">5. Total Harga </label>
-                    <input type="text" class="form-control" id="total" placeholder="total Harga" name="total">
+                    <label for="jumlah_harga">5. Jumlah Harga </label>
+                    <input type="integer" class="form-control" id="jumlah_harga" placeholder="jumlah_harga Harga" name="jumlah_harga">
+                </div>
+                <div class="form-floating mb-3 mt-3">
+                    <label for="proyek_id">6. proyek_id</label>
+                    <select class="form-select form-control" id="proyek_id" name="proyek_id">
+                        <option class=" active" disabled>Pilih Proyek</option>
+                        @foreach ($proyek as $d)
+                        <option value="{{ $d->id }}">{{ $d->nama_proyek }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                <button type="button" class="btn btn-primary">Tambahkan</button>
+                <button type="submit" class="btn btn-primary">Tambahkan</button>
+            </form>
             </div>
         </div>
     </div>

@@ -351,7 +351,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('adm/material') }}" class="nav-link">
+                            <a href="{{ route('material') }}" class="nav-link">
                                 <i class="nav-icon fas fa-arrow-circle-right"></i>
                                 <p>
                                     Data Material
@@ -359,7 +359,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('adm/material') }}" class="nav-link">
+                            <a href="{{ url('') }}" class="nav-link">
                                 <i class="fas fa-hammer nav-icon"></i>
                                 <p>
                                     Data Alat
