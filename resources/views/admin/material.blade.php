@@ -24,7 +24,7 @@
     </div>
 
     <div class="row">
-        <div class="col-7">
+        <div class="col-12">
             <div class="card">
                 <div class="card-header bg-green">Data Material</div>
                 <div class="card-body">
@@ -35,8 +35,6 @@
                                 <th scope="col">Material</th>
                                 <th scope="col">Satuan</th>
                                 <th scope="col">Harga Satuan</th>
-                                <th scope="col">Jumlah</th>
-                                <th scope="col">Total</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,14 +45,12 @@
                                         <i class="fas fa-trash"></i>
                                     </a>
                                     <a href=" {{ Route('material.edit',$d->id) }} " class="btn btn-sm bg-teal">
-                                        <i class="fas fa-edit" title="Edit" ></i>
+                                        <i class="fas fa-edit" title="Edit"></i>
                                     </a>
                                 </th>
                                 <td> {{ $d->nama_material}}</td>
                                 <td> {{ $d->satuan}}</td>
                                 <td> {{ $d->harga_satuan}}</td>
-                                <td> {{ $d->jumlah}}</td>
-                                <td> {{ $d->jumlah_harga}}</td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -62,9 +58,8 @@
                 </div>
                 <div class="card-footer">Next</div>
             </div>
-
         </div>
-        <div class="col-5">
+        {{-- <div class="col-5">
             <div class="card">
                 <div class="card-header">Data Material</div>
                 <div class="card-body">
@@ -101,7 +96,7 @@
                 <div class="card-footer"> Next</div>
             </div>
 
-        </div>
+        </div> --}}
     </div>
 </div>
 
@@ -116,47 +111,29 @@
             <div class="modal-body">
                 <form action="{{ route('material.add') }}" method="post">
                     @csrf
-                <div class="row">
-                    <div class="col-8">
-                        <div class="form-floating mb-3 mt-3">
-                            <label for="material">1. Material </label>
-                            <input type="text" class="form-control" id="nama_material" placeholder="material" name="nama_material">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="nama_material">1. Material </label>
+                                <input type="text" class="form-control" id="nama_material" placeholder="material" name="nama_material">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="satuan">2. satuan </label>
+                                <input type="text" class="form-control" id="satuan" placeholder="satuan " name="satuan">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="form-floating mb-3 mt-3">
-                            <label for="satuan">2. satuan </label>
-                            <input type="text" class="form-control" id="satuan" placeholder="satuan " name="satuan">
-                        </div>
+                    <div class="form-floating mb-3 mt-3">
+                        <label for="harga_satuan">3. Harga Satuan </label>
+                        <input type="integer" class="form-control" id="harga_satuan" placeholder="Harga Satuan .." name="harga_satuan">
                     </div>
-                </div>
-                <div class="form-floating mb-3 mt-3">
-                    <label for="harga_satuan">3. Harga Satuan </label>
-                    <input type="integer" class="form-control" id="harga_satuan" placeholder="Harga Satuan .." name="harga_satuan">
-                </div>
-                <div class="form-floating mb-3 mt-3">
-                    <label for="jumlah">4. Jumlah </label>
-                    <input type="integer" class="form-control" id="jumlah" placeholder="jumlah material" name="jumlah">
-                </div>
-                <div class="form-floating mb-3 mt-3">
-                    <label for="jumlah_harga">5. Jumlah Harga </label>
-                    <input type="integer" class="form-control" id="jumlah_harga" placeholder="jumlah_harga Harga" name="jumlah_harga">
-                </div>
-                <div class="form-floating mb-3 mt-3">
-                    <label for="proyek_id">6. proyek_id</label>
-                    <select class="form-select form-control" id="proyek_id" name="proyek_id">
-                        <option class=" active" disabled>Pilih Proyek</option>
-                        @foreach ($proyek as $d)
-                        <option value="{{ $d->id }}">{{ $d->nama_proyek }}</option>
-                        @endforeach
-                    </select>
-                </div>
             </div>
-
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                 <button type="submit" class="btn btn-primary">Tambahkan</button>
-            </form>
+                </form>
             </div>
         </div>
     </div>

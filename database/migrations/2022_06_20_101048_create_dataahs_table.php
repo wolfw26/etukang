@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('satuan');
             $table->string('harga_satuan');
             $table->string('total');
+            $table->string('kategori');
+
             $table->timestamps();
         });
     }

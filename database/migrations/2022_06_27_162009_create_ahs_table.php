@@ -17,8 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('kode_ahs');
             $table->string('nama_ahs');
-            $table->foreignId('rab_id');
-
             $table->timestamps();
         });
     }

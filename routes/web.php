@@ -2,6 +2,7 @@
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AhsController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\LoginController;
@@ -69,6 +70,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/material/', [MaterialController::class, 'index'])->name('material');
         Route::post('/material/{material:id}/edit', [MaterialController::class, 'edit'])->name('material.edit');
         Route::post('/material/', [MaterialController::class, 'store'])->name('material.add');
+
+        //AHS
+        Route::get('/ahs/', [AhsController::class, 'index'])->name('ahs');
+        Route::post('/ahs/', [AhsController::class, 'store'])->name('ahs.add');
 
         Route::get('/biaya/', function () {
             return view('admin.biaya', [
