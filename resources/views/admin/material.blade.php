@@ -41,7 +41,7 @@
                             @foreach ($data as $d )
                             <tr>
                                 <th scope="row">
-                                    <a href=" {{ route('material') }}/d/{{ $d->id }} " onclick="return confirm('Hapus Data   {{ $d->nama_material }} ');" class="btn btn-sm bg-danger">
+                                    <a href=" /adm/material/d/{{ $d->id }} " onclick="return confirm('Hapus Data   {{ $d->nama_material }} ');" class="btn btn-sm bg-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                     <a href=" {{ Route('material.edit',$d->id) }} " class="btn btn-sm bg-teal">

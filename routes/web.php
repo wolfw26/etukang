@@ -7,12 +7,13 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DataAhsController;
 use App\Http\Controllers\ProyekController;
 use App\Http\Controllers\TukangController;
 use App\Http\Controllers\PekerjaController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RegisterController;
-
+use App\Models\DataAhs;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,10 +71,15 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/material/', [MaterialController::class, 'index'])->name('material');
         Route::post('/material/{material:id}/edit', [MaterialController::class, 'edit'])->name('material.edit');
         Route::post('/material/', [MaterialController::class, 'store'])->name('material.add');
+        Route::get('/material/d/{id}', [MaterialController::class, 'delete'])->name('material.delete');
 
         //AHS
         Route::get('/ahs/', [AhsController::class, 'index'])->name('ahs');
         Route::post('/ahs/', [AhsController::class, 'store'])->name('ahs.add');
+        Route::get('/ahs/{ahs}', [AhsController::class, 'detail'])->name('ahs.detail');
+        Route::get('ahs/{id}/d', [AhsController::class, 'delete'])->name('ahs.delete');
+        Route::get('ahs/{id}/edit', [AhsController::class, 'edit'])->name('ahs.edit');
+        Route::post('dataahs/{id}', [DataAhsController::class, 'store'])->name('dataahs.add');
 
         Route::get('/biaya/', function () {
             return view('admin.biaya', [

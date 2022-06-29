@@ -14,6 +14,6 @@ class DataAhs extends Model
 
     public function ahs()
     {
-        return $this->belongsTo(Rab::class);
+        return $this->belongsTo(Ahs::class);
     }
 }

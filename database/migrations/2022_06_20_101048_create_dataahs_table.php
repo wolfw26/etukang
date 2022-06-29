@@ -15,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('dataahs', function (Blueprint $table) {
             $table->id();
-            $table->string('rincian_pekerjaan');
-            $table->integer('volume');
+            $table->string('rincian');
+            $table->float('volume');
             $table->string('satuan');
-            $table->string('harga_satuan');
-            $table->string('total');
+            $table->integer('harga_satuan');
+            $table->integer('total');
             $table->string('kategori');
+            $table->foreignId('ahs_id');
 
             $table->timestamps();
         });

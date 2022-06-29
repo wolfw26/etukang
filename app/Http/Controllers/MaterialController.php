@@ -38,4 +38,10 @@ class MaterialController extends Controller
 
         return redirect()->back()->with('tambah', 'Berhasil Ditambah');
     }
+    public function delete($id)
+    {
+        $data = Material::find($id);
+        $data->delete();
+        return redirect()->back()->with('sukses', 'Data Berhasil Terhapus');
+    }
 }

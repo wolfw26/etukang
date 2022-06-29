@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('kode_ahs');
             $table->string('nama_ahs');
+            $table->string('kategori');
             $table->timestamps();
         });
     }
