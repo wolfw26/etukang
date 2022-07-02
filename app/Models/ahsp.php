@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class ahsp extends Model
 {
     use HasFactory;
+    protected $table = 'ahsp';
+    protected $guarded = ['id'];
+
+
+    public function ahspdata()
+    {
+        return $this->hasMany(ahspdata::class);
+    }
 }

@@ -28,7 +28,7 @@
                                             @foreach ( $data as $d )
                                             <tr class="text-uppercase">
                                                 <th scope="row">
-                                                    <a href="{{ route('dataahs.delete',$d->id) }}" onclick="return confirm('Hapus Data');" class="btn btn-sm bg-danger">
+                                                    <a href="{{ route('ahspdata.delete',$d->id) }}" onclick="return confirm('Hapus Data');" class="btn btn-sm bg-danger">
                                                         <i class="fas fa-trash"></i>
                                                     </a>
                                                     <a href=" " class="btn btn-sm bg-teal">
@@ -49,11 +49,11 @@
                                     <div class="container-fluid border border-dark">
                                         <div class="row">
                                             <div class="col-10 text-bold">Total Upah</div>
-                                            <div class="col-2 text-bold text-muted bg-info text-center"> {{number_format( $ahs->total_upah,2)}} </div>
+                                            <div class="col-2 text-bold text-muted bg-info text-center"> {{number_format( $ahsp->total_upah,2)}} </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-10 text-bold">Total Bahan</div>
-                                            <div class="col-2 text-bold text-muted bg-info text-center"> {{number_format( $ahs->total_bahan,2) }} </div>
+                                            <div class="col-2 text-bold text-muted bg-info text-center"> {{number_format( $ahsp->total_bahan,2) }} </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-10 text-bold">Total</div>
@@ -79,7 +79,7 @@
                 <h5 class="modal-title" id="exampleModalLabel">Tambah Data AHS</h5>
             </div>
             <div class="modal-body">
-                <form action="{{ route('dataahs.add', $ahs->id) }}" method="post">
+                <form action="{{ route('ahspdata.add', $ahsp->id) }}" method="post">
                     @csrf
                     <div class="row">
                         <div class="col-8">

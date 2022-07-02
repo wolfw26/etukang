@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ahs;
+use App\Models\ahsp;
+use App\Models\ahspdata;
 use App\Models\DataAhs;
 use Illuminate\Http\Request;
 
-class DataAhsController extends Controller
+class AhspdataController extends Controller
 {
     public function store(Request $request, $id)
     {
@@ -19,7 +20,7 @@ class DataAhsController extends Controller
         $total = $koefisien * $data['harga_satuan'];
         // dd($total);
 
-        $ahs = new DataAhs;
+        $ahs = new ahspdata();
 
         $ahs->rincian = $data['nama_material'];
         $ahs->satuan = $data['satuan'];
@@ -27,13 +28,13 @@ class DataAhsController extends Controller
         $ahs->harga_satuan = $data['harga_satuan'];
         $ahs->total = $total;
         $ahs->kategori = $data['jenis_proyek'];
-        $ahs->ahs_id = $id;
+        $ahs->ahsp_id = $id;
         $ahs->save();
 
-        $total = Ahs::find($id);
-        $upah  = $total->dataahs->where('kategori', 'upah');
-        $bahan  = $total->dataahs->where('kategori', 'bahan');
-        $alat  = $total->dataahs->where('kategori', 'alat');
+        $total = ahsp::find($id);
+        $upah  = $total->ahspdata->where('kategori', 'upah');
+        $bahan  = $total->ahspdata->where('kategori', 'bahan');
+        $alat  = $total->ahspdata->where('kategori', 'alat');
         $total->total_upah = $upah->sum('total');
         $total->total_bahan = $bahan->sum('total');
         $total->total_alat = $alat->sum('total');
@@ -45,7 +46,7 @@ class DataAhsController extends Controller
     }
     public function delete($id)
     {
-        $data = DataAhs::find($id);
+        $data = ahspdata::find($id);
         $data->delete();
         return redirect()->back()->with('hapus', 'Data Berhasil Terhapus');
     }

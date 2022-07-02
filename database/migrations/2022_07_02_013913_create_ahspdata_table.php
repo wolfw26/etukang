@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('harga_satuan');
             $table->integer('total');
             $table->string('kategori');
-            $table->foreignId('ahs_id');
+            $table->foreignId('ahsp_id');
             $table->timestamps();
         });
     }

@@ -375,10 +375,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('adm/ahs') }}" class="nav-link">
+                            <a href="{{ url('adm/ahsp') }}" class="nav-link">
                                 <i class="fas fa-hammer nav-icon"></i>
                                 <p>
-                                    AHS
+                                    AHSP
                                 </p>
                             </a>
                         </li>
