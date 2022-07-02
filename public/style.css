@@ -2,8 +2,14 @@
   font-weight: 600;
   text-shadow: -1px 0px 1px orange;
 }
-#nav .nav-item:hover {
-  background-color: burlywood;
+nav ul li .nav-item:hover {
+  background-color: white;
+  color: navy;
+  border-radius: 3px;
+  transition: 0.8s;
+}
+nav ul li .nav-item:hover {
+  color: navy;
   border-radius: 3px;
   transition: 0.8s;
 }

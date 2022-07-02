@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('total_bahan')->nullable();
             $table->integer('total_alat')->nullable();
             $table->integer('total')->nullable();
+            $table->integer('profit')->nullable();
             $table->timestamps();
         });
     }

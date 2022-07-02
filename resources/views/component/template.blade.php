@@ -236,7 +236,7 @@
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2" id="nav">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" id="nav-item">
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
                         <li class="nav-header">EXAMPLES</li>
@@ -367,7 +367,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('adm/rab') }}" class="nav-link">
+                            <a href="{{ url('adm/rab/') }}" class="nav-link">
                                 <i class="fas fa-hammer nav-icon"></i>
                                 <p>
                                     RAB

@@ -11,10 +11,6 @@ class Proyek extends Model
     protected $table = 'proyek';
     protected $guarded = ['id'];
 
-    public function Material()
-    {
-        return $this->hasMany(Material::class);
-    }
     public function tukang()
     {
         return $this->belongsTo(tukang::class);

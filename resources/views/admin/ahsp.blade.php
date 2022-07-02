@@ -46,14 +46,7 @@
                 </div>
             </div>
         </div>
-        {{-- <button id="form_button">Klik menampilkan satu </button>
-        <button id="form_button_2">Klik menampilkan dua </button>
-        <div id="satu" class="active">
-            SAtu
-        </div>
-        <div id="dua" class="">
-            dua
-        </div> --}}
+
         <div class="col-4">
             <div class="card">
                 <div class="card-header bg-green"></div>
@@ -75,17 +68,24 @@
                         <div class="form-floating mb-3 mt-3">
                             <input type="text" name="kategori" id="kategori" placeholder="Kategori"><br>
                         </div>
+                        <div class="form-floating mb-3 mt-3">
+                            <input type="text" name="profit" id="profit" placeholder="Profit"><br>
+                        </div>
                         <button type="submit">Buat</button>
                     </form>
                 </div>
                 <div class="form-floating mb-3 mt-3 active" id="dua">
                     <label for="ahs">Pilih AHS</label>
-                    <select class="form-select form-control" id="ahs" name="ahs" required>
-                        <option class=" active" disabled>AHS</option>
-                        @foreach ( $data as $p )
-                        <option value="{{ $p->id }}">{{ $p->kode_ahs }}-{{ $p->nama_ahs }}</option>
-                        @endforeach
-                    </select>
+                    <form action="{{ route('ahsp.add') }}" method="POST">
+                        @csrf
+                        <select class="form-select form-control" id="ahs" name="ahs" required>
+                            <option class=" active" disabled>AHS</option>
+                            @foreach ( $data as $p )
+                            <option value="{{ $p->id }}">{{ $p->kode_ahs }}-{{ $p->nama_ahs }}</option>
+                            @endforeach
+                        </select>
+                        <button class=" btn btn-outline-success" type="submit">Tambah</button>
+                    </form>
                 </div>
             </div>
             <br>

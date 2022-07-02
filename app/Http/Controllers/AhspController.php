@@ -20,7 +20,14 @@ class AhspController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->all();
+        if ($request['ahs']) {
+            $data = ahsp::find($request['ahs']);
+        } else {
+            $data = $request->all();
+        }
+
+        dd($data);
+
 
         ahsp::class::create($data);
         return redirect()->route('ahsp');

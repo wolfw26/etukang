@@ -2,17 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Ahsp;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class ahspdata extends Model
+class Ahspdata extends Model
 {
     use HasFactory;
     protected $table = 'ahspdata';
     protected $guarded = ['id'];
 
+
     public function ahsp()
     {
-        return $this->belongsTo(Ahs::class);
+        $this->belongsTo(Ahsp::class);
     }
 }

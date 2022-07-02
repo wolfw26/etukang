@@ -11,8 +11,8 @@ class Rab extends Model
     protected $table = 'rab';
     protected $guarded = ['id'];
 
-    public function ahs()
+    public function datarab()
     {
-        return $this->hasMany(Ahs::class);
+        $this->hasMany(DataRab::class);
     }
 }

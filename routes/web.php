@@ -100,7 +100,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('ahspdata/d/{id}', [AhspdataController::class, 'delete'])->name('ahspdata.delete');
 
         // RAB
-        Route::get('/rab', [RabController::class, 'index'])->name('rab');
+        Route::get('/rab/', [RabController::class, 'index'])->name('rab');
 
         Route::get('/biaya/', function () {
             return view('admin.biaya', [
