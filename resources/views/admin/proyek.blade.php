@@ -110,26 +110,26 @@
                     <div class="col">
                         <form action="/adm/proyek/" method="post">
                             @csrf
-                        <div class="form-floating mb-3 mt-3">
-                            <label for="nama">1. Nama Proyek</label>
-                            <input type="text" class="form-control" id="nama_proyek" placeholder="Nama Proyek" name="nama_proyek">
-                        </div>
-                        <div class="form-floating mb-3 mt-3">
-                            <label for="alamat">2. Alamat Proyek</label>
-                            <input type="text" class="form-control" id="alamat" placeholder="alamat Proyek" name="alamat">
-                        </div>
-                        <div class="form-floating mb-3 mt-3">
-                            <label for="jenis_proyek">3. Jenis Proyek</label>
-                            <select class="form-select form-control" id="jenis_proyek" name="jenis_proyek">
-                                <option class=" active" disabled>Jenis-Proyek</option>
-                                <option value="pembangunan">Pembangunan</option>
-                                <option value="renovasi">Renovasi</option>
-                            </select>
-                        </div>
-                        <div class="form-floating mb-3 mt-3">
-                            <label for="luas_tanah">4. Luas Tanah</label>
-                            <input type="text" class="form-control" id="luas_tanah" placeholder="Luas Tanah Cth.24 (6 x 4) " name="luas_tanah">
-                        </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="nama">1. Nama Proyek</label>
+                                <input type="text" class="form-control" id="nama_proyek" placeholder="Nama Proyek" name="nama_proyek">
+                            </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="alamat">2. Alamat Proyek</label>
+                                <input type="text" class="form-control" id="alamat" placeholder="alamat Proyek" name="alamat">
+                            </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="jenis_proyek">3. Jenis Proyek</label>
+                                <select class="form-select form-control" id="jenis_proyek" name="jenis_proyek">
+                                    <option class=" active" disabled>Jenis-Proyek</option>
+                                    <option value="pembangunan">Pembangunan</option>
+                                    <option value="renovasi">Renovasi</option>
+                                </select>
+                            </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <label for="luas_tanah">4. Luas Tanah</label>
+                                <input type="text" class="form-control" id="luas_tanah" placeholder="Luas Tanah Cth.24 (6 x 4) " name="luas_tanah">
+                            </div>
                     </div>
                     <div class="col">
                         <div class="form-floating mb-3 mt-3">
@@ -149,7 +149,7 @@
                             <select class="form-select form-control" id="client" name="client">
                                 <option class=" active" disabled>Pilih Kepala Lapangan</option>
                                 @foreach ($client as $d)
-                                    <option value="{{ $d->id }}">{{ $d->nama }}</option>
+                                <option value="{{ $d->id }}">{{ $d->nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -158,7 +158,7 @@
                             <select class="form-select form-control" id="tukang" name="tukang">
                                 <option class=" active" disabled>Pilih Kepala Lapangan</option>
                                 @foreach ($tukang as $d)
-                                    <option value="{{ $d->id }}">{{ $d->nama }}</option>
+                                <option value="{{ $d->id }}">{{ $d->nama }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -168,7 +168,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Tambah</button>
-            </form>
+                </form>
             </div>
 
         </div>

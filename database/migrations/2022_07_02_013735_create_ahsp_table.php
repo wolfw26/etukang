@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ahs', function (Blueprint $table) {
+        Schema::create('ahsp', function (Blueprint $table) {
             $table->id();
             $table->string('kode_ahs')->nullable();
             $table->string('nama_ahs')->nullable();
@@ -22,7 +22,6 @@ return new class extends Migration
             $table->integer('total_bahan')->nullable();
             $table->integer('total_alat')->nullable();
             $table->integer('total')->nullable();
-            $table->foreignId('rab_id');
             $table->timestamps();
         });
     }
@@ -34,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ahs');
+        Schema::dropIfExists('ahsp');
     }
 };

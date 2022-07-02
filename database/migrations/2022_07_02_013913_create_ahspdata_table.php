@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dataahs', function (Blueprint $table) {
+        Schema::create('ahspdata', function (Blueprint $table) {
             $table->id();
             $table->string('rincian');
             $table->float('volume', 8, 3);
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dataahs');
+        Schema::dropIfExists('ahspdata');
     }
 };

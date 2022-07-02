@@ -367,6 +367,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ url('adm/rab') }}" class="nav-link">
+                                <i class="fas fa-hammer nav-icon"></i>
+                                <p>
+                                    RAB
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ url('adm/ahs') }}" class="nav-link">
                                 <i class="fas fa-hammer nav-icon"></i>
                                 <p>

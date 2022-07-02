@@ -35,7 +35,7 @@
 
 <body class="hold-transition login-page">
     <div class="container-fluid" style="height: 100% ;">
-        <div class="row" style="height: 100% ; background: url('/img/alat.jpg');background-size: cover; background-attachment: fixed; background-position: -30vh -15rem;">
+        <div class="row" style="height: 100% ;background-size: cover; background-attachment: fixed; background-position: -30vh -15rem;">
 
             <div class="col-8" style="margin-top:25vh ; padding:4px;  ">
                 <div class="container-fluid ">
@@ -48,16 +48,18 @@
                                     <button type="button" class="btn btn-secondary" data-dismiss="alert">x</button>
                                 </div>
                                 @endif
-                                <div class="card-header rounded-top" style="background-color: lime; font-weight:900; height:100%; margin-bottom:2px">
+                                <div class="card-header rounded-top bg-navy" style="background-color: gray; font-weight:900; height:100%; margin-bottom:2px">
                                     <a href="{{ asset('assets/index2.html') }}" style="color: white; text-shadow: 3px 2px 4px gray ">LOGIN</a>
                                 </div>
                                 <div class="card-body login-card-body  rounded-bottom p-5" style="height: 40vh ;">
                                     <form action="/" method="POST">
                                         @csrf
+                                        <label for="name">Username</label>
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control @error('name')
+
+                                            <input placeholder="Username" type="text" class="form-control @error('name')
                                                 is-invalid
-                                            @enderror " placeholder="Username" name="name" required autocomplete="off" value=" {{ old('name') }} ">
+                                            @enderror " name="name" required autocomplete="off" value=" {{ old('name') }} ">
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="fas fa-envelope"></span>
@@ -84,10 +86,10 @@
                                             </div>
                                             @enderror
                                         </div>
-                                        <div class="col-4"><button type="submit" class="btn   btn-block" style="background-color: lime;">Masuk</button></div>
+                                        <div class="col-4"><button type="submit" class="btn btn-outline-success">Masuk</button></div>
                                     </form>
                                 </div>
-                                <div class="card-footer rounded-bottom" style="background-color: lime;">
+                                <div class="card-footer rounded-bottom bg-navy" style="background-color: gray;">
 
                                 </div>
                             </div>
@@ -99,7 +101,7 @@
                 <div class="container-fluid border-left border-10" style="width: 50vh ; margin-right:0">
                     <div class="card shadow-lg mt-2">
                         <div class="card-header p-1">
-                            <div class="card-header rounded-top text-center p-3 bg-primary" style="font-weight:900; height:100%; font-size:20px; margin-bottom:2px">
+                            <div class="card-header rounded-top text-center p-3 bg-gray" style="font-weight:900; height:100%; font-size:20px; margin-bottom:2px">
                                 <a href="{{ asset('assets/index2.html') }}" style="color:white;text-shadow: 3px 2px 4px gray ">Registrasi</a>
                             </div>
                         </div>
@@ -215,7 +217,7 @@
 
                                     </div>
 
-                                    <div class="col-4"><button type="submit" class="btn btn-primary btn-block">Daftar</button></div>
+                                    <div class="col-4"><button type="submit" class="btn btn-outline-primary">Daftar</button></div>
                                 </form>
                             </div>
                         </div>

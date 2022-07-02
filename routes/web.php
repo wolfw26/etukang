@@ -1,19 +1,21 @@
 <?php
 
+use App\Models\Rab;
+use App\Models\DataAhs;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AhsController;
+use App\Http\Controllers\RabController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ClientController;
-use App\Http\Controllers\DataAhsController;
 use App\Http\Controllers\ProyekController;
 use App\Http\Controllers\TukangController;
+use App\Http\Controllers\DataAhsController;
 use App\Http\Controllers\PekerjaController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RegisterController;
-use App\Models\DataAhs;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,7 +81,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/ahs/{ahs}', [AhsController::class, 'detail'])->name('ahs.detail');
         Route::get('ahs/{id}/d', [AhsController::class, 'delete'])->name('ahs.delete');
         Route::get('ahs/{id}/edit', [AhsController::class, 'edit'])->name('ahs.edit');
+        Route::post('ahs/dataahs/', [AhsController::class, 'dataahs'])->name('ahs.dataahs');
         Route::post('dataahs/{id}', [DataAhsController::class, 'store'])->name('dataahs.add');
+        Route::get('dataahs/d/{id}', [DataAhsController::class, 'delete'])->name('dataahs.delete');
+
+        // RAB
+        Route::get('/rab', [RabController::class, 'index'])->name('rab');
 
         Route::get('/biaya/', function () {
             return view('admin.biaya', [
