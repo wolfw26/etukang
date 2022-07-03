@@ -62,6 +62,9 @@
                         </div>
                         <div class="card-footer">
                             <div class="text-right">
+                                <a href="{{ route('proyek.rab',$d->id) }}" class="btn btn-sm bg-cyan" title="rab">
+                                    RAB
+                                </a>
                                 <a href="#" class="btn btn-sm bg-teal" title="edit">
                                     <i class="fas fa-edit"></i>
                                 </a>

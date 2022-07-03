@@ -68,6 +68,7 @@ Route::middleware(['auth'])->group(function () {
         // Proyek
         Route::get('/proyek/', [ProyekController::class, 'index'])->name('proyek');
         Route::post('/proyek/', [ProyekController::class, 'store'])->name('proyek.add');
+        Route::get('/proyek/rab/{proyek:id}', ['ProyekController@rab'])->name('proyek.rab');
         Route::get('/proyek/{proyek}', [ProyekController::class, 'show'])->name('proyek.show');
         Route::get('/proyek/del/{id}', [ProyekController::class, 'trash'])->name('proyek.delete');
         // renovasi
@@ -95,12 +96,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/ahsp/{ahsp}', [AhspController::class, 'detail'])->name('ahsp.detail');
         Route::get('ahsp/{id}/d', [AhspController::class, 'delete'])->name('ahsp.delete');
         Route::get('ahsp/{id}/edit', [AhspController::class, 'edit'])->name('ahsp.edit');
-        Route::post('ahsp/ahspdata/', [AhspController::class, 'ahspdata'])->name('ahsp.dataahs');
+        Route::post('ahsp/dataahsp/', [AhspController::class, 'ahspdata'])->name('ahsp.dataahsp');
         Route::post('ahspdata/{id}', [AhspdataController::class, 'store'])->name('ahspdata.add');
         Route::get('ahspdata/d/{id}', [AhspdataController::class, 'delete'])->name('ahspdata.delete');
 
         // RAB
         Route::get('/rab/', [RabController::class, 'index'])->name('rab');
+        Route::post('/rab/', [RabController::class, 'store']);
 
         Route::get('/biaya/', function () {
             return view('admin.biaya', [

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ahs;
-use App\Models\ahsp;
-use App\Models\ahspdata;
+
+use App\Models\Ahsp;
 use App\Models\DataAhs;
+use App\Models\ahspdata;
 use Illuminate\Http\Request;
 
 class AhspController extends Controller
@@ -14,14 +15,14 @@ class AhspController extends Controller
     {
         return view('admin.ahsp', [
             'title' => 'AHS',
-            'data' => ahsp::all()
+            'data' => Ahsp::all()
         ]);
     }
 
     public function store(Request $request)
     {
         if ($request['ahs']) {
-            $data = ahsp::find($request['ahs']);
+            $data = Ahsp::find($request['ahs']);
         } else {
             $data = $request->all();
         }
@@ -29,23 +30,23 @@ class AhspController extends Controller
         dd($data);
 
 
-        ahsp::class::create($data);
+        Ahsp::class::create($data);
         return redirect()->route('ahsp');
     }
 
     public function delete($id)
     {
-        $data = ahsp::find($id);
+        $data = Ahsp::find($id);
         $data->delete();
         return redirect()->back()->with('sukses', 'Data Berhasil Terhapus');
     }
 
-    public function detail(ahsp $ahsp)
+    public function detail(Ahsp $ahsp)
     {
         return view('admin.detail.detailahsp', [
             'title' => 'Data AHS',
             'ahsp' => $ahsp,
-            'data' => $ahsp->ahspdata
+            'data' => $ahsp->dataahsp
 
         ]);
     }
@@ -57,7 +58,7 @@ class AhspController extends Controller
         $koefisien = number_format($data['volume'], 3);
         $total = $koefisien * $data['harga_satuan'];
 
-        $ahs = new ahspdata;
+        $ahs = new AhspData;
 
         $ahs->rincian = $data['nama_material'];
         $ahs->satuan = $data['satuan'];
@@ -68,10 +69,10 @@ class AhspController extends Controller
         $ahs->ahsp_id = $data['ahs'];
         $ahs->save();
 
-        $total = ahsp::find($data['ahs']);
-        $upah  = $total->ahspdata->where('kategori', 'upah');
-        $bahan  = $total->ahspdata->where('kategori', 'bahan');
-        $alat  = $total->ahspdata->where('kategori', 'alat');
+        $total = Ahsp::find($data['ahs']);
+        $upah  = $total->dataahsp->where('kategori', 'upah');
+        $bahan  = $total->dataahsp->where('kategori', 'bahan');
+        $alat  = $total->dataahsp->where('kategori', 'alat');
         $total->total_upah = $upah->sum('total');
         $total->total_bahan = $bahan->sum('total');
         $total->total_alat = $alat->sum('total');

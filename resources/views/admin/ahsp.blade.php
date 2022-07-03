@@ -101,7 +101,7 @@
                         @endif
                     </div>
                     <div class="card-body p-4">
-                        <form action="{{ route('ahsp.dataahs') }}" method="post">
+                        <form action="{{ route('ahsp.dataahsp') }}" method="post">
                             @csrf
                             <div class="form-floating mb-3 mt-3">
                                 <label for="ahs">Pilih AHS</label>

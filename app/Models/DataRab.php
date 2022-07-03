@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class DataRab extends Model
 {
     use HasFactory;
+    protected $table = 'datarab';
+    protected $guarded = ['id'];
 }

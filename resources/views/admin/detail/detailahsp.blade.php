@@ -1,5 +1,6 @@
 {{-- @dd($ahs->id) --}}
 @extends('component.template')
+
 @section('konten')
 <div class="container">
     <div class="row">
@@ -83,8 +84,21 @@
                     @csrf
                     <div class="row">
                         <div class="col-8">
-                            <div class="form-floating mb-3 mt-3">
+                            <div class="form-floating mb-3 mt-3" id="tes1">
+                                <label for="jenis_proyek">Jenis Data</label>
+                                <select class="form-select form-control" id="tes" name="tes" onchange="getValue();">
+                                    <option class=" active" disabled>Jenis-Data</option>
+                                    <option value="upah">Upah</option>
+                                    <option value="bahan">Bahan</option>
+                                    <option value="alat">Alat</option>
+                                </select>
+                            </div>
+                            <div class="form-floating mb-3 mt-3" id="keterangan">
                                 <label for="nama_material">Keterangan</label>
+                                <input type="text" class="form-control" id="nama_material" placeholder="Rincian" name="nama_material">
+                            </div>
+                            <div class="form-floating mb-3 mt-3 active" id="coba">
+                                <label for="nama_material">Coba</label>
                                 <input type="text" class="form-control" id="nama_material" placeholder="Rincian" name="nama_material">
                             </div>
                         </div>
@@ -103,14 +117,15 @@
                         <label for="harga_satuan">Harga Satuan</label>
                         <input type="integer" class="form-control" id="harga_satuan" placeholder="Harga Satuan .." name="harga_satuan">
                     </div>
-                    <div class="form-floating mb-3 mt-3">
-                        <label for="jenis_proyek">Jenis Data</label>
+
+                    <div class="input-group mb-3">
                         <select class="form-select form-control" id="jenis_proyek" name="jenis_proyek">
                             <option class=" active" disabled>Jenis-Data</option>
                             <option value="upah">Upah</option>
                             <option value="bahan">Bahan</option>
                             <option value="alat">Alat</option>
                         </select>
+                        <input type="text" class="form-control" placeholder="Bahan Material">
                     </div>
             </div>
             <div class="modal-footer">
@@ -121,4 +136,26 @@
         </div>
     </div>
 </div>
+<style>
+    .active {
+        display: none;
+    }
+</style>
+<script>
+    function getValue() {
+        var valueData = document.getElementById("tes").value;
+        var ket = document.getElementById("keterangan");
+        var coba = document.getElementById("coba");
+        console.log(valueData);
+        if (valueData == "bahan"){
+            coba.classList.remove('active')
+            ket.classList.add('active');
+        }else{
+            ket.classList.remove('active');
+            coba.classList.add('active')
+        }
+
+    }
+</script>
+
 @endsection

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('satuan');
             $table->integer('harga_satuan');
             $table->integer('total');
+            $table->foreignId('rab_id');
             $table->timestamps();
         });
     }

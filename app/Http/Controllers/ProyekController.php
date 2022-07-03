@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rab;
 use App\Models\Client;
 use App\Models\Proyek;
 use App\Models\Tukang;
@@ -73,6 +74,14 @@ class ProyekController extends Controller
         return view('admin.proyek', [
             'title' => 'Proyek',
             'data' => Proyek::all()
+        ]);
+    }
+
+    public function rab()
+    {
+        return view('admin.detail.rabproyek', [
+            'title' => 'Detail RAB',
+            'data' => $proyek
         ]);
     }
 }
