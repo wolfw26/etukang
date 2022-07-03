@@ -1,76 +1,82 @@
 @extends('component.template')
 @section('konten')
-<div class="container-fluid bg-gradient-light p-2">
-    <div class="row m-2">
-        <div class="col-6">
-            <table class="table table-borderless">
-                <thead>
-                    <tr>
-                        <th scope="col">Volume</th>
-                        <th scope="col" class="w-35 ">Pilih AHS</th>
-                        <th scope="col" class="w-20 ">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <form action="" method="post">
-                            @csrf
-                        <td>
-                            <div class="form-floating">
-                                <input type="text" name="volume_rab" id="volume_rab" placeholder="Volume Pekerjaan">
-                            </div>
-                        </td>
-                        <td>
-                            <select class="form-select form-control" id="ahs" name="ahs" required>
-                                <option class=" active" disabled>AHS</option>
-                                @foreach ( $data as $d )
-                                <option value="{{ $d->id }}">{{ $d->kode_ahs }} - {{ $d->nama_ahs }}</option>
-                                @endforeach
+<div class="row bg-gray-light p-3">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header bg-green d-flex justify-content-between">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-9">Daftar RAB</div>
+                        <div class="col-3">
+                            <button type="button" class="btn btn-primary align-content-end" data-toggle="modal" data-target="#TambahRab">
+                                Tambah
+                            </button> <br>
+                        </div>
+                    </div>
+                </div>
 
 
-                            </select>
-                        </td>
-                        <td>
-                            <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i></button>
-                        </td>
-                    </form>
-
-                    </tr>
-                </tbody>
-            </table>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="w-10 p-3">Aksi</th>
+                            <th scope="col" class="w-25 p-3">Nama</th>
+                            <th scope="col" class="w-25 p-3">Kode RAB</th>
+                            <th scope="col">Nama Proyek</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($data as $d )
+                        <tr>
+                            <th scope="col">
+                                <a href=" {{ route('ahsp') }}/d" onclick="return confirm('Hapus Data   ');" class="btn btn-sm bg-danger">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                                <a href=" {{ Route('ahsp.edit') }} " class="btn btn-sm bg-teal">
+                                    <i class="fas fa-edit" title="Edit"></i>
+                                </a>
+                                <a href="{{ route('ahsp.detail')}}" class="btn btn-sm bg-success">
+                                    <i class="fas fa-eye" title="view"></i>
+                                </a>
+                            </th>
+                            <td>{{ $d->nama_rab }}</td>
+                            <td class=" text-bold">{{ $d->kode_rab }}</td>
+                            <td>{{ $d->proyek_id }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    <div class="row m-2">
-        <div class="col-12">
-            <table class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>
+</div>
+
+<div class="modal" id="TambahRab">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tambah RAB</h5>
+            </div>
+            <form action="{{ route('rab.index') }}" method="post">
+                @csrf
+            <div class="modal-body">
+                <input class="form-control form-control-sm m-1" type="text" placeholder="Nama RAB" id="nama_rab" name="nama_rab">
+                <input class="form-control form-control-sm m-1" type="text" placeholder="Kode" id="kode_rab" name="kode_rab">
+                <select class="form-control form-select m-1" id="proyek_id" name="proyek_id">
+                    <option selected>Pilih Proyek</option>
+                    @foreach ( $proyek as $p )
+                    <option value="{{ $p->id }}">{{ $p->nama_proyek }}</option>
+                    @endforeach
+
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Tambah</button>
+            </form>
+            </div>
         </div>
     </div>
 </div>

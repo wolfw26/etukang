@@ -1,10 +1,8 @@
 <?php
 
-use App\Models\Rab;
 use App\Models\Client;
 use App\Models\Proyek;
 use App\Models\Tukang;
-use App\Models\DataAhs;
 use App\Models\Pekerja;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
@@ -101,7 +99,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('ahspdata/d/{id}', [AhspdataController::class, 'delete'])->name('ahspdata.delete');
 
         // RAB
-        Route::get('/rab/', [RabController::class, 'index'])->name('rab');
+        Route::get('/rab/', [RabController::class, 'index'])->name('rab.index');
         Route::post('/rab/', [RabController::class, 'store']);
 
         Route::get('/biaya/', function () {
