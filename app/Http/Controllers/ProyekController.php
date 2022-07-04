@@ -81,7 +81,7 @@ class ProyekController extends Controller
     {
         return view('admin.detail.rabproyek', [
             'title' => 'Detail RAB',
-            'data' => $proyek
+
         ]);
     }
 }

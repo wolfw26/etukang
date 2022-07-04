@@ -31,19 +31,19 @@
                         @foreach ($data as $d )
                         <tr>
                             <th scope="col">
-                                <a href=" {{ route('ahsp') }}/d" onclick="return confirm('Hapus Data   ');" class="btn btn-sm bg-danger">
+                                <a href=" " onclick="return confirm('Hapus Data   ');" class="btn btn-sm bg-danger">
                                     <i class="fas fa-trash"></i>
                                 </a>
-                                <a href=" {{ Route('ahsp.edit') }} " class="btn btn-sm bg-teal">
+                                <a href="  " class="btn btn-sm bg-teal">
                                     <i class="fas fa-edit" title="Edit"></i>
                                 </a>
-                                <a href="{{ route('ahsp.detail')}}" class="btn btn-sm bg-success">
+                                <a href="{{ route('rab.view',$d->id) }}" class="btn btn-sm bg-success">
                                     <i class="fas fa-eye" title="view"></i>
                                 </a>
                             </th>
                             <td>{{ $d->nama_rab }}</td>
                             <td class=" text-bold">{{ $d->kode_rab }}</td>
-                            <td>{{ $d->proyek_id }}</td>
+                            <td>{{ $d->proyek->nama_proyek }}</td>
                         </tr>
                         @endforeach
                     </tbody>

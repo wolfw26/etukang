@@ -101,6 +101,8 @@ Route::middleware(['auth'])->group(function () {
         // RAB
         Route::get('/rab/', [RabController::class, 'index'])->name('rab.index');
         Route::post('/rab/', [RabController::class, 'store']);
+        Route::get('/rab/{rab:id}', [RabController::class, 'detail'])->name('rab.view');
+        Route::post('/rab/add', [RabController::class, 'tambah'])->name('rab.add');
 
         Route::get('/biaya/', function () {
             return view('admin.biaya', [

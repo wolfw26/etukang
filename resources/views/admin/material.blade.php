@@ -1,7 +1,8 @@
 @extends('component.template')
 @section('konten')
-<h1>Halaman <strong style="color: brown;">Tukang</strong></h1>
+
 <div class="container">
+    <h1>Halaman <strong style="color: brown;">Material</strong></h1>
     <div class="alert bg-gradient-navy">
         <div class="row">
             <div class="col-6">

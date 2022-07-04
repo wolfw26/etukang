@@ -13,6 +13,11 @@ class Rab extends Model
 
     public function datarab()
     {
-        $this->hasMany(DataRab::class);
+        return $this->hasMany(DataRab::class);
+    }
+
+    public function proyek()
+    {
+        return $this->belongsTo(Proyek::class, 'proyek_id', 'id');
     }
 }

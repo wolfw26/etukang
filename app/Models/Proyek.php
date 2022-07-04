@@ -25,6 +25,6 @@ class Proyek extends Model
     }
     public function rab()
     {
-        return $this->hasMany(Rab::class);
+        return $this->hasMany(Rab::class, 'proyek_id', 'id');
     }
 }

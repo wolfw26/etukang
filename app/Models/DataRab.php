@@ -10,4 +10,9 @@ class DataRab extends Model
     use HasFactory;
     protected $table = 'datarab';
     protected $guarded = ['id'];
+
+    public function rab()
+    {
+        return $this->belongsTo(Rab::class);
+    }
 }
