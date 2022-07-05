@@ -17,9 +17,12 @@ class RabController extends Controller
         //         return $proyek;
         //     }
         // }
+        $rab = Rab::all();
+        // dd($rab);
         return view('admin.rab', [
             'title' => 'RAB',
-            'data' => Rab::all()
+            'data' => $rab,
+            'proyek' => Proyek::all()
         ]);
     }
     public function store(Request $request)
@@ -37,7 +40,7 @@ class RabController extends Controller
 
     public function detail(Rab $rab)
     {
-        $data = $rab->with('datarab')->get();
+        $data = $rab->datarab;
 
         return view('admin.detail.rabview', [
             'title' => 'View RAB',
@@ -45,18 +48,31 @@ class RabController extends Controller
             'data' => $data,
             'rab_id' => $rab->id
 
+
         ]);
     }
     public function tambah(Request $request)
     {
         // dd($request);
         $data = $request->all();
-        $ahsp = Ahsp::with('dataahsp')->get();
+        // dd($data['ahs']);
+        $ahsp = Ahsp::find($data['ahs']);
+        // dd($ahsp);
+        $dahsp = $ahsp->dataahsp;
+        // dd($dahsp);
         $ahs = $ahsp->find($data['ahs'])->dataahsp;
 
-        foreach ($ahs as $p) {
-            echo $p;
-        }
+        $rab = new DataRab;
+        $rab->rincian = $ahsp->nama_ahs;
+        $rab->volume = $data['volume_rab'];
+        $rab->satuan = "";
+        $rab->harga_satuan = $ahsp->total;
+        $rab->total = $data['volume_rab'] * $ahsp->total;
+        $rab->rab_id = $data['rab_id'];
+        $rab->save();
+        // foreach ($ahs as $p) {
+        //     echo $p;
+        // }
 
         // $datarab = new DataRab();
         // $datarab->rincian =
@@ -65,5 +81,22 @@ class RabController extends Controller
         // $datarab->harga_satuan =
         // $datarab->total =
         // $datarab->rab_id =;
+        return redirect()->back();
+    }
+
+    public function trash($rab, $datarab)
+    {
+        $data = Rab::find($rab);
+        $data = $data->datarab->find($datarab);
+        $data->delete();
+        return redirect()->back();
+    }
+
+    public function update(Request $request, $rab, $datarab)
+    {
+        $data = Rab::find($rab);
+        $data = $data->datarab->find($datarab);
+        $data->update($request->all());
+        return redirect()->back();
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use app\Http\Middleware;
 use App\Models\Client;
 use App\Models\Proyek;
 use App\Models\Tukang;
@@ -38,7 +39,8 @@ Route::post('/', [LoginController::class, 'login'])->name('login.log');
 Route::post('/logout', [LoginController::class, 'logout'])->name('login.logout');
 
 
-Route::middleware(['auth'])->group(function () {
+Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
+
     Route::group(['prefix' => 'adm'], function () {
 
         Route::get('/', function () {
@@ -53,7 +55,7 @@ Route::middleware(['auth'])->group(function () {
                 'client' => $client->count(),
                 'pekerja' => $pekerja->count(),
             ]);
-        })->middleware(['auth'])->name('admin.home');
+        })->name('admin.home');
         Route::get('/tukang/', [TukangController::class, 'index'])->name('tukang');
         Route::get('/tukang/del/{id}', [TukangController::class, 'trash'])->name('tukang.delete');
         Route::post('/tukang/', [TukangController::class, 'store'])->name('tukang.add');
@@ -66,8 +68,8 @@ Route::middleware(['auth'])->group(function () {
         // Proyek
         Route::get('/proyek/', [ProyekController::class, 'index'])->name('proyek');
         Route::post('/proyek/', [ProyekController::class, 'store'])->name('proyek.add');
-        Route::get('/proyek/rab/{proyek:id}', ['ProyekController@rab'])->name('proyek.rab');
-        Route::get('/proyek/{proyek}', [ProyekController::class, 'show'])->name('proyek.show');
+        Route::get('/proyek/rab/{proyek:id}', [ProyekController::class, 'rab'])->name('proyek.rab');
+        Route::get('/proyek/{proyek:id}', [ProyekController::class, 'show'])->name('proyek.show');
         Route::get('/proyek/del/{id}', [ProyekController::class, 'trash'])->name('proyek.delete');
         // renovasi
         // Route::get('/renovasi/' [])
@@ -102,6 +104,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/rab/', [RabController::class, 'index'])->name('rab.index');
         Route::post('/rab/', [RabController::class, 'store']);
         Route::get('/rab/{rab:id}', [RabController::class, 'detail'])->name('rab.view');
+        Route::get('/rab/d/{rab:id}/{datarab:id}/d', [RabController::class, 'trash'])->name('rab.trash');
+        Route::put('/rab/{rab:id}/{datarab:id}/u', [RabController::class, 'update'])->name('rab.update');
         Route::post('/rab/add', [RabController::class, 'tambah'])->name('rab.add');
 
         Route::get('/biaya/', function () {
@@ -123,7 +127,7 @@ Route::get('/client/', function () {
     return view('usertemplate', [
         'title' => 'Client'
     ]);
-});
+})->name('client.home');
 
 // ADMIN
 

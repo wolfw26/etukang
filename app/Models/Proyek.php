@@ -11,6 +11,18 @@ class Proyek extends Model
     protected $table = 'proyek';
     protected $guarded = ['id'];
 
+    public function scopeCari($query, array $cari)
+    {
+        if (isset($cari['cari']) ? $cari['cari'] : false) {
+            return $query->where('nama_proyek', 'like', '%' . request('cari') . '%')
+                ->orwhere('alamat', 'like', '%' . request('cari') . '%');
+        }
+        $query->when($cari['cari'] ?? false, function ($query, $cari) {
+            return $query->where('nama_proyek', 'like', '%' . $cari . '%')
+                ->orwhere('alamat', 'like', '%' . $cari . '%');
+        });
+    }
+
     public function tukang()
     {
         return $this->belongsTo(tukang::class);
@@ -25,6 +37,6 @@ class Proyek extends Model
     }
     public function rab()
     {
-        return $this->hasMany(Rab::class, 'proyek_id', 'id');
+        return $this->belongsTo(Rab::class);
     }
 }

@@ -42,6 +42,7 @@
             </table>
         </div>
     </div>
+
     <div class="row m-2">
         <div class="col-12">
             <table class="table table-striped table-bordered">
@@ -56,62 +57,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ( $data as $d )
+                    @foreach ($data as $d )
+
+
                     <tr class="text-uppercase">
                         <th scope="row">
-                            <a href="" onclick="return confirm('Hapus Data');" class="btn btn-sm bg-danger">
+                            <a href="{{ route('rab.trash',[$rab_id,$d->id]) }}" onclick="return confirm('Hapus Data');" class="btn btn-sm bg-danger">
                                 <i class="fas fa-trash"></i>
                             </a>
-                            <a href=" " class="btn btn-sm bg-teal">
+                            <button type="button" class="btn bg-teal btn-sm" data-toggle="modal" data-target="#modal{{ $d->id }}">
                                 <i class="fas fa-edit" title="Edit"></i>
-                            </a>
+                            </button>
+                            <!-- <a href="" class="btn btn-sm bg-teal">
+                            </a> -->
                         </th>
-                        <td class="text-uppercase"></td>
                         <td>{{ $d->rincian }}</td>
                         <td>{{ $d->volume }}</td>
                         <td>{{ $d->satuan }}</td>
-                        <td>{{ $d->harga_satuan }}</td>
-                        <td>{{ $d->total }}</td>
-
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <!-- <div class="card">
-        <div class="card-header bg-green">Data AHS</div>
-        <div class="card-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Aksi</th>
-                        <th scope="col">Rincian</th>
-                        <th scope="col">Volume</th>
-                        <th scope="col">Satuan</th>
-                        <th scope="col">Harga Satuan</th>
-                        <th scope="col">Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ( $data as $d )
-                    <tr class="text-uppercase">
-                        <th scope="row">
-                            <a href="" onclick="return confirm('Hapus Data');" class="btn btn-sm bg-danger">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                            <a href=" " class="btn btn-sm bg-teal">
-                                <i class="fas fa-edit" title="Edit"></i>
-                            </a>
-                        </th>
-                        <td class="text-uppercase"></td>
-                        <td>{{ $d->rincian }}</td>
-                        <td>{{ $d->volume }}</td>
-                        <td>{{ $d->satuan }}</td>
-                        <td>{{ $d->harga_satuan }}</td>
-                        <td>{{ $d->total }}</td>
-
+                        <td>{{ number_format($d->harga_satuan,2) }}</td>
+                        <td>{{ number_format($d->total,2) }}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -119,19 +83,39 @@
             <div class="container-fluid border border-dark">
                 <div class="row">
                     <div class="col-10 text-bold">Total Upah</div>
-                    <div class="col-2 text-bold text-muted bg-info text-center"> </div>
+                    <div class="col-2 text-bold text-muted bg-info text-center"> {{number_format( $data->sum('total'),2 )}} </div>
                 </div>
-                <div class="row">
-                    <div class="col-10 text-bold">Total Bahan</div>
-                    <div class="col-2 text-bold text-muted bg-info text-center"> </div>
+
+            </div>
+        </div>
+    </div>
+    @foreach ( $data as $d )
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal{{ $d->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <p align="center"> {{ $d->rincian }}</p>
+                    </h5>
                 </div>
-                <div class="row">
-                    <div class="col-10 text-bold">Total</div>
-                    <div class="col-2 text-bold text-muted bg-info text-center"> </div>
+                <div class="modal-body">
+                    <form action="{{ route('rab.update',[$rab_id,$d->id]) }}" method="post">
+                        @method('put')
+                        @csrf
+                        <input type="text" id="volume" name="volume" placeholder="Volume Pekerjaan" value="{{ old('volume', $d->volume) }} ">
+                        <input type="text" id="satuan" name="satuan" placeholder="Satuan" value="{{ old('satuan', $d->satuan) }} ">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
                 </div>
             </div>
         </div>
-        <button data-toggle="modal" data-target="#TambahAhs">Tambah</button>
-    </div> -->
-</div>
-@endsection
+    </div>
+    @endforeach
+    @endsection

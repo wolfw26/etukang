@@ -1,7 +1,19 @@
 {{-- @dd($data) --}}
 @extends('component.template')
 @section('konten')
-<h1>Halaman <strong style="color: brown;">AHS</strong></h1>
+<div class="row">
+    <h1>Halaman <strong style="color: brown;">AHS</strong></h1>
+    <div class="col-8 d-sm-flex justify-content-center mt-2">
+        <a href="{{ url()->previous() }}" class="btn-sm  m-2 p-1"> <i class=" fas fa-arrow-left"> </i> </a> <br>
+        <form action="/adm/ahsp">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search..." aria-label="Recipient's username" aria-describedby="button-addon2" name="cari" value=" {{ request('cari') }} ">
+                <button class="btn btn-outline-warning bg-navy" type="submit" id="button-addon2">cari</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-8">
@@ -41,7 +53,9 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            {{ $data->links() }}
                         </div>
+
                     </div>
                 </div>
             </div>

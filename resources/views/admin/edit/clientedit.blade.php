@@ -16,7 +16,7 @@
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <input type="date" class="form-control mb-2" id="kalender" name="kalender" required data-toggle="datetimepicker" value=" {{ old('kalender', $data->tgl_lahir) }} ">
+                            <input type="text" class="form-control mb-2" id="kalender" name="kalender" required data-toggle="datetimepicker" value=" {{ old('kalender', $data->tgl_lahir) }} ">
                         </div>
                         <div class="col-6">
                             <div class="input-group mb-3">
@@ -46,7 +46,7 @@
                 <div class="col">
                     <div class="form-floating mb-3 mt-3">
                         <label for="no_ktp">6. No KTP </label>
-                        <input  type="text" class="form-control" id="no_ktp" placeholder="No KTP ..." name="no_ktp" value=" {{ old('no_ktp', $data->no_ktp) }}" required>
+                        <input type="text" class="form-control" id="no_ktp" placeholder="No KTP ..." name="no_ktp" value=" {{ old('no_ktp', $data->no_ktp) }}" required>
                     </div>
                     <div class="custom-file">
                         <label for="image" class="form-label">7. Foto KTP</label><br>

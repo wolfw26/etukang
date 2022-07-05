@@ -7,6 +7,7 @@ use App\Models\Ahs;
 use App\Models\Ahsp;
 use App\Models\DataAhs;
 use App\Models\ahspdata;
+use App\Models\Material;
 use Illuminate\Http\Request;
 
 class AhspController extends Controller
@@ -15,7 +16,7 @@ class AhspController extends Controller
     {
         return view('admin.ahsp', [
             'title' => 'AHS',
-            'data' => Ahsp::all()
+            'data' => Ahsp::latest()->Cari(request(['cari']))->paginate(20)->withQueryString()
         ]);
     }
 
@@ -46,14 +47,14 @@ class AhspController extends Controller
         return view('admin.detail.detailahsp', [
             'title' => 'Data AHS',
             'ahsp' => $ahsp,
-            'data' => $ahsp->dataahsp
+            'data' => $ahsp->dataahsp,
+            'bahan' => Material::all()
 
         ]);
     }
 
     public function ahspdata(Request $request)
     {
-
         $data = $request->all();
         $koefisien = number_format($data['volume'], 3);
         $total = $koefisien * $data['harga_satuan'];
