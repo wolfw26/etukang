@@ -15,7 +15,7 @@ class ProyekController extends Controller
     {
         return view('admin.proyek', [
             'title' => 'Proyek',
-            'data' => Proyek::latest()->Cari(request(['cari']))->paginate(2)->withQueryString(),
+            'data' => Proyek::latest()->Cari(request(['cari']))->paginate(8)->withQueryString(),
             'tukang' => Tukang::get(['nama', 'id']),
             'client' => Client::get(['nama', 'id'])
         ]);
@@ -81,11 +81,9 @@ class ProyekController extends Controller
     {
         $data = Rab::where('proyek_id', $proyek->id)->get();
         $client = $proyek->client->nama;
-        foreach ($data as $d) {
-        }
-        $data = count($data);
+        $rab = count($data);
 
-        if ($data == 0) {
+        if ($rab == 0) {
 
             $new = new Rab;
             $new->nama_rab = $proyek->nama_proyek . $client;
@@ -93,6 +91,8 @@ class ProyekController extends Controller
             $new->proyek_id = $proyek->id;
             $new->save();
         }
-        return redirect()->route('rab.view', $d);
+        foreach ($data as $d) {
+            return redirect()->route('rab.view', $d);
+        }
     }
 }

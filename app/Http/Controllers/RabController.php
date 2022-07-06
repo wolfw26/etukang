@@ -27,15 +27,23 @@ class RabController extends Controller
     }
     public function store(Request $request)
     {
-        $data = $request->all;
+        $data = $request->all();
         $rab = new Rab;
 
-        $rab->nama_rab = $data->nama_rab;
-        $rab->kode_rab = $data->kode_rab;
-        $rab->proyek_id = $data->proyek_id;
+        $rab->nama_rab = $data['nama_rab'];
+        $rab->kode_rab = $data['kode_rab'];
+        $rab->proyek_id = $data['proyek_id'];
         $rab->save();
 
         return redirect()->route('rab.index');
+    }
+
+    public function delete($rab)
+    {
+
+        $data = Rab::find($rab);
+        $data->delete();
+        return redirect()->back();
     }
 
     public function detail(Rab $rab)
@@ -70,6 +78,11 @@ class RabController extends Controller
         $rab->total = $data['volume_rab'] * $ahsp->total;
         $rab->rab_id = $data['rab_id'];
         $rab->save();
+
+        $jumlah = Rab::find($data['rab_id']);
+
+        dd($jumlah->datarab);
+
         // foreach ($ahs as $p) {
         //     echo $p;
         // }

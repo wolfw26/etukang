@@ -58,8 +58,6 @@
                 </thead>
                 <tbody>
                     @foreach ($data as $d )
-
-
                     <tr class="text-uppercase">
                         <th scope="row">
                             <a href="{{ route('rab.trash',[$rab_id,$d->id]) }}" onclick="return confirm('Hapus Data');" class="btn btn-sm bg-danger">

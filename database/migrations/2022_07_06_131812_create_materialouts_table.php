@@ -13,16 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('material', function (Blueprint $table) {
+        Schema::create('materialouts', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_material');
-            $table->string('nama_material');
-            $table->integer('stok');
-            $table->string('satuan');
-            $table->integer('harga_satuan');
-            $table->integer('masuk');
-            $table->integer('keluar');
-            $table->integer('stok_akhir');
             $table->timestamps();
         });
     }
@@ -34,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('material');
+        Schema::dropIfExists('materialouts');
     }
 };

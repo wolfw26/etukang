@@ -102,7 +102,8 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
 
         // RAB
         Route::get('/rab/', [RabController::class, 'index'])->name('rab.index');
-        Route::post('/rab/', [RabController::class, 'store']);
+        Route::post('/rab/', [RabController::class, 'store'])->name('rab.store');
+        Route::get('/rab/{rab:id}/d', [RabController::class, 'delete'])->name('rab.delete');
         Route::get('/rab/{rab:id}', [RabController::class, 'detail'])->name('rab.view');
         Route::get('/rab/d/{rab:id}/{datarab:id}/d', [RabController::class, 'trash'])->name('rab.trash');
         Route::put('/rab/{rab:id}/{datarab:id}/u', [RabController::class, 'update'])->name('rab.update');

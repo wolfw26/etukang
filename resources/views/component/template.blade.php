@@ -81,15 +81,15 @@
                 </li>
 
                 <!-- Messages Dropdown Menu -->
-                <li class="nav-item dropdown">
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="far fa-comments"></i>
                         <span class="badge badge-danger navbar-badge">3</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
+                        <a href="#" class="dropdown-item"> -->
+                <!-- Message Start -->
+                <!-- <div class="media">
                                 <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
@@ -99,13 +99,13 @@
                                     <p class="text-sm">Call me whenever you can...</p>
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                                 </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
+                            </div> -->
+                <!-- Message End -->
+                <!-- </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
+                        <a href="#" class="dropdown-item"> -->
+                <!-- Message Start -->
+                <!-- <div class="media">
                                 <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
@@ -115,13 +115,13 @@
                                     <p class="text-sm">I got your message bro</p>
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                                 </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
+                            </div> -->
+                <!-- Message End -->
+                <!-- </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <!-- Message Start -->
-                            <div class="media">
+                        <a href="#" class="dropdown-item"> -->
+                <!-- Message Start -->
+                <!-- <div class="media">
                                 <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
@@ -131,15 +131,15 @@
                                     <p class="text-sm">The subject goes here</p>
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                                 </div>
-                            </div>
-                            <!-- Message End -->
-                        </a>
+                            </div> -->
+                <!-- Message End -->
+                <!-- </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
                     </div>
-                </li>
+                </li> -->
                 <!-- Notifications Dropdown Menu -->
-                <li class="nav-item dropdown">
+                <!-- <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="far fa-bell"></i>
                         <span class="badge badge-warning navbar-badge">15</span>
@@ -164,7 +164,7 @@
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i class="fas fa-expand-arrows-alt"></i>
@@ -255,7 +255,7 @@
                                         <p>Semua Data</p>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Tahap Perencanaan</p>
@@ -272,10 +272,10 @@
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Proyek Selesai</p>
                                     </a>
-                                </li>
+                                </li> -->
                             </ul>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-house-damage"></i>
                                 <p>
@@ -309,7 +309,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a href="{{ url('adm/client') }}" class="nav-link">
                                 <i class="nav-icon far fa-user"></i>
@@ -334,22 +334,22 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="{{ url('adm/biaya') }}" class="nav-link">
                                 <i class="nav-icon fas fa-book-open"></i>
                                 <p>
                                     Data Biaya
                                 </p>
                             </a>
-                        </li>
-                        <li class="nav-item">
+                        </li> -->
+                        <!-- <li class="nav-item">
                             <a href="{{ url('adm/pembayaran') }}" class="nav-link">
                                 <i class="nav-icon fas fa-book-reader"></i>
                                 <p>
                                     Data Pembayaran
                                 </p>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a href="{{ route('material') }}" class="nav-link">
                                 <i class="nav-icon fas fa-arrow-circle-right"></i>
@@ -358,14 +358,14 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="{{ url('') }}" class="nav-link">
                                 <i class="fas fa-hammer nav-icon"></i>
                                 <p>
                                     Data Alat
                                 </p>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a href="{{ url('adm/rab/') }}" class="nav-link">
                                 <i class="fas fa-hammer nav-icon"></i>
@@ -382,7 +382,7 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="starter.html" class="nav-link">
                                 <i class="nav-icon fas fa-columns"></i>
                                 <p>
@@ -405,8 +405,8 @@
                                     Card
                                 </p>
                             </a>
-                        </li>
-                        <li class="nav-item">
+                        </li> -->
+                        <!-- <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon far fa-envelope"></i>
                                 <p>
@@ -434,7 +434,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

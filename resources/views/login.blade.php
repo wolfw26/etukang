@@ -48,7 +48,7 @@
                                     <button type="button" class="btn btn-secondary" data-dismiss="alert">x</button>
                                 </div>
                                 @endif
-                                <div class="card-header rounded-top bg-navy" style="background-color: gray; font-weight:900; height:100%; margin-bottom:2px">
+                                <div class="card-header rounded-top bg-navy text-center" style="background-color: gray; font-weight:900; height:100%; margin-bottom:2px">
                                     <a href="{{ asset('assets/index2.html') }}" style="color: white; text-shadow: 3px 2px 4px gray ">LOGIN</a>
                                 </div>
                                 <div class="card-body login-card-body  rounded-bottom p-5" style="height: 40vh ;">

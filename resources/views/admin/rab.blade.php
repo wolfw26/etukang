@@ -30,7 +30,7 @@
                             @foreach ($data as $d )
                             <tr>
                                 <th scope="col">
-                                    <a href=" " onclick="return confirm('Hapus Data   ');" class="btn btn-sm bg-danger">
+                                    <a href="{{ route('rab.delete',$d->id) }}" onclick="return confirm('Hapus Data {{ $d->nama_rab }}  ');" class="btn btn-sm bg-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                     <a href="  " class="btn btn-sm bg-teal">
@@ -60,7 +60,7 @@
             <div class="modal-header">
                 <h5 class="modal-title">Tambah RAB</h5>
             </div>
-            <form action="{{ route('rab.index') }}" method="post">
+            <form action="{{ route('rab.store') }}" method="post">
                 @csrf
                 <div class="modal-body">
                     <input class="form-control form-control-sm m-1" type="text" placeholder="Nama RAB" id="nama_rab" name="nama_rab">
@@ -70,7 +70,6 @@
                         @foreach ( $proyek as $p )
                         <option value="{{ $p->id }}">{{ $p->nama_proyek }}</option>
                         @endforeach
-
                     </select>
                 </div>
                 <div class="modal-footer">
