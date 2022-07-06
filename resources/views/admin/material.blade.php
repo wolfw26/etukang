@@ -33,9 +33,14 @@
                         <thead>
                             <tr>
                                 <th scope="col">Aksi</th>
+                                <th scope="col">Kode</th>
                                 <th scope="col">Material</th>
                                 <th scope="col">Satuan</th>
                                 <th scope="col">Harga Satuan</th>
+                                <th scope="col">Stok</th>
+                                <th scope="col">Masuk</th>
+                                <th scope="col">Keluar</th>
+                                <th scope="col">stok akhir</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -49,15 +54,20 @@
                                         <i class="fas fa-edit" title="Edit"></i>
                                     </a>
                                 </th>
+                                <td> {{ $d->kode_material}}</td>
                                 <td> {{ $d->nama_material}}</td>
                                 <td> {{ $d->satuan}}</td>
                                 <td> {{ $d->harga_satuan}}</td>
+                                <td> {{ $d->stok}}</td>
+                                <td> {{ $d->masuk}}</td>
+                                <td> {{ $d->keluar}}</td>
+                                <td> {{ $d->stok_akhir}}</td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
-                <div class="card-footer">Next</div>
+                <div class="card-footer">{{ $data->links() }}</div>
             </div>
         </div>
         {{-- <div class="col-5">

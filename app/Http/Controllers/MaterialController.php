@@ -14,7 +14,7 @@ class MaterialController extends Controller
 
         return view('admin.material', [
             'title' => 'Data Material',
-            'data' => Material::all(),
+            'data' => Material::latest()->paginate(10),
             'proyek' => Proyek::all()
         ]);
     }

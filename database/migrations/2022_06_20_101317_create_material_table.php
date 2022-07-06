@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('kode_material');
             $table->string('nama_material');
-            $table->integer('stok');
+            $table->integer('stok')->nullable();
             $table->string('satuan');
             $table->integer('harga_satuan');
-            $table->integer('masuk');
-            $table->integer('keluar');
-            $table->integer('stok_akhir');
+            $table->integer('masuk')->nullable();
+            $table->integer('keluar')->nullable();
+            $table->integer('stok_akhir')->nullable();
             $table->timestamps();
         });
     }

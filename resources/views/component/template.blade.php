@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
     <!-- Style -->
     <link rel="stylesheet" href=" {{ asset('style.css') }}">
+    @livewireStyles
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -533,6 +534,7 @@
         //     });
         // })
     </script>
+    @livewireScripts
 </body>
 
 </html>

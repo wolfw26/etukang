@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('materialouts', function (Blueprint $table) {
             $table->id();
+            $table->date('tanggal');
+            $table->string('kode_material');
+            $table->string('nama_material');
+            $table->integer('jumlah');
+            $table->foreignId('material_id');
             $table->timestamps();
         });
     }
