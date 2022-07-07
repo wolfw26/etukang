@@ -23,6 +23,7 @@ class MaterialController extends Controller
     {
 
         $request->validate([
+            'kode_material' => 'required',
             'nama_material' => 'required|string',
             'satuan' => 'required',
             'harga_satuan' => 'required|integer',
@@ -31,6 +32,7 @@ class MaterialController extends Controller
         $data = $request->all();
         $material = new Material;
 
+        $material->kode_material = $data['kode_material'];
         $material->nama_material = $data['nama_material'];
         $material->satuan = $data['satuan'];
         $material->harga_satuan = $data['harga_satuan'];
