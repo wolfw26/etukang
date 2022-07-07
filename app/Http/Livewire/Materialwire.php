@@ -8,6 +8,12 @@ use App\Models\Material;
 class Materialwire extends Component
 {
     public $cari;
+
+    public function addMaterial(Material $id)
+    {
+        dd($id);
+    }
+
     public function render()
     {
         return view('livewire.materialwire', [

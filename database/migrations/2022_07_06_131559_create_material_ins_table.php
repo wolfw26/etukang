@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('kode_material');
             $table->string('nama_material');
             $table->integer('jumlah');
+            $table->string('satuan');
+            $table->integer('harga_satuan');
             $table->foreignId('material_id');
             $table->timestamps();
         });

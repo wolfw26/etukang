@@ -50,7 +50,7 @@
                                     <a href=" /adm/material/d/{{ $d->id }} " onclick="return confirm('Hapus Data   {{ $d->nama_material }} ');" class="btn btn-sm bg-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
-                                    <a href=" {{ Route('material.edit',$d->id) }} " class="btn btn-sm bg-teal">
+                                    <a wire:click="addMaterial( {{ $d->id }})" href="#" class="btn btn-sm bg-teal">
                                         <i class="fas fa-edit" title="Edit"></i>
                                     </a>
                                 </th>

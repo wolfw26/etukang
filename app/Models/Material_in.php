@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Material_in extends Model
 {
     use HasFactory;
+    protected $table = 'material_ins';
+    protected $guarded = ['id'];
+
+    public function material()
+    {
+        return $this->belongsTo(Material::class);
+    }
 }

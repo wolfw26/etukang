@@ -1,7 +1,7 @@
 @extends('component.template')
 @section('konten')
 
-<div class="container mb-3">
+<div class="container-fluid mb-3 p-0">
     {{-- <h1 class="text-center">Halaman <strong style="color: brown;">Material</strong></h1> --}}
     @livewire('material-index')
 </div>

@@ -127,7 +127,6 @@
                                     <div class="row">
                                         <div class="col-6">
                                             <input type="date" class="form-control mb-2" id="tanggal" name="tanggal" required data-toggle="datetimepicker">
-
                                         </div>
                                         <div class="col-6">
                                             <div class="input-group mb-3">
