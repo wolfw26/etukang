@@ -21,6 +21,7 @@ use App\Http\Controllers\PekerjaController;
 use App\Http\Controllers\AhspdataController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Livewire\DataAhs;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,7 +94,8 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         //AHS
         Route::get('/ahsp/', [AhspController::class, 'index'])->name('ahsp');
         Route::post('/ahsp/', [AhspController::class, 'store'])->name('ahsp.add');
-        Route::get('/ahsp/{ahsp}', [AhspController::class, 'detail'])->name('ahsp.detail');
+        // Route::get('/ahsp/{ahsp}', [AhspController::class, 'detail'])->name('ahsp.detail');
+        Route::get('/ahsp/{ahsp}', DataAhs::class)->name('ahsp.detail');
         Route::get('ahsp/{id}/d', [AhspController::class, 'delete'])->name('ahsp.delete');
         Route::get('ahsp/{id}/edit', [AhspController::class, 'edit'])->name('ahsp.edit');
         Route::post('ahsp/dataahsp/', [AhspController::class, 'ahspdata'])->name('ahsp.dataahsp');
