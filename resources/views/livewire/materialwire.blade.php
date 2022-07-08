@@ -54,14 +54,14 @@
                                         <i class="fas fa-edit" title="Edit"></i>
                                     </a>
                                 </th>
-                                <td> {{ $d->kode_material}}</td>
+                                <td class="text-bold"> <u> {{ $d->kode_material}}</u></td>
                                 <td> {{ $d->nama_material}}</td>
                                 <td> {{ $d->satuan}}</td>
-                                <td> {{ $d->harga_satuan}}</td>
-                                <td> {{ $d->stok}}</td>
-                                <td> {{ $d->masuk}}</td>
+                                <td> {{ number_format($d->harga_satuan,2)}}</td>
+                                <td class="text-bold"> {{ $d->stok}}</td>
+                                <td class="text-bold text-success"> {{ $d->masuk}}</td>
                                 <td> {{ $d->keluar}}</td>
-                                <td> {{ $d->stok_akhir}}</td>
+                                <td class="text-bold"> {{ $d->stok_akhir}}</td>
                             </tr>
                             @endforeach
                         </tbody>
