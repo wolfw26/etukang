@@ -14,6 +14,7 @@ class AhspData extends Model
 
     public function ahsp()
     {
+
         return $this->belongsTo(Ahsp::class);
     }
 }

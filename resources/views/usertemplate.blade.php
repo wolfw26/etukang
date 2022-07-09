@@ -18,12 +18,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href=" {{ asset('dist/css/adminlte.min.css') }}">
 </head>
 
-<body class="hold-transition sidebar-collapse layout-top-nav">
+<body class="hold-transition layout-top-nav">
     <div class="wrapper">
-
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
-            <div class="container">
+            <div class="container-fluid p-3">
                 <a href="../../index3.html" class="navbar-brand">
                     <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                     <span class="brand-text font-weight-light">{{ Auth::user()->name }}</span>
@@ -94,7 +93,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
 
                 <!-- Right navbar links -->
-                <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+                <ul class="order-1 order-md-3 collapse navbar-collapse navbar-nav navbar-no-expand ml-auto " id="navbarCollapse">
                     <!-- Messages Dropdown Menu -->
                     <li class="nav-item dropdown">
                         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -195,132 +194,112 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </nav>
         <!-- /.navbar -->
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper bg-cyan">
-            <!-- Content Header (Page header) -->
-            <div class="content-header" style="color: navy ;">
-                <div class="container">
-                    <div class="row mb-2 ">
-                        <div class="col-9 p-1">
-                            <div class="card shadow-md">
-                                <div class="card-header bg-gradient-fuchsia">
-                                    Konten
-                                </div>
-                                <header class="p-2" style="height: 100vh ;background-image: url({{ asset('img/wave.png') }}); background-size:cover;">
-                                    <div class="row p-2" style=" font-weight:800">
-                                        <div class="col-6">
-                                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur eum dolorem incidunt quisquam provident sequi a ipsam alias aliquid! Laborum assumenda aspernatur facere velit. Hic aut provident nemo excepturi ad.
-                                            Reprehenderit quod tempora, modi commodi tenetur, minima repellat sit id quos officiis distinctio quae eaque consectetur, quaerat error aliquid. Molestias officiis harum qui tempore ratione repellendus atque aspernatur reprehenderit quam.
-                                            Pariatur aliquam nesciunt assumenda illum labore odio perferendis impedit natus exercitationem recusandae, saepe deserunt cum nam, at quasi, deleniti delectus fugit rerum illo! Porro quas et nam, explicabo dolorem pariatur.
-                                            Voluptates porro laboriosam cumque amet pariatur sit placeat numquam eligendi distinctio. Voluptatem nulla sequi nemo officiis ut dolorum alias? Excepturi molestiae eaque tempora numquam cum illum tempore animi similique adipisci?
-                                            Quibusdam dignissimos omnis nostrum ut libero saepe laborum explicabo eos facilis, iusto laudantium eum accusantium repellat delectus facere possimus sint voluptatibus reprehenderit praesentium minima, aliquam ea! Cumque sit dicta ratione.
-                                        </div>
-                                        <div class="col-6">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut odio officia blanditiis assumenda odit harum, facilis autem, dolores fugit sit placeat facere rerum suscipit tempora id distinctio enim laborum minus.
-                                            Earum quibusdam impedit sed praesentium quaerat dolor ipsum harum. Quos, ducimus asperiores officiis ab consequatur qui est sed commodi et odit ex ipsa veniam ullam voluptas fuga autem ipsam eveniet.
-                                            Ullam perferendis sapiente ex, quo sequi quis aut hic fuga voluptatum quod alias ab necessitatibus itaque suscipit? Veritatis, blanditiis ratione error fugiat veniam exercitationem molestias dolorem dolores a, natus quos.
-                                            Quia mollitia voluptas distinctio tempore nobis accusantium eligendi repellat. Sint est sapiente id aliquam doloremque esse cupiditate quo ea magnam omnis, aliquid debitis inventore ab veritatis, sequi placeat, vel modi.
-                                        </div>
-                                    </div>
-                                </header>
-                                <div class="card-body text-black" style="background-image: url({{ asset('img/waveup.png') }}); image-size:cover;background-repeat: no-repeat ; ">
-                                    <p class=" text-blue">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus nihil eveniet non! Exercitationem omnis itaque, consequuntur nesciunt earum doloribus, atque dignissimos, facere amet animi vitae error ut eveniet voluptatem porro?
-                                        At maiores eligendi nesciunt dignissimos ipsam? Alias pariatur deserunt numquam nihil fugit quod doloribus distinctio nulla eum et, blanditiis repellendus iusto inventore possimus nesciunt? Ratione tenetur molestiae exercitationem cupiditate architecto.
-                                        Optio praesentium natus quia perferendis. Culpa assumenda repudiandae, cumque minus iusto ab porro quam harum dolor quia impedit dolore perferendis asperiores laborum recusandae voluptatibus aut. Placeat saepe quidem quam suscipit.
-                                        Rem vero suscipit totam. Odit earum pariatur officia incidunt blanditiis in recusandae eaque, alias id exercitationem asperiores delectus excepturi praesentium cumque sint modi sit repellat molestias obcaecati ex consectetur? Cupiditate.
-                                        Consequuntur dignissimos pariatur ipsam sequi assumenda explicabo in est sint sapiente voluptas beatae, reprehenderit, voluptate quisquam nam! Error beatae excepturi ex optio, impedit assumenda consequatur. Eveniet quo tempore consequatur aliquid.
-                                        Cupiditate ipsam aut libero eos labore unde ea quia adipisci facilis. Omnis corporis dignissimos quae, soluta quis exercitationem itaque eveniet eum nihil sunt maxime. Itaque voluptate porro autem modi ab!
-                                        Velit officia, quia quaerat fugit nam quam voluptatum placeat dolores numquam illo consequuntur, maiores pariatur, dolore harum repellat voluptatem facere? Ea optio sit similique velit at debitis hic dolores quaerat.
-                                        Placeat rerum fuga amet repellat laborum deleniti. Odio commodi nobis eos sed harum quam eum aperiam reprehenderit quas quis doloribus beatae facilis maxime, quisquam dolore a blanditiis? Libero, iusto dolore?
-                                        Reprehenderit, molestiae. Aut quia eaque harum est tempora enim dolore? Vero totam iure animi alias dolore, optio doloremque quam incidunt non corrupti quidem! Atque earum molestias dolor mollitia. Illum, vero.
-                                        Omnis earum suscipit voluptatem fuga voluptate saepe. Expedita, doloremque? Quibusdam eveniet, molestiae harum cumque atque laborum veniam eum, a aperiam provident facilis, nostrum ab neque odit obcaecati sunt vel ut.
-                                        Dolorem, sapiente. Eius in corrupti cumque? Deleniti, provident. Aperiam rem nostrum quaerat mollitia, excepturi porro quos quibusdam necessitatibus maxime aspernatur soluta sint fugit, neque, et reiciendis saepe sit voluptatem consectetur!
-                                        Dignissimos iste a quo cupiditate iure sunt aperiam inventore animi, tempore delectus, et eum, qui natus dolore dicta? Incidunt natus aliquid voluptatibus repellat dolorem reprehenderit praesentium sapiente ducimus doloribus recusandae.
-                                        Adipisci, error vero earum a porro rem obcaecati deleniti repellat maiores, inventore debitis esse doloremque mollitia. Cupiditate obcaecati, commodi ducimus non eius voluptas soluta numquam adipisci incidunt harum explicabo fuga!
-                                        Culpa perspiciatis voluptate odio a consectetur sapiente pariatur ad esse error quas ut accusamus inventore commodi quam corrupti voluptas ducimus harum, dolorum sit assumenda molestiae et officia. Velit, enim eius.
-                                        Maxime eveniet dolore fugit dignissimos voluptatum repudiandae qui soluta provident, vero exercitationem a assumenda quaerat dolores earum velit nostrum, necessitatibus fuga dolorem laudantium perferendis recusandae molestias distinctio aliquid. Atque, dicta?
-                                        Velit, eos omnis pariatur ut dolorum neque ab eligendi debitis unde numquam quas explicabo magni, ea est dolorem. At non est, maiores sit reprehenderit excepturi nisi ut culpa. Cum, explicabo?
-                                        Reiciendis, quidem. Est sequi architecto obcaecati aperiam dolore nisi error eaque? Odit minima corporis asperiores ipsam quas dolor, exercitationem vero a atque, quos voluptates maxime odio dolores, ducimus enim! Deserunt?
-                                        Qui aut corporis possimus nulla minima eligendi. Dolore eveniet laudantium, quia cumque omnis optio voluptates praesentium mollitia impedit sunt, autem similique adipisci nesciunt reprehenderit dicta, voluptatum odit ratione ex! Tempore.
-                                        Magnam, aperiam debitis laudantium aliquid officia veniam dolore distinctio similique labore! Quasi porro ex velit adipisci exercitationem at provident, sed, aut eius unde repellat enim quia dolorem est dolor? Ad?
-                                        Beatae veniam dignissimos et amet? Maiores vel ad impedit, repudiandae inventore earum. Maiores rerum, ullam commodi tempore deserunt eius fugiat dolores saepe! Provident maxime ducimus quaerat, voluptatibus dolorum quia quae.
-                                        Alias corporis aut harum, assumenda ab aliquid blanditiis in ullam quae similique, ea ex, veniam libero expedita enim facere et fuga maxime quos commodi? Delectus numquam voluptates blanditiis ducimus quia?
-                                        A ipsa aspernatur nihil quae excepturi ad quia magni ex, numquam nisi incidunt. Sit officiis dolore, similique optio earum unde architecto consequuntur, et omnis eligendi libero fugiat impedit quasi recusandae.
-                                        Suscipit incidunt est aliquam totam beatae exercitationem unde nesciunt ex magnam fuga tempora, veritatis possimus laborum reiciendis quo adipisci dicta, at harum. Nesciunt, culpa ex deserunt blanditiis illum aspernatur animi!
-                                        Voluptate cum magnam aliquid fugiat, dolores fuga omnis iste ad reiciendis neque atque corporis modi unde odio pariatur eius repellat commodi architecto maiores similique adipisci. Suscipit ut quas in architecto.
-                                        Dignissimos sint facilis praesentium dolores voluptates exercitationem tempora delectus eius, dolorem omnis minima. Autem possimus asperiores ratione corrupti dignissimos voluptate numquam mollitia ab? Assumenda commodi, sunt in quasi adipisci repudiandae.
-                                        Aliquid modi magni, sit praesentium perferendis necessitatibus molestias, quo, molestiae aliquam suscipit commodi dolorum. Sapiente obcaecati neque aperiam cupiditate corrupti nobis quod sunt repellendus quo in. Quibusdam nisi autem temporibus.
-                                        Est dolores soluta officia nihil distinctio iure expedita modi omnis facilis sint inventore, atque non, asperiores quaerat nobis laudantium aliquam animi tenetur, incidunt maxime! Iure natus impedit tenetur repudiandae sint.
-                                        Debitis assumenda repellendus cupiditate est obcaecati pariatur facere recusandae reiciendis id et earum nemo porro tenetur non quo, aspernatur dolore adipisci beatae ipsam rem odit deleniti quod laborum amet. Dicta.
-                                        Culpa, vero voluptas, omnis aspernatur perspiciatis error iusto incidunt itaque recusandae esse aliquid deserunt tenetur ut, fugit dolore suscipit cum mollitia voluptates laboriosam ducimus nesciunt. Recusandae totam id nemo accusantium.
-                                        Architecto nobis quo expedita facere! Nemo quasi, odio, illum sunt esse perspiciatis at nulla suscipit quaerat deleniti consequatur ullam, nihil eius saepe dolor doloribus laboriosam quisquam neque accusamus provident asperiores?
-                                    </p>
 
-                                </div>
 
+        <!-- Main content -->
+        <div class="content mt-2 p-0">
+            <div class="container-fluid p-3">
+                <header class=" bg-gray-light p-3">
+                    <div class="row m-2">
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-image"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Proyek</span>
+                                    <span class="info-box-number">
+
+                                        <!-- <small>%</small> -->
+                                    </span>
+                                </div>
+                                <!-- /.info-box-content -->
                             </div>
-
+                            <!-- /.info-box -->
                         </div>
-                        <div class="col-3">
-                            <div class="card pb-4">
-                                <div class="card-header bg-cyan">
-                                    <div class="card-title text-uppercase">
-                                        Menu
-                                    </div>
+                        <!-- /.col -->
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <div class="info-box mb-3">
+                                <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-user-shield"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Tukang</span>
+                                    <span class="info-box-number"></span>
                                 </div>
-                                <div class="card-body" style="color: navy ;">
-                                    <ul class="list-group">
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            A list item
-                                            <span class="badge bg-primary rounded-pill">14</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            A second list item
-                                            <span class="badge bg-primary rounded-pill">2</span>
-                                        </li>
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            A third list item
-                                            <span class="badge bg-primary rounded-pill">1</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <!-- /.info-box-content -->
                             </div>
+                            <!-- /.info-box -->
                         </div>
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content-header -->
+                        <!-- /.col -->
 
-            <!-- Main content -->
-            <div class="content">
-                <div class="container">
-                    <div class="row">
-                        @yield('konten')
-                        <!-- /.col-md-6 -->
+                        <!-- fix for small devices only -->
+                        <div class="clearfix hidden-md-up"></div>
+
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <div class="info-box mb-3">
+                                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-user"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Client</span>
+                                    <span class="info-box-number"></span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <div class="info-box mb-3">
+                                <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">Pekerja</span>
+                                    <span class="info-box-number"></span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
                     </div>
-                    <!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content -->
+                </header>
+                <div class="row mt-3">
+                    <div class="col-12 col-sm-12 col-md-8">
+                        <div class="card shadow-2xl ">
+                            <div class="card-header"></div>
+                            <div class="card-body">
+                                <div class="card">
+                                    <div class="card-header bg-gradient-success text-center"></div>
+                                    <div class="card-body">
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat libero, tempore quisquam in vero consequatur nulla vitae deserunt ab, molestiae, voluptatibus soluta animi cupiditate labore impedit rerum accusamus non repudiandae?
+                                        Eveniet aperiam sit laboriosam delectus voluptas? Ad, eveniet. Expedita, recusandae animi. Suscipit rem provident animi voluptatibus! Reiciendis cupiditate tenetur adipisci labore vel, aut harum numquam ipsum fugit velit soluta pariatur.
+                                        Aliquid explicabo ex molestias, quae amet obcaecati earum fugit vero totam doloremque maiores delectus perspiciatis ea, necessitatibus quas aperiam modi laborum quo dolores impedit libero optio neque debitis maxime! Deserunt.
+                                        Cupiditate odio nostrum aspernatur cum fugiat maxime officia veritatis unde vero? Deleniti quis odio, animi eligendi aspernatur totam, saepe magnam illo eveniet obcaecati, commodi amet temporibus. Officia vero ab harum.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer"></div>
+                        </div>
+                    </div>
+                    <div class="col col-sm-12  col-md-4">
+                        <div class="card shadow-2xl">
+                            <div class="card-body"></div>
+                        </div>
+                    </div>
+                    <!-- /.col-md-6 -->
+                </div>
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
         </div>
-        <!-- /.content-wrapper -->
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
 
-        <!-- Main Footer -->
-        <footer class="main-footer">
-            <!-- To the right -->
-            <div class="float-right d-none d-sm-inline">
-                Anything you want
-            </div>
-            <!-- Default to the left -->
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-        </footer>
+    <!-- Main Footer -->
+    <!--  -->
     </div>
     <!-- ./wrapper -->
 

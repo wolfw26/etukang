@@ -9,35 +9,28 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css'); }}">
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css'); }}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css'); }}">
     <style>
-        /* .row::before {
-            content: "";
-            position: absolute;
-            width: 20%;
-            height: 100vh;
-            bottom: 0;
-            left: 50%;
-            background: linear-gradient(to left, white, rgba(253, 253, 253, 0.058));
-        } */
-
         @media (min-width: 768px) {
             .bd-placeholder-img-lg {
                 font-size: 3.5rem;
+
+
+
+
             }
         }
     </style>
 </head>
 
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" background=" {{ asset('img/login2.png') }}" style="background-attachment: fixed; background-repeat: no-repeat; background-size: contain">
     <div class="container-fluid" style="height: 100% ;">
-        <div class="row" style="height: 100% ;background-size: cover; background-attachment: fixed; background-position: -30vh -15rem;">
-
-            <div class="col-8" style="margin-top:25vh ; padding:4px;  ">
+        <div class="row" style="background-size: cover; background-attachment: fixed; background-position: -30vh -15rem;">
+            <div class="col-8 col-md-8 col-sm-12 " style="margin-top:25vh ; padding:4px;  ">
                 <div class="container-fluid ">
                     <div class="container p-3">
                         <div class="login-box mx-auto m-2 d-block bg-transparent">
@@ -97,7 +90,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col p-0" id="right">
+            <div class="col col-md col-sm-12 p-sm-5  p-0" id="right">
                 <div class="container-fluid border-left border-10" style="width: 50vh ; margin-right:0">
                     <div class="card shadow-lg mt-2">
                         <div class="card-header p-1">
@@ -225,6 +218,28 @@
                 </div>
             </div>
         </div>
+        <!-- <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body shadow-2xl bg-gradient-primary rounded">
+                            <div class="continer">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="alert alert-heading">Tes</div>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="alert alert-success">Tes</div>
+                                    </div>
+                                    <div class="col-3"></div>
+                                    <div class="col-3"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
     </div>
 
 

@@ -2,12 +2,13 @@
     <div class="container p-2">
         <div class="alert bg-gradient-lightblue">
             <div class="row">
-                <button class="btn btn-outline-warning m-1 ">Semua</button>
-                <button class="btn btn-outline-warning m-1">Sewa</button>
-                <button class="btn btn-outline-warning m-1">Alat Masuk</button>
-                <button class="btn btn-outline-warning m-1">Tidak Layak</button>
+                <button wire:click="$set('pesan','all')" class="btn btn-outline-warning m-1 ">Semua</button>
+                <button wire:click="$set('pesan','sewa')" class="btn btn-outline-warning m-1">Sewa</button>
+                <button wire:click="$set('pesan','alat')" class="btn btn-outline-warning m-1">Alat Masuk</button>
+                <button wire:click="$set('pesan','rusak')" class="btn btn-outline-warning m-1">Tidak Layak</button>
             </div>
         </div>
+        {{ $pesan }}
         <div class="row">
             <div class="col-12">
                 <div class="card">
@@ -35,7 +36,16 @@
                     <div class="card-footer bg-gradient-lightblue rounded-bottom"></div>
                 </div>
             </div>
-
         </div>
+        <div class="alert alert-success"></div>
+        @if ($pesan == 'all')
+        <div class="alert alert-success">Tampilkan Semua</div>
+        @elseif($pesan == 'sewa')
+        <div class="alert alert-success">Sewa</div>
+        @elseif($pesan == 'alat')
+        <livewire:Alat.alatin />
+        @elseif($pesan == 'rusak')
+        <div class="alert alert-success">rusak</div>
+        @endif
     </div>
 </div>

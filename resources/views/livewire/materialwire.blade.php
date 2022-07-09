@@ -54,7 +54,7 @@
                                     <a href=" /adm/material/d/{{ $d->id }} " onclick="return confirm('Hapus Data   {{ $d->nama_material }} ');" class="btn btn-sm bg-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
-                                    <a wire:click="addMaterial( {{ $d->id }})" href="#" class="btn btn-sm bg-teal">
+                                    <a wire:click="edit( {{ $d->id }})" data-toggle="modal" data-target="#tambahMaterial" class="btn btn-sm bg-teal">
                                         <i class="fas fa-edit" title="Edit"></i>
                                     </a>
                                 </th>
@@ -82,5 +82,37 @@
             </div>
         </div>
     </div>
-
+    <div wire:ignore.self class="modal fade" id="tambahMaterial" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Upah {{ $idAhsp }} </h5>
+                </div>
+                <div class="modal-body">
+                    <!-- <form wire:submit.prevent="tambahUpah"> -->
+                    <div class="form-floating mb-3">
+                        <label for="kode">kode</label>
+                        <input wire:model="kode" type="text" class="form-control" id="kode">
+                    </div>
+                    <div class="form-floating mb-3">
+                        <label for="material">Material</label>
+                        <input wire:model="material" type="float" class="form-control" id="material">
+                    </div>
+                    <div class="form-floating mb-3">
+                        <label for="satuan">satuan</label>
+                        <input wire:model="satuan" type="text" class="form-control" id="satuan">
+                    </div>
+                    <div class="form-floating mb-3">
+                        <label for="harga">Harga Satuan</label>
+                        <input wire:model="harga" type="number" class="form-control" id="floatingInput">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button wire:click="editMaterial" type="submit" class="btn btn-primary">Tambah</button>
+                </div>
+                <!-- </form> -->
+            </div>
+        </div>
+    </div>
 </div>

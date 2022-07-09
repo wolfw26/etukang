@@ -5,11 +5,11 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="row">
-                            <button data-toggle="modal" data-target="#tambahUpah" class="btn btn-outline-secondary m-1" > <i class="fas fa-plus text-cyan"></i> Upah Pekerja</button>
+                            <button data-toggle="modal" data-target="#tambahUpah" class="btn btn-outline-secondary m-1"> <i class="fas fa-plus text-cyan"></i> Upah Pekerja</button>
 
-                            <button data-toggle="modal" data-target="#tambahBahan" class="btn btn-outline-secondary m-1" ><i class="fas fa-plus text-cyan"></i> Bahan Material</button>
+                            <button data-toggle="modal" data-target="#tambahBahan" class="btn btn-outline-secondary m-1"><i class="fas fa-plus text-cyan"></i> Bahan Material</button>
 
-                            <button data-toggle="modal" data-target="#tambahAlat" class="btn btn-outline-secondary m-1" > <i class="fas fa-plus text-cyan"></i> Alat</button>
+                            <button data-toggle="modal" data-target="#tambahAlat" class="btn btn-outline-secondary m-1"> <i class="fas fa-plus text-cyan"></i> Alat</button>
                         </div>
                     </div>
                     <div class="card-body">
@@ -24,7 +24,7 @@
                                                     <th scope="col">Aksi</th>
                                                     <th scope="col">Kategori</th>
                                                     <th scope="col">Keterangan</th>
-                                                    <th scope="col">Volume</th>
+                                                    <th scope="col">Koefisien</th>
                                                     <th scope="col">Satuan</th>
                                                     <th scope="col">Harga Satuan</th>
                                                     <th scope="col">Total</th>
@@ -34,11 +34,8 @@
                                                 @foreach ( $data as $d )
                                                 <tr class="text-uppercase">
                                                     <th scope="row">
-                                                        <a href="{{ route('ahspdata.delete',$d->id) }}" onclick="return confirm('Hapus Data');" class="btn btn-sm bg-danger">
-                                                            <i class="fas fa-trash"></i>
-                                                        </a>
-                                                        <a href=" " class="btn btn-sm bg-teal">
-                                                            <i class="fas fa-edit" title="Edit"></i>
+                                                        <a href="{{ route('ahspdata.delete',$d->id) }}" onclick="return confirm('Hapus Data');">
+                                                            <i class="fas fa-trash text-danger"></i>
                                                         </a>
                                                     </th>
                                                     <td class="text-uppercase">{{ $d->kategori }}</td>
@@ -62,6 +59,10 @@
                                                 <div class="col-2 text-bold text-muted bg-info text-center"> {{number_format( $ahsp->total_bahan,2) }} </div>
                                             </div>
                                             <div class="row">
+                                                <div class="col-10 text-bold">Total Alat</div>
+                                                <div class="col-2 text-bold text-muted bg-info text-center"> {{number_format( $ahsp->total_alat,2) }} </div>
+                                            </div>
+                                            <div class="row">
                                                 <div class="col-10 text-bold">Total</div>
                                                 <div class="col-2 text-bold text-muted bg-info text-center"> {{ number_format($ahsp->total,2)  }} </div>
                                             </div>
@@ -78,10 +79,10 @@
     </div>
     <!-- Modal -->
 
-                @livewire('t-upah',['ahsp' => $ahsp])
+    @livewire('t-upah',['ahsp' => $ahsp])
 
-                @livewire('t-bahan',['ahsp' => $ahsp])
+    @livewire('t-bahan',['ahsp' => $ahsp])
 
-                @livewire('t-alat',['ahsp' => $ahsp])
+    @livewire('t-alat',['ahsp' => $ahsp])
 
 </div>

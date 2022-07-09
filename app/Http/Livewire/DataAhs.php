@@ -10,12 +10,21 @@ class DataAhs extends Component
 {
     public $ahs;
     public $page;
+    protected $listeners = ['upahStore' => 'render'];
 
 
 
     public function mount(Ahsp $ahsp)
     {
         $this->ahs = $ahsp;
+        $upah = $ahsp->dataahsp->where('kategori', 'upah');
+        $alat = $ahsp->dataahsp->where('kategori', 'alat');
+        $bahan = $ahsp->dataahsp->where('kategori', 'bahan');
+        $ahsp->total_upah = $upah->sum('total');
+        $ahsp->total_alat = $alat->sum('total');
+        $ahsp->total_bahan = $bahan->sum('total');
+        $ahsp->total = $ahsp->dataahsp->sum('total');
+        $ahsp->save();
     }
     public function render()
     {

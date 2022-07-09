@@ -36,7 +36,7 @@ use App\Http\Livewire\DataAhs;
 */
 
 Route::post('/register', [RegisterController::class, 'store'])->name('register');
-Route::get('/', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::post('/', [LoginController::class, 'login'])->name('login.log');
 Route::post('/logout', [LoginController::class, 'logout'])->name('login.logout');
 
@@ -131,12 +131,13 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
 });
 
 
-
-Route::get('/client/', function () {
-    return view('usertemplate', [
-        'title' => 'Client'
-    ]);
-})->name('client.home');
+Route::group(['middleware' => ['auth', 'CekLevel:client']], function () {
+    Route::get('/client/', function () {
+        return view('usertemplate', [
+            'title' => 'Client'
+        ]);
+    })->name('client.home');
+});
 
 // ADMIN
 
