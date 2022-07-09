@@ -18,6 +18,7 @@ class MaterialIn extends Component
     public $jumlah;
     public $satuan;
     public $harga_satuan;
+    public $pilihcetak;
 
     public function render()
     {
@@ -28,7 +29,28 @@ class MaterialIn extends Component
             $this->satuan = $this->data->satuan;
         }
 
+        $data = Material_in::all()->groupBy('nama_material');
+        $data2 = Material_in::all()->groupBy('tanggal');
+        // $materialin = collect(Material_in::all());
+        // foreach ($materialin as $d) {
+        //     $p = $d->all()->groupBy('material_id');
+        // }
+        // dd($p['1']);
+        // $data = $materialin->groupBy('material_id');
+        // $grub = $data;
+        // $tes = $grub->all();
+        // foreach ($tes as $p) {
+        // }
+        // foreach ($grub as $d) {
+        //     dd($d);
+        // }
+        // foreach ($d as $p) {
+        //     dd($p->nama_material);
+        // }
+
         return view('livewire.material-in', [
+            'materialw' => $data,
+            'materialtgl' => $data2,
             'material' => Material::all(),
             'materialin' => Material_in::latest()->where('kode_material', 'like', '%' . $this->cari . '%')
                 ->orWhere('nama_material', 'like', '%' . $this->cari . '%')->paginate(10)

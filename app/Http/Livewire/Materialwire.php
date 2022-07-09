@@ -18,7 +18,7 @@ class Materialwire extends Component
     {
         return view('livewire.materialwire', [
             'data' => Material::latest()->where('kode_material', 'like', '%' . $this->cari . '%')
-                ->orWhere('nama_material', 'like', '%' . $this->cari . '%')->paginate(5)
+                ->orWhere('nama_material', 'like', '%' . $this->cari . '%')->paginate(10)
         ])
             ->extends('component.template')
             ->section('konten');

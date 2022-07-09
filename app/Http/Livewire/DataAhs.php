@@ -25,6 +25,6 @@ class DataAhs extends Component
             'data' => $this->ahs->dataahsp,
             'bahan' => Material::all()
         ])->extends('component.template', ['title' => 'Data AHSP'])
-            ->section('konten');;
+            ->section('konten');
     }
 }

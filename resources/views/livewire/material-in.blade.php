@@ -1,13 +1,49 @@
 <div class="container-fluid">
-
     <div class="row border-bottom ">
         <div class="col-4">
             <div class="input-group m-2">
                 <input wire:model="cari" type="text" class="form-control" placeholder="Cari Material" aria-label="Cari Material" name="cari">
             </div>
-
+            
         </div>
-        <div class="col-6"></div>
+        <div class="col-2">
+            <div class="input-group m-2">
+                <select class="form-control" wire:model="pilihcetak" name="" id="">
+                    <option  selected>Per Item</option>      
+                    <option  value="all" selected>Semua</option>      
+                    @foreach ( $materialw as $data=>$cek )
+                    @foreach ( $cek as $d )
+                    @endforeach
+                    <option  value="{{ $d->material_id }}"> {{ $data }}</option>
+                    @endforeach
+                    
+                </select>
+            </div>
+        </div>
+        {{-- <div class="col-2 m-2">
+            <a href="/cetak/{{ $pilihcetak }}" class="btn btn-outline-warning"> <i class="fas fa-print"></i> </a>
+        </div> --}}
+        <!-- <div class="col"><button class="btn bg-gradient-primary  shadow-md" data-toggle="modal" data-target="#TambahMaterial">Tambah</button></div> -->
+    </div>
+    <div class="row border-bottom ">
+        <div class="col-4">
+            
+        </div>
+        <div class="col-3">
+            <div class="input-group m-2">
+                <select class="form-control" wire:model="pilihcetak" name="" id="">
+                    <option  selected>Per Tangal Masuk</option>      
+                    <option  value="all" selected>Semua</option>      
+                    @foreach ( $materialtgl as $data2=>$cek )
+                    <option  value="{{ $data2 }}"> {{ date('d F Y', strtotime($data2)) }}</option>
+                    @endforeach
+                    
+                </select>
+            </div>
+        </div>
+        <div class="col-3 m-2">
+            <a target="_blank" href="/adm/material/cetak/{{ $pilihcetak }}" class="btn btn-outline-warning"> <i class="fas fa-print"></i> </a>
+        </div>
         <!-- <div class="col"><button class="btn bg-gradient-primary  shadow-md" data-toggle="modal" data-target="#TambahMaterial">Tambah</button></div> -->
     </div>
     <div class="row mb-3">
@@ -22,7 +58,7 @@
                             Data Material
                         </div>
                         <div class="col-4">
-
+                            
                         </div>
                     </div>
                 </div>
@@ -37,6 +73,7 @@
                                 <th scope="col">Material</th>
                                 <th scope="col">Jumlah</th>
                                 <th scope="col">Satuan</th>
+                                <th scope="col">Harga Satuan</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,15 +83,16 @@
                                     <a wire:click="hapus({{ $m->id }})" onclick="return confirm('Hapus Data {{ $m->nama_material }}  ');" class="btn btn-sm bg-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
-                                    <a href="  " class="btn btn-sm bg-teal">
+                                    <a wire:click="edit({{ $m->id }})" href="" class="btn btn-sm bg-teal">
                                         <i class="fas fa-edit" title="Edit"></i>
                                     </a>
                                 </th>
-                                <td>{{ $m->tanggal }}</td>
+                                <td>{{ date('d F Y', strtotime($m->tanggal)) }}</td>
                                 <td>{{ $m->kode_material }}</td>
                                 <td>{{ $m->nama_material }} </td>
                                 <td>{{ $m->jumlah }} </td>
                                 <td>{{ $m->satuan }} </td>
+                                <td>Rp. {{ number_format($m->harga_satuan,2) }} </td>
                             </tr>
                             @endforeach
                         </tbody>

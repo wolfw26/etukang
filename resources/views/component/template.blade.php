@@ -359,14 +359,14 @@
                                 </p>
                             </a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a href="{{ url('') }}" class="nav-link">
+                        <li class="nav-item">
+                            <a href="{{ route('alat') }}" class="nav-link">
                                 <i class="fas fa-hammer nav-icon"></i>
                                 <p>
                                     Data Alat
                                 </p>
                             </a>
-                        </li> -->
+                        </li>
                         <li class="nav-item">
                             <a href="{{ url('adm/rab/') }}" class="nav-link">
                                 <i class="fas fa-hammer nav-icon"></i>

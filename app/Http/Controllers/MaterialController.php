@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Proyek;
 use App\Models\Material;
+use App\Models\Material_in;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 
@@ -45,5 +46,24 @@ class MaterialController extends Controller
         $data = Material::find($id);
         $data->delete();
         return redirect()->back()->with('sukses', 'Data Berhasil Terhapus');
+    }
+
+    public function cetakMaterial()
+    {
+        return view('admin.cetak.cetakmaterial', [
+            'title' => 'Material || Cetak All',
+            'data' => Material::all()
+        ]);
+    }
+    public function Materialin($param)
+    {
+        // $data = Material_in::latest()->where('material_id', 'like', '%' . $param . '%')
+        //     ->orWhere('tanggal', 'like', '%' . $param . '%')->get()->dd();
+
+        return view('admin.cetak.materialin', [
+            'title' => 'Material || Cetak All',
+            'data' => Material_in::latest()->where('material_id', 'like', '%' . $param . '%')
+                ->orWhere('tanggal', 'like', '%' . $param . '%')->get()
+        ]);
     }
 }

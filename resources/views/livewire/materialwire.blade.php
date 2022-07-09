@@ -8,7 +8,11 @@
             </form>
         </div>
         <div class="col-6"></div>
-        <div class="col"><button class="btn bg-gradient-primary  shadow-md" data-toggle="modal" data-target="#TambahMaterial">Tambah</button></div>
+        <div class="col">
+            <button class="btn bg-gradient-primary  shadow-md" data-toggle="modal" data-target="#TambahMaterial">Tambah</button>
+            <a target="_blank" href=" {{ route('material.cetakall') }} " class="btn btn-outline-warning"> <i class="fas fa-print shadow-md"></i> </a>
+        </div>
+
     </div>
     <div class="row mb-3">
         <div class="col-12">
@@ -67,7 +71,9 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="card-footer">{{ $data->links() }}</div>
+                <div class="card-footer">
+                    {{ $data->links() }}
+                </div>
                 @else
                 <div class="container-fluid text-center m-5">
                     <h4 class="text-danger"> <strong> <i>Tidak Ada Data</i></strong></h4>
