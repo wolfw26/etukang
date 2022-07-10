@@ -21,6 +21,7 @@ use App\Http\Controllers\PekerjaController;
 use App\Http\Controllers\AhspdataController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Livewire\Alat\Alatindex as AlatAlatindex;
 use App\Http\Livewire\Alatindex;
 use App\Http\Livewire\DataAhs;
 
@@ -95,7 +96,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         Route::get('/material/cetak/{param}', [MaterialController::class, 'Materialin'])->name('materialin.cetak');
 
         //ALAT
-        Route::get('/alat/', Alatindex::class)->name('alat');
+        Route::get('/alat/', AlatAlatindex::class)->name('alat');
 
         //AHS
         Route::get('/ahsp/', [AhspController::class, 'index'])->name('ahsp');

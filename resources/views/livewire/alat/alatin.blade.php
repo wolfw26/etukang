@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header bg-gradient-lightblue">Data Alat Masuk</div>
+                    <div class="card-header bg-gradient-lightblue text-center">Data Alat Masuk</div>
                     <div class="card-body">
                         <div class="card-body table-responsive p-0" style="height: 300px;">
                             <table class="table table-head-fixed text-nowrap">
