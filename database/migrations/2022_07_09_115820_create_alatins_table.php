@@ -15,12 +15,14 @@ return new class extends Migration
     {
         Schema::create('alatins', function (Blueprint $table) {
             $table->id();
+            $table->string('kode');
             $table->string('keterangan');
             $table->date('tanggal');
             $table->integer('harga');
             $table->string('tempat');
             $table->integer('jumlah');
             $table->string('satuan');
+            $table->string('status');
             $table->integer('total_harga');
             $table->foreignId('alatrusak_id')->nullable();
             $table->timestamps();

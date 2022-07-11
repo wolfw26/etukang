@@ -14,8 +14,15 @@ class TUpah extends Component
     public $satuan;
     public $harga;
 
+    protected $rules = [
+        'deskripsi' => 'required',
+        'volume' => 'required',
+        'satuan' => 'required',
+        'harga' => 'required|integer',
+    ];
     public function tambahUpah()
     {
+        $this->validate();
         $data = new AhspData;
 
         $data->rincian = $this->deskripsi;
@@ -36,7 +43,7 @@ class TUpah extends Component
         $total->total_alat = $alat->sum('total');
         $total->total = $total->dataahsp->sum('total');
         $total->save();
-
+        session()->flash('berhasil', 'Berhasil Di ubah');
 
         $this->deskripsi = null;
         $this->volume = null;

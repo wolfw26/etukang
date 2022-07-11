@@ -18,7 +18,9 @@ return new class extends Migration
             $table->string('deskripsi');
             $table->integer('jumlah');
             $table->string('satuan');
-            $table->string('id_penambah');
+            $table->string('nama');
+            $table->string('id_penambah')->nullable();
+            $table->string('status')->nullable();
             $table->date('tanggal');
             $table->timestamps();
         });

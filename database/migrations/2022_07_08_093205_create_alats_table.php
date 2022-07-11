@@ -21,8 +21,10 @@ return new class extends Migration
             $table->string('Merk')->nullable();
             $table->string('status')->nullable();
             $table->string('kepemilikan');
-            $table->integer('satuan');
+            $table->string('satuan');
             $table->integer('harga_satuan');
+            $table->integer('sewa_id')->nullable();
+            $table->integer('masuk_id')->nullable();
             $table->timestamps();
         });
     }

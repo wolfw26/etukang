@@ -31,7 +31,7 @@ class DataAhs extends Component
         return view('livewire.data-ahs', [
 
             'ahsp' => $this->ahs,
-            'data' => $this->ahs->dataahsp,
+            'data' => $this->ahs->dataahsp->sortByDesc('id'),
             'bahan' => Material::all()
         ])->extends('component.template', ['title' => 'Data AHSP'])
             ->section('konten');

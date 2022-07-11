@@ -34,7 +34,7 @@
                 <div class="container-fluid ">
                     <div class="container p-3">
                         <div class="login-box mx-auto m-2 d-block bg-transparent">
-                            <div class="card bg-transparent shadow-md">
+                            <div class="card bg-transparent shadow-2xl">
                                 @if (session('loginError'))
                                 <div class="alert alert-warning d-flex justify-content-between">
                                     {{ session('loginError') }}
@@ -92,7 +92,7 @@
             </div>
             <div class="col col-md col-sm-12 p-sm-5  p-0" id="right">
                 <div class="container-fluid border-left border-10" style="width: 50vh ; margin-right:0">
-                    <div class="card shadow-lg mt-2">
+                    <div class="card shadow-2xl shadow-inner shadow-md mt-2">
                         <div class="card-header p-1">
                             <div class="card-header rounded-top text-center p-3 bg-gray" style="font-weight:900; height:100%; font-size:20px; margin-bottom:2px">
                                 <a href="{{ asset('assets/index2.html') }}" style="color:white;text-shadow: 3px 2px 4px gray ">Registrasi</a>

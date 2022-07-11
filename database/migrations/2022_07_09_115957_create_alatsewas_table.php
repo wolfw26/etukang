@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('alatsewas', function (Blueprint $table) {
             $table->id();
+            $table->string('kode');
             $table->string('deskripsi');
             $table->string('tempat_sewa');
-            $table->date('tanggal_mulai');
-            $table->date('tanggal_selesai');
+            $table->date('tanggal_mulai')->nullable();
+            $table->date('tanggal_selesai')->nullable();
             $table->integer('harga');
             $table->integer('jumlah');
             $table->string('satuan');

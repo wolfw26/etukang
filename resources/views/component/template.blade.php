@@ -523,13 +523,31 @@
     <script src="{{ asset('dist/js/demo.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+    <!-- Sweet Alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        // $(function() {
-        //     //Date picker
-        //     $('#kalender').datetimepicker({
-        //         dateFormat: 'yy-mm-dd'
-        //     });
-        // })
+        // window.addEventListener('show-delete-confirmation', event => {
+        //     Swal.fire({
+        //         title: 'Are you sure?',
+        //         text: "You won't be able to revert this!",
+        //         icon: 'warning',
+        //         showCancelButton: true,
+        //         confirmButtonColor: '#3085d6',
+        //         cancelButtonColor: '#d33',
+        //         confirmButtonText: 'Yes, delete it!'
+        //     }).then((result) => {
+        //         if (result.isConfirmed) {
+        //             Livewire.emit('deleteConfirmed')
+        //         }
+        //     })
+        // });
+        // window.addEventListener('studentDeleted', event => {
+        //     swal.fire(
+        //         'Deleted!',
+        //         'has been deleted',
+        //         'success'
+        //     )
+        // });
     </script>
     @livewireScripts
 </body>

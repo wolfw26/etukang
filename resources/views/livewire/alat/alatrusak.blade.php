@@ -9,17 +9,18 @@
                             <table class="table table-head-fixed text-nowrap">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Kode</th>
                                         <th scope="col">Nama Alat</th>
-                                        <th scope="col">Fungsi</th>
-                                        <th scope="col">Merk</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Kepemilikan</th>
+                                        <th scope="col">jumlah</th>
                                         <th scope="col">satuan</th>
+                                        <th scope="col">Nama Penambah</th>
+                                        <th scope="col">tanggal</th>
                                         <th scope="col">harga satuan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <tr>
+                                        <td scope="col"></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
