@@ -40,7 +40,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                         </li> --}}
                         <li class="nav-item">
-                            <a href="{{ route('rab.home') }}" class="nav-link">Home</a>
+                            <a href="{{ route('client.home') }}" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Contact</a>
