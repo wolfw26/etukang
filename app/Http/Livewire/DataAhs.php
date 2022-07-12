@@ -19,11 +19,13 @@ class DataAhs extends Component
         $this->ahs = $ahsp;
         $upah = $ahsp->dataahsp->where('kategori', 'upah');
         $alat = $ahsp->dataahsp->where('kategori', 'alat');
-        $bahan = $ahsp->dataahsp->where('kategori', 'bahan');
+        $bahan = $ahsp->dataahsp->where('kategori', 'material');
         $ahsp->total_upah = $upah->sum('total');
         $ahsp->total_alat = $alat->sum('total');
         $ahsp->total_bahan = $bahan->sum('total');
-        $ahsp->total = $ahsp->dataahsp->sum('total');
+        $jumlah = $ahsp->dataahsp->sum('total');
+        $profit = $ahsp->profit * $jumlah / 100;
+        $ahsp->total = $ahsp->dataahsp->sum('total') + $profit;
         $ahsp->save();
     }
     public function render()

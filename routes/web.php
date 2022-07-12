@@ -23,7 +23,10 @@ use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Livewire\Alat\Alatindex as AlatAlatindex;
 use App\Http\Livewire\Alatindex;
+use App\Http\Livewire\Client\Client as ClientClient;
+use App\Http\Livewire\Client\Rab\RabHome;
 use App\Http\Livewire\DataAhs;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -104,7 +107,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         // Route::get('/ahsp/{ahsp}', [AhspController::class, 'detail'])->name('ahsp.detail');
         Route::get('/ahsp/{ahsp}', DataAhs::class)->name('ahsp.detail');
         Route::get('ahsp/{id}/d', [AhspController::class, 'delete'])->name('ahsp.delete');
-        Route::get('ahsp/{id}/edit', [AhspController::class, 'edit'])->name('ahsp.edit');
+        Route::post('ahsp/{id}/edit', [AhspController::class, 'edit'])->name('ahsp.edit');
         Route::post('ahsp/dataahsp/', [AhspController::class, 'ahspdata'])->name('ahsp.dataahsp');
         Route::post('ahspdata/{id}', [AhspdataController::class, 'store'])->name('ahspdata.add');
         Route::get('ahspdata/d/{id}', [AhspdataController::class, 'delete'])->name('ahspdata.delete');
@@ -133,11 +136,15 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
 
 
 Route::group(['middleware' => ['auth', 'CekLevel:client']], function () {
-    Route::get('/client/', function () {
-        return view('usertemplate', [
-            'title' => 'Client'
-        ]);
-    })->name('client.home');
+    Route::group(['prefix' => 'client'], function () {
+        // Route::get('/', function () {
+        //     return view('usertemplate', [
+        //         'title' => 'Client'
+        //     ]);
+        // })->name('client.home');
+        Route::get('/', ClientClient::class)->name('client.home');
+        Route::get('/rab/', RabHome::class)->name('rab.home');
+    });
 });
 
 // ADMIN

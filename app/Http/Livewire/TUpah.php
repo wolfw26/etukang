@@ -36,12 +36,14 @@ class TUpah extends Component
 
         $total = Ahsp::find($this->ahsp->id);
         $upah  = $total->dataahsp->where('kategori', 'upah');
-        $bahan  = $total->dataahsp->where('kategori', 'bahan');
+        $bahan  = $total->dataahsp->where('kategori', 'material');
         $alat  = $total->dataahsp->where('kategori', 'alat');
         $total->total_upah = $upah->sum('total');
         $total->total_bahan = $bahan->sum('total');
         $total->total_alat = $alat->sum('total');
-        $total->total = $total->dataahsp->sum('total');
+        $jumlah = $total->dataahsp->sum('total');
+        $profit = $total->profit * $jumlah / 100;
+        $total->total = $total->dataahsp->sum('total') + $profit;
         $total->save();
         session()->flash('berhasil', 'Berhasil Di ubah');
 

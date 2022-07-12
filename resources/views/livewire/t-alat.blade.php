@@ -15,6 +15,7 @@
 
                     <div class="input-group mb-3">
                         <select wire:model="dropdown" class="form-select form-select-sm mb-2" aria-label=".form-select-sm example">
+                            <option selected>Alat</option>
                             @foreach ( $data as $d )
                             <option value="{{ $d->id }}">{{ $d->nama}}</option>
                             @endforeach

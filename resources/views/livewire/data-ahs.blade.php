@@ -10,13 +10,14 @@
                             <button data-toggle="modal" data-target="#tambahBahan" class="btn btn-outline-secondary m-1"><i class="fas fa-plus text-cyan"></i> Bahan Material</button>
 
                             <button data-toggle="modal" data-target="#tambahAlat" class="btn btn-outline-secondary m-1"> <i class="fas fa-plus text-cyan"></i> Alat</button>
+                            <a href="{{ route('ahsp') }}" class="btn btn-outline-success m-1"> <i class="fas fa-success text-cyan"></i> Selesai</a>
                         </div>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12 p-3">
                                 <div class="card">
-                                    <div class="card-header bg-green">Data AHS</div>
+                                    <div class="card-header bg-green">{{ $ahsp->kode_ahs }} - {{ $ahsp->nama_ahs }}</div>
                                     <div class="card-body">
                                         <table class="table">
                                             <thead>

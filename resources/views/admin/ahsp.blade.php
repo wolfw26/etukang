@@ -28,6 +28,7 @@
                                         <th scope="col" class="w-25 p-3">Aksi</th>
                                         <th scope="col" class="w-25 p-3">Kode Ahs</th>
                                         <th scope="col">Nama AHS</th>
+                                        <th scope="col">Overhead</th>
                                         <th scope="col">Biaya</th>
                                     </tr>
                                 </thead>
@@ -38,7 +39,7 @@
                                             <a href=" {{ route('ahsp') }}/{{ $d->id }}/d " onclick="return confirm('Hapus Data   {{ $d->nama_material }} ');" class="btn btn-sm bg-danger">
                                                 <i class="fas fa-trash"></i>
                                             </a>
-                                            <a href=" {{ Route('ahsp.edit',$d->id) }} " class="btn btn-sm bg-teal" data-toggle="modal" data-target="#editAhs">
+                                            <a href="" class="btn btn-sm bg-teal" data-toggle="modal" data-target="#editAhs{{ $d->id }}">
                                                 <i class="fas fa-edit" title="Edit"></i>
                                             </a>
                                             <a href="{{ route('ahsp.detail', $d->id)}}" class="btn btn-sm bg-success">
@@ -47,26 +48,41 @@
                                         </th>
                                         <td> {{ $d->kode_ahs}}</td>
                                         <td class=" text-bold"> {{ $d->nama_ahs}}</td>
+                                        <td> {{ $d->profit . '%'  }} </td>
                                         <td> {{ number_format($d->total,2)  }} </td>
                                     </tr>
                                     <!-- Modal -->
-                                    <div class="modal fade" id="editAhs" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <form action=" {{ Route('ahsp.edit',$d->id) }} " method="POST">
+                                        @csrf
+                                    <div class="modal fade" id="editAhs{{ $d->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLabel">Data {{ $d->id }} </h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    ...
+                                                    <div class="mb-3">
+                                                        <label for="kode" class="form-label">Kode AHS</label>
+                                                        <input value=" {{  $d->kode_ahs }} " type="text" class="form-control" name="kode" id="kode" placeholder="Kode AHS">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="nama" class="form-label">Nama AHS</label>
+                                                        <input value="{{ $d->nama_ahs }}" type="text" class="form-control" name="nama" id="nama" placeholder="nama AHS">
+                                                    </div>
+                                                    <div class="input-group input-group-sm mb-3">
+                                                        <input value="{{ $d->profit }}" type="text" name="profit" id="profit" class="form-control" placeholder="Profit / Overhead" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                        <span class="input-group-text" id="basic-addon2">%</span>
+                                                    </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Update</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </form>
                                     @endforeach
                                 </tbody>
                             </table>

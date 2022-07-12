@@ -14,6 +14,7 @@ class AhspController extends Controller
 {
     public function index()
     {
+
         return view('admin.ahsp', [
             'title' => 'AHS',
             'data' => Ahsp::latest()->Cari(request(['cari']))->paginate(20)->withQueryString()
@@ -22,23 +23,21 @@ class AhspController extends Controller
 
     public function store(Request $request)
     {
-        if ($request['ahs']) {
-            $data = Ahsp::find($request['ahs']);
-        } else {
-            $data = $request->all();
-        }
+        $data = new Ahsp;
+        $data->kode_ahs = $request->kode_ahs;
+        $data->nama_ahs = $request->nama_ahs;
+        $data->kategori = $request->kategori;
+        $data->profit = $request->profit;
+        $data->save();
 
-        dd($data);
-
-
-        Ahsp::class::create($data);
-        return redirect()->route('ahsp');
+        return redirect()->back();
     }
 
-    public function delete($id)
+    public function delete(Ahsp $id)
     {
-        $data = Ahsp::find($id);
+        $data = Ahspdata::where('ahsp_id', $id->id);
         $data->delete();
+        $id->delete();
         return redirect()->back()->with('sukses', 'Data Berhasil Terhapus');
     }
 
@@ -51,6 +50,23 @@ class AhspController extends Controller
             'bahan' => Material::all()
 
         ]);
+    }
+    public function edit(Request $request, Ahsp $id)
+    {
+        $id->kode_ahs = $request->kode;
+        $id->nama_ahs = $request->nama;
+        $upah  = $id->dataahsp->where('kategori', 'upah');
+        $bahan  = $id->dataahsp->where('kategori', 'bahan');
+        $alat  = $id->dataahsp->where('kategori', 'alat');
+        $id->total_upah = $upah->sum('total');
+        $id->total_bahan = $bahan->sum('total');
+        $id->total_alat = $alat->sum('total');
+        $id->total = $id->total_upah + $id->total_bahan + $id->total_alat;
+        $jumlah = $id->total;
+        $id->profit = $request->profit;
+        $id->total = $request->profit / 100 * $jumlah;
+        $id->save();
+        return redirect()->back();
     }
 
     public function ahspdata(Request $request)

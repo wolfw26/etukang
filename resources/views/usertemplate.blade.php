@@ -16,6 +16,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href=" {{ asset('dist/css/adminlte.min.css') }}">
+    @livewireStyles
 </head>
 
 <body class="hold-transition layout-top-nav">
@@ -23,63 +24,37 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
             <div class="container-fluid p-3">
-                <a href="../../index3.html" class="navbar-brand">
+                <a href="../../index3.html" class="navbar-brand d-flex">
                     <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                    <span class="brand-text font-weight-light">{{ Auth::user()->name }}</span>
+                    <span class="brand-text font-weight-light"> <h2 class="text-uppercase text-gray"><u>{{ Auth::user()->name }}</u> </h2>  </span>
                 </a>
 
                 <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+                <div class="collapse navbar-collapse order-3 ml-4" id="navbarCollapse">
                     <!-- Left navbar links -->
                     <ul class="navbar-nav">
                         {{-- <li class="nav-item">
                             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                         </li> --}}
                         <li class="nav-item">
-                            <a href="index3.html" class="nav-link">Home</a>
+                            <a href="{{ route('rab.home') }}" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Contact</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Dropdown</a>
-                            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                                <li><a href="#" class="dropdown-item">Some action </a></li>
-                                <li><a href="#" class="dropdown-item">Some other action</a></li>
-
-                                <li class="dropdown-divider"></li>
-
-                                <!-- Level two dropdown-->
-                                <li class="dropdown-submenu dropdown-hover">
-                                    <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Hover for action</a>
-                                    <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
-                                        <li>
-                                            <a tabindex="-1" href="#" class="dropdown-item">level 2</a>
-                                        </li>
-
-                                        <!-- Level three dropdown-->
-                                        <li class="dropdown-submenu">
-                                            <a id="dropdownSubMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">level 2</a>
-                                            <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow">
-                                                <li><a href="#" class="dropdown-item">3rd level</a></li>
-                                                <li><a href="#" class="dropdown-item">3rd level</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- End Level three -->
-
-                                        <li><a href="#" class="dropdown-item">level 2</a></li>
-                                        <li><a href="#" class="dropdown-item">level 2</a></li>
-                                    </ul>
-                                </li>
-                                <!-- End Level two -->
-                            </ul>
+                        <li class="nav-item">
+                            <a href="{{ route('rab.home') }}" class="nav-link">RAB</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Tanggapan</a>
+                        </li>
+
                     </ul>
 
-                    <!-- SEARCH FORM -->
+                    {{-- <!-- SEARCH FORM -->
                     <form class="form-inline ml-0 ml-md-3">
                         <div class="input-group input-group-sm">
                             <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
@@ -89,12 +64,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> --}}
                 </div>
 
                 <!-- Right navbar links -->
-                <ul class="order-1 order-md-3 collapse navbar-collapse navbar-nav navbar-no-expand ml-auto " id="navbarCollapse">
-
+                <ul class="order-1 order-md-3 collapse navbar-collapse navbar-nav navbar-no-expand ml-auto d-flex justify-content-end " id="navbarCollapse">
                     <form action="/logout" method="POST">
                         @csrf
                         <button class="dropdown-item  sm-3">Log-out
@@ -110,93 +84,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Main content -->
         <div class="content mt-2 p-0">
             <div class="container-fluid p-3">
-                <header class=" bg-gray-light p-3">
-                    <div class="row m-2">
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box">
-                                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-image"></i></span>
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Proyek</span>
-                                    <span class="info-box-number">
-
-                                        <!-- <small>%</small> -->
-                                    </span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box mb-3">
-                                <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-user-shield"></i></span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Tukang</span>
-                                    <span class="info-box-number"></span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <!-- /.col -->
-
-                        <!-- fix for small devices only -->
-                        <div class="clearfix hidden-md-up"></div>
-
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box mb-3">
-                                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-user"></i></span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Client</span>
-                                    <span class="info-box-number"></span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-12 col-sm-6 col-md-3">
-                            <div class="info-box mb-3">
-                                <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Pekerja</span>
-                                    <span class="info-box-number"></span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                    </div>
-                </header>
-                <div class="row mt-3">
-                    <div class="col-12 col-sm-12 col-md-8">
-                        <div class="card shadow-2xl ">
-                            <div class="card-header"></div>
-                            <div class="card-body">
-                                <div class="card">
-                                    <div class="card-header bg-gradient-success text-center"></div>
-                                    <div class="card-body">
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat libero, tempore quisquam in vero consequatur nulla vitae deserunt ab, molestiae, voluptatibus soluta animi cupiditate labore impedit rerum accusamus non repudiandae?
-                                        Eveniet aperiam sit laboriosam delectus voluptas? Ad, eveniet. Expedita, recusandae animi. Suscipit rem provident animi voluptatibus! Reiciendis cupiditate tenetur adipisci labore vel, aut harum numquam ipsum fugit velit soluta pariatur.
-                                        Aliquid explicabo ex molestias, quae amet obcaecati earum fugit vero totam doloremque maiores delectus perspiciatis ea, necessitatibus quas aperiam modi laborum quo dolores impedit libero optio neque debitis maxime! Deserunt.
-                                        Cupiditate odio nostrum aspernatur cum fugiat maxime officia veritatis unde vero? Deleniti quis odio, animi eligendi aspernatur totam, saepe magnam illo eveniet obcaecati, commodi amet temporibus. Officia vero ab harum.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer"></div>
-                        </div>
-                    </div>
-                    <div class="col col-sm-12  col-md-4">
-                        <div class="card shadow-2xl">
-                            <div class="card-body"></div>
-                        </div>
-                    </div>
-                    <!-- /.col-md-6 -->
-                </div>
-                <!-- /.row -->
+                @yield('main')
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content -->
@@ -215,15 +103,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- ./wrapper -->
 
     <!-- REQUIRED SCRIPTS -->
+    @livewireScripts
 
     <!-- jQuery -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
-    <script src="../../dist/js/adminlte.min.js"></script>
+    <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="../../dist/js/demo.js"></script>
+
 </body>
 
 </html>

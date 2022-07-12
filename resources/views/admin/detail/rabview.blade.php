@@ -54,6 +54,7 @@
                         <th scope="col">Satuan</th>
                         <th scope="col">Harga Satuan</th>
                         <th scope="col">Total</th>
+                        <th scope="col">Bobot</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -74,6 +75,7 @@
                         <td>{{ $d->satuan }}</td>
                         <td>{{ number_format($d->harga_satuan,2) }}</td>
                         <td>{{ number_format($d->total,2) }}</td>
+                        <td> {{ $d->bobot . '%' }} </td>
                     </tr>
                     @endforeach
                 </tbody>
