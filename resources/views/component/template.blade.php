@@ -237,7 +237,54 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" id="nav-item">
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
-                        <li class="nav-header">EXAMPLES</li>
+                        <li class="nav-header">Data</li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-house-user"></i>
+                                <p>
+                                    Data Master
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ url('adm/proyek') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Proyek</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('material') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            Data Material
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('alat') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            Data Alat
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ url('adm/client') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            Data Client
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-house-user"></i>
@@ -253,69 +300,26 @@
                                         <p>Semua Data</p>
                                     </a>
                                 </li>
-                                <!-- <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Tahap Perencanaan</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Sedang Dikerjakan</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Proyek Selesai</p>
-                                    </a>
-                                </li> -->
                             </ul>
                         </li>
-                        <!-- <li class="nav-item">
+                        <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-house-damage"></i>
+                                <i class="nav-icon fas fa-house-user"></i>
                                 <p>
-                                    Renovasi
+                                    Laporan
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ url('adm/proyek') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>All Data</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Tahap Perencanaan</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/mailbox/compose.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Sedang Dikerjakan</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Proyek Selesai</p>
+                                        <p>Semua Data</p>
                                     </a>
                                 </li>
                             </ul>
-                        </li> -->
-                        <li class="nav-item">
-                            <a href="{{ url('adm/client') }}" class="nav-link">
-                                <i class="nav-icon far fa-user"></i>
-                                <p>
-                                    Data Client
-                                </p>
-                            </a>
                         </li>
+
                         <li class="nav-item">
                             <a href="{{ url('adm/tukang') }}" class="nav-link">
                                 <i class="nav-icon fas fa-user-shield"></i>
@@ -348,22 +352,8 @@
                                 </p>
                             </a>
                         </li> -->
-                        <li class="nav-item">
-                            <a href="{{ route('material') }}" class="nav-link">
-                                <i class="nav-icon fas fa-arrow-circle-right"></i>
-                                <p>
-                                    Data Material
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('alat') }}" class="nav-link">
-                                <i class="fas fa-hammer nav-icon"></i>
-                                <p>
-                                    Data Alat
-                                </p>
-                            </a>
-                        </li>
+
+
                         <li class="nav-item">
                             <a href="{{ url('adm/rab/') }}" class="nav-link">
                                 <i class="fas fa-hammer nav-icon"></i>

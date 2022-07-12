@@ -1,4 +1,4 @@
-@dd($data)
+
 @extends('component.template')
 
 @section('konten')
