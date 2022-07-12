@@ -38,9 +38,13 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/',  function () {
+    return view('landing.index', [
+        'title' => 'HOME'
+    ]);
+});
 Route::post('/register', [RegisterController::class, 'store'])->name('register');
-Route::get('/', [LoginController::class, 'index'])->name('login');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/', [LoginController::class, 'login'])->name('login.log');
 Route::post('/logout', [LoginController::class, 'logout'])->name('login.logout');
 
