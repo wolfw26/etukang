@@ -85,11 +85,7 @@ class ProyekController extends Controller
 
         if ($rab == 0) {
 
-            $new = new Rab;
-            $new->nama_rab = $proyek->nama_proyek . $client;
-            $new->kode_rab = "";
-            $new->proyek_id = $proyek->id;
-            $new->save();
+            return redirect()->back()->with('kosong', 'Data Belum Di buat');
         }
         foreach ($data as $d) {
             return redirect()->route('rab.view', $d);

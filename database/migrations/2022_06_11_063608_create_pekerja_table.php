@@ -15,13 +15,16 @@ return new class extends Migration
     {
         Schema::create('pekerja', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_pekerja');
-            $table->foreignId('tukang_id');
-            $table->text('alamat');
+            $table->string('nama');
             $table->text('jenis_kelamin');
+            $table->text('alamat');
+            $table->string('tempat_lahir');
+            $table->date('tgl_lahir');
+            $table->string('nope');
+            $table->string('pendidikan');
             $table->string('foto_ktp');
-            $table->string('no_telp');
             $table->string('image')->nullable();
+            $table->foreignId('jabatan_id')->nullable();
             $table->timestamps();
         });
     }

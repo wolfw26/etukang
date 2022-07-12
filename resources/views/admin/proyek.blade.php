@@ -6,8 +6,19 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6 text-center">
+                @if (session()->has('kosong'))
+                <div class="row">
+                    <div class="col-4">
+                        <div class="alert alert-warning">
+                            {{ session('kosong') }}
+                            <a type="button" class="btn-close" data-dismiss="alert" aria-label="Close">x</a>
+                        </div>
+                    </div>
+                </div>
+                @endif
                 <h1 class="m-0">
                     <h1>Halaman <strong style="color: brown;">Data Proyek All</strong></h1>
+
                 </h1>
             </div><!-- /.col -->
             <div class="col-4">
@@ -167,5 +178,6 @@
         </div>
     </div>
 </div>
-<!-- /modal -->
+
+
 @endsection

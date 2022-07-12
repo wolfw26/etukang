@@ -23,10 +23,9 @@ class Pekerja extends Model
                 ->orwhere('alamat', 'like', '%' . $cari . '%');
         });
     }
-
-    public function tukang()
+    public function jabatan()
     {
-        return $this->belongsTo(Tukang::class);
+        return $this->belongsTo(Jabatan::class);
     }
     public function penggajian()
     {

@@ -284,6 +284,16 @@
                                     </a>
                                 </li>
                             </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ url('adm/pekerja') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>
+                                            Pekerja
+                                        </p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -328,14 +338,7 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ url('adm/pekerja') }}" class="nav-link">
-                                <i class="nav-icon fas fa-user-friends"></i>
-                                <p>
-                                    Pekerja
-                                </p>
-                            </a>
-                        </li>
+
                         <!-- <li class="nav-item">
                             <a href="{{ url('adm/biaya') }}" class="nav-link">
                                 <i class="nav-icon fas fa-book-open"></i>
