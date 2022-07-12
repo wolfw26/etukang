@@ -1,4 +1,6 @@
+@dd($data)
 @extends('component.template')
+
 @section('konten')
 <div class="container">
     <div class="row bg-gray-light p-3">
@@ -43,7 +45,7 @@
                                 <td>{{ $d->nama_rab }}</td>
                                 <td class=" text-bold">{{ $d->kode_rab }}</td>
 
-                                <td>{{ $d->proyekrab->nama_proyek }}</td>
+                                <td>{{ $d->proyekrab->nama_proyek}}</td>
                             </tr>
                             @endforeach
                         </tbody>

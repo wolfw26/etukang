@@ -17,11 +17,11 @@ class RabController extends Controller
         //         return $proyek;
         //     }
         // }
-        $rab = Rab::all();
         // dd($rab);
+        $rab = Rab::latest()->get();
         return view('admin.rab', [
             'title' => 'RAB',
-            'data' => $rab,
+            'data' => $rab->all(),
             'proyek' => Proyek::all()
         ]);
     }
