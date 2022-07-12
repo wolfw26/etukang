@@ -38,7 +38,7 @@
                                             <a href=" {{ route('ahsp') }}/{{ $d->id }}/d " onclick="return confirm('Hapus Data   {{ $d->nama_material }} ');" class="btn btn-sm bg-danger">
                                                 <i class="fas fa-trash"></i>
                                             </a>
-                                            <a href=" {{ Route('ahsp.edit',$d->id) }} " class="btn btn-sm bg-teal">
+                                            <a href=" {{ Route('ahsp.edit',$d->id) }} " class="btn btn-sm bg-teal" data-toggle="modal" data-target="#editAhs">
                                                 <i class="fas fa-edit" title="Edit"></i>
                                             </a>
                                             <a href="{{ route('ahsp.detail', $d->id)}}" class="btn btn-sm bg-success">
@@ -48,8 +48,25 @@
                                         <td> {{ $d->kode_ahs}}</td>
                                         <td class=" text-bold"> {{ $d->nama_ahs}}</td>
                                         <td> {{ number_format($d->total,2)  }} </td>
-
                                     </tr>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="editAhs" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Data {{ $d->id }} </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    ...
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -64,11 +81,6 @@
         <div class="col-4">
             <div class="card">
                 <div class="card-header bg-green"></div>
-                <div class="row m-1">
-                    <div class="col-5 p-2">
-                        <button id="form_button">Tambah Baru</button>
-                    </div>
-                </div>
                 <div class="card-body text-center text-bold">Tambah AHS</div>
                 <div class="card-body text-center" id="satu">
                     <form action="{{ route('ahsp.add') }}" method="POST">
@@ -88,7 +100,8 @@
                         <button type="submit">Buat</button>
                     </form>
                 </div>
-                <div class="form-floating mb-3 mt-3 active" id="dua">
+            </div>
+            <!-- <div class="form-floating mb-3 mt-3 active" id="dua">
                     <label for="ahs">Pilih AHS</label>
                     <form action="{{ route('ahsp.add') }}" method="POST">
                         @csrf
@@ -102,8 +115,8 @@
                     </form>
                 </div>
             </div>
-            <br>
-            <div class="card">
+            <br> -->
+            <!-- <div class="card">
                 <div class="card-header bg-green"></div>
                 <div class="row p-2">
                     <div class="col-12">
@@ -166,35 +179,35 @@
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            <!-- </div> -->
         </div>
-    </div>
-    <style>
-        .active {
+        <style>
+            /* .active {
             display: none;
-        }
-    </style>
-    <script>
-        var satu = document.getElementById("satu");
-        var dua = document.getElementById("dua");
+        } */
+        </style>
+        <script>
+            // var satu = document.getElementById("satu");
+            // var dua = document.getElementById("dua");
 
-        var button = document.getElementById('form_button');
-        var button_2 = document.getElementById('form_button_2');
+            // var button = document.getElementById('form_button');
+            // var button_2 = document.getElementById('form_button_2');
 
-        button.addEventListener(('click'), () => {
+            // button.addEventListener(('click'), () => {
 
-            satu.classList.toggle('active');
+            //     satu.classList.toggle('active');
 
-        })
-        button.addEventListener(('click'), () => {
+            // })
+            // button.addEventListener(('click'), () => {
 
-            dua.classList.toggle('active');
+            //     dua.classList.toggle('active');
 
-        })
-    </script>
+            // })
+        </script>
 
-    @endsection
-    {{-- <input type="text" placeholder="rincian_pekerjaan" name="rincian_pekerjaan" id="rincian_pekerjaan">
+        @endsection
+        {{-- <input type="text" placeholder="rincian_pekerjaan" name="rincian_pekerjaan" id="rincian_pekerjaan">
                         <input type="text" placeholder="satuan" name="satuan" id="satuan">
                         <select name="kategori" id="kategori">
                             <option value="upah">Upah</option>
@@ -202,7 +215,7 @@
                             <option value="alat">Alat</option>
                         </select>
                         <input type="int" placeholder="volume" name="volume" id="volume"> --}}
-    {{-- <script>
+        {{-- <script>
                             $(document).ready(function(){
                                 $('.row #show').click(function(event){
                                     $('#pesan').show();

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Alat;
 
 use App\Models\Alat;
 use App\Models\Alatsewa as ModelsAlatsewa;
+use Carbon\Carbon;
 use Livewire\Component;
 
 
@@ -12,6 +13,7 @@ class Alatsewa extends Component
     public $deskripsi, $sewa, $tglm, $tgls, $harga, $satuan, $tharga, $jumlah, $kode;
     public $id_sewa, $cari;
     protected $listeners = ['deleteConfirmed' => 'hapus'];
+    public $date, $date2, $jarak;
 
 
     protected $rules = [
@@ -136,6 +138,12 @@ class Alatsewa extends Component
             $this->tharga = 0;
         };
         // $dataedit = ModelsAlatsewa::find($this->edit);
+        // $data = ModelsAlatsewa::find(1);
+        // $waktu_selesai = Carbon::create($data->tanggal_selesai);
+        // $waktu_mulai = Carbon::create($data->tanggal_mulai);
+        // $this->date = $waktu_mulai;
+        // $this->date2 = $waktu_selesai;
+        // $this->jarak = $this->date->diffInDays($this->date2->subMonth(), false);
 
         return view('livewire.alat.alatsewa', [
             'title' => 'Data Sewa Alat',

@@ -11,6 +11,7 @@ use App\Models\Alatin as ModelsAlatin;
 class Alatin extends Component
 {
     public $deskripsi, $tempat, $jumlah, $satuan, $kode, $tanggal_masuk, $harga, $status, $cari;
+    public $merk = '-', $fungsi = '-';
     public $tharga = 0;
     public $id_data;
 
@@ -18,6 +19,7 @@ class Alatin extends Component
 
     public function edit(ModelsAlatin $id)
     {
+        $data = Alat::where('masuk_id', $id->id)->first();
         $this->id_data = $id->id;
         $this->kode = $id->kode;
         $this->deskripsi = $id->keterangan;
@@ -28,6 +30,8 @@ class Alatin extends Component
         $this->satuan = $id->satuan;
         $this->status = $id->status;
         $this->tharga = $this->harga * $this->jumlah;
+        $this->merk = $data->Merk;
+        $this->fungsi = $data->fungsi;
     }
     public function update()
     {
@@ -46,9 +50,9 @@ class Alatin extends Component
         $alat = Alat::where('masuk_id', $this->id_data)->first();
         $alat->kode = $this->kode;
         $alat->nama = $this->deskripsi;
-        $alat->fungsi = '-';
-        $alat->Merk = '-';
-        $alat->status = '-';
+        $alat->fungsi = $this->fungsi;
+        $alat->Merk = $this->merk;
+        $alat->status = $this->status;
         $alat->kepemilikan = 'dimiliki';
         $alat->satuan = $this->satuan;
         $alat->harga_satuan = $this->harga;
@@ -66,6 +70,8 @@ class Alatin extends Component
         $this->satuan = null;
         $this->status = null;
         $this->tharga = null;
+        $this->fungsi = null;
+        $this->merk = null;
     }
 
     public function tambahAlat()
@@ -89,9 +95,9 @@ class Alatin extends Component
         $alat = new Alat;
         $alat->kode = $this->kode;
         $alat->nama = $this->deskripsi;
-        $alat->fungsi = '-';
-        $alat->Merk = '-';
-        $alat->status = '-';
+        $alat->fungsi = $this->fungsi;
+        $alat->Merk = $this->merk;
+        $alat->status = $this->status;
         $alat->kepemilikan = 'dimiliki';
         $alat->satuan = $this->satuan;
         $alat->harga_satuan = $this->harga;
@@ -107,11 +113,15 @@ class Alatin extends Component
         $this->satuan = null;
         $this->status = null;
         $this->tharga = null;
+        $this->fungsi = null;
+        $this->merk = null;
     }
 
     public function hapus($id)
     {
         $data = ModelsAlatin::find($id);
+        $alat = Alat::where('masuk_id', $id)->first();
+        $alat->delete();
         $data->delete();
     }
 

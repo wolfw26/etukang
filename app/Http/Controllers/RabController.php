@@ -81,8 +81,6 @@ class RabController extends Controller
 
         $jumlah = Rab::find($data['rab_id']);
 
-        dd($jumlah->datarab);
-
         // foreach ($ahs as $p) {
         //     echo $p;
         // }

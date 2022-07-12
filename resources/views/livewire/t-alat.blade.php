@@ -3,8 +3,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Alat</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                    @if (session()->has('berhasil'))
+                    <div class="alert alert-success">
+                        {{ session('berhasil') }}
+                    </div>
+                    @endif
                 </div>
                 <div class="modal-body">
 
@@ -38,8 +43,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Tambahkan</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button wire:click="tambah" type="submit" class="btn btn-primary">Tambahkan</button>
                 </div>
             </div>
         </div>
