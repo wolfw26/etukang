@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Material;
 use App\Models\Material_in;
+use App\Models\Stok;
 
 class MaterialIn extends Component
 {
@@ -84,6 +85,15 @@ class MaterialIn extends Component
         $material->keluar = $data->keluar;
         $material->stok_akhir = $stok_awal->stok_akhir + $this->jumlah;
         $material->save();
+
+        $stok = new Stok;
+        $stok->material = $data->nama_material;
+        $stok->tanggal = $this->tanggal;
+        $stok->stok = $stok_awal->stok_akhir;
+        $stok->masuk = $this->jumlah;
+        $stok->stok_akhir = $stok_awal->stok_akhir + $this->jumlah;
+        $stok->material_id = $this->dropdown;
+        $stok->save();
 
         $this->nama = null;
         $this->kode = null;

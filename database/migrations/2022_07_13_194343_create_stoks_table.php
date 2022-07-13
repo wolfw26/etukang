@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('material');
             $table->date('tanggal');
-            $table->integer('stok');
-            $table->integer('masuk');
-            $table->integer('keluar');
+            $table->integer('stok')->nullable();
+            $table->integer('masuk')->nullable();
+            $table->integer('keluar')->nullable();
             $table->integer('stok_akhir');
-            $table->foreignId('material_id');
+            $table->foreignId('material_id')->nullable();
             $table->timestamps();
         });
     }

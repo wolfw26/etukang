@@ -40,10 +40,6 @@
                                 <th scope="col">Material</th>
                                 <th scope="col">Satuan</th>
                                 <th scope="col">Harga Satuan</th>
-                                <th scope="col">Stok</th>
-                                <th scope="col">Masuk</th>
-                                <th scope="col">Keluar</th>
-                                <th scope="col">stok akhir</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,10 +58,6 @@
                                 <td> {{ $d->nama_material}}</td>
                                 <td> {{ $d->satuan}}</td>
                                 <td> {{ number_format($d->harga_satuan,2)}}</td>
-                                <td class="text-bold"> {{ $d->stok}}</td>
-                                <td class="text-bold text-success"> {{ $d->masuk}}</td>
-                                <td> {{ $d->keluar}}</td>
-                                <td class="text-bold"> {{ $d->stok_akhir}}</td>
                             </tr>
                             @endforeach
                         </tbody>
