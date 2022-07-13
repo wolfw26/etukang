@@ -1,0 +1,222 @@
+
+*{
+    padding : 0;
+    margin : 0;
+}
+
+body {
+
+	font-family: 'Karla', sans-serif;
+}
+
+.home{
+    height: 100vh;
+	background: linear-gradient(to bottom right, #c4c4c4, #2e2e2e);
+	position: relative;
+}
+nav{
+	height: 20px;
+	display: flex;
+	justify-content: space-between;
+    align-items: center;
+	padding: 22px 10rem;
+	position: fixed;
+   
+	top:0;
+	left: 0;
+	right: 0;
+	z-index: 999;
+	transition: .3s;
+	
+}
+.logo{
+         color : rgb(255, 255, 255); 
+        font-weight: bold;
+        font-size : 32px;
+        font-family: Arial, Helvetica, sans-serif;
+}
+
+ul{
+    display: flex;
+    list-style-type: none;
+    width: 16rem;
+    justify-content: space-between;
+}
+ul li a{ 
+    text-decoration: none;
+	
+    color: white;
+	transition: .2s;
+}
+.welcome{
+    font-weight: 700;
+    color :rgb(255, 196, 0);
+}
+.small{
+    font-weight: 50;
+    font-size: 22px;
+    font-weight: 100;
+} 
+.arab{
+    margin-top: 60px;
+    color: rgb(189, 189, 189);
+}
+.font {
+        color : rgb(255, 255, 255); 
+        padding : 0; 
+        margin : 0; 
+        /* font-family: Arial, Helvetica, sans-serif; */
+        font-size: 49px;
+        top: 25%;
+        text-align: center;
+        position: absolute;
+      
+    }
+.button_login {
+    width: 130px;
+    border : none;
+    background-color: rgb(255, 196, 0);
+    height: 42px;
+    color : rgb(230, 230, 230);
+    border-radius : 30px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+.button_login:hover {
+    cursor: pointer;
+    width: 130px;
+    border : none;
+    background-color: rgb(245, 245, 245);
+    height: 42px;
+    color : rgb(145, 145, 145);
+    border-radius : 30px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+ 
+}
+
+.button_login_2{
+    width: 12rem;
+    border : none;
+    margin-top: 20px;
+    background-color: rgb(255, 196, 0);
+    height: 42px;
+    color : rgb(80, 80, 80);
+    border-radius : 30px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    
+}
+.img{
+    width: 28rem;
+    border-radius: 30px;
+}
+.gambar{
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.banner {
+
+    height: '100%';
+    width: '100%';
+    justify-content: center;
+    display: flex;
+}
+section{
+	height: auto;	
+	padding: 100px 200px;
+}
+
+.about{
+    display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	background: rgb(243, 243, 243);
+	padding-right: 0;
+	padding-left: 200px;
+}
+
+.deskripsi h2{
+    color :rgb(255, 196, 0);
+    text-shadow: #2e2e2e;
+    font-size: 52px;
+    font-weight: 600;
+}
+.services-cards{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	margin-top: 40px;
+}
+.services-card {
+	width: 220px;
+	height: auto;
+	text-align: left;
+}
+.services-card img{
+	width: 220px;
+	height: 140px;
+	margin-bottom: 20px;
+}
+.deskripsi p{
+    margin-top: 28px;
+    line-height: 2;
+    color : rgb(78, 78, 78);
+    text-shadow: #2e2e2e;
+    text-align: justify;
+}
+.news{
+	background: linear-gradient(to bottom right, #c4c4c4, #9b9b9b);
+	text-align: center; 
+}
+section.news h2{
+	color: white;
+    font-size: 46px;
+}
+.news p,.news a,.news h3{
+    color :rgb(80, 80, 80);
+	/*margin: 10px 20px;*/
+}
+.news .services-card{
+	width: 280px;
+	margin-top: 30px;
+	background-color:  rgba(231, 231, 231, 0.466);
+}
+.news .text{
+	padding: 20px 15px;
+    
+}
+.news .services-card img{
+	margin: 0;
+	width: 280px;
+	height: 170px;
+}
+.news a:hover{
+	color: #215276;
+}
+.news span{
+    color :rgb(80, 80, 80);
+	font-size: 14px;
+}
+
+
+.text{
+    line-height: 2;
+    
+}
+hr{
+   margin-top: 10px;
+    border: 1px solid;
+}
+
+
+footer{
+    padding: 0px 200px;
+    color :rgb(80, 80, 80);
+    font-size : 50px;
+    font-weight: 700;
+    background-color: rgb(255, 196, 0);
+    display: flex;
+}
