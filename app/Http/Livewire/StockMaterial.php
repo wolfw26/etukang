@@ -11,7 +11,7 @@ class StockMaterial extends Component
         return view('livewire.stock-material', [
             'title' => 'Stock'
         ])
-            ->extends('component.template')
+            ->extends('component.template', ['title' => 'Stock'])
             ->section('konten');
     }
 }
