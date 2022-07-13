@@ -3,12 +3,18 @@
 @section('konten')
 <h1>Halaman <strong style="color: brown;">Pekerja</strong></h1>
 <div class="row">
-    <div class="col-4">
+    <div class="col-4 d-flex justify-content-between">
         @if (session('berhasil'))
-    <div class="alert alert-success">
-        {{ session('berhasil') }}
-    </div>
-@endif
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ session('berhasil') }}</strong>
+            <button type="button" class="btn-outline-gray" data-dismiss="alert">X</button>
+        </div>
+        @elseif (session('hapus'))
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>{{ session('hapus') }}</strong>
+            <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">X</button>
+        </div>
+        @endif
     </div>
 </div>
 <div class="card m-2">
@@ -90,7 +96,7 @@
                     </td>
                     <td>{{ $d->image}}</td>
                     <td class=" d-inline-flex justify-content-between">
-                        <a href=" {{ route('client',$d->id) }}" onclick="return confirm('Hapus Data   {{ $d->nama }} ');" class="btn btn-sm" title="hapus">
+                        <a href="{{ route('pekerja.delete',$d->id) }}" onclick="return confirm('Hapus Data   {{ $d->nama }} ');" class="btn btn-sm" title="hapus">
                             <i class="fas fa-trash text-danger"></i>
                         </a>
                         <a href="client/{{ $d->id }}/edit" type="button" class="btn btn-sm">
