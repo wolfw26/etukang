@@ -38,6 +38,7 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/',  function () {
     return view('landing.index', [
         'title' => 'HOME'
@@ -84,7 +85,8 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         // renovasi
         // Route::get('/renovasi/' [])
         //Pekerja
-        Route::get('/pekerja/', [PekerjaController::class, 'index']);
+        Route::get('/pekerja/', [PekerjaController::class, 'index'])->name('pekerja');
+        Route::post('/pekerja/', [PekerjaController::class, 'store'])->name('pekerja.create');
         // Client
         Route::get('/client/', [ClientController::class, 'index'])->name('client');
         Route::get('/client/{client:id}', [ClientController::class, 'detail'])->name('client.detail');
