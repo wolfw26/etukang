@@ -1,13 +1,13 @@
-<div>
+<div class="p-3">
     <div class="alert alert-light mb-3" role="alert">
         <div class="row">
-            <div class="col-7">
+            <!-- <div class="col-7">
                 <button class="btn btn-outline-secondary m-1" wire:click="all"> Material All</button>
 
                 <button class="btn btn-outline-secondary m-1" wire:click="masuk">Material Masuk</button>
 
                 <button class="btn btn-outline-secondary m-1" wire:click="keluar">Material Keluar</button>
-            </div>
+            </div> -->
             <div class="col-4 ">
                 @if (session('tambah'))
                 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -39,15 +39,6 @@
             </div>
         </div>
     </div>
-
-    <div class="container-fluid">
-        @if ( $page == 'masuk' )
-        @livewire('material-in')
-        @elseif ( $page == 'keluar')
-        @livewire('material-out')
-        @else
-        @livewire('materialwire')
-        @endif
-    </div>
+    @livewire('materialwire')
 
 </div>
