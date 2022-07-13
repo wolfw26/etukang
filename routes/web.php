@@ -26,6 +26,7 @@ use App\Http\Livewire\Alatindex;
 use App\Http\Livewire\Client\Client as ClientClient;
 use App\Http\Livewire\Client\Rab\RabHome;
 use App\Http\Livewire\DataAhs;
+use App\Http\Livewire\StockMaterial;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -106,6 +107,9 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         Route::get('/material/d/{id}', [MaterialController::class, 'delete'])->name('material.delete');
         Route::get('/material/cetak', [MaterialController::class, 'cetakMaterial'])->name('material.cetakall');
         Route::get('/material/cetak/{param}', [MaterialController::class, 'Materialin'])->name('materialin.cetak');
+
+        // STOK MATERIAL
+        Route::get('/stock/', StockMaterial::class)->name('stock.index');
 
         //ALAT
         Route::get('/alat/', AlatAlatindex::class)->name('alat');

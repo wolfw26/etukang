@@ -8,6 +8,10 @@ class StockMaterial extends Component
 {
     public function render()
     {
-        return view('livewire.stock-material');
+        return view('livewire.stock-material', [
+            'title' => 'Stock'
+        ])
+            ->extends('component.template')
+            ->section('konten');
     }
 }
