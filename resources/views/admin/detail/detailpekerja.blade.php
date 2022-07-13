@@ -1,34 +1,40 @@
 @extends('component.template')
 @section('konten')
-<div class="container-fluid m-0">
-    <div class="row p-4">
+<div class="container-fluid">
+    <div class="row p-0">
         <div class="col-7">
             <div class="card card-navy card-outline">
-                <div class="card-body box-profile">
-                    <div class="text-center">
-                        <img class="profile-user-img img-fluid img-circle" src=" {{ asset( $data->foto) }} " alt="User profile picture">
+                <div class="card-body">
+                    <div class="row p-0">
+                        <div class="col-12">
+                            <div class="text-center row-cols-3 ">
+                                {{-- <img class="profile-user-img img-fluid img-circle" src=" {{ asset( $data->image) }} " alt="User profile picture"> --}}
+                                <img class=" shadow-2xl img-fluid img-bordered rounded-circle" src=" {{ asset( $data->image) }} " alt="User profile picture">
+                            </div>
+                        </div>
                     </div>
 
-                    <h3 class="profile-username text-center"> {{ $data->nama }} </h3>
 
-                    <p class="text-muted text-center">Kepala Proyek / Tukang</p>
+                    <h3 class="profile-username text-center"> {{ $data->nama }}</h3>
+
+                    <p class="text-muted text-center">{{ $data->tempat_lahir }}, {{ $data->tgl_lahir }}</p>
 
                     <ul class="list-group list-group-unbordered mb-3">
                         <li class="list-group-item">
-                            <b>NO. KTP</b> <a class="float-right">{{ $data->no_ktp }}</a>
+                            <b>NO. KTP</b> <a class="float-right">05004083855365</a>
                         </li>
                         <li class="list-group-item">
                             <b>Jenis Kelamin</b> <a class="float-right"> {{ $data->jk }} </a>
                         </li>
                         <li class="list-group-item">
-                            <b>No. Telp</b> <a class="float-right"> {{ $data->no_telp }} </a>
+                            <b>No. Telp</b> <a class="float-right"> {{ $data->nope }} </a>
                         </li>
                         <li class="list-group-item">
-                            <b>Pendidikan</b> <a class="float-right"> {{ $data->pendidikan }} </a>
+                            <b>Pendidikan</b> <span class="float-right text-uppercase text-primary"> {{ $data->pendidikan }} </h3>
                         </li>
                         <li class="list-group-item">
-                            <b>Foto KTP</b> <a class="float-right"> <img src=" {{ asset($data->foto_ktp) }} " alt="" width="50px" height="50px" > </a>
-
+                            <b>Foto KTP</p> <br> <a class="text-center">
+                            <img src=" {{ asset($data->foto_ktp) }} " alt="" width="300px" height="200px"> </a>
                         </li>
                     </ul>
                 </div>
@@ -39,7 +45,7 @@
             <!-- About Me Box -->
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">About Me</h3>
+                    <h3 class="card-title text-center">Data Pekerjaan</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -60,14 +66,14 @@
                     <strong><i class="fas fa-pencil-alt mr-1"></i> Keahlian</strong>
 
                     <p class="text-muted">
-                        <span class="tag tag-danger"> {{ $data->keahlian }} </span>
+                        <span class="tag tag-danger">  </span>
                     </p>
 
                     <hr>
 
                     <strong><i class="far fa-file-alt mr-1"></i> Lain-Lain</strong>
 
-                    <p class="text-muted"> {{ $data->lain }} </p>
+                    <p class="text-muted"> </p>
                 </div>
                 <!-- /.card-body -->
             </div>

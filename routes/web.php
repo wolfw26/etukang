@@ -89,6 +89,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         Route::get('/pekerja/', [PekerjaController::class, 'index'])->name('pekerja');
         Route::post('/pekerja/', [PekerjaController::class, 'store'])->name('pekerja.create');
         Route::get('/pekerja/{id}/d', [PekerjaController::class, 'delete'])->name('pekerja.delete');
+        Route::get('/pekerja/{id}/detail', [PekerjaController::class, 'detail'])->name('pekerja.detail');
         // Client
         Route::get('/client/', [ClientController::class, 'index'])->name('client');
         Route::get('/client/{client:id}', [ClientController::class, 'detail'])->name('client.detail');

@@ -299,7 +299,7 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-house-user"></i>
                                 <p>
-                                    Pembangunan
+                                    Data Transaksi
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
@@ -307,10 +307,11 @@
                                 <li class="nav-item">
                                     <a href="{{ url('adm/proyek') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Semua Data</p>
+                                        <p>Stok Material</p>
                                     </a>
                                 </li>
                             </ul>
+
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
