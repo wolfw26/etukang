@@ -15,11 +15,11 @@ class Pekerja extends Model
     public function scopeCari($query, array $cari)
     {
         if (isset($cari['cari']) ? $cari['cari'] : false) {
-            return $query->where('nama_pekerja', 'like', '%' . request('cari') . '%')
+            return $query->where('nama', 'like', '%' . request('cari') . '%')
                 ->orwhere('alamat', 'like', '%' . request('cari') . '%');
         }
         $query->when($cari['cari'] ?? false, function ($query, $cari) {
-            return $query->where('nama_pekerja', 'like', '%' . $cari . '%')
+            return $query->where('nama', 'like', '%' . $cari . '%')
                 ->orwhere('alamat', 'like', '%' . $cari . '%');
         });
     }

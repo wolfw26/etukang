@@ -72,6 +72,10 @@
                                     <th scope="col">Material</th>
                                     <th scope="col">Satuan</th>
                                     <th scope="col">Harga Satuan</th>
+                                    <th scope="col">Stok Awal</th>
+                                    <th scope="col">Masuk</th>
+                                    <th scope="col">Keluar</th>
+                                    <th scope="col">Stok</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -90,6 +94,10 @@
                                     <td> {{ $d->nama_material}}</td>
                                     <td> {{ $d->satuan}}</td>
                                     <td> {{ number_format($d->harga_satuan,2)}}</td>
+                                    <td> {{ $d->stok}}</td>
+                                    <td> {{ $d->masuk}}</td>
+                                    <td> {{ $d->keluar}}</td>
+                                    <td> {{ $d->stok_akhir}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

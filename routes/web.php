@@ -26,6 +26,7 @@ use App\Http\Livewire\Alatindex;
 use App\Http\Livewire\Client\Client as ClientClient;
 use App\Http\Livewire\Client\Rab\RabHome;
 use App\Http\Livewire\DataAhs;
+use App\Http\Livewire\Jabatans;
 use App\Http\Livewire\StockMaterial;
 use Illuminate\Support\Facades\Auth;
 
@@ -91,6 +92,9 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         Route::post('/pekerja/', [PekerjaController::class, 'store'])->name('pekerja.create');
         Route::get('/pekerja/{id}/d', [PekerjaController::class, 'delete'])->name('pekerja.delete');
         Route::get('/pekerja/{id}/detail', [PekerjaController::class, 'detail'])->name('pekerja.detail');
+
+        //
+        Route::get('/jabatan/', Jabatans::class)->name('jabatan');
         // Client
         Route::get('/client/', [ClientController::class, 'index'])->name('client');
         Route::get('/client/{client:id}', [ClientController::class, 'detail'])->name('client.detail');

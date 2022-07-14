@@ -7,9 +7,9 @@
                 <div class="card-body">
                     <div class="row p-0">
                         <div class="col-12">
-                            <div class="text-center row-cols-3 ">
+                            <div class="text-center row-cols-2 " style="padding: 0;">
                                 {{-- <img class="profile-user-img img-fluid img-circle" src=" {{ asset( $data->image) }} " alt="User profile picture"> --}}
-                                <img class=" shadow-2xl img-fluid img-bordered rounded-circle" src=" {{ asset( $data->image) }} " alt="User profile picture">
+                                <img style="height: 250px ;" class=" shadow-2xl img-responsive img-bordered rounded-sm " src=" {{ asset( $data->image) }} " alt="User profile picture">
                             </div>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
                             <b>NO. KTP</b> <a class="float-right">05004083855365</a>
                         </li>
                         <li class="list-group-item">
-                            <b>Jenis Kelamin</b> <a class="float-right"> {{ $data->jk }} </a>
+                            <b>Jenis Kelamin</b> <a class="float-right"> {{ $data->jenis_kelamin }} </a>
                         </li>
                         <li class="list-group-item">
                             <b>No. Telp</b> <a class="float-right"> {{ $data->nope }} </a>
@@ -34,7 +34,7 @@
                         </li>
                         <li class="list-group-item">
                             <b>Foto KTP</p> <br> <a class="text-center">
-                            <img src=" {{ asset($data->foto_ktp) }} " alt="" width="300px" height="200px"> </a>
+                                    <img src=" {{ asset($data->foto_ktp) }} " alt="" width="300px" height="200px"> </a>
                         </li>
                     </ul>
                 </div>
@@ -66,7 +66,7 @@
                     <strong><i class="fas fa-pencil-alt mr-1"></i> Keahlian</strong>
 
                     <p class="text-muted">
-                        <span class="tag tag-danger">  </span>
+                        <span class="tag tag-danger"> </span>
                     </p>
 
                     <hr>

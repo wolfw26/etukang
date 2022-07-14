@@ -1,5 +1,6 @@
 @extends('component.template')
-@section('konten')<div class="row">
+@section('konten')
+<div class="row">
 
 </div>
 <div class="content-header">
@@ -44,6 +45,7 @@
     </div><!-- /.container-fluid -->
 </div>
 
+@if ( $data && $data->count() > 0)
 
 <div class="row">
     <div class="card card-solid">
@@ -101,6 +103,16 @@
     </div>
     <!-- /card-solid -->
 </div>
+@else
+<div class="row">
+    <div class="col-6">
+        <div class="alert alert-warning" role="alert">
+            Data Belum DiTambah
+        </div>
+    </div>
+</div>
+
+@endif
 
 <!-- Modal -->
 <div class="modal fade" id="Tambah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

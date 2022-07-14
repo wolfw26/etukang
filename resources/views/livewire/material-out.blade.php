@@ -92,7 +92,7 @@
                                 <td>{{ $m->nama_material }} </td>
                                 <td>{{ $m->jumlah }} </td>
                                 <td>{{ $m->satuan }} </td>
-                                <td>Rp. {{ number_format($m->harga_satuan,2) }} </td>
+                                <td>Rp. {{ number_format($m->material->harga_satuan,2) }} </td>
                             </tr>
                             @endforeach
                         </tbody>

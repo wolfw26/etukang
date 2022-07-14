@@ -29,6 +29,7 @@ class MaterialOut extends Component
             $this->nama = $this->data->nama_material;
             $this->kode = $this->data->kode_material;
             $this->satuan = $this->data->satuan;
+            $this->harga_satuan = $this->data->harga_satuan;
         }
 
         $data = materialouts::all()->groupBy('nama_material');
@@ -71,6 +72,7 @@ class MaterialOut extends Component
             'nama_material' => $this->nama,
             'jumlah' => $this->jumlah,
             'satuan' => $this->satuan,
+            'stok_awal' => $stok_awal->stok_akhir,
             'harga_satuan' => $this->harga_satuan,
             'material_id' => $this->dropdown
         ]);
@@ -82,8 +84,7 @@ class MaterialOut extends Component
         $material->stok = $stok_awal->stok_akhir;
         $material->satuan = $data->satuan;
         $material->harga_satuan = $data->harga_satuan;
-        $material->masuk = $this->jumlah;
-        $material->keluar = $data->keluar;
+        $material->keluar = $this->jumlah;
         $material->stok_akhir = $stok_awal->stok_akhir - $this->jumlah;
         $material->save();
 
@@ -91,7 +92,7 @@ class MaterialOut extends Component
         $stok->material = $data->nama_material;
         $stok->tanggal = $this->tanggal;
         $stok->stok = $stok_awal->stok_akhir;
-        $stok->masuk = $this->jumlah;
+        $stok->keluar = $this->jumlah;
         $stok->stok_akhir = $stok_awal->stok_akhir + $this->jumlah;
         $stok->material_id = $this->dropdown;
         $stok->save();

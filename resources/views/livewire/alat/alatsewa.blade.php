@@ -1,7 +1,5 @@
 <div>
-
     <div class="container p-2">
-
         <div class="row">
             <div class="col col-md-6">
                 <p>
@@ -167,10 +165,10 @@
                                 </tbody>
                             </table>
                             @else
-                    <div class="container-fluid text-center m-5">
-                        <h4 class="text-danger"> <strong> <i>Tidak Ada Data</i></strong></h4>
-                    </div>
-                    @endif
+                            <div class="container-fluid text-center m-5">
+                                <h4 class="text-danger"> <strong> <i>Tidak Ada Data</i></strong></h4>
+                            </div>
+                            @endif
                         </div>
                     </div>
 
