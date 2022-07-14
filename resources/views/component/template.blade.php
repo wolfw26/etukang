@@ -323,7 +323,7 @@
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('stock.index') }}" class="nav-link">
+                                    <a href="{{ route('absensi') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Absen Harian</p>
                                     </a>

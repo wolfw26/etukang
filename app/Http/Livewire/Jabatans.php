@@ -35,6 +35,10 @@ class Jabatans extends Component
         $id->save();
 
         session()->flash('update', 'Jabatan Telah Di perbarui');
+        $this->jabatan = null;
+        $this->gapok = null;
+        $this->transport = null;
+        $this->makan = null;
     }
 
     public function store()
@@ -46,6 +50,11 @@ class Jabatans extends Component
         $data->transport = $this->transport;
         $data->makan = $this->makan;
         $data->save();
+
+        $this->jabatan = null;
+        $this->gapok = null;
+        $this->transport = null;
+        $this->makan = null;
     }
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jabatan;
 use App\Models\Pekerja;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,7 @@ class PekerjaController extends Controller
 
         return view('admin.pekerja', [
             'title' => 'Pekerja',
+            'jabatan' => Jabatan::all(),
             'data' => Pekerja::latest()->Cari(request(['cari']))->paginate(3)->withQueryString()
         ]);
     }
@@ -25,6 +27,7 @@ class PekerjaController extends Controller
             'jk' => 'required',
             'tempat' => 'required',
             'tgl_lahir' => 'required',
+            'jabatan' => 'required',
             'pendidikan' => 'required',
             'fotoKtp' => 'image|file|max:2048',
             'foto' => 'image|file|max:2048'
@@ -43,6 +46,7 @@ class PekerjaController extends Controller
         $pekerja->tempat_lahir = $data['tempat'];
         $pekerja->tgl_lahir = $data['tgl_lahir'];
         $pekerja->nope = $data['nope'];
+        $pekerja->jabatan_id = $data['jabatan'];
         $pekerja->pendidikan = $data['pendidikan'];
         $pekerja->foto_ktp = $ktp;
         $pekerja->image = $foto;

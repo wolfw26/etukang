@@ -63,7 +63,7 @@
                         <div class="row p-0">
                             <div class="col-4" style="padding: 1px ;">
                                 @if ($d->image)
-                                <div class="container-fluid rounded" >
+                                <div class="container-fluid rounded">
                                     <img style="height: 200px; width: 100%; " src="{{ asset( $d->image) }}" class="img-fluid ">
                                 </div>
 
@@ -351,6 +351,14 @@
                             <div class="form-floating mb-3 mt-3">
                                 <label for="nope">Telp. Aktif</label>
                                 <input type="number" class="form-control" id="nope" placeholder="No.Telp Aktif" name="nope">
+                            </div>
+                            <div class="form-floating mb-3 mt-3">
+                                <select name="jabatan" id="jabatan">
+                                    @foreach ( $jabatan as $j )
+                                    <option value="{{ $j->id }}">{{ $j->jabatan }}</option>
+                                    @endforeach
+
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="foto_ktp"> Foto KTP</label>

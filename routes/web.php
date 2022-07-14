@@ -21,6 +21,7 @@ use App\Http\Controllers\PekerjaController;
 use App\Http\Controllers\AhspdataController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Livewire\Absen\Absensi;
 use App\Http\Livewire\Alat\Alatindex as AlatAlatindex;
 use App\Http\Livewire\Alatindex;
 use App\Http\Livewire\Client\Client as ClientClient;
@@ -114,6 +115,9 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
 
         // STOK MATERIAL
         Route::get('/stock/', StockMaterial::class)->name('stock.index');
+
+        // Absen
+        Route::get('/absen/', Absensi::class)->name('absensi');
 
         //ALAT
         Route::get('/alat/', AlatAlatindex::class)->name('alat');

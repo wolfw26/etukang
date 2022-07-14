@@ -7,6 +7,7 @@ use App\Models\Client;
 use App\Models\Proyek;
 use App\Models\Tukang;
 use App\Models\DataProyek;
+use App\Models\Pekerja;
 use Illuminate\Http\Request;
 
 class ProyekController extends Controller
@@ -16,7 +17,7 @@ class ProyekController extends Controller
         return view('admin.proyek', [
             'title' => 'Proyek',
             'data' => Proyek::latest()->Cari(request(['cari']))->paginate(8)->withQueryString(),
-            'tukang' => Tukang::get(['nama', 'id']),
+            'tukang' => Pekerja::all(),
             'client' => Client::get(['nama', 'id'])
         ]);
     }

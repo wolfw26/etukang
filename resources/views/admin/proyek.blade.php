@@ -174,7 +174,7 @@
                             <select class="form-select form-control" id="tukang" name="tukang">
                                 <option class=" active" disabled>Pilih Kepala Lapangan</option>
                                 @foreach ($tukang as $d)
-                                <option value="{{ $d->id }}">{{ $d->nama }}</option>
+                                <option value="{{ $d->id }}">{{ $d->nama }}-{{ $d->jabatan->jabatan }}</option>
                                 @endforeach
                             </select>
                         </div>

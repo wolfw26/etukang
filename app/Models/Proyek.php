@@ -25,7 +25,7 @@ class Proyek extends Model
 
     public function tukang()
     {
-        return $this->belongsTo(tukang::class);
+        return $this->belongsTo(Pekerja::class);
     }
     public function dataproyek()
     {
