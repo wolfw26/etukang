@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama_rab');
             $table->string('kode_rab');
             $table->integer('jumlah')->nullable();
+            $table->string('status')->nullable();
             $table->foreignId('proyek_id');
             $table->timestamps();
         });

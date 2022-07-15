@@ -14,7 +14,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <form action="{{ route('rab.add') }}" method="post">
+                        <form action="{{ route('rab.add',$rab_id )  }}" method="post">
                             @csrf
                             <input type="hidden" name="rab_id" id="rab_id" value="{{ $rab_id }}">
                             <td>
@@ -54,7 +54,6 @@
                         <th scope="col">Satuan</th>
                         <th scope="col">Harga Satuan</th>
                         <th scope="col">Total</th>
-                        <th scope="col">Bobot</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -75,7 +74,6 @@
                         <td>{{ $d->satuan }}</td>
                         <td>{{ number_format($d->harga_satuan,2) }}</td>
                         <td>{{ number_format($d->total,2) }}</td>
-                        <td> {{ $d->bobot . '%' }} </td>
                     </tr>
                     @endforeach
                 </tbody>

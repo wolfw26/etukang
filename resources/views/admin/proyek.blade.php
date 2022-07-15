@@ -53,7 +53,8 @@
             <div class="row g-0">
                 @foreach ( $data as $d )
                 <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch flex-column">
-                    <div class="card bg-light d-flex flex-fill">
+                    <div class="{{ $d->status ==  'dikerjakan' ? 'card-lime card-outline' : ''  }} card bg-light d-flex flex-fill
+                    ">
                         <div class="card-header border-bottom-0 text-center" style="color: #cc3300; font-weight:700">
                             {{ $d->nama_proyek }}
                         </div>

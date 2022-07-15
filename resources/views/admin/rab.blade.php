@@ -1,4 +1,3 @@
-
 @extends('component.template')
 
 @section('konten')
@@ -26,6 +25,7 @@
                                 <th scope="col" class="w-25 p-3">Nama</th>
                                 <th scope="col" class="w-25 p-3">Kode RAB</th>
                                 <th scope="col">Nama Proyek</th>
+                                <th scope="col">Konfirmasi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,6 +46,7 @@
                                 <td class=" text-bold">{{ $d->kode_rab }}</td>
 
                                 <td>{{ $d->proyekrab->nama_proyek}}</td>
+                                <td> <a href="{{  route('rab.konfirmasi',$d->id)}}" class="btn btn-outline-success text-success" title="Konfirmasi Ke Client"> <i class=" fas fa-arrow-circle-up "></i> </a> </td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -22,12 +22,14 @@ use App\Http\Controllers\AhspdataController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Livewire\Absen\Absensi;
+use App\Http\Livewire\Absendata;
 use App\Http\Livewire\Alat\Alatindex as AlatAlatindex;
 use App\Http\Livewire\Alatindex;
 use App\Http\Livewire\Client\Client as ClientClient;
 use App\Http\Livewire\Client\Rab\RabHome;
 use App\Http\Livewire\DataAhs;
 use App\Http\Livewire\Jabatans;
+use App\Http\Livewire\Konfirmasi;
 use App\Http\Livewire\StockMaterial;
 use Illuminate\Support\Facades\Auth;
 
@@ -88,6 +90,9 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         // renovasi
         // Route::get('/renovasi/' [])
 
+        // konfirmasi
+        Route::get('/konfirmasi/{client:id}/{rab:id}', Konfirmasi::class)->name('konfirmasi');
+
         //Pekerja
         Route::get('/pekerja/', [PekerjaController::class, 'index'])->name('pekerja');
         Route::post('/pekerja/', [PekerjaController::class, 'store'])->name('pekerja.create');
@@ -118,6 +123,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
 
         // Absen
         Route::get('/absen/', Absensi::class)->name('absensi');
+        Route::get('absen/index/', Absendata::class)->name('absen.index');
 
         //ALAT
         Route::get('/alat/', AlatAlatindex::class)->name('alat');
@@ -135,12 +141,13 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
 
         // RAB
         Route::get('/rab/', [RabController::class, 'index'])->name('rab.index');
+        Route::post('/rab/{id}', [RabController::class, 'konfirmasi'])->name('rab.konfirmasi');
         Route::post('/rab/', [RabController::class, 'store'])->name('rab.store');
         Route::get('/rab/{rab:id}/d', [RabController::class, 'delete'])->name('rab.delete');
         Route::get('/rab/{rab:id}', [RabController::class, 'detail'])->name('rab.view');
         Route::get('/rab/d/{rab:id}/{datarab:id}/d', [RabController::class, 'trash'])->name('rab.trash');
         Route::put('/rab/{rab:id}/{datarab:id}/u', [RabController::class, 'update'])->name('rab.update');
-        Route::post('/rab/add', [RabController::class, 'tambah'])->name('rab.add');
+        Route::post('/rab/add/{id}', [RabController::class, 'Tambah'])->name('rab.add');
 
         Route::get('/biaya/', function () {
             return view('admin.biaya', [

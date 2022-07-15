@@ -7,6 +7,7 @@ use App\Models\ahsp;
 use App\Models\User;
 use App\Models\DataAhs;
 use App\Models\ahspdata;
+use App\Models\Jabatan;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -31,6 +32,24 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => Hash::make('admin1234'),
             'rule' => 'admin'
+        ]);
+        Jabatan::create([
+            'jabatan' => 'Kepala Tukang',
+            'gapok' => 190000,
+            'transport' => 50000,
+            'makan' => 60000,
+        ]);
+        Jabatan::create([
+            'jabatan' => 'Tukang',
+            'gapok' => 180000,
+            'transport' => 50000,
+            'makan' => 60000,
+        ]);
+        Jabatan::create([
+            'jabatan' => 'Pekerja',
+            'gapok' => 170000,
+            'transport' => 50000,
+            'makan' => 60000,
         ]);
         ahsp::create([
             'kode_ahs' => 'A.1',

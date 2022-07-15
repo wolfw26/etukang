@@ -2,8 +2,6 @@
     <div class="container p-2">
         <div class="row mt-3">
             <div class="col col-md-6">
-                <input type="checkbox" value="tak hadir" wire:model="tes">
-                {{ $tes }}
                 <p>
                     <button class="btn btn-primary btn-sm m-0" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                         Tambah

@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('absens', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pekerja_id');
             $table->date('tanggal');
+            $table->foreignId('datanama_id')->nullable();
+            $table->string('deskripsi');
+            $table->foreignId('lembur_id')->nullable();
             $table->foreignId('proyek_id');
             $table->timestamps();
         });

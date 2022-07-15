@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('lemburs', function (Blueprint $table) {
+        Schema::create('datanamas', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('deskripsi');
-            $table->date('tanggal');
-            $table->integer('jumlah');
-            $table->foreignId('absens_id');
             $table->foreignId('pekerja_id');
+            $table->foreignId('absens_id');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lemburs');
+        Schema::dropIfExists('datanamas');
     }
 };

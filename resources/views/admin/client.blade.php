@@ -143,7 +143,7 @@
                                 <select class="form-select form-control" id="jk" name="jk">
                                     <option class=" active" disabled>Jenis Kelamin</option>
                                     <option value="laki-laki">Laki-laki</option>
-                                    <option value="pembangunan">Perempuan</option>
+                                    <option value="perempuan">Perempuan</option>
                                 </select>
                             </div>
                             <div class="form-floating mb-3 mt-3">

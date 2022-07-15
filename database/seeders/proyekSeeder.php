@@ -15,18 +15,18 @@ class proyekSeeder extends Seeder
      */
     public function run()
     {
-        // Proyek::create([
-        //     'nama_proyek' => 'Pembangunan rumah 2 lantai',
-        //     'jenis_proyek' => 'Pembangunan',
-        //     'alamat' => 'Jl. Soetoyo S ',
-        //     'luas_tanah' => '10 x 12',
-        //     'panjang_rumah' => '6',
-        //     'lebar_rumah' => '6',
-        //     'satuan' => 'M2',
-        //     'status' => 'perencanaan',
-        //     'tukang_id' => '1',
-        //     'client_id' => '1',
-        // ]);
+        Proyek::create([
+            'nama_proyek' => 'Pembangunan rumah 2 lantai',
+            'jenis_proyek' => 'Pembangunan',
+            'alamat' => 'Jl. Soetoyo S ',
+            'luas_tanah' => '10 x 12',
+            'panjang_rumah' => '6',
+            'lebar_rumah' => '6',
+            'satuan' => 'M2',
+            'status' => 'perencanaan',
+            'tukang_id' => '1',
+            'client_id' => '1',
+        ]);
 
         // Proyek::create([
         //     'nama_proyek' => 'Pembangunan rumah ',

@@ -24,9 +24,19 @@ class Client extends Model
         // });
     }
 
+    public function konfirmasi()
+    {
+        return $this->hasMany(Konfirmasi::class, 'konfirmasi_id', 'id');
+    }
+
 
     public function proyek()
     {
         return $this->belongsTo(Proyek::class);
+    }
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'users_id', 'id');
     }
 }

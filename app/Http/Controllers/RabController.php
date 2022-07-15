@@ -22,8 +22,14 @@ class RabController extends Controller
         return view('admin.rab', [
             'title' => 'RAB',
             'data' => $rab,
-            'proyek' => Proyek::latest()
+            'proyek' => Proyek::all()
         ]);
+    }
+    public function konfirmasi(Rab $id)
+    {
+        $id->status = 'selesai';
+        $id->save();
+        return redirect()->back();
     }
     public function store(Request $request)
     {
@@ -59,7 +65,8 @@ class RabController extends Controller
 
         ]);
     }
-    public function tambah(Request $request)
+
+    public function Tambah(Request $request, $id)
     {
         // dd($request);
         $data = $request->all();
@@ -80,18 +87,6 @@ class RabController extends Controller
         $rab->save();
 
         $jumlah = Rab::find($data['rab_id']);
-
-        // foreach ($ahs as $p) {
-        //     echo $p;
-        // }
-
-        // $datarab = new DataRab();
-        // $datarab->rincian =
-        // $datarab->volume =
-        // $datarab->satuan =
-        // $datarab->harga_satuan =
-        // $datarab->total =
-        // $datarab->rab_id =;
         return redirect()->back();
     }
 
