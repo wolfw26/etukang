@@ -17,7 +17,6 @@
         </div>
         <div class="row">
             <div class="col-12">
-                {{ $data }}
                 <div class="card">
                     <div class="card-body">
                         @if ( $absen && $absen->count() > 0)
@@ -91,7 +90,7 @@
                             </tbody>
                         </table>
                         @else
-                        <H1>Data <span class="text-danger">KOSONG</span> </H1>
+                        <div class="alert alert-default-warning">Data Kosong</div>
                         @endif
                         {{-- <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa asperiores architecto nesciunt illum nostrum sint delectus dignissimos pariatur natus veniam vel quas, porro cum eligendi! Natus nesciunt officiis commodi quibusdam!
                         Minus, reiciendis obcaecati cumque libero doloribus maiores voluptatum laboriosam non quo, dolores temporibus iste quisquam sequi, nobis explicabo omnis sint quod animi earum cum fugit sunt excepturi quos necessitatibus. Quam.

@@ -1,11 +1,11 @@
 @extends('component.template')
 
 @section('konten')
-<div class="container">
-    <div class="row bg-gray-light p-3">
+<div class="container p-3 ">
+    <div class="row bg-gray-light p-0">
         <div class="col-12">
-            <div class="card">
-                <div class="card-header bg-green d-flex justify-content-between">
+            <div class="card card-outline card-navy">
+                <div class="card-header  d-flex justify-content-between">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-9">Daftar RAB</div>
@@ -30,6 +30,7 @@
                         </thead>
                         <tbody>
                             @foreach ($data as $d )
+                            @if ($d->status == null || $d->status == 'perbaiki' || $d->status == 'selesai')
                             <tr>
                                 <th scope="col">
                                     <a href="{{ route('rab.delete',$d->id) }}" onclick="return confirm('Hapus Data {{ $d->nama_rab }}  ');" class="btn btn-sm bg-danger">
@@ -46,8 +47,75 @@
                                 <td class=" text-bold">{{ $d->kode_rab }}</td>
 
                                 <td>{{ $d->proyekrab->nama_proyek}}</td>
-                                <td> <a href="{{  route('rab.konfirmasi',$d->id)}}" class="btn btn-outline-success text-success" title="Konfirmasi Ke Client"> <i class=" fas fa-arrow-circle-up "></i> </a> </td>
+                                <td>
+                                    @if ($d->status == null)
+                                    <a href="{{ route('rab.konfirmasi',$d->id) }}" class="btn btn-outline-success btn-sm" title="Konfirmasi Ke Client"> <i class=" fas fa-arrow-circle-up p-2 "></i> </a>
+                                    @elseif ($d->status == 'perbaiki')
+                                    <a href="{{ route('rab.konfirmasi',$d->id) }}" class="btn btn-outline-primary btn-sm" title="Konfirmasi Ke Client"> <i class=" fas fa-arrow-circle-up p-2 "></i> </a>
+                                    @elseif ($d->status == 'selesai')
+                                    <div class="badge badge-pill badge-primary">Menunggu Persetujuan</div>
+                                    @endif
+
+                                </td>
                             </tr>
+                            @endif
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row mt-2">
+        <div class="col-12">
+            <div class="card card-outline card-success">
+                <div class="card-header d-flex justify-content-between">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-9">Rab Diterima</div>
+                            <div class="col-3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="w-10 p-3">Aksi</th>
+                                <th scope="col" class="w-25 p-3">Nama</th>
+                                <th scope="col" class="w-25 p-3">Kode RAB</th>
+                                <th scope="col">Nama Proyek</th>
+                                <th scope="col">Konfirmasi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($data as $d )
+                            @if ($d->status == 'setuju')
+                            <tr>
+                                <th scope="col">
+                                    <a href="{{ route('rab.delete',$d->id) }}" onclick="return confirm('Hapus Data {{ $d->nama_rab }}  ');" class="btn btn-sm bg-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                    <a href="  " class="btn btn-sm bg-teal">
+                                        <i class="fas fa-edit" title="Edit"></i>
+                                    </a>
+                                    <a href="{{ route('rab.view',$d->id) }}" class="btn btn-sm bg-success">
+                                        <i class="fas fa-eye" title="view"></i>
+                                    </a>
+                                </th>
+                                <td>{{ $d->nama_rab }}</td>
+                                <td class=" text-bold">{{ $d->kode_rab }}</td>
+
+                                <td>{{ $d->proyekrab->nama_proyek}}</td>
+                                <td>
+                                    <div class="badge badge-pill badge-success shadow-sm"> Disetujui </div>
+                                </td>
+                            </tr>
+                            @endif
                             @endforeach
                         </tbody>
                     </table>

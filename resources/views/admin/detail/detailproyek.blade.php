@@ -15,7 +15,14 @@
             <div class="col-7">
                 <div class="col-3 text-left ">
                     <h5 class=" text-bold ">Pemilik : <strong> <a href="#">{{ $client->nama}}</a> </strong></h5><br>
-                    <h5 class=" text-mute ">Tukang : <strong> <a href="/adm/tukang/">{{ $tukang->nama}}</a></strong></h5>
+                    @if ( $tukang == 0)
+                    <div class="badge badge-warning p-1 shadow-sm">
+                        <strong>Belum ada</strong>
+                    </div>
+                    @else
+                    <h5 class=" text-mute ">Tukang : <strong> <a href="/adm/tukang/"> {{ $tukang->nama }} </a></strong></h5>
+                    @endif
+
                 </div>
                 <div class="col-5 text-left">
                     Alamat : {{ $proyek->alamat }} <br>

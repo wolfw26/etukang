@@ -26,7 +26,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="container-fluid p-3">
                 <a href="../../index3.html" class="navbar-brand d-flex">
                     <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                    <span class="brand-text font-weight-light"> <h2 class="text-uppercase text-gray"><u>{{ Auth::user()->name }}</u> </h2>  </span>
+                    <span class="brand-text font-weight-light">
+                        <h2 class="text-uppercase text-gray"><u>{{ Auth::user()->name }}</u> </h2>
+                    </span>
                 </a>
 
                 <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,6 +49,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('rab.home') }}" class="nav-link">RAB</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('client.proyek')}}" class="nav-link">MyProyek</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">Tanggapan</a>

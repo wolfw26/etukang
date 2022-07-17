@@ -76,6 +76,9 @@
                         </div>
                         <div class="card-footer">
                             <div class="text-right">
+                                <a href="" class="btn btn-sm bg-secondary" title="Tambah Pemakian Material">
+                                    Material
+                                </a>
                                 <a href="{{ route('proyek.rab',$d->id) }}" class="btn btn-sm bg-cyan" title="rab">
                                     RAB
                                 </a>

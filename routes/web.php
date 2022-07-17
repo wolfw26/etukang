@@ -26,6 +26,7 @@ use App\Http\Livewire\Absendata;
 use App\Http\Livewire\Alat\Alatindex as AlatAlatindex;
 use App\Http\Livewire\Alatindex;
 use App\Http\Livewire\Client\Client as ClientClient;
+use App\Http\Livewire\Client\Proyekadd;
 use App\Http\Livewire\Client\Rab\RabHome;
 use App\Http\Livewire\DataAhs;
 use App\Http\Livewire\Jabatans;
@@ -141,7 +142,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
 
         // RAB
         Route::get('/rab/', [RabController::class, 'index'])->name('rab.index');
-        Route::post('/rab/{id}', [RabController::class, 'konfirmasi'])->name('rab.konfirmasi');
+        Route::get('/rab/{id}/confirm/', [RabController::class, 'konfirmasi'])->name('rab.konfirmasi');
         Route::post('/rab/', [RabController::class, 'store'])->name('rab.store');
         Route::get('/rab/{rab:id}/d', [RabController::class, 'delete'])->name('rab.delete');
         Route::get('/rab/{rab:id}', [RabController::class, 'detail'])->name('rab.view');
@@ -172,6 +173,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:client']], function () {
         // })->name('client.home');
         Route::get('/', ClientClient::class)->name('client.home');
         Route::get('/rab/', RabHome::class)->name('rab.home');
+        Route::get('/proyek/', Proyekadd::class)->name('client.proyek');
     });
 });
 

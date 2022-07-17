@@ -23,7 +23,7 @@ class Proyek extends Model
         });
     }
 
-    public function tukang()
+    public function pekerja()
     {
         return $this->belongsTo(Pekerja::class);
     }
@@ -37,6 +37,6 @@ class Proyek extends Model
     }
     public function rab()
     {
-        return $this->belongsTo(Rab::class);
+        return $this->belongsTo(Rab::class, 'proyek_id', 'id');
     }
 }

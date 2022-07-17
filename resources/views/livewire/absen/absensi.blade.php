@@ -5,19 +5,19 @@
             <div class="col-12">
                 <div class="alert alert-heading alert-default-secondary ">
                     <div class="row">
-                        <div class="col-4"><button wire:click="back" class="btn  btn-outline-secondary" >Beranda</button></div>
-                        <div class="col-8"><h2>SELAMAT DATANG</h2></div>
+                        <div class="col-4"><button wire:click="back" class="btn  btn-outline-secondary">Beranda</button></div>
+                        <div class="col-8">
+                            <h2>SELAMAT DATANG</h2>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         @if($absensi != '')
         @livewire('absendata',['data'=> $absensi])
-    @else
+        @else
         <div class="row">
             @foreach ( $proyek as $p )
-
-
             <div class="col-4">
                 <div class="card card-outline card-secondary shadow-2xl">
                     <div class="card-header">
@@ -36,7 +36,7 @@
                     <div class="card-footer">
                         <tr>
                             <td class=" d-inline-flex justify-content-between p-1">
-                                <a wire:click="absen( {{ $p->id }} )"  type="button" class="btn btn-sm" data-toggle="modal" data-target="#edit">
+                                <a wire:click="absen( {{ $p->id }} )" type="button" class="btn btn-sm" data-toggle="modal" data-target="#edit">
                                     <i class="fas fa-edit text-teal" title="Absen">ABSEN</i>
                                 </a>
                                 <a href="" class="btn btn-sm p-2" title="lembur">

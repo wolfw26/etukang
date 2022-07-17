@@ -13,9 +13,9 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    public function client()
+    public function Pelanggan()
     {
-        return $this->belongsTo(Client::class, 'users_id', 'id');
+        return $this->belongsTo(Client::class, 'users_id');
     }
 
     /**

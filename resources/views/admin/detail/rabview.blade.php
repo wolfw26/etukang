@@ -72,8 +72,8 @@
                         <td>{{ $d->rincian }}</td>
                         <td>{{ $d->volume }}</td>
                         <td>{{ $d->satuan }}</td>
-                        <td>{{ number_format($d->harga_satuan,2) }}</td>
-                        <td>{{ number_format($d->total,2) }}</td>
+                        <td>{{'Rp. '. number_format($d->harga_satuan,2) }}</td>
+                        <td>{{'Rp. '. number_format($d->total,2) }}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -81,7 +81,7 @@
             <div class="container-fluid border border-dark">
                 <div class="row">
                     <div class="col-10 text-bold">Total Upah</div>
-                    <div class="col-2 text-bold text-muted bg-info text-center"> {{number_format( $data->sum('total'),2 )}} </div>
+                    <div class="col-2 text-bold  bg-gradient-secondary text-center"> {{'Rp. '.number_format( $data->sum('total'),2 )}} </div>
                 </div>
 
             </div>

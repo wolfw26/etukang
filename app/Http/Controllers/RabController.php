@@ -25,12 +25,15 @@ class RabController extends Controller
             'proyek' => Proyek::all()
         ]);
     }
+
     public function konfirmasi(Rab $id)
     {
+
         $id->status = 'selesai';
         $id->save();
-        return redirect()->back();
+        return redirect()->route('rab.index');
     }
+
     public function store(Request $request)
     {
         $data = $request->all();

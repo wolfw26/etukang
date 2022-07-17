@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('stok_awal')->nullable();
             $table->integer('harga_satuan');
             $table->foreignId('material_id');
+            $table->foreignId('proyek_id');
             $table->timestamps();
         });
     }

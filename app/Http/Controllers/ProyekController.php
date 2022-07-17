@@ -28,7 +28,7 @@ class ProyekController extends Controller
             // 'nama' => $proyek->tukang->nama,
             'client' => $proyek->client,
             'data' =>  $proyek->dataproyek,
-            'tukang' => $proyek->tukang,
+            'tukang' => $proyek->pekerja,
             'proyek' => $proyek
         ]);
     }
