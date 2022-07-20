@@ -85,7 +85,7 @@
                                                 <b>Alamat</b> <span class="float-right text-uppercase text-primary">{{ $d->alamat }}</h3>
                                             </li>
                                             <li class="list-group-item">
-                                                <b>Jabatan</b> <a class="float-right">Tukang</a>
+                                                <b>Jabatan</b> <a class="float-right">{{ $d->jabatan->jabatan}}</a>
                                             </li>
                                         </ul>
                                     </table>

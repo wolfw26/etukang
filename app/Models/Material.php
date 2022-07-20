@@ -20,4 +20,8 @@ class Material extends Model
     {
         $this->hasMany(Materialout::class, 'material_id');
     }
+    public function stok()
+    {
+        $this->hasMany(Stok::class, 'material_id');
+    }
 }

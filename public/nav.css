@@ -1,0 +1,23 @@
+/* #nav {
+  font-weight: 600;
+  text-shadow: -1px 0px 1px orange;
+} */
+/* .nav .nav-treeview ul li .nav-item:hover {
+  background-color: navy;
+  color: navy;
+  border-radius: 3px;
+  transition: 0.8s;
+} */
+/* nav ul li a:hover {
+  color: navy;
+  border-radius: 3px;
+  transition: 0.8s;
+} */
+
+nav ul li .nav-item {
+  background-color: rgba(5, 5, 186, 0.718);
+}
+nav ul li .nav-item a:hover {
+  background-color: rgba(68, 68, 255, 0.934);
+  border: 1px solid lightskyblue;
+}

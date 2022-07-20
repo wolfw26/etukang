@@ -39,4 +39,12 @@ class Proyek extends Model
     {
         return $this->belongsTo(Rab::class, 'proyek_id', 'id');
     }
+    public function absen()
+    {
+        return $this->hasMany(Absen::class, 'proyek_id');
+    }
+    public function datanama()
+    {
+        return $this->hasMany(Datanama::class, 'proyek_id');
+    }
 }

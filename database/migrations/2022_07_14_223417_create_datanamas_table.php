@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->foreignId('pekerja_id');
             $table->foreignId('absens_id');
+            $table->foreignId('proyek_id');
             $table->timestamps();
         });
     }

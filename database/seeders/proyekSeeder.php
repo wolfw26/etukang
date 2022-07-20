@@ -24,7 +24,7 @@ class proyekSeeder extends Seeder
             'lebar_rumah' => '6',
             'satuan' => 'M2',
             'status' => 'perencanaan',
-            'tukang_id' => '1',
+            'pekerja_id' => null,
             'client_id' => '1',
         ]);
 

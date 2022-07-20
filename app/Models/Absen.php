@@ -16,7 +16,7 @@ class Absen extends Model
     {
         return $this->belongsTo(Proyek::class);
     }
-    public function namatukang()
+    public function datanama()
     {
         return $this->hasMany(Datanama::class, 'absens_id', 'id');
     }

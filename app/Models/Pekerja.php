@@ -35,4 +35,12 @@ class Pekerja extends Model
     {
         return $this->belongsToThrough(Penggajian::class);
     }
+    public function datanama()
+    {
+        return $this->hasMany(Datanama::class, 'pekerja_id');
+    }
+    public function lembur()
+    {
+        return $this->hasMany(Datanama::class, 'pekerja_id');
+    }
 }

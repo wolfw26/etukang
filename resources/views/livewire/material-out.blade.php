@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row border-bottom ">
         <div class="col-4">
             <div class="input-group m-2">
@@ -25,9 +25,8 @@
     </div> --}} -->
         <!-- <div class="col"><button class="btn bg-gradient-primary  shadow-md" data-toggle="modal" data-target="#TambahMaterial">Tambah</button></div> -->
     </div>
-    <div class="row border-bottom ">
+    <div class="row mb-3">
         <div class="col-4">
-
         </div>
         <div class="col-3">
             <div class="input-group m-2">
@@ -37,7 +36,6 @@
                     @foreach ( $materialtgl as $data2=>$cek )
                     <option value="{{ $data2 }}"> {{ date('d F Y', strtotime($data2)) }}</option>
                     @endforeach
-
                 </select>
             </div>
         </div>
@@ -47,9 +45,9 @@
         <!-- <div class="col"><button class="btn bg-gradient-primary  shadow-md" data-toggle="modal" data-target="#TambahMaterial">Tambah</button></div> -->
     </div>
     <div class="row mb-3">
-        <div class="col-8">
-            <div class="card">
-                <div class="card-header bg-gradient-success text-center">
+        <div class="col-9">
+            <div class="card card-outline card-lightblue">
+                <div class="card-header text-center">
                     <div class="row">
                         <div class="col-4">
 
@@ -71,6 +69,7 @@
                                 <th scope="col">Tanggal</th>
                                 <th scope="col">Kode</th>
                                 <th scope="col">Material</th>
+                                <th scope="col">Stok Awal</th>
                                 <th scope="col">Jumlah</th>
                                 <th scope="col">Satuan</th>
                                 <th scope="col">Harga Satuan</th>
@@ -87,11 +86,14 @@
                                         <i class="fas fa-edit" title="Edit"></i>
                                     </a>
                                 </th>
-                                <td>{{ date('d F Y', strtotime($m->tanggal)) }}</td>
+                                <td> <i>{{ date('d F Y', strtotime($m->tanggal)) }}</i> </td>
                                 <td>{{ $m->kode_material }}</td>
                                 <td>{{ $m->nama_material }} </td>
+                                <td>{{ $m->stok_awal }} </td>
                                 <td>{{ $m->jumlah }} </td>
-                                <td>{{ $m->satuan }} </td>
+                                <td>
+                                    <div class="badge badge-pill badge-success"> {{ $m->satuan }}</div>
+                                </td>
                                 <td>Rp. {{ number_format($m->material->harga_satuan,2) }} </td>
                             </tr>
                             @endforeach
@@ -106,7 +108,7 @@
                 <!-- <div class="card-footer"></div> -->
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-3">
             <div class="card">
                 <div class="card-header bg-gradient-success text-center " disabled>
                     Tambah Data
@@ -121,7 +123,7 @@
                     </div>
 
                     <div class="input-group mb-3">
-                        <select wire:model="dropdown" class="form-select form-select-sm mb-2" aria-label=".form-select-sm example">
+                        <select wire:model="dropdown" class="form-control form-control-sm mb-2" aria-label=".form-select-sm example">
                             <option selected>Cari Material</option>
                             @foreach ( $material as $d )
                             <option value="{{ $d->id }}">
@@ -156,6 +158,14 @@
                         <div class="input-group input-group-sm ">
                             <input wire:model="harga_satuan" type="number" class="form-control" id="satuan" name="satuan">
                         </div>
+                    </div>
+                    <div class="input-group">
+                        <select wire:model="proyek" class="form-control" name="" id="">
+                            <option selected>Pilih Proyek</option>
+                            @foreach ( $proyekdata as $p )
+                            <option value="{{ $p->id }}">{{ $p->nama_proyek }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="card-footer">

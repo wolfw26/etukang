@@ -27,7 +27,6 @@
     </div>
     <div class="row border-bottom ">
         <div class="col-4">
-
         </div>
         <div class="col-3">
             <div class="input-group m-2">
@@ -48,8 +47,8 @@
     </div>
     <div class="row mb-3">
         <div class="col-9">
-            <div class="card">
-                <div class="card-header bg-gradient-success text-center">
+            <div class="card card-outline card-lightblue">
+                <div class="card-header  text-center">
                     <div class="row">
                         <div class="col-4">
 
@@ -88,12 +87,14 @@
                                         <i class="fas fa-edit" title="Edit"></i>
                                     </a>
                                 </th>
-                                <td>{{ date('d F Y', strtotime($m->tanggal)) }}</td>
+                                <td> <i>{{ date('d F Y', strtotime($m->tanggal)) }}</i> </td>
                                 <td>{{ $m->kode_material }}</td>
                                 <td>{{ $m->nama_material }} </td>
                                 <td>{{ $m->stok_awal }} </td>
                                 <td>{{ $m->jumlah }} </td>
-                                <td>{{ $m->satuan }} </td>
+                                <td>
+                                    <div class="badge badge-pill badge-success">{{ $m->satuan }}</div>
+                                </td>
                                 <td>Rp. {{ number_format($m->harga_satuan,2) }} </td>
                             </tr>
                             @endforeach

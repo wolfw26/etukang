@@ -1,5 +1,4 @@
 <div>
-
     <div class="container-fluid p-0">
         <div class="row mb-1">
             <div class="col-12">
@@ -43,13 +42,13 @@
                                                 </select>
                                             </div>
                                             <div class="col">
-                                                <button wire:click="tambahNama({{ $d->id }})" class="btn btn-sm btn-outline-success"> <i class="fas fa-plus-circle"></i> </button>
+                                                <button wire:click="tambahNama({{ $d->id }},{{ $proyek->id }})" class="btn btn-sm btn-outline-success"> <i class="fas fa-plus-circle"></i> </button>
                                             </div>
                                         </div>
 
                                         <div class="border p-2 mt-2 border-dark rounded-lg">
-                                            @foreach ( $d->namatukang as $dn )
-                                            <p class="m-0">{{ $dn->nama }}</p>
+                                            @foreach ( $d->datanama as $dn )
+                                            <p class="m-0"><i wire:click="hapuspekerja({{ $dn->id }})" class="fas fa-times text-danger"></i> {{ $dn->nama   }}- {{ $dn->id }} </p>
                                             @endforeach
                                         </div>
 
@@ -60,10 +59,15 @@
                                         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#lembur{{ $d->id }}">
                                             <i class="fas fa-plus-circle"></i>
                                         </button>
+                                        <div class="border p-2 mt-2 border-dark rounded-lg">
+                                            @foreach ( $d->lembur as $lemburs )
+                                            <p class="m-0"><i wire:click="hapusLembur({{ $lemburs->id }})" class="fas fa-times text-danger"></i> {{ $lemburs->nama   }}</p>
+                                            @endforeach
+                                        </div>
                                     </td>
                                 </tr>
                                 <!-- Modal -->
-                                <div class="modal fade" id="lembur{{ $d->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div wire:ignore.self class="modal fade" id="lembur{{ $d->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -71,17 +75,21 @@
                                                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <select class="form-control form-control-sm mb-2" name="" id="">
-                                                    @foreach ( $d->namatukang as $dn )
+                                                {{ $namaLembur }}
+                                                <select wire:model="namaLembur" class="form-control form-control-sm mb-2" name="" id="">
+                                                    <option selected>Pilih Nama</option>
+                                                    @foreach ( $d->datanama as $dn )
                                                     <option value="{{ $dn->id }}">{{ $dn->nama }}</option>
                                                     @endforeach
                                                 </select>
-                                                <input type="text" class="form-control form-control-sm" placeholder="jam">
+                                                {{ $jamLembur }}
+                                                <input wire:model="jamLembur" type="text" class="form-control form-control-sm" placeholder="jam">
+
                                                 <input class="form-control" type="text" value="{{ $d->tanggal }}" aria-label="Disabled input example" disabled readonly>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Tambah</button>
+                                                <button wire:click="tambahLembur({{ $d->id }},{{ $proyek->id }})" type="button" class="btn btn-primary">Tambah</button>
                                             </div>
                                         </div>
                                     </div>

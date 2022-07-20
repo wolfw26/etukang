@@ -1,13 +1,13 @@
 <div>
     <div class="alert alert-light mb-3" role="alert">
         <div class="row">
-            <div class="col-7">
-                <button class="btn btn-outline-secondary m-1" wire:click="all"> Material All</button>
+            <!-- <div class="col-7"> -->
+            <!-- <button class="btn btn-outline-secondary m-1" wire:click="all"> Material All</button> -->
 
-                <button class="btn btn-outline-secondary m-1" wire:click="masuk">Material Masuk</button>
+            <!-- <button class="btn btn-outline-secondary m-1" wire:click="masuk">Material Masuk</button>
 
-                <button class="btn btn-outline-secondary m-1" wire:click="keluar">Material Keluar</button>
-            </div>
+                <button class="btn btn-outline-secondary m-1" wire:click="keluar">Material Keluar</button> -->
+            <!-- </div> -->
             <div class="col-4 ">
                 @if (session('tambah'))
                 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -41,30 +41,17 @@
     </div>
 
     <div class="container-fluid">
-        @if ( $page == 'masuk' )
+        <!-- @if ( $page == 'masuk' )
         @livewire('material-in')
         @elseif ( $page == 'keluar')
         @livewire('material-out')
-        @else
+        @else -->
         <div class="row mb-3">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header bg-gradient-success text-center">
-                        <div class="row">
-                            <div class="col-4">
-
-                            </div>
-                            <div class="col-4">
-                                Data Material
-                            </div>
-                            <div class="col-4">
-
-                            </div>
-                        </div>
-                    </div>
                     @if ( $data && $data->count() > 0)
                     <div class="card-body">
-                        <table class="table">
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th scope="col">Aksi</th>
@@ -72,9 +59,9 @@
                                     <th scope="col">Material</th>
                                     <th scope="col">Satuan</th>
                                     <th scope="col">Harga Satuan</th>
-                                    <th scope="col">Stok Awal</th>
+                                    <!-- <th scope="col">Stok Awal</th>
                                     <th scope="col">Masuk</th>
-                                    <th scope="col">Keluar</th>
+                                    <th scope="col">Keluar</th> -->
                                     <th scope="col">Stok</th>
                                 </tr>
                             </thead>
@@ -92,12 +79,22 @@
                                     </th>
                                     <td class="text-bold"> <u> {{ $d->kode_material}}</u></td>
                                     <td> {{ $d->nama_material}}</td>
-                                    <td> {{ $d->satuan}}</td>
-                                    <td> {{ number_format($d->harga_satuan,2)}}</td>
-                                    <td> {{ $d->stok}}</td>
+                                    <td>
+                                        <div class="badge badge-pill badge-success">{{ $d->satuan}}</div>
+                                    </td>
+                                    <td> {{ 'Rp.'. number_format($d->harga_satuan,2)}}</td>
+                                    <!-- <td> {{ $d->stok}}</td>
                                     <td> {{ $d->masuk}}</td>
-                                    <td> {{ $d->keluar}}</td>
-                                    <td> {{ $d->stok_akhir}}</td>
+                                    <td> {{ $d->keluar}}</td> -->
+                                    <td>
+                                        <div class="badge @if ( $d->stok_akhir > 10)
+                                            badge-success
+                                        @elseif( $d->stok_akhir > 5)
+                                            badge-warning
+                                        @else
+                                            badge-danger
+                                        @endif ">{{ $d->stok_akhir}}</div>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -114,6 +111,6 @@
                 </div>
             </div>
         </div>
-        @endif
+        <!-- @endif -->
     </div>
 </div>

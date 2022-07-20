@@ -6,7 +6,7 @@ use App\Models\Stok;
 use Livewire\Component;
 use App\Models\Material;
 use App\Models\Materialout as materialouts;
-
+use App\Models\Proyek;
 
 class MaterialOut extends Component
 {
@@ -21,6 +21,7 @@ class MaterialOut extends Component
     public $satuan;
     public $harga_satuan;
     public $pilihcetak;
+    public $proyek;
 
     public function render()
     {
@@ -51,20 +52,21 @@ class MaterialOut extends Component
         //     dd($p->nama_material);
         // }
 
-        return view('livewire.material-in', [
+        return view('livewire.material-out', [
+            'proyekdata' => Proyek::all(),
             'materialw' => $data,
             'materialtgl' => $data2,
             'material' => Material::all(),
             'materialin' => materialouts::latest()->where('kode_material', 'like', '%' . $this->cari . '%')
                 ->orWhere('nama_material', 'like', '%' . $this->cari . '%')->paginate(10)
         ])
-            ->extends('component.template')
+            ->extends('component.template', ['title' => 'Material Keluar'])
             ->section('konten');
     }
 
     public function store()
     {
-        $stok_awal = $this->data;
+
 
         materialouts::create([
             "tanggal" => $this->tanggal,
@@ -72,28 +74,29 @@ class MaterialOut extends Component
             'nama_material' => $this->nama,
             'jumlah' => $this->jumlah,
             'satuan' => $this->satuan,
-            'stok_awal' => $stok_awal->stok_akhir,
+            'stok_awal' => $this->data->stok_akhir,
             'harga_satuan' => $this->harga_satuan,
-            'material_id' => $this->dropdown
+            'material_id' => $this->dropdown,
+            'proyek_id' => $this->proyek
         ]);
 
         $data = $this->data;
         $material = Material::find($this->dropdown);
         $material->kode_material = $data->kode_material;
         $material->nama_material = $data->nama_material;
-        $material->stok = $stok_awal->stok_akhir;
+        $material->stok = $this->data->stok_akhir;
         $material->satuan = $data->satuan;
         $material->harga_satuan = $data->harga_satuan;
         $material->keluar = $this->jumlah;
-        $material->stok_akhir = $stok_awal->stok_akhir - $this->jumlah;
+        $material->stok_akhir = $this->data->stok_akhir - $this->jumlah;
         $material->save();
 
         $stok = new Stok;
         $stok->material = $data->nama_material;
         $stok->tanggal = $this->tanggal;
-        $stok->stok = $stok_awal->stok_akhir;
+        $stok->stok = $this->data->stok_akhir;
         $stok->keluar = $this->jumlah;
-        $stok->stok_akhir = $stok_awal->stok_akhir + $this->jumlah;
+        $stok->stok_akhir = $this->data->stok_akhir - $this->jumlah;
         $stok->material_id = $this->dropdown;
         $stok->save();
 

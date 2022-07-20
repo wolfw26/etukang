@@ -25,12 +25,17 @@ use App\Http\Livewire\Absen\Absensi;
 use App\Http\Livewire\Absendata;
 use App\Http\Livewire\Alat\Alatindex as AlatAlatindex;
 use App\Http\Livewire\Alatindex;
+use App\Http\Livewire\Cetak\Material\All;
 use App\Http\Livewire\Client\Client as ClientClient;
 use App\Http\Livewire\Client\Proyekadd;
 use App\Http\Livewire\Client\Rab\RabHome;
 use App\Http\Livewire\DataAhs;
 use App\Http\Livewire\Jabatans;
 use App\Http\Livewire\Konfirmasi;
+use App\Http\Livewire\Laporan\LaporanMaterial;
+use App\Http\Livewire\MaterialIn;
+use App\Http\Livewire\MaterialOut;
+use App\Http\Livewire\Penggajian\Datagaji;
 use App\Http\Livewire\StockMaterial;
 use Illuminate\Support\Facades\Auth;
 
@@ -111,13 +116,30 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         Route::put('/client/{client:id}', [ClientController::class, 'update'])->name('client.update');
 
         // material
-
         Route::get('/material/', [MaterialController::class, 'index'])->name('material');
         Route::post('/material/{material:id}/edit', [MaterialController::class, 'edit'])->name('material.edit');
         Route::post('/material/', [MaterialController::class, 'store'])->name('material.add');
         Route::get('/material/d/{id}', [MaterialController::class, 'delete'])->name('material.delete');
         Route::get('/material/cetak', [MaterialController::class, 'cetakMaterial'])->name('material.cetakall');
         Route::get('/material/cetak/{param}', [MaterialController::class, 'Materialin'])->name('materialin.cetak');
+
+        // --- LIVEWIRE ----
+        //  -- LIVEWIRE --
+        //   - LIVEWIRE -
+
+        // Material-in Livewire
+        Route::get('materialin', MaterialIn::class)->name('materialin');
+        // Material-keluar Livewire
+        Route::get('materialout', MaterialOut::class)->name('materialout');
+        // Stok Material Livewire
+        Route::get('stokMaterial', StockMaterial::class)->name('stokMaterial');
+        // LaporanMaterial
+        Route::get('laporanMaterial', LaporanMaterial::class)->name('laporanMaterial');
+        // Cetak Material ALL
+        Route::get('cetak/material/all', All::class)->name('cetakmaterial.all');
+
+        // dataGaji
+        Route::get('dataGaji', Datagaji::class)->name('datagaji');
 
         // STOK MATERIAL
         Route::get('/stock/', StockMaterial::class)->name('stock.index');

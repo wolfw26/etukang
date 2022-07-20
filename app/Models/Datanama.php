@@ -16,4 +16,13 @@ class Datanama extends Model
     {
         return $this->belongsTo(Absen::class, 'absens_id', 'id');
     }
+
+    public function pekerja()
+    {
+        return $this->belongsTo(Pekerja::class, 'pekerja_id');
+    }
+    public function proyek()
+    {
+        return $this->belongsTo(Proyek::class, 'proyek_id');
+    }
 }

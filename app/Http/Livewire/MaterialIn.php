@@ -56,13 +56,13 @@ class MaterialIn extends Component
             'materialin' => Material_in::latest()->where('kode_material', 'like', '%' . $this->cari . '%')
                 ->orWhere('nama_material', 'like', '%' . $this->cari . '%')->paginate(10)
         ])
-            ->extends('component.template')
+            ->extends('component.template', ['title' => 'Material Masuk'])
             ->section('konten');
     }
 
     public function store()
     {
-        $stok_awal = $this->data;
+
 
         Material_in::create([
             "tanggal" => $this->tanggal,
@@ -70,6 +70,7 @@ class MaterialIn extends Component
             'nama_material' => $this->nama,
             'jumlah' => $this->jumlah,
             'satuan' => $this->satuan,
+            'stok_awal' => $this->data->stok_akhir,
             'harga_satuan' => $this->harga_satuan,
             'material_id' => $this->dropdown
         ]);
@@ -78,20 +79,20 @@ class MaterialIn extends Component
         $material = Material::find($this->dropdown);
         $material->kode_material = $data->kode_material;
         $material->nama_material = $data->nama_material;
-        $material->stok = $stok_awal->stok_akhir;
+        $material->stok = $this->data->stok_akhir;
         $material->satuan = $data->satuan;
         $material->harga_satuan = $data->harga_satuan;
         $material->masuk = $this->jumlah;
         $material->keluar = $data->keluar;
-        $material->stok_akhir = $stok_awal->stok_akhir + $this->jumlah;
+        $material->stok_akhir = $this->data->stok_akhir + $this->jumlah;
         $material->save();
 
         $stok = new Stok;
         $stok->material = $data->nama_material;
         $stok->tanggal = $this->tanggal;
-        $stok->stok = $stok_awal->stok_akhir;
+        $stok->stok = $this->data->stok_akhir;
         $stok->masuk = $this->jumlah;
-        $stok->stok_akhir = $stok_awal->stok_akhir + $this->jumlah;
+        $stok->stok_akhir = $this->data->stok_akhir + $this->jumlah;
         $stok->material_id = $this->dropdown;
         $stok->save();
 

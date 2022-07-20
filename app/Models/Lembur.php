@@ -16,4 +16,8 @@ class Lembur extends Model
     {
         return $this->belongsTo(Absen::class, 'absens_id', 'id');
     }
+    public function pekerja()
+    {
+        return $this->belongsTo(Pekerja::class, 'pekerja_id', 'id');
+    }
 }

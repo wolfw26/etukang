@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('lebar_rumah');
             $table->string('satuan');
             $table->string('status');
-            $table->foreignId('tukang_id');
+            $table->foreignId('pekerja_id')->nullable();
             $table->foreignId('client_id');
 
             $table->timestamps();
