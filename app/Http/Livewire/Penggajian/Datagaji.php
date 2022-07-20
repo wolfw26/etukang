@@ -10,6 +10,8 @@ use App\Http\Livewire\Absen\Absensi;
 
 class Datagaji extends Component
 {
+    public $tglawal, $tglakhr, $namaPekerja, $jabatan, $gapok, $makan, $transport;
+    public $lembur, $upahLembur, $bonus, $potongan, $total, $dibayar, $sisa;
     public function render()
     {
         // $absen = Absen::all();

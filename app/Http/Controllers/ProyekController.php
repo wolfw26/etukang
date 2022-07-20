@@ -23,14 +23,23 @@ class ProyekController extends Controller
     }
     public function show(Proyek $proyek)
     {
+        $data = Pekerja::all();
+
         return view('admin.detail.detailproyek', [
             'title' => 'Proyek',
             // 'nama' => $proyek->tukang->nama,
             'client' => $proyek->client,
             'data' =>  $proyek->dataproyek,
             'tukang' => $proyek->pekerja,
-            'proyek' => $proyek
+            'proyek' => $proyek,
+            'pekerja' => $data
         ]);
+    }
+    public function tambahTukang(Request $request, Proyek $proyek)
+    {
+        $proyek->pekerja_id = $request['tukang'];
+        $proyek->save();
+        return redirect()->back();
     }
     public function store(Request $request)
     {

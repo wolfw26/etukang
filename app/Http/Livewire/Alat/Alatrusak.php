@@ -131,6 +131,8 @@ class Alatrusak extends Component
         return view('livewire.alat.alatrusak', [
             'data' => ModelsAlatrusak::latest()->where('status', 'proses')->get(),
             'selesai' => ModelsAlatrusak::latest()->where('status', 'selesai')->get()
-        ]);
+        ])
+            ->extends('component.template', ['title' => 'Alat Rusak'])
+            ->section('konten');
     }
 }

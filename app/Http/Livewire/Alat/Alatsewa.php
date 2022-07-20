@@ -151,6 +151,8 @@ class Alatsewa extends Component
                 ->orWhere('deskripsi', 'like', '%' . $this->cari . '%')
                 ->orWhere('tempat_sewa', 'like', '%' . $this->cari . '%')->get()
 
-        ]);
+        ])
+            ->extends('component.template', ['title' => 'Sewa Alat'])
+            ->section('konten');
     }
 }

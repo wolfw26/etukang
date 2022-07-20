@@ -15,20 +15,21 @@ return new class extends Migration
     {
         Schema::create('penggajian', function (Blueprint $table) {
             $table->id();
-            $table->date('tanggal');
+            $table->date('tanggalAwal');
+            $table->date('tanggalAkhir');
             $table->string('nama_pekerja');
-            $table->string('alamat');
             $table->string('jabatan');
             $table->integer('gapok');
             $table->integer('lembur')->nullable();
             $table->integer('upah_lembur')->nullable();
             $table->integer('transport');
             $table->integer('makan');
+            $table->integer('bonus');
             $table->integer('potongan')->nullable();
             $table->integer('total');
             $table->integer('dibayar')->nullable();
             $table->integer('sisa')->nullable();
-            $table->foreignId('tukang_id');
+            $table->foreignId('pekerja_id');
             $table->timestamps();
         });
     }

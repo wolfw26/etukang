@@ -17,8 +17,21 @@
                     <h5 class=" text-bold ">Pemilik : <strong> <a href="#">{{ $client->nama}}</a> </strong></h5><br>
                     @if ( $tukang == 0)
                     <div class="badge badge-warning p-1 shadow-sm">
-                        <strong>Belum ada</strong>
+                        <strong>Belum ada Tukang</strong>
                     </div>
+                    <form action="{{ route('proyek.tambahTukang',$proyek->id) }}" method="post">
+                        @csrf
+                        <div class="row">
+                            <select name="tukang" id="tukang" class="form-control form-control-sm m-1">
+                                <option selected disabled> -- Pilih Tkang --</option>
+                                @foreach ( $pekerja as $t )
+                                <option value="{{ $t->id }}">{{ $t->nama }} - {{ $t->jabatan->jabatan }}</option>
+                                @endforeach
+                            </select>
+                            <button type="submit" class="btn btn-sm btn-success "><i class="fas fa-plus"></i></button>
+                        </div>
+
+                    </form>
                     @else
                     <h5 class=" text-mute ">Tukang : <strong> <a href="/adm/tukang/"> {{ $tukang->nama }} </a></strong></h5>
                     @endif

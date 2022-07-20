@@ -23,7 +23,10 @@ use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Livewire\Absen\Absensi;
 use App\Http\Livewire\Absendata;
+use App\Http\Livewire\Alat\Alatin as AlatAlatin;
 use App\Http\Livewire\Alat\Alatindex as AlatAlatindex;
+use App\Http\Livewire\Alat\Alatrusak;
+use App\Http\Livewire\Alat\Alatsewa as AlatAlatsewa;
 use App\Http\Livewire\Alatindex;
 use App\Http\Livewire\Cetak\Material\All;
 use App\Http\Livewire\Client\Client as ClientClient;
@@ -37,6 +40,8 @@ use App\Http\Livewire\MaterialIn;
 use App\Http\Livewire\MaterialOut;
 use App\Http\Livewire\Penggajian\Datagaji;
 use App\Http\Livewire\StockMaterial;
+use App\Models\Alatin;
+use App\Models\Alatsewa;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -93,6 +98,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         Route::get('/proyek/rab/{proyek:id}', [ProyekController::class, 'rab'])->name('proyek.rab');
         Route::get('/proyek/{proyek:id}', [ProyekController::class, 'show'])->name('proyek.show');
         Route::get('/proyek/del/{id}', [ProyekController::class, 'trash'])->name('proyek.delete');
+        Route::post('/proyek/tambahTukang/{proyek}', [ProyekController::class, 'tambahTukang'])->name('proyek.tambahTukang');
         // renovasi
         // Route::get('/renovasi/' [])
 
@@ -150,6 +156,9 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
 
         //ALAT
         Route::get('/alat/', AlatAlatindex::class)->name('alat');
+        Route::get('/alat/masuk', AlatAlatin::class)->name('alat.masuk');
+        Route::get('/alat/sewa', AlatAlatsewa::class)->name('alat.sewa');
+        Route::get('/alat/rusak', Alatrusak::class)->name('alat.rusak');
 
         //AHS
         Route::get('/ahsp/', [AhspController::class, 'index'])->name('ahsp');
@@ -199,6 +208,15 @@ Route::group(['middleware' => ['auth', 'CekLevel:client']], function () {
     });
 });
 
+Route::group(['middleware' => ['auth', 'CekLevel:tukang']], function () {
+    Route::group(['prefix' => 'tukang'], function () {
+        Route::get('/', function () {
+            return view('pekerja.templatepekerja', [
+                'title' => 'Tukang'
+            ]);
+        });
+    });
+});
 // ADMIN
 
 // Route::get('/blog', [BlogController::class, 'index']);

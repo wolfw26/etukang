@@ -398,7 +398,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ route('alat.masuk') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Data Alat Masuk</p>
                                     </a>
@@ -406,7 +406,7 @@
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ route('alat.sewa') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Data Sewa Alat</p>
                                     </a>
@@ -414,7 +414,7 @@
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="{{ route('alat.rusak') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Data Alat Rusak</p>
                                     </a>
