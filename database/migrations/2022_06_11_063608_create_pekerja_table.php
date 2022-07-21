@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('foto_ktp');
             $table->string('image')->nullable();
             $table->foreignId('jabatan_id')->nullable();
+            $table->foreignId('users_id')->nullable();
             $table->timestamps();
         });
     }

@@ -19,14 +19,18 @@ class Absendata extends Component
     public function tambahLembur(Absen $id, $proyek)
     {
         $pekerja = Pekerja::find($this->namaLembur);
-        $nama = new Lembur;
-        $nama->nama = $pekerja->nama;
-        $nama->deskripsi = $id->deskripsi;
-        $nama->tanggal = $id->tanggal;
-        $nama->jumlah = $this->jamLembur;
-        $nama->absens_id = $id->id;
-        $nama->pekerja_id = $proyek;
-        $nama->save();
+        $lembur = new Lembur;
+        $lembur->nama = $pekerja->nama;
+        $lembur->deskripsi = $id->deskripsi;
+        $lembur->tanggal = $id->tanggal;
+        $lembur->jumlah = $this->jamLembur;
+        $lembur->absens_id = $id->id;
+        $lembur->pekerja_id = $proyek;
+        $lembur->save();
+
+        $this->namaLembur = null;
+        $this->jamLembur = null;
+        $this->tanggal = null;
     }
     public function tambahNama(Absen $id, $proyek)
     {
@@ -46,6 +50,9 @@ class Absendata extends Component
         $absen->deskripsi = $this->deskripsi;
         $absen->proyek_id = $this->data;
         $absen->save();
+
+        $this->tanggal = null;
+        $this->deskripsi = null;
     }
     public function hapuspekerja(Datanama $id)
     {
@@ -54,6 +61,12 @@ class Absendata extends Component
     public function hapusLembur(Lembur $id)
     {
         $id->delete();
+    }
+    public function hapus(Absen $absen)
+    {
+        $datanama = Datanama::where('absens_id', $absen->id);
+        $datanama->delete();
+        $absen->delete();
     }
     public function render()
     {

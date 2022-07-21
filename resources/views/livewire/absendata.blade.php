@@ -26,6 +26,7 @@
                                     <td scope="col">Data Nama</td>
                                     <td scope="col">Deskripsi</td>
                                     <td scope="col">lembur</td>
+                                    <td scope="col">Aksi</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,6 +66,12 @@
                                             @endforeach
                                         </div>
                                     </td>
+                                    <td>
+                                        <a wire:click="hapus( {{ $d->id }} )" href="" onclick="return confirm('Data Akan di Hapus') || event.stopImmediatePropagation()" class="btn btn-sm" title="hapus">
+                                            <i class="fas fa-trash text-danger"></i>
+                                        </a>
+
+                                    </td>
                                 </tr>
                                 <!-- Modal -->
                                 <div wire:ignore.self class="modal fade" id="lembur{{ $d->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -79,7 +86,7 @@
                                                 <select wire:model="namaLembur" class="form-control form-control-sm mb-2" name="" id="">
                                                     <option selected>Pilih Nama</option>
                                                     @foreach ( $d->datanama as $dn )
-                                                    <option value="{{ $dn->id }}">{{ $dn->nama }}</option>
+                                                    <option value="{{ $dn->pekerja_id }}">{{ $dn->nama }}</option>
                                                     @endforeach
                                                 </select>
                                                 {{ $jamLembur }}

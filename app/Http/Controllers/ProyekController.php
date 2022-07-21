@@ -7,6 +7,7 @@ use App\Models\Client;
 use App\Models\Proyek;
 use App\Models\Tukang;
 use App\Models\DataProyek;
+use App\Models\Materialout;
 use App\Models\Pekerja;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,8 @@ class ProyekController extends Controller
     public function show(Proyek $proyek)
     {
         $data = Pekerja::all();
+        $rab = Rab::where('proyek_id', $proyek->id)->get();
+        $materialout = Materialout::where('proyek_id', $proyek->id)->get();
 
         return view('admin.detail.detailproyek', [
             'title' => 'Proyek',
@@ -32,7 +35,9 @@ class ProyekController extends Controller
             'data' =>  $proyek->dataproyek,
             'tukang' => $proyek->pekerja,
             'proyek' => $proyek,
-            'pekerja' => $data
+            'pekerja' => $data,
+            'rab' => $rab,
+            'materialout' => $materialout
         ]);
     }
     public function tambahTukang(Request $request, Proyek $proyek)

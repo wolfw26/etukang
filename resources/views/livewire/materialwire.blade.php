@@ -56,7 +56,9 @@
                                 </th>
                                 <td class="text-bold"> <u> {{ $d->kode_material}}</u></td>
                                 <td> {{ $d->nama_material}}</td>
-                                <td> {{ $d->satuan}}</td>
+                                <td>
+                                    <div class="badge badge-warning border-dark"> {{ $d->satuan}}</div>
+                                </td>
                                 <td> {{ number_format($d->harga_satuan,2)}}</td>
                             </tr>
                             @endforeach

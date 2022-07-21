@@ -456,7 +456,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ url('adm/tukang') }}" class="nav-link">
+                            <a href="{{ route('tukang.akun') }}" class="nav-link">
                                 <i class="nav-icon fas fa-user-shield"></i>
                                 <p>
                                     Tukang

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Absen;
 
+use App\Models\Absen;
 use App\Models\Pekerja;
 use App\Models\Proyek;
 use Livewire\Component;
@@ -25,7 +26,8 @@ class Absensi extends Component
 
         return view('livewire.absen.absensi', [
             'pekerja' => Pekerja::all(),
-            'proyek' => Proyek::latest()->get()
+            'proyek' => Proyek::latest()->get(),
+            'absen' => Absen::latest()->get()
         ])
             ->extends('component.template', ['title' => 'Absen'])
             ->section('konten');

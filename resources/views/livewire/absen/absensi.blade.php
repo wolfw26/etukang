@@ -26,7 +26,13 @@
                     <div class="card-body p-3 mb-2">
 
                         <tr class=" m-2 text-decoration-none">
-                            <td> Total Absensi : <span class="text-center text-bold"> 12</span></td>
+                            <td> <span class="text-primary">Total Absensi</span> : <span class="text-center text-bold">
+                                    @if ( $absen && $absen->count() > 0)
+                                    {{ $absen->count() }}
+                                    @else
+                                    0
+                                    @endif
+                                </span></td>
                         </tr> <br>
                         <tr class=" text-decoration-none m-2">
                             <td>Total Lembur : <span class="text-center text-bold"> 12</span></td>
@@ -39,9 +45,9 @@
                                 <a wire:click="absen( {{ $p->id }} )" type="button" class="btn btn-sm" data-toggle="modal" data-target="#edit">
                                     <i class="fas fa-edit text-teal" title="Absen">ABSEN</i>
                                 </a>
-                                <a href="" class="btn btn-sm p-2" title="lembur">
+                                <!-- <a href="" class="btn btn-sm p-2" title="lembur">
                                     <i class="fas fa-user text-primary m-2">Lembur</i>
-                                </a>
+                                </a> -->
                                 <a href="" onclick="return confirm('Hapus Data   ');" class="btn btn-sm" title="hapus">
                                     <i class="fas fa-trash text-danger">Hapus</i>
                                 </a>

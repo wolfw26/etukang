@@ -40,6 +40,7 @@ use App\Http\Livewire\MaterialIn;
 use App\Http\Livewire\MaterialOut;
 use App\Http\Livewire\Penggajian\Datagaji;
 use App\Http\Livewire\StockMaterial;
+use App\Http\Livewire\Tukang as LivewireTukang;
 use App\Models\Alatin;
 use App\Models\Alatsewa;
 use Illuminate\Support\Facades\Auth;
@@ -132,7 +133,8 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         // --- LIVEWIRE ----
         //  -- LIVEWIRE --
         //   - LIVEWIRE -
-
+        // Tukang
+        Route::get('tukang', LivewireTukang::class)->name('tukang.akun');
         // Material-in Livewire
         Route::get('materialin', MaterialIn::class)->name('materialin');
         // Material-keluar Livewire

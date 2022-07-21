@@ -111,10 +111,10 @@
         </div>
         <div class="col-3">
             <div class="card">
-                <div class="card-header bg-gradient-success text-center " disabled>
+                <div class="card-header bg-gradient-info text-center " disabled>
                     Tambah Data
                 </div>
-                <div class="card-body">
+                <div class="card-body" height="200px">
                     <div class="input-group mb-3">
                         {{ $tanggal }}
                         <label for="tanggal">Tanggal Masuk</label>
@@ -161,7 +161,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button wire:click="store" type="submit" class="btn btn-success">Tambahkan</button>
+                    <button wire:click="store" type="submit" class="btn btn-success"> <i class="fas fa-plus"></i> Tambahkan</button>
                 </div>
             </div>
         </div>

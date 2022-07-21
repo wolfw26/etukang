@@ -1,9 +1,9 @@
-{{-- @dd($data) --}}
+
 @extends('component.template')
 @section('konten')
-<div class="container-fluid">
-    <div class="card text-center p-2">
-        <div class="card-header bg-gradient-maroon">
+<div class="container-fluid" >
+    <div class="card text-center p-2 shadow-md shadow-2xl mt-3">
+        <div class="card-header p-0 bg-gradient-maroon">
             <h1>Halaman <strong class="text text-lightblue"> Detail</strong></h1>
         </div>
         <div class="row p-2 border-bottom">
@@ -15,7 +15,7 @@
             <div class="col-7">
                 <div class="col-3 text-left ">
                     <h5 class=" text-bold ">Pemilik : <strong> <a href="#">{{ $client->nama}}</a> </strong></h5><br>
-                    @if ( $tukang == 0)
+                    @if ( $tukang->count() == 0)
                     <div class="badge badge-warning p-1 shadow-sm">
                         <strong>Belum ada Tukang</strong>
                     </div>
@@ -23,7 +23,7 @@
                         @csrf
                         <div class="row">
                             <select name="tukang" id="tukang" class="form-control form-control-sm m-1">
-                                <option selected disabled> -- Pilih Tkang --</option>
+                                <option selected disabled> -- Pilih Tukang --</option>
                                 @foreach ( $pekerja as $t )
                                 <option value="{{ $t->id }}">{{ $t->nama }} - {{ $t->jabatan->jabatan }}</option>
                                 @endforeach
@@ -43,43 +43,43 @@
                     Panjang Rumah : {{ $proyek->luas_tanah }} {{ $proyek->satuan }} <br>
                     Lebar Rumah : {{ $proyek->luas_tanah }} {{ $proyek->satuan }}<br>
                 </div>
-
             </div>
             <div class="col-3">
                 <div class="col text-success ">
                     <h3 class=" text-bold text-capitalize"> {{ $proyek->status }} </h3>
                 </div>
             </div>
-
-
-
             <hr>
         </div>
-        <div class="row m-3">
-            <div class="col-6 ">
+    </div>
+    <div class="row">
+        <div class="col-6">
+            @if ($materialout && $materialout->count() > 0)
+            <div class="card card-outline card-navy">
+                <div class="card-header text-center ">
+                    <span class=" text-md font-mono font-weight-bold "> Data Material </span>
+                </div>
                 <div class="card-body">
-                    <table class="table table-bordered table-striped">
-                        <thead class=" bg-gradient-maroon">
+                    <table class="table table-bordered table-hover">
+                        <thead>
                             <tr>
-                                <th style="width: 10px">#</th>
-                                <th>Keterangan</th>
+                                <th>Tanggal</th>
+                                <th>Kode</th>
+                                <th>Nama Material</th>
                                 <th>Jumlah</th>
-                                <th>Panjang</th>
-                                <th>Lebar</th>
                                 <th>Satuan</th>
-
+                                <th>Harga Satuan</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data as $d )
+                            @foreach ( $materialout as $mo )
                             <tr>
-                                <td></td>
-                                <th> {{ $d->nama_data }} </th>
-                                <td>{{ $d->jumlah }}</td>
-                                <td>{{ $d->panjang }}</td>
-                                <td>{{ $d->lebar }}</td>
-                                <td>{{ $d->satuan }}</td>
-
+                                <td> <div class="badge badge-secondary">{{ date('d-M-Y',strtotime($mo->tanggal)) }}</div> </td>
+                                <td>{{ $mo->kode_material }}</td>
+                                <td> <strong>{{ $mo->nama_material }}</strong> </td>
+                                <td class="text-right">{{ $mo->jumlah }}</td>
+                                <td> <div class="badge badge-pill badge-success">{{ $mo->satuan }}</div> </td>
+                                <td>{{ 'Rp. '. number_format($mo->harga_satuan,2) }}</td>
                             </tr>
                             @endforeach
 
@@ -87,40 +87,45 @@
                     </table>
                 </div>
             </div>
-            <div class="col-6 ">
+            @endif
+        </div>
+        <div class="col-6">
+            @if ( $rab && $rab->count() > 0)
+            <div class="card card-outline card-navy">
+                <div class="card-header text-center">RAB</div>
                 <div class="card-body">
-                    <table class="table table-bordered table-striped">
-                        <thead class=" bg-gradient-maroon">
+                    <table class="table table-bordered table-hover">
+                        <thead>
                             <tr>
-                                <th style="width: 10px">#</th>
-                                <th>Keterangan</th>
-                                <th>Jumlah</th>
-                                <th>Panjang</th>
-                                <th>Lebar</th>
+                                <th>Rincian</th>
+                                <th>Volume</th>
                                 <th>Satuan</th>
-
+                                <th>Harga Satuan</th>
+                                <th>Total</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ( $rab as $d )
+                            @foreach ( $d->datarab as $data )
                             <tr>
-                                <td></td>
-                                <th></th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{ $data->rincian }}</td>
+                                <td>{{ $data->volume }}</td>
+                                <td>{{ $data->satuan }}</td>
+                                <td>{{ $data->harga_satuan }}</td>
+                                <td>{{ $data->total }}</td>
                             </tr>
+                            @endforeach
+
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
+            @endif
         </div>
-
-
-
     </div>
     <div class="card-footer text-muted">
-        2 days ago
+        {{ date('d-M-Y') }}
     </div>
 </div>
 </div>
