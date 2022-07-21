@@ -5,6 +5,22 @@
                 <div class="card card-outline card-lightblue p-0">
                     <div class="card-body p-0">
                         <div class="container-fluid">
+                            @if ($absen && $absen)
+
+                            @endif
+                            {{-- @foreach ( $tes as $absen )
+                                @foreach ( $absen->datanama as $d )
+                                    <p>{{ $d->nama }}</p>
+                            @endforeach
+                            @endforeach --}}
+                            {{-- @foreach ( $absen as $b )
+                                @foreach ( $b->datanama as $a )
+                                    <p>{{ $a }}</p>
+                            @endforeach
+                            @endforeach --}}
+                            {{-- @foreach ( $absen as $b )
+                                <p>{{ $b->datanama }}</p>
+                            @endforeach --}}
                             <table class="table table-bordered">
                                 <tr>
                                     <th>Tanggal Awal</th>
@@ -22,9 +38,12 @@
                                     <th class="text-right">Pekerja</th>
                                     <td scope="col" class=" d-flex  ">
                                         <select wire:model="namaPekerja" name="" id="" class="form-control">
-                                            <option disabled>-- Cari --</option>
+                                            <option selected value="0">-- Cari --</option>
+                                            @foreach ( $pekerja as $pekerjas )
+                                            <option value="{{ $pekerjas->id  }}">{{ $pekerjas->nama }}</option>
+                                            @endforeach
                                         </select>
-                                        <button class="btn btn-sm btn-success"> <i class="fas fa-search"></i> </button>
+                                        <button wire:click="cari({{ $namaPekerja }})" class="btn btn-sm btn-success"> <i class="fas fa-search"></i> </button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -104,6 +123,7 @@
                                     </td>
                                 </tr>
                             </table>
+                            <button wire:click="tambah" class="btn btn-sm btn-outline-success m-2">Tambah</button>
                         </div>
                     </div>
                 </div>
@@ -132,16 +152,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ( $pekerja as $pekerjas )
+                                @foreach ( $penggajian as $gaji )
                                 <tr>
-                                    <td>{{ $pekerjas->nama }}</td>
-                                    <td>{{ $pekerjas->jabatan->jabatan }}</td>
-                                    <td>{{ $pekerjas->jabatan->gapok }}</td>
-                                    <td>{{ $pekerjas->jabatan->transport }}</td>
-                                    <td>{{ $pekerjas->jabatan->makan }}</td>
-                                    <td>{{ $pekerjas->datanama->count()  }}</td>
-                                    <td>{{ $pekerjas->lembur->count()  }}</td>
-                                    <td></td>
+                                    <td>{{ $gaji->nama_pekerja }}</td>
+                                    <td>{{ $gaji->jabatan->jabatan }}</td>
+                                    <td>{{ $gaji->jabatan->gapok }}</td>
+                                    <td>{{ $gaji->jabatan->transport }}</td>
+                                    <td>{{ $gaji->jabatan->makan }}</td>
+                                    <td>@if($absen && $absen > 0){{ $absen->count()  }}@endif</td>
+                                    <td>{{ $gaji->lembur }}</td>
+                                    <td>{{ $gaji->total }}</td>
                                 </tr>
                                 @endforeach
 

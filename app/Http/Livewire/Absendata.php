@@ -28,13 +28,14 @@ class Absendata extends Component
         $nama->pekerja_id = $proyek;
         $nama->save();
     }
-    public function tambahNama($id, $proyek)
+    public function tambahNama(Absen $id, $proyek)
     {
         $pekerja = Pekerja::find($this->nama);
         $nama = new Datanama;
         $nama->nama = $pekerja->nama;
+        $nama->tanggal = $id->tanggal;
         $nama->pekerja_id = $pekerja->id;
-        $nama->absens_id = $id;
+        $nama->absens_id = $id->id;
         $nama->proyek_id = $proyek;
         $nama->save();
     }

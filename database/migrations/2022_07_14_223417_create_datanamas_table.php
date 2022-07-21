@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('datanamas', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->date('tanggal');
             $table->foreignId('pekerja_id');
             $table->foreignId('absens_id');
             $table->foreignId('proyek_id');

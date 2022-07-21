@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->date('tanggalAwal');
             $table->date('tanggalAkhir');
+            $table->date('tanggal');
             $table->string('nama_pekerja');
             $table->string('jabatan');
             $table->integer('gapok');
@@ -24,7 +25,7 @@ return new class extends Migration
             $table->integer('upah_lembur')->nullable();
             $table->integer('transport');
             $table->integer('makan');
-            $table->integer('bonus');
+            $table->integer('bonus')->nullable();
             $table->integer('potongan')->nullable();
             $table->integer('total');
             $table->integer('dibayar')->nullable();

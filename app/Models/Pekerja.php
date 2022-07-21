@@ -41,6 +41,6 @@ class Pekerja extends Model
     }
     public function lembur()
     {
-        return $this->hasMany(Datanama::class, 'pekerja_id');
+        return $this->hasMany(Lembur::class, 'pekerja_id');
     }
 }
