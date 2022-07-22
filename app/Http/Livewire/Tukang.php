@@ -2,9 +2,10 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Pekerja;
 use App\Models\User;
+use App\Models\Pekerja;
 use Livewire\Component;
+use Illuminate\Support\Facades\Hash;
 
 class Tukang extends Component
 {
@@ -15,7 +16,8 @@ class Tukang extends Component
         $user = new User;
         $user->name = $this->username;
         $user->email = $this->email;
-        $user->password = $this->password;
+        $user->password = Hash::make($this->password);
+        $user->rule = "ketua";
         $user->save();
 
         $id = $user->id;
@@ -28,11 +30,23 @@ class Tukang extends Component
         $this->email = null;
         $this->idpekerja = null;
     }
+
+    public function hapus(User $user)
+    {
+        $user->delete();
+    }
     public function render()
     {
+        $user = User::where('rule', 'ketua')->get();
+        if ($user->count() > 0) {
+            $data = User::where('rule', 'ketua')->get();
+        } else {
+            $data = [];
+        }
         $pekerja = Pekerja::all();
         return view('livewire.tukang', [
-            'pekerja' => $pekerja
+            'pekerja' => $pekerja,
+            'user' => $data
         ])
             ->extends('component.template', ['title' => 'Tukang'])
             ->section('konten');

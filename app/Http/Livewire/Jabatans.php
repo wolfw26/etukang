@@ -28,7 +28,7 @@ class Jabatans extends Component
 
     public function update(Jabatan $id)
     {
-        $id->jabatan = $this->jabatan;
+        $id->jabatan = strtolower($this->jabatan);
         $id->gapok = $this->gapok;
         $id->transport = $this->transport;
         $id->makan = $this->makan;
@@ -45,7 +45,7 @@ class Jabatans extends Component
     {
         $this->validate();
         $data = new Jabatan;
-        $data->jabatan = $this->jabatan;
+        $data->jabatan = strtolower($this->jabatan);
         $data->gapok = $this->gapok;
         $data->transport = $this->transport;
         $data->makan = $this->makan;

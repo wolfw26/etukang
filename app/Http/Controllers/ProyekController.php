@@ -71,7 +71,7 @@ class ProyekController extends Controller
         $proyek->lebar_rumah = $data['lebar_tanah'];
         $proyek->satuan = $data['satuan'];
         $proyek->status = 'perencanaan';
-        $proyek->tukang_id = $data['tukang'];
+        $proyek->pekerja_id = $data['tukang'];
         $proyek->client_id = $data['client'];
         $proyek->save();
         return redirect()->back()->with('tambah', 'Ditambahkan');

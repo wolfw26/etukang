@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('kode');
             $table->string('keterangan');
             $table->date('tanggal');
+            $table->string('merk')->nullable();
+            $table->string('fungsi')->nullable();
             $table->integer('harga');
             $table->string('tempat');
             $table->integer('jumlah');

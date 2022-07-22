@@ -23,6 +23,7 @@ use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Livewire\Absen\Absensi;
 use App\Http\Livewire\Absendata;
+use App\Http\Livewire\Admin\Home;
 use App\Http\Livewire\Alat\Alatin as AlatAlatin;
 use App\Http\Livewire\Alat\Alatindex as AlatAlatindex;
 use App\Http\Livewire\Alat\Alatrusak;
@@ -35,9 +36,11 @@ use App\Http\Livewire\Client\Rab\RabHome;
 use App\Http\Livewire\DataAhs;
 use App\Http\Livewire\Jabatans;
 use App\Http\Livewire\Konfirmasi;
+use App\Http\Livewire\Laporan\Laporanalat;
 use App\Http\Livewire\Laporan\LaporanMaterial;
 use App\Http\Livewire\MaterialIn;
 use App\Http\Livewire\MaterialOut;
+use App\Http\Livewire\Pekerja\PekerjaIndex;
 use App\Http\Livewire\Penggajian\Datagaji;
 use App\Http\Livewire\StockMaterial;
 use App\Http\Livewire\Tukang as LivewireTukang;
@@ -71,19 +74,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
 
     Route::group(['prefix' => 'adm'], function () {
 
-        Route::get('/', function () {
-            $proyek = Proyek::all();
-            $tukang = Tukang::all();
-            $client = Client::all();
-            $pekerja = Pekerja::all();
-            return view('admin.home', [
-                'title' => 'HOME',
-                'proyek' => $proyek->count(),
-                'tukang' => $tukang->count(),
-                'client' => $client->count(),
-                'pekerja' => $pekerja->count(),
-            ]);
-        })->name('admin.home');
+        Route::get('/', Home::class)->name('admin.home');
         Route::get('/tukang/', [TukangController::class, 'index'])->name('tukang');
         Route::get('/tukang/del/{id}', [TukangController::class, 'trash'])->name('tukang.delete');
         Route::post('/tukang/', [TukangController::class, 'store'])->name('tukang.add');
@@ -145,6 +136,8 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         Route::get('laporanMaterial', LaporanMaterial::class)->name('laporanMaterial');
         // Cetak Material ALL
         Route::get('cetak/material/all', All::class)->name('cetakmaterial.all');
+        // LAPORAN ALAT
+        Route::get('laporanAlat', Laporanalat::class)->name('laporanAlat');
 
         // dataGaji
         Route::get('dataGaji', Datagaji::class)->name('datagaji');
@@ -210,13 +203,9 @@ Route::group(['middleware' => ['auth', 'CekLevel:client']], function () {
     });
 });
 
-Route::group(['middleware' => ['auth', 'CekLevel:tukang']], function () {
+Route::group(['middleware' => ['auth', 'CekLevel:ketua']], function () {
     Route::group(['prefix' => 'tukang'], function () {
-        Route::get('/', function () {
-            return view('pekerja.templatepekerja', [
-                'title' => 'Tukang'
-            ]);
-        });
+        Route::get('/', PekerjaIndex::class)->name('pekerja.index');
     });
 });
 // ADMIN

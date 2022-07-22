@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('tempat_sewa');
             $table->date('tanggal_mulai')->nullable();
             $table->date('tanggal_selesai')->nullable();
+            $table->string('merk')->nullable();
+            $table->string('fungsi')->nullable();
             $table->integer('harga');
             $table->integer('jumlah');
             $table->string('satuan');

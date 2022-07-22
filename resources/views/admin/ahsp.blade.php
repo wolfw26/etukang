@@ -16,7 +16,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-8">
+        <div class="col-9">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -26,8 +26,9 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" class="w-25 p-3">Aksi</th>
-                                        <th scope="col" class="w-25 p-3">Kode Ahs</th>
-                                        <th scope="col">Nama AHS</th>
+                                        <th scope="col">Kode Ahs</th>
+                                        <th scope="col" class="w-25 p-3">Nama AHS</th>
+                                        <th scope="col">Satuan</th>
                                         <th scope="col">Overhead</th>
                                         <th scope="col">Biaya</th>
                                     </tr>
@@ -48,41 +49,52 @@
                                         </th>
                                         <td> {{ $d->kode_ahs}}</td>
                                         <td class=" text-bold"> {{ $d->nama_ahs}}</td>
+                                        <td>
+                                            <div class="badge badge-warning"> {{ $d->satuan }} </div>
+                                        </td>
                                         <td> {{ $d->profit . '%'  }} </td>
                                         <td> {{ number_format($d->total,2)  }} </td>
                                     </tr>
                                     <!-- Modal -->
                                     <form action=" {{ Route('ahsp.edit',$d->id) }} " method="POST">
                                         @csrf
-                                    <div class="modal fade" id="editAhs{{ $d->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Data {{ $d->id }} </h5>
-                                                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="mb-3">
-                                                        <label for="kode" class="form-label">Kode AHS</label>
-                                                        <input value=" {{  $d->kode_ahs }} " type="text" class="form-control" name="kode" id="kode" placeholder="Kode AHS">
+                                        <div class="modal fade" id="editAhs{{ $d->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Data {{ $d->id }} </h5>
+                                                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                                                     </div>
-                                                    <div class="mb-3">
-                                                        <label for="nama" class="form-label">Nama AHS</label>
-                                                        <input value="{{ $d->nama_ahs }}" type="text" class="form-control" name="nama" id="nama" placeholder="nama AHS">
+                                                    <div class="modal-body">
+                                                        <div class="mb-3">
+                                                            <label for="kode" class="form-label">Kode AHS</label>
+                                                            <input value=" {{  $d->kode_ahs }} " type="text" class="form-control" name="kode" id="kode" placeholder="Kode AHS">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="nama" class="form-label">Nama AHS</label>
+                                                            <input value="{{ $d->nama_ahs }}" type="text" class="form-control" name="nama" id="nama" placeholder="nama AHS">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="kategori" class="form-label">kategori AHS</label>
+                                                            <input value="{{ $d->kategori }}" type="text" class="form-control" name="kategori" id="kategori" placeholder="kategori AHS">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="satuan" class="form-label">satuan AHS</label>
+                                                            <input value="{{ $d->satuan }}" type="text" class="form-control" name="satuan" id="satuan" placeholder="satuan AHS">
+                                                        </div>
+                                                        <div class="input-group input-group-sm mb-3">
+                                                            <input value="{{ $d->profit }}" type="text" name="profit" id="profit" class="form-control" placeholder="Profit / Overhead" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                                            <span class="input-group-text" id="basic-addon2">%</span>
+                                                        </div>
                                                     </div>
-                                                    <div class="input-group input-group-sm mb-3">
-                                                        <input value="{{ $d->profit }}" type="text" name="profit" id="profit" class="form-control" placeholder="Profit / Overhead" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                                        <span class="input-group-text" id="basic-addon2">%</span>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Update</button>
                                                     </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary">Update</button>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </form>
+                                    </form>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -93,8 +105,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-4">
+        <div class="col-3">
             <div class="card">
                 <div class="card-header bg-green"></div>
                 <div class="card-body text-center text-bold">Tambah AHS</div>
@@ -106,6 +117,9 @@
                         </div>
                         <div class="form-floating mb-3 mt-3">
                             <input type="text" name="nama_ahs" id="nama_ahs" placeholder="Nama AHs"><br>
+                        </div>
+                        <div class="form-floating mb-3 mt-3">
+                            <input type="text" name="satuan" id="satuan" placeholder="Satuan"><br>
                         </div>
                         <div class="form-floating mb-3 mt-3">
                             <input type="text" name="kategori" id="kategori" placeholder="Kategori"><br>

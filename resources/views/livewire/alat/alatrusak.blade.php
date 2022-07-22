@@ -302,11 +302,10 @@
                                 @enderror
                             </div>
                             <div class="mb-3">
-
-                                <label for="tempat" class="form-label">Tempat Sewa</label>
-                                <input wire:model="tempat" type="text" class="form-control form-control-sm @error('sewa')
+                                <label for="tempat" class="form-label">Tempat</label>
+                                <input wire:model="tempat" type="text" class="form-control form-control-sm @error('tempat')
                                     is-invalid
-                                @enderror " name="tempat" id="tempat" placeholder="Tempat Sewa" required>
+                                @enderror " name="tempat" id="tempat" placeholder="Tempat Pembelian" required>
                                 @error('tempat')
                                 <p class="text-danger">
                                     {{ $message }}
@@ -316,9 +315,9 @@
                             <div class="form-floating mb-3">
 
                                 <select wire:model="status" class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                <option selected>Pilih Kondisi Alat</option>
-                                <option value="baru">Baru</option>
-                                <option value="bekas">Bekas</option>
+                                    <option selected>Pilih Kondisi Alat</option>
+                                    <option value="baru">Baru</option>
+                                    <option value="bekas">Bekas</option>
                                 </select>
 
                             </div>

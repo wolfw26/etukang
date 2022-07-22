@@ -26,6 +26,7 @@ class AhspController extends Controller
         $data = new Ahsp;
         $data->kode_ahs = $request->kode_ahs;
         $data->nama_ahs = $request->nama_ahs;
+        $data->satuan = $request->satuan;
         $data->kategori = $request->kategori;
         $data->profit = $request->profit;
         $data->save();
@@ -55,6 +56,8 @@ class AhspController extends Controller
     {
         $id->kode_ahs = $request->kode;
         $id->nama_ahs = $request->nama;
+        $id->kategori = $request->kategori;
+        $id->satuan = $request->satuan;
         $upah  = $id->dataahsp->where('kategori', 'upah');
         $bahan  = $id->dataahsp->where('kategori', 'bahan');
         $alat  = $id->dataahsp->where('kategori', 'alat');

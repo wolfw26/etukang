@@ -111,7 +111,7 @@
                                                 <i class="fas fa-edit text-teal" title="Edit"></i>
                                             </a>
                                         </td>
-                                        <td scope="col">{{ $d->jabatan }}</td>
+                                        <td scope="col" class=" text-capitalize ">{{ $d->jabatan }}</td>
                                         <td scope="col">{{'Rp. '. number_format($d->gapok,2) }}</td>
                                         <td scope="col">{{'Rp. '. number_format($d->transport,2) }}</td>
                                         <td scope="col">{{'Rp. '. number_format($d->makan,2) }}</td>

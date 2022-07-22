@@ -67,38 +67,43 @@ class MaterialOut extends Component
     public function store()
     {
 
-
-        materialouts::create([
-            "tanggal" => $this->tanggal,
-            'kode_material' => $this->kode,
-            'nama_material' => $this->nama,
-            'jumlah' => $this->jumlah,
-            'satuan' => $this->satuan,
-            'stok_awal' => $this->data->stok_akhir,
-            'harga_satuan' => $this->harga_satuan,
-            'material_id' => $this->dropdown,
-            'proyek_id' => $this->proyek
-        ]);
-
-        $data = $this->data;
         $material = Material::find($this->dropdown);
-        $material->kode_material = $data->kode_material;
-        $material->nama_material = $data->nama_material;
-        $material->stok = $this->data->stok_akhir;
-        $material->satuan = $data->satuan;
-        $material->harga_satuan = $data->harga_satuan;
-        $material->keluar = $this->jumlah;
-        $material->stok_akhir = $this->data->stok_akhir - $this->jumlah;
-        $material->save();
+        if ($material->stok_akhir >= $this->jumlah) {
+            materialouts::create([
+                "tanggal" => $this->tanggal,
+                'kode_material' => $this->kode,
+                'nama_material' => $this->nama,
+                'jumlah' => $this->jumlah,
+                'satuan' => $this->satuan,
+                'stok_awal' => $this->data->stok_akhir,
+                'harga_satuan' => $this->harga_satuan,
+                'material_id' => $this->dropdown,
+                'proyek_id' => $this->proyek
+            ]);
 
-        $stok = new Stok;
-        $stok->material = $data->nama_material;
-        $stok->tanggal = $this->tanggal;
-        $stok->stok = $this->data->stok_akhir;
-        $stok->keluar = $this->jumlah;
-        $stok->stok_akhir = $this->data->stok_akhir - $this->jumlah;
-        $stok->material_id = $this->dropdown;
-        $stok->save();
+            $data = $this->data;
+
+            $material->kode_material = $data->kode_material;
+            $material->nama_material = $data->nama_material;
+            $material->stok = $this->data->stok_akhir;
+            $material->satuan = $data->satuan;
+            $material->harga_satuan = $data->harga_satuan;
+            $material->keluar = $this->jumlah;
+            $material->stok_akhir = $this->data->stok_akhir - $this->jumlah;
+            $material->save();
+
+            $stok = new Stok;
+            $stok->material = $data->nama_material;
+            $stok->tanggal = $this->tanggal;
+            $stok->stok = $this->data->stok_akhir;
+            $stok->keluar = $this->jumlah;
+            $stok->stok_akhir = $this->data->stok_akhir - $this->jumlah;
+            $stok->material_id = $this->dropdown;
+            $stok->save();
+        } else {
+            session()->flash('pesan', 'Jumlah Stok Kurang !!!,  Periksa Stok Barang');
+            return redirect()->back();
+        }
 
         $this->nama = null;
         $this->kode = null;

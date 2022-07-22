@@ -87,30 +87,33 @@
                                     <td> {{ $d->masuk}}</td>
                                     <td> {{ $d->keluar}}</td> -->
                                     <td>
-                                        <div class="badge @if ( $d->stok_akhir > 10)
+                                        @if ( $d->stok_akhir < 1) <div class="badge badge-danger"> Stok Habis
+                    </div>
+                    @endif
+                    <div class="badge @if ( $d->stok_akhir > 10)
                                             badge-success
                                         @elseif( $d->stok_akhir > 5)
                                             badge-warning
-                                        @else
-                                            badge-danger
-                                        @endif ">{{ $d->stok_akhir}}</div>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+
+                                        @endif ">{{ $d->stok_akhir}}
                     </div>
-                    <div class="card-footer">
-                        {{ $data->links() }}
-                    </div>
-                    @else
-                    <div class="container-fluid text-center m-5">
-                        <h4 class="text-danger"> <strong> <i>Tidak Ada Data</i></strong></h4>
-                    </div>
-                    @endif
+                    </td>
+                    </tr>
+                    @endforeach
+                    </tbody>
+                    </table>
                 </div>
+                <div class="card-footer">
+                    {{ $data->links() }}
+                </div>
+                @else
+                <div class="container-fluid text-center m-5">
+                    <h4 class="text-danger"> <strong> <i>Tidak Ada Data</i></strong></h4>
+                </div>
+                @endif
             </div>
         </div>
-        <!-- @endif -->
     </div>
+    <!-- @endif -->
+</div>
 </div>

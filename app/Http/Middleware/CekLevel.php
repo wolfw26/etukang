@@ -27,6 +27,8 @@ class CekLevel
             return redirect()->route('admin.home');
         } elseif (Auth::user()->rule == 'client') {
             return redirect()->route('client.home');
+        } elseif (Auth::user()->rule == 'ketua') {
+            return redirect()->route('pekerja.index');
         }
     }
 }

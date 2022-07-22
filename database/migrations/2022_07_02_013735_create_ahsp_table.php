@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('kode_ahs')->nullable();
             $table->string('nama_ahs')->nullable();
             $table->string('kategori')->nullable();
+            $table->string('satuan')->nullable();
             $table->integer('total_upah')->nullable();
             $table->integer('total_bahan')->nullable();
             $table->integer('total_alat')->nullable();

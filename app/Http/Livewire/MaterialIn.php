@@ -28,6 +28,7 @@ class MaterialIn extends Component
             $this->nama = $this->data->nama_material;
             $this->kode = $this->data->kode_material;
             $this->satuan = $this->data->satuan;
+            $this->harga_satuan = $this->data->harga_satuan;
         }
 
         $data = Material_in::all()->groupBy('nama_material');

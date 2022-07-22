@@ -20,6 +20,16 @@
                 </select>
             </div>
         </div>
+        <div class="col-4">
+            <div class="ml-4">
+                @if (session()->has('pesan'))
+                <div class="alert alert-warning d-flex justify-content-between">
+                    {{ session('pesan') }}
+                    <button type="button" class="btn" data-dismiss="alert" aria-label="Close">X</button>
+                </div>
+                @endif
+            </div>
+        </div>
         <!-- {{-- <div class="col-2 m-2">
             <a href="/cetak/{{ $pilihcetak }}" class="btn btn-outline-warning"> <i class="fas fa-print"></i> </a>
     </div> --}} -->
@@ -115,8 +125,7 @@
                 </div>
                 <div class="card-body">
                     <div class="input-group mb-3">
-                        {{ $tanggal }}
-                        <label for="tanggal">Tanggal Masuk</label>
+                        <label for="tanggal">Tanggal Digunakan</label>
                         <div class="input-group input-group-sm">
                             <input wire:model="tanggal" type="date" class="form-control mb-2" id="tanggal" name="tanggal" required data-toggle="datetimepicker">
                         </div>

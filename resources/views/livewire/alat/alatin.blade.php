@@ -1,5 +1,5 @@
 <div>
-    <div class="container p-2">
+    <div class="container-fluid p-2">
         <div class="row">
             <div class="col col-md-12">
                 <p>
@@ -181,8 +181,10 @@
                                         <td scope="col">{{ 'Rp. ' .  number_format($d->harga,2) }}</td>
                                         <td scope="col">{{ $d->tempat }}</td>
                                         <td scope="col">{{ $d->status }}</td>
-                                        <td scope="col">{{ $d->jumlah }}</td>
-                                        <td scope="col">{{ $d->satuan }}</td>
+                                        <td scope="col" class="text-right text-bold">{{ $d->jumlah }}</td>
+                                        <td scope="col">
+                                            <div class="badge badge-success">{{ $d->satuan }}</div>
+                                        </td>
                                         <td scope="col">{{ 'Rp. ' . number_format($d->total_harga,2) }}</td>
                                         <th scope="row">
                                             <a onclick="return confirm('Data {{ $d->keterangan }} Akan di Hapus') || event.stopImmediatePropagation()" wire:click="hapus({{ $d->id }})" class="btn btn-sm btn-outline-danger ">

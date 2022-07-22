@@ -169,7 +169,9 @@ class DatabaseSeeder extends Seeder
             proyekSeeder::class,
             tukangSeeder::class,
             dataproyekSeeder::class,
-            materialSeeder::class
+            materialSeeder::class,
+            alatinSeeder::class,
+            alatsewa::class,
         ]);
     }
 }
