@@ -24,8 +24,10 @@ return new class extends Migration
             $table->string('tempat');
             $table->integer('jumlah');
             $table->string('satuan');
-            $table->string('status');
             $table->integer('total_harga');
+            $table->integer('stok_awal')->nullable();
+            $table->integer('stok')->nullable();
+            $table->foreignId('alats_id')->nullable();
             $table->foreignId('alatrusak_id')->nullable();
             $table->timestamps();
         });

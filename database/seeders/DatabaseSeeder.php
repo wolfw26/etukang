@@ -2,12 +2,14 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use App\Models\Ahs;
 use App\Models\ahsp;
+use App\Models\Alat;
 use App\Models\User;
 use App\Models\DataAhs;
-use App\Models\ahspdata;
 use App\Models\Jabatan;
+use App\Models\ahspdata;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -162,6 +164,132 @@ class DatabaseSeeder extends Seeder
             'kategori' => 'bahan',
             'ahsp_id' => 2
         ]);
+        Alat::create([
+            'kode' => 'M-01',
+            'nama' => 'Meteran 19mm',
+            'Merk' => '5M Giant',
+            'fungsi' => 'Alat Ukur',
+            'harga_satuan' => 23500,
+            'satuan' => 'pcs',
+            'kepemilikan' => 'dimiliki',
+        ]);
+        Alat::create([
+            'kode' => 'K-R-01',
+            'nama' => 'Kuas Cat Roll',
+            'Merk' => '-',
+            'fungsi' => 'Pengecatan',
+            'harga_satuan' => 13500,
+            'satuan' => 'pcs',
+            'kepemilikan' => 'dimiliki',
+        ]);
+        Alat::create([
+            'kode' => 'CTK-01',
+            'nama' => 'Cetok Stainless',
+            'Merk' => '-',
+            'fungsi' => 'Penggalian ringan, Cetok Adukan',
+            'harga_satuan' => 70000,
+            'satuan' => 'pcs',
+            'kepemilikan' => 'dimiliki',
+        ]);
+        Alat::create([
+            'kode' => 'WTRP-01',
+            'nama' => 'Waterpas',
+            'Merk' => '-',
+            'fungsi' => 'Alat Ukur keseimbangan',
+            'harga_satuan' => 140000,
+            'satuan' => 'pcs',
+            'kepemilikan' => 'dimiliki',
+        ]);
+        Alat::create([
+            'kode' => 'SK-01',
+            'nama' => 'Penggaris Siku',
+            'Merk' => '-',
+            'fungsi' => 'Alat Ukur Sudut',
+            'harga_satuan' => 26000,
+            'satuan' => 'pcs',
+            'kepemilikan' => 'dimiliki',
+        ]);
+        Alat::create([
+            'kode' => 'GRD-01',
+            'nama' => 'Makita Gerinda Tangan',
+            'Merk' => '-',
+            'fungsi' => 'Alat Potong',
+            'harga_satuan' => 889110,
+            'satuan' => 'pcs',
+            'kepemilikan' => 'dimiliki',
+        ]);
+        Alat::create([
+            'kode' => 'KC-Ps-01',
+            'nama' => 'Kunci ring Pas Set',
+            'Merk' => 'Tekiro',
+            'fungsi' => 'Kunci Ring',
+            'harga_satuan' => 389000,
+            'satuan' => 'pcs',
+            'kepemilikan' => 'dimiliki',
+        ]);
+        Alat::create([
+            'kode' => 'TG-PT-01',
+            'nama' => 'Tang Potong',
+            'Merk' => 'Tekiro',
+            'fungsi' => 'Pemotong kabel dan kawat',
+            'harga_satuan' => 35500,
+            'satuan' => 'pcs',
+            'kepemilikan' => 'dimiliki',
+        ]);
+        Alat::create([
+            'kode' => 'TG-JP-01',
+            'nama' => 'Tang Jepit',
+            'Merk' => 'Tekiro',
+            'fungsi' => 'Penjepit kabel dan kawat',
+            'harga_satuan' => 35500,
+            'satuan' => 'pcs',
+            'kepemilikan' => 'dimiliki',
+        ]);
+        Alat::create([
+            'kode' => 'OBG-01',
+            'nama' => 'Obeng TPR Plus',
+            'Merk' => 'Tekiro',
+            'fungsi' => 'Pekerjaan Baut',
+            'harga_satuan' => 25000,
+            'satuan' => 'pcs',
+            'kepemilikan' => 'dimiliki',
+        ]);
+        Alat::create([
+            'kode' => 'KC-PP-01',
+            'nama' => 'Kunci Pipa',
+            'Merk' => 'Tekiro',
+            'fungsi' => 'Pekerjaan Pipa',
+            'harga_satuan' => 53000,
+            'satuan' => 'pcs',
+            'kepemilikan' => 'dimiliki',
+        ]);
+        Alat::create([
+            'kode' => 'KC-T-01',
+            'nama' => 'Kunci T',
+            'Merk' => 'Tekiro',
+            'fungsi' => 'Pekerjaan Baut dan Ring',
+            'harga_satuan' => 23000,
+            'satuan' => 'pcs',
+            'kepemilikan' => 'dimiliki',
+        ]);
+        Alat::create([
+            'kode' => 'KC-SHC-01',
+            'nama' => 'Kunci Sok Set 24 pcs',
+            'Merk' => 'Tekiro',
+            'fungsi' => 'Pekerjaan Baut',
+            'harga_satuan' => 989000,
+            'satuan' => 'pcs',
+            'kepemilikan' => 'dimiliki',
+        ]);
+        Alat::create([
+            'kode' => 'PL-01',
+            'nama' => 'Palu Tanduk',
+            'Merk' => 'Tekiro',
+            'fungsi' => 'Pemukul Paku',
+            'harga_satuan' => 76000,
+            'satuan' => 'pcs',
+            'kepemilikan' => 'dimiliki',
+        ]);
 
         $this->call([
             clientSeeder::class,
@@ -170,7 +298,7 @@ class DatabaseSeeder extends Seeder
             tukangSeeder::class,
             dataproyekSeeder::class,
             materialSeeder::class,
-            alatinSeeder::class,
+            // alatinSeeder::class,
             alatsewa::class,
         ]);
     }

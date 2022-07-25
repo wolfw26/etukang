@@ -14,8 +14,14 @@ class Alatin extends Component
     public $merk = '-', $fungsi = '-';
     public $tharga = 0;
     public $id_data;
+    public $pilih, $stok;
 
-
+    protected $rules = [
+        'jumlah' => 'required',
+        'tanggal_masuk' => 'required',
+        'tempat' => 'required',
+        'pilih' => 'required',
+    ];
 
     public function edit(ModelsAlatin $id)
     {
@@ -28,7 +34,6 @@ class Alatin extends Component
         $this->tempat = $id->tempat;
         $this->jumlah = $id->jumlah;
         $this->satuan = $id->satuan;
-        $this->status = $id->status;
         $this->tharga = $this->harga * $this->jumlah;
         $this->merk = $data->Merk;
         $this->fungsi = $data->fungsi;
@@ -43,7 +48,6 @@ class Alatin extends Component
         $data->tempat = $this->tempat;
         $data->jumlah = $this->jumlah;
         $data->satuan = $this->satuan;
-        $data->status = $this->status;
         $data->total_harga = $this->tharga;
         $data->save();
 
@@ -76,6 +80,8 @@ class Alatin extends Component
 
     public function tambahAlat()
     {
+        $this->validate();
+
         $alat = new ModelsAlatin;
         $alat->kode = $this->kode;
         $alat->keterangan = $this->deskripsi;
@@ -84,25 +90,31 @@ class Alatin extends Component
         $alat->tempat = $this->tempat;
         $alat->jumlah = $this->jumlah;
         $alat->satuan = $this->satuan;
-        $alat->status = $this->status;
         $alat->total_harga = $this->harga * $this->jumlah;
+        $alat->stok_awal = $this->stok;
+        $alat->stok = $this->stok + $this->jumlah;
+        $alat->alats_id = $this->pilih;
         $alat->save();
+
+        $alatall = Alat::find($this->pilih);
+        $alatall->stok = $this->stok + $this->jumlah;
+        $alatall->save();
 
         session()->flash('tambah', 'Berhasil');
 
-        $id = $alat->id;
+        // $id = $alat->id;
 
-        $alat = new Alat;
-        $alat->kode = $this->kode;
-        $alat->nama = $this->deskripsi;
-        $alat->fungsi = $this->fungsi;
-        $alat->Merk = $this->merk;
-        $alat->status = $this->status;
-        $alat->kepemilikan = 'dimiliki';
-        $alat->satuan = $this->satuan;
-        $alat->harga_satuan = $this->harga;
-        $alat->masuk_id = $id;
-        $alat->save();
+        // $alat = new Alat;
+        // $alat->kode = $this->kode;
+        // $alat->nama = $this->deskripsi;
+        // $alat->fungsi = $this->fungsi;
+        // $alat->Merk = $this->merk;
+        // $alat->status = $this->status;
+        // $alat->kepemilikan = 'dimiliki';
+        // $alat->satuan = $this->satuan;
+        // $alat->harga_satuan = $this->harga;
+        // $alat->masuk_id = $id;
+        // $alat->save();
 
         $this->kode = null;
         $this->deskripsi = null;
@@ -115,6 +127,8 @@ class Alatin extends Component
         $this->tharga = null;
         $this->fungsi = null;
         $this->merk = null;
+        $this->pilih = null;
+        $this->stok = null;
     }
 
     public function hapus($id)
@@ -124,13 +138,18 @@ class Alatin extends Component
         $alat->delete();
         $data->delete();
     }
-
-
-
-
-
     public function render()
     {
+        if (!empty($this->pilih)) {
+            $data = Alat::find($this->pilih);
+            $this->deskripsi = $data->nama;
+            $this->kode = $data->kode;
+            $this->satuan = $data->satuan;
+            $this->fungsi = $data->fungsi;
+            $this->merk = $data->Merk;
+            $this->harga = $data->harga_satuan;
+            $this->stok = $data->stok;
+        }
         if ($this->harga != '' && $this->jumlah != '') {
             $this->tharga = $this->harga * $this->jumlah;
         } else {
@@ -141,7 +160,8 @@ class Alatin extends Component
         $data = ModelsAlatin::all();
         return view('livewire.alat.alatin', [
             'data' => ModelsAlatin::latest()->where('kode', 'like', '%' . $this->cari . '%')
-                ->orWhere('keterangan', 'like', '%' . $this->cari . '%')->get()
+                ->orWhere('keterangan', 'like', '%' . $this->cari . '%')->get(),
+            'alat' => Alat::where('kepemilikan', 'dimiliki')->get()
         ])
 
             ->extends('component.template', ['title' => 'Alat'])

@@ -3,21 +3,27 @@
 namespace App\Http\Livewire\Penggajian;
 
 use App\Models\Absen;
+use App\Models\Lembur;
 use App\Models\Proyek;
 use App\Models\Pekerja;
 use Livewire\Component;
-use App\Http\Livewire\Absen\Absensi;
 use App\Models\Datanama;
 use App\Models\Penggajian;
+use App\Http\Livewire\Absen\Absensi;
 
 class Datagaji extends Component
 {
-    public $tglawal, $tglakhr, $nama, $namaPekerja, $jabatan, $gapok, $makan, $transport;
+    public $tglawal, $tglakhr, $nama, $namaPekerja, $jabatan, $gapok, $makan, $transport, $hari;
     public $lembur = 0, $upahLembur = 0, $bonus = 0, $potongan = 0, $total = 0, $dibayar = 0, $sisa = 0;
     public $absen;
 
 
-
+    protected $rules = [
+        'tglawal' => 'required',
+        'tglakhr' => 'required',
+        'namaPekerja' => 'required',
+        'dibayar' => 'required',
+    ];
 
     public function cari(Pekerja $pekerja)
     {
@@ -31,24 +37,28 @@ class Datagaji extends Component
 
         $this->absen = Datanama::whereBetween('tanggal', [$this->tglawal, $this->tglakhr])
             ->where('pekerja_id', $pekerja->id)->get(); //menampilkan data tanggal sesuai pilihan
-
+        $lembur = Lembur::whereBetween('tanggal', [$this->tglawal, $this->tglakhr])
+            ->where('pekerja_id', $pekerja->id)->get(); //menampilkan data tanggal sesuai pilihan
         $this->nama = $pekerja->nama;
         $this->jabatan = $pekerja->jabatan->jabatan;
         $this->gapok = $pekerja->jabatan->gapok;
         $this->makan = $pekerja->jabatan->makan;
         $this->transport = $pekerja->jabatan->transport;
         // lembur
-        $this->lembur = $pekerja->lembur->count();
+        $this->hari = $lembur->sum('jumlah');
+        $this->lembur = $lembur->count();
         $this->upahLembur = $pekerja->lembur->count() * ($this->gapok / 8);
         $this->total =  $this->gapok * $this->absen->count() + ($this->lembur * $this->upahLembur) + $this->bonus - $this->potongan;
     }
     public function tambah()
     {
+        $this->validate();
 
         $total = $this->gapok * $this->absen->count() + ($this->lembur * $this->upahLembur) + $this->bonus;
         $gaji = new Penggajian;
         $gaji->tanggalAwal = $this->tglawal;
         $gaji->tanggalAkhir = $this->tglakhr;
+        $gaji->tanggal = now()->format('Y-m-d');
         $gaji->nama_pekerja = $this->nama;
         $gaji->jabatan = $this->jabatan;
         $gaji->gapok = $this->gapok;
@@ -61,6 +71,8 @@ class Datagaji extends Component
         $gaji->sisa = $total - $this->dibayar;
         $gaji->pekerja_id = $this->namaPekerja;
         $gaji->save();
+
+        $this->absen = null;
     }
     public function render()
     {

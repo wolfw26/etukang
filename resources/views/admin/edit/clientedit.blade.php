@@ -5,7 +5,7 @@
         <h2> Update Data Client </h2>
     </div>
     <div class="card-body">
-        <form action="/client/{client:id}" method="post">
+        <form action="{{ route('client.update',$data->id) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('put')
             <div class="row">

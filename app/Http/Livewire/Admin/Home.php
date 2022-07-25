@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Alatsewa;
 use App\Models\Client;
 use App\Models\Material;
 use App\Models\Proyek;
@@ -20,7 +21,8 @@ class Home extends Component
             'proyek' => $proyek->count(),
             'client' => $client->count(),
             'pekerja' => $pekerja,
-            'material' => Material::all()
+            'material' => Material::all(),
+            'sewa' => Alatsewa::all()
         ])
             ->extends('component.template', ['title' => 'Halaman Admin'])
             ->section('konten');

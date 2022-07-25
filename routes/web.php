@@ -24,6 +24,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Livewire\Absen\Absensi;
 use App\Http\Livewire\Absendata;
 use App\Http\Livewire\Admin\Home;
+use App\Http\Livewire\Alat\Alathome;
 use App\Http\Livewire\Alat\Alatin as AlatAlatin;
 use App\Http\Livewire\Alat\Alatindex as AlatAlatindex;
 use App\Http\Livewire\Alat\Alatrusak;
@@ -36,6 +37,7 @@ use App\Http\Livewire\Client\Rab\RabHome;
 use App\Http\Livewire\DataAhs;
 use App\Http\Livewire\Jabatans;
 use App\Http\Livewire\Konfirmasi;
+use App\Http\Livewire\Laporan\GajiPekerja;
 use App\Http\Livewire\Laporan\Laporanalat;
 use App\Http\Livewire\Laporan\LaporanMaterial;
 use App\Http\Livewire\MaterialIn;
@@ -138,6 +140,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         Route::get('cetak/material/all', All::class)->name('cetakmaterial.all');
         // LAPORAN ALAT
         Route::get('laporanAlat', Laporanalat::class)->name('laporanAlat');
+        Route::get('laporanGaji', GajiPekerja::class)->name('laporanGaji');
 
         // dataGaji
         Route::get('dataGaji', Datagaji::class)->name('datagaji');
@@ -150,7 +153,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         Route::get('absen/index/', Absendata::class)->name('absen.index');
 
         //ALAT
-        Route::get('/alat/', AlatAlatindex::class)->name('alat');
+        Route::get('/alat/', Alathome::class)->name('alat');
         Route::get('/alat/masuk', AlatAlatin::class)->name('alat.masuk');
         Route::get('/alat/sewa', AlatAlatsewa::class)->name('alat.sewa');
         Route::get('/alat/rusak', Alatrusak::class)->name('alat.rusak');

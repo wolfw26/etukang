@@ -21,9 +21,10 @@ class ClientController extends Controller
     }
     public function store(Request $request)
     {
-
+        if ($request->file('foto_ktp')) {
+            $ktp = $request->file('foto_ktp')->store('client');
+        }
         $data = $request->all();
-        $img = $request->file('foto_ktp')->store('client-img');
 
         $user = new User;
         $user->name = $data['name'];
@@ -39,7 +40,7 @@ class ClientController extends Controller
         $client->alamat = $data['alamat'];
         $client->jk = $data['jk'];
         $client->no_ktp = $data['no_ktp'];
-        $client->foto_ktp = $img;
+        $client->foto_ktp = $ktp;
         $client->no_telp = $data['no_telp'];
         $client->users_id = $user->id;
         $client->save();
@@ -73,10 +74,22 @@ class ClientController extends Controller
         ]);
     }
 
-    public function update(Client $client)
+    public function update(Request $request, Client $client)
     {
-        return view('admin.edit.clientedit', [
-            'title' => 'Edit'
-        ]);
+        if ($request->file('foto_ktp')) {
+            $ktp = $request->file('foto_ktp')->store('client');
+        }
+        $data = $request->all();
+        $client->nama = $data['nama'];
+        $client->tgl_lahir = $data['kalender'];
+        $client->tempat_lahir = $data['tempat_lahir'];
+        $client->alamat = $data['alamat'];
+        $client->jk = $data['jk'];
+        $client->no_ktp = $data['no_ktp'];
+        $client->foto_ktp = $ktp;
+        $client->no_telp = $data['no_telp'];
+        $client->save();
+
+        return redirect()->back()->with('diubah', 'Berhasil Update Data');
     }
 }

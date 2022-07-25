@@ -3,25 +3,68 @@
         <div class="row">
             <div class="col col-md-6">
                 <p>
-                    <button class="btn btn-primary btn-sm m-0" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        Tambah
-                    </button>
+                <div class="row">
+                    <div class="col-3">
+                        <button class="btn btn-primary btn-sm m-0" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            Tambah
+                        </button>
+                    </div>
+                </div>
                 </p>
                 <div wire:ignore.self class="collapsing" id="collapseExample">
                     <div class="card card-body">
                         <div class="row">
                             <div class="col-6">
                                 <div class="mb-3">
-                                    <label for="deskripsi" class="form-label">Deskripsi</label>
+                                    {{-- <label for="deskripsi" class="form-label">Nama Alat</label> --}}
+                                    <select wire:model="pilih" name="" id="" class="form-select">
+                                        <option selected>-- Cari Alat --</option>
+                                        @foreach ( $alat as $alats )
+                                        <option value="{{ $alats->id }}">{{ $alats->kode }} - {{ $alats->nama }} </option>
+                                        @endforeach
+                                    </select>
+                                    @error('pilih')
+                                    <p class="text-danger">
+                                        {{ $message }}
+                                    </p>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="kode" class="form-label">kode</label>
+                                    <input wire:model="kode" type="text" class="form-control form-control-sm @error('kode')
+                                            is-invalid
+                                        @enderror " readonly name="kode" id="kode" placeholder="Kode Alat" required>
+                                    @error('kode')
+                                    <p class="text-danger">
+                                        {{ $message }}
+                                    </p>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="deskripsi" class="form-label">Nama Alat</label>
                                     <input wire:model="deskripsi" type="text" class="form-control form-control-sm @error('deskripsi')
-                                        is-invalid
-                                    @enderror " id="deskripsi" placeholder="Deskripsi" required>
+                                            is-invalid
+                                        @enderror " readonly name="deskripsi" id="deskripsi" placeholder="Nama Alat" required>
                                     @error('deskripsi')
                                     <p class="text-danger">
                                         {{ $message }}
                                     </p>
                                     @enderror
                                 </div>
+                                <div class="mb-3">
+                                    <label for="satuan" class="form-label">Satuan</label>
+                                    <input wire:model="satuan" type="text" class="form-control form-control-sm @error('satuan')
+                                        is-invalid
+                                    @enderror " readonly id="satuan" placeholder="satuan">
+                                    @error('satuan')
+                                    <p class="text-danger">
+                                        {{ $message }}
+                                    </p>
+                                    @enderror
+                                </div>
+
+                            </div>
+                            <div class="col-6">
                                 <div class="mb-3">
                                     <label for="jumlah" class="form-label">Jumlah Alat</label>
                                     <input wire:model="jumlah" type="number" class="form-control form-control-sm @error('jumlah')
@@ -33,22 +76,21 @@
                                     </p>
                                     @enderror
                                 </div>
-
                                 <div class="mb-3">
                                     <label for="nama" class="form-label">Nama Penambah</label>
-                                    <input wire:model="nama" type="text" class="form-control form-control-sm @error('nama')
-                                        is-invalid
-                                    @enderror " id="nama" placeholder="nama" required>
+                                    <select wire:model="nama" name="" id="" class="form-select">
+                                        <option selected>-- Nama Penambah --</option>
+                                        @foreach ( $pekerja as $pekerjas )
+                                        <option value="{{ $pekerjas->id }}">{{ $pekerjas->nama }} -- {{ $pekerjas->jabatan->jabatan }}</option>
+                                        @endforeach
+                                    </select>
+
                                     @error('nama')
                                     <p class="text-danger">
                                         {{ $message }}
                                     </p>
                                     @enderror
                                 </div>
-
-
-                            </div>
-                            <div class="col-6">
                                 <div class="mb-3">
                                     <label for="tanggal" class="form-label">Tanggal Di Tambah</label>
                                     <input wire:model="tanggal" type="date" class="form-control form-control-sm @error('tanggal')
@@ -60,17 +102,7 @@
                                     </p>
                                     @enderror
                                 </div>
-                                <div class="mb-3">
-                                    <label for="satuan" class="form-label">Satuan</label>
-                                    <input wire:model="satuan" type="text" class="form-control form-control-sm @error('satuan')
-                                        is-invalid
-                                    @enderror " id="satuan" placeholder="satuan">
-                                    @error('satuan')
-                                    <p class="text-danger">
-                                        {{ $message }}
-                                    </p>
-                                    @enderror
-                                </div>
+
                                 <div wire:click="tambah" class="mb-3 text-center">
                                     <button class="btn btn-outline-success mt-3">Tambah</button>
                                 </div>
@@ -79,6 +111,15 @@
                     </div>
                 </div>
             </div>
+            @if (session()->has('kurang'))
+            <div class="col-3">
+                <div class="alert alert-warning alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h5><i class="icon fas fa-exclamation-triangle"></i> Data Tidak Cocok</h5>
+                    {{ session('kurang') }}
+                </div>
+            </div>
+            @endif
         </div>
         <div class="row">
             <div class="col-12">

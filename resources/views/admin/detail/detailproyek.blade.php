@@ -1,21 +1,30 @@
-
 @extends('component.template')
 @section('konten')
-<div class="container-fluid" >
+<div class="container-fluid">
     <div class="card text-center p-2 shadow-md shadow-2xl mt-3">
         <div class="card-header p-0 bg-gradient-maroon">
             <h1>Halaman <strong class="text text-lightblue"> Detail</strong></h1>
         </div>
         <div class="row p-2 border-bottom">
-            <div class="col-3">
-                <div class=" row-cols-1">
-                    <img src=" {{ asset($client->foto_ktp) }} " alt="" class="img-rounded shadow-2xl img-thumbnail">
+            <div class="col-3 border border-info elevation-3" style="padding: 1px ;">
+                {{-- <!-- @if ($d->image)
+                <div class="container-fluid rounded">
+                    <img style="height: 200px; width: 100%; " src="{{ asset( $d->image) }}" class="img-fluid ">
                 </div>
+                @else --> --}}
+                <i class="fas fa-user fa-5x mt-5"></i>
+                {{-- <!-- @endif --> --}}
+                {{-- <!-- <div class=" row-cols-1">
+                    <img src=" {{ asset($client->foto_ktp) }} " alt="" class="img-rounded shadow-2xl img-thumbnail">
+                </div> --> --}}
             </div>
             <div class="col-7">
                 <div class="col-3 text-left ">
                     <h5 class=" text-bold ">Pemilik : <strong> <a href="#">{{ $client->nama}}</a> </strong></h5><br>
-                    @if ( $tukang->count() == 0)
+                    @if ( $tukang && $tukang->count() > 0)
+
+                    <h5 class=" text-mute ">Tukang : <strong> <a href="{{ route('pekerja.detail',$tukang->id) }}"> {{ $tukang->nama }} </a></strong></h5>
+                    @else
                     <div class="badge badge-warning p-1 shadow-sm">
                         <strong>Belum ada Tukang</strong>
                     </div>
@@ -30,10 +39,7 @@
                             </select>
                             <button type="submit" class="btn btn-sm btn-success "><i class="fas fa-plus"></i></button>
                         </div>
-
                     </form>
-                    @else
-                    <h5 class=" text-mute ">Tukang : <strong> <a href="/adm/tukang/"> {{ $tukang->nama }} </a></strong></h5>
                     @endif
 
                 </div>
@@ -45,11 +51,15 @@
                 </div>
             </div>
             <div class="col-3">
+            </div>
+            <hr>
+        </div>
+        <div class="row">
+            <col-4>
                 <div class="col text-success ">
                     <h3 class=" text-bold text-capitalize"> {{ $proyek->status }} </h3>
                 </div>
-            </div>
-            <hr>
+            </col-4>
         </div>
     </div>
     <div class="row">
@@ -74,11 +84,15 @@
                         <tbody>
                             @foreach ( $materialout as $mo )
                             <tr>
-                                <td> <div class="badge badge-secondary">{{ date('d-M-Y',strtotime($mo->tanggal)) }}</div> </td>
+                                <td>
+                                    <div class="badge badge-secondary">{{ date('d-M-Y',strtotime($mo->tanggal)) }}</div>
+                                </td>
                                 <td>{{ $mo->kode_material }}</td>
                                 <td> <strong>{{ $mo->nama_material }}</strong> </td>
                                 <td class="text-right">{{ $mo->jumlah }}</td>
-                                <td> <div class="badge badge-pill badge-success">{{ $mo->satuan }}</div> </td>
+                                <td>
+                                    <div class="badge badge-pill badge-success">{{ $mo->satuan }}</div>
+                                </td>
                                 <td>{{ 'Rp. '. number_format($mo->harga_satuan,2) }}</td>
                             </tr>
                             @endforeach

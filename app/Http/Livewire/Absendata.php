@@ -25,7 +25,7 @@ class Absendata extends Component
         $lembur->tanggal = $id->tanggal;
         $lembur->jumlah = $this->jamLembur;
         $lembur->absens_id = $id->id;
-        $lembur->pekerja_id = $proyek;
+        $lembur->pekerja_id = $this->namaLembur;
         $lembur->save();
 
         $this->namaLembur = null;

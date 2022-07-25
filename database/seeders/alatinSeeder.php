@@ -26,7 +26,6 @@ class alatinSeeder extends Seeder
             'tempat' => 'PriceZa',
             'jumlah' => 2,
             'satuan' => 'pcs',
-            'status' => 'baru',
             'total_harga' => 23500 * 2,
         ]);
         Alatin::create([
@@ -39,7 +38,6 @@ class alatinSeeder extends Seeder
             'tempat' => 'PriceZa',
             'jumlah' => 5,
             'satuan' => 'pcs',
-            'status' => 'baru',
             'total_harga' => 13500 * 5,
         ]);
         Alatin::create([
@@ -52,7 +50,6 @@ class alatinSeeder extends Seeder
             'tempat' => 'PriceZa',
             'jumlah' => 5,
             'satuan' => 'pcs',
-            'status' => 'baru',
             'total_harga' => 70000 * 5,
         ]);
         Alatin::create([
@@ -65,7 +62,6 @@ class alatinSeeder extends Seeder
             'tempat' => 'PriceZa',
             'jumlah' => 6,
             'satuan' => 'pcs',
-            'status' => 'baru',
             'total_harga' => 140000 * 6,
         ]);
         Alatin::create([
@@ -78,7 +74,6 @@ class alatinSeeder extends Seeder
             'tempat' => 'PriceZa',
             'jumlah' => 4,
             'satuan' => 'pcs',
-            'status' => 'baru',
             'total_harga' => 26000 * 4,
         ]);
         Alatin::create([
@@ -91,7 +86,6 @@ class alatinSeeder extends Seeder
             'tempat' => 'Monotaro',
             'jumlah' => 2,
             'satuan' => 'pcs',
-            'status' => 'baru',
             'total_harga' => 889110 * 2,
         ]);
         Alatin::create([
@@ -104,7 +98,6 @@ class alatinSeeder extends Seeder
             'tempat' => 'Monotaro',
             'jumlah' => 3,
             'satuan' => 'pcs',
-            'status' => 'baru',
             'total_harga' => 389000 * 3,
         ]);
         Alatin::create([
@@ -117,7 +110,6 @@ class alatinSeeder extends Seeder
             'tempat' => 'Monotaro',
             'jumlah' => 5,
             'satuan' => 'pcs',
-            'status' => 'baru',
             'total_harga' => 35500 * 5,
         ]);
         Alatin::create([
@@ -130,7 +122,6 @@ class alatinSeeder extends Seeder
             'tempat' => 'Monotaro',
             'jumlah' => 5,
             'satuan' => 'pcs',
-            'status' => 'baru',
             'total_harga' => 35500 * 5,
         ]);
         Alatin::create([
@@ -143,7 +134,6 @@ class alatinSeeder extends Seeder
             'tempat' => 'Monotaro',
             'jumlah' => 10,
             'satuan' => 'pcs',
-            'status' => 'baru',
             'total_harga' => 25000 * 10,
         ]);
         Alatin::create([
@@ -156,7 +146,6 @@ class alatinSeeder extends Seeder
             'tempat' => 'Monotaro',
             'jumlah' => 5,
             'satuan' => 'pcs',
-            'status' => 'baru',
             'total_harga' => 53000 * 5,
         ]);
         Alatin::create([
@@ -169,7 +158,6 @@ class alatinSeeder extends Seeder
             'tempat' => 'Monotaro',
             'jumlah' => 2,
             'satuan' => 'pcs',
-            'status' => 'baru',
             'total_harga' => 23000 * 2,
         ]);
         Alatin::create([
@@ -182,7 +170,6 @@ class alatinSeeder extends Seeder
             'tempat' => 'Monotaro',
             'jumlah' => 2,
             'satuan' => 'pcs',
-            'status' => 'baru',
             'total_harga' => 989000 * 2,
         ]);
         Alatin::create([
@@ -195,7 +182,6 @@ class alatinSeeder extends Seeder
             'tempat' => 'Monotaro',
             'jumlah' => 6,
             'satuan' => 'pcs',
-            'status' => 'baru',
             'total_harga' => 76000 * 6,
         ]);
     }

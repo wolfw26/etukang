@@ -10,9 +10,9 @@ class StockMaterial extends Component
     public $cari;
     public $page;
 
-    public function all()
+    public function stok()
     {
-        $this->page = 'all';
+        $this->page = 'stok';
     }
     public function masuk()
     {

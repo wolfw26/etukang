@@ -47,4 +47,8 @@ class Proyek extends Model
     {
         return $this->hasMany(Datanama::class, 'proyek_id');
     }
+    public function gambar()
+    {
+        return $this->hasMany(GambarProyek::class, 'proyek_id', 'id');
+    }
 }

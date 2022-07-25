@@ -2,17 +2,27 @@
 
 namespace App\Http\Livewire\Alat;
 
-use App\Models\Alatrusak as ModelsAlatrusak;
-use App\Models\Alatin as ModelsAlatin;
 use App\Models\Alat;
-
+use App\Models\Pekerja;
 use Livewire\Component;
+
+use App\Models\Alatin as ModelsAlatin;
+use App\Models\Alatrusak as ModelsAlatrusak;
 
 class Alatrusak extends Component
 {
-    public $kode, $deskripsi, $jumlah, $satuan, $nama, $id_penambah, $status, $tanggal, $tanggal_masuk;
+    public $kode, $deskripsi, $jumlah, $satuan, $nama, $id_penambah, $status, $tanggal, $tanggal_masuk, $merk;
     public $id_alat;
     public $harga, $tempat, $tharga;
+    public $stok, $pilih, $dataAlat;
+
+
+    protected $rules = [
+        'pilih' => 'required',
+        'jumlah' => 'required',
+        'nama' => 'required',
+        'tanggal' => 'required',
+    ];
 
     public function dataMasuk(ModelsAlatrusak $id)
     {
@@ -71,20 +81,32 @@ class Alatrusak extends Component
 
     public function tambah()
     {
+        $this->validate();
+        if ($this->dataAlat->stok < $this->jumlah) {
+            session()->flash('kurang', 'Jumlah Alat Tidak Sesuai !!!');
+            return redirect()->route('alat.rusak');
+        }
+        $pekerja = Pekerja::find($this->nama);
         $data = new ModelsAlatrusak;
         $data->deskripsi = $this->deskripsi;
         $data->jumlah = $this->jumlah;
         $data->satuan = $this->satuan;
-        $data->nama = 'admin';
-        $data->id_penambah = '';
+        $data->nama = $pekerja->nama;
+        $data->id_penambah = $pekerja->id;
         $data->status = 'proses';
         $data->tanggal = $this->tanggal;
         $data->save();
+
+        $alat = $this->dataAlat;
+        $alat->stok = $alat->stok - $this->jumlah;
+        $alat->save();
+
         $this->deskripsi = null;
         $this->jumlah = null;
         $this->satuan = null;
         $this->nama = null;
         $this->tangal = null;
+        $this->dataAlat = null;
     }
 
 
@@ -122,6 +144,16 @@ class Alatrusak extends Component
     }
     public function render()
     {
+        if (!empty($this->pilih)) {
+            $data = Alat::find($this->pilih);
+            $this->deskripsi = $data->nama;
+            $this->kode = $data->kode;
+            $this->satuan = $data->satuan;
+            $this->fungsi = $data->fungsi;
+            $this->merk = $data->Merk;
+            $this->stok = $data->stok;
+            $this->dataAlat = $data;
+        }
         if ($this->harga != '' && $this->jumlah != '') {
             $this->tharga = $this->harga * $this->jumlah;
         } else {
@@ -130,7 +162,9 @@ class Alatrusak extends Component
 
         return view('livewire.alat.alatrusak', [
             'data' => ModelsAlatrusak::latest()->where('status', 'proses')->get(),
-            'selesai' => ModelsAlatrusak::latest()->where('status', 'selesai')->get()
+            'selesai' => ModelsAlatrusak::latest()->where('status', 'selesai')->get(),
+            'alat' => Alat::where('kepemilikan', 'dimiliki')->get(),
+            'pekerja' => Pekerja::all()
         ])
             ->extends('component.template', ['title' => 'Alat Rusak'])
             ->section('konten');

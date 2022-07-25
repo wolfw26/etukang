@@ -3,7 +3,7 @@
         <div class="row m-1 p-2">
             <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box elevation-3 mt-2">
-                    <span class="info-box-icon bg-info elevation-0 shadow-2xl"><i class="fas fa-contru"></i></span>
+                    <span class="info-box-icon bg-info elevation-0 shadow-2xl"><i class="fa-solid fa-person-digging"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">Proyek</span>
                         <span class="info-box-number">
@@ -18,7 +18,8 @@
             <!-- /.col -->
             <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box mb-3 mt-2 elevation-3">
-                    <span class="info-box-icon bg-danger elevation-1 "><i class="fas fa-user-shield"></i></span>
+                    <span class="info-box-icon bg-secondary elevation-1 d-flex justify-content-center">
+                        <i class="fas fa-mound"></i> <p><i class="fas fa-mound text-dark"></i></p></span>
 
                     <div class="info-box-content">
                         <span class="info-box-text">Meterial</span>
@@ -63,11 +64,11 @@
         <div class="row m-1 p-2">
             <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box mb-3 mt-2 elevation-3">
-                    <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+                    <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-truck-pickup"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Pekerja</span>
-                        <span class="info-box-number">{{ $pekerja->count() }}</span>
+                        <span class="info-box-text">Sewa Alat</span>
+                        <span class="info-box-number">{{ $sewa->count() }}</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -75,60 +76,74 @@
             </div>
         </div>
         <!-- /.row -->
-        <div class="card shadow-md mb-4 p-3">
-            Halaman Home
+        <div class="callout callout-info">
+            <h5>Selamat Datang Admin {{ Auth::user()->name }}</h5>
+
+            <p>Sistem Informasi Jasa Pembangunan , Membantu Melakukan Pembuatan AHSP,RAB, Penanganan Data Proyek , Pemantauan Kerja Pekerja dan Pengelolaan Material dan Alat </p>
         </div>
         <div class=" border-3 border-dark">
             <div class="row">
                 <div class="col col-md-8 border-dark">
-                    <div class="card">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-indicators">
-                                <button type="button" data-target="#carouselExampleIndicators" data-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-target="#carouselExampleIndicators" data-slide-to="1" aria-label="Slide 2"></button>
-                                <button type="button" data-target="#carouselExampleIndicators" data-slide-to="2" aria-label="Slide 3"></button>
-                            </div>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="{{ asset('img/alat.jpg') }}" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="{{ asset('img/batik-wayang.png') }}" class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="{{ asset('img/laptop.jpg') }}" class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card pb-4">
-                        <div class="card-header bg-cyan">
-                            <div class="card-title text-uppercase">
-                                Menu
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-group">
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    A list item
-                                    <span class="badge bg-primary rounded-pill">14</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    A second list item
-                                    <span class="badge bg-primary rounded-pill">2</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    A third list item
-                                    <span class="badge bg-primary rounded-pill">1</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                    @if ( $sewa && $sewa->count() > 0)
 
+                            <div class="card card-outline card-navy">
+                                <div class="card-header">
+                                    Data Menyewa Alat
+                                </div>
+                                <div class="card-body table-responsive p-0"style="height: 570px;">
+                                    <table class="table table-bordered table-hover table-head-fixed text-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th>Nama Alat</th>
+                                                <th>Harga Satuan</th>
+                                                <th>Tanggal Mulai</th>
+                                                <th>Tanggal Selesai</th>
+                                                <th>Jumlah</th>
+                                                <th>Total</th>
+                                            </tr>
+                                        </thead>
+                                        @foreach ( $sewa as $sewas )
+                                        <tr>
+                                            <td>{{ $sewas->deskripsi  }}</td>
+                                            <td>{{ $sewas->harga  }}/{{ $sewas->satuan  }}</td>
+                                            <td>{{ $sewas->tanggal_mulai  }}</td>
+                                            <td>{{ $sewas->tanggal_selesai  }}</td>
+                                            <td>{{ $sewas->jumlah  }}{{ $sewas->satuan  }}</td>
+                                            <td>{{ 'Rp. '. number_format($sewas->harga_total)  }}</td>
+                                            {{-- <td>{{ Carbon\carbon::parse(now()->format('d-m-Y'))->diffInDays($sewas->tanggal_selesai,false) }}</td> --}}
+
+                                        </tr>
+                                        @endforeach
+                                    </table>
+                                </div>
+                            </div>
+
+                    @endif
+                </div>
+                <div class="col-4">
+                    <div class="card card-outline card-warning">
+                        <div class="card-header text-center">Stok Material Habis</div>
+                        <div class="card-body p-2 table-responsive p-0"style="height: 570px;">
+                            <div class="table-responsive" >
+                                <table class="table table-bordered table-hover table-head-fixed text-nowrap">
+                                    <tbody>
+                                        @foreach ( $material as $materials )
+                                        @if ( $materials->stok_akhir < 5) <tr>
+                                            <td>{{ $materials->nama_material }}</td>
+                                            <td class="text-center">
+                                                <div class="badge badge-pill badge-danger">
+                                                    @if ( $materials->stok_akhir < 1 ) kosong @else {{ $materials->stok_akhir }}-{{ $materials->satuan }} @endif </div>
+                                            </td>
+                                            </tr>
+                                            @endif
+                                            @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
-</div>

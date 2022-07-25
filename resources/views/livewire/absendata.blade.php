@@ -62,7 +62,7 @@
                                         </button>
                                         <div class="border p-2 mt-2 border-dark rounded-lg">
                                             @foreach ( $d->lembur as $lemburs )
-                                            <p class="m-0"><i wire:click="hapusLembur({{ $lemburs->id }})" class="fas fa-times text-danger"></i> {{ $lemburs->nama   }}</p>
+                                            <p class="m-0 "><i wire:click="hapusLembur({{ $lemburs->id }})" class="btn fas fa-times text-danger"></i> {{ $lemburs->nama   }}</p>
                                             @endforeach
                                         </div>
                                     </td>

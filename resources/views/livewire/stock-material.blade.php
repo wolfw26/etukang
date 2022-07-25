@@ -8,6 +8,12 @@
 
                 <button class="btn btn-outline-secondary m-1" wire:click="keluar">Material Keluar</button> -->
             <!-- </div> -->
+
+            <div class="col-7 ">
+                <button wire:click="stok" class="btn btn-outline-warning text-dark font-weight-bolder">Stok</button>
+                <button wire:click="masuk" class="btn btn-outline-warning text-dark font-weight-bolder">Material Masuk</button>
+                <button wire:click="keluar" class="btn btn-outline-warning text-dark font-weight-bolder">Material Keluar</button>
+            </div>
             <div class="col-4 ">
                 @if (session('tambah'))
                 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -41,11 +47,11 @@
     </div>
 
     <div class="container-fluid">
-        <!-- @if ( $page == 'masuk' )
+        @if ( $page == 'masuk' )
         @livewire('material-in')
         @elseif ( $page == 'keluar')
         @livewire('material-out')
-        @else -->
+        @else
         <div class="row mb-3">
             <div class="col-12">
                 <div class="card">
@@ -114,6 +120,6 @@
             </div>
         </div>
     </div>
-    <!-- @endif -->
+    @endif
 </div>
 </div>

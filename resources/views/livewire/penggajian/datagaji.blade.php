@@ -28,28 +28,47 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <input wire:model="tglawal" type="date" class="form-control">
+                                        <input wire:model="tglawal" type="date" class="form-control @error('tglawl')
+                                            is-invalid
+                                        @enderror">
+                                        @error('tglawal')
+                                            {{ $message }}
+                                        @enderror
                                     </td>
                                     <td>
-                                        <input wire:model="tglakhr" type="date" class="form-control">
+                                        <input wire:model="tglakhr" type="date" class="form-control @error('tglakhr')
+                                            is-invalid
+                                        @enderror">
+                                        @error('tglakhr')
+                                            {{ $message }}
+                                        @enderror
                                     </td>
                                 </tr>
                                 <tr>
                                     <th class="text-right">Pekerja</th>
-                                    <td scope="col" class=" d-flex  ">
-                                        <select wire:model="namaPekerja" name="" id="" class="form-control">
+                                    <td scope="col" class=" d-flex ">
+                                        <select wire:model="namaPekerja" name="" id="" class="form-control @error('namaPekerja')
+                                            is-invalid
+                                        @enderror ">
                                             <option selected value="0">-- Cari --</option>
                                             @foreach ( $pekerja as $pekerjas )
                                             <option value="{{ $pekerjas->id  }}">{{ $pekerjas->nama }}</option>
                                             @endforeach
                                         </select>
                                         <button wire:click="cari({{ $namaPekerja }})" class="btn btn-sm btn-success"> <i class="fas fa-search"></i> </button>
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <th class="text-right">Jabatan</th>
                                     <td scope="col">
                                         <input wire:model="jabatan" type="text" readonly class="form-control">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="text-right">Jumlah Hari</th>
+                                    <td scope="col">
+                                        <input wire:model="hari" type="text" readonly class="form-control">
                                     </td>
                                 </tr>
                                 <tr>
@@ -83,7 +102,7 @@
                                 <tr>
                                     <th class="text-right">Lembur</th>
                                     <td scope="col">
-                                        <input wire:model="lembur" type="text" readonly class="ml-4 form-control-sm form-control">
+                                        <input wire:model="lembur"  type="text" readonly class="ml-4 form-control-sm form-control">
                                     </td>
                                 </tr>
                                 <tr>
@@ -113,7 +132,12 @@
                                 <tr>
                                     <th class="text-right">Dibayar</th>
                                     <td scope="col" class=" d-flex justify-content-center">
-                                        Rp. <input wire:model="dibayar" type="number" class="form-control form-control-sm ">
+                                        Rp. <input wire:model="dibayar" type="number" class="form-control form-control-sm @error('dibayar')
+                                            is-invalid
+                                        @enderror">
+                                        @error('dibayar')
+                                            {{ $message }}
+                                        @enderror
                                     </td>
                                 </tr>
                                 <tr>
@@ -148,20 +172,24 @@
                                     <th>Jumlah Lembur</th>
                                     <th>Gaji lembur</th>
                                     <th>Total</th>
-                                    <th></th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ( $penggajian as $gaji )
+{{ $hari }}
                                 <tr>
                                     <td>{{ $gaji->nama_pekerja }}</td>
-                                    <td>{{ $gaji->jabatan->jabatan }}</td>
-                                    <td>{{ $gaji->jabatan->gapok }}</td>
-                                    <td>{{ $gaji->jabatan->transport }}</td>
-                                    <td>{{ $gaji->jabatan->makan }}</td>
-                                    <td>@if($absen && $absen > 0){{ $absen->count()  }}@endif</td>
+                                    <td>{{ $gaji->jabatan}}</td>
+                                    <td>{{ $gaji->gapok }}</td>
+                                    <td>{{ $gaji->transport }}</td>
+                                    <td>{{ $gaji->makan }}</td>
+                                    <td>@if($absen && $absen->count() > 0){{ $absen->count()  }}@endif</td>
                                     <td>{{ $gaji->lembur }}</td>
                                     <td>{{ $gaji->total }}</td>
+                                    <td>
+                                        <a class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                    </td>
                                 </tr>
                                 @endforeach
 

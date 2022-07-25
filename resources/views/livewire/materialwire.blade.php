@@ -1,4 +1,13 @@
 <div class="mb-3">
+    <!-- <div class="row">
+        <div class="col-12 bg-cyan">
+            <div class="alert alert-secondary">
+                <button class="btn btn-outline-warning">Stok</button>
+                <button class="btn btn-outline-warning">Material Masuk</button>
+                <button class="btn btn-outline-warning">Material Keluar</button>
+            </div>
+        </div>
+    </div> -->
     <div class="row border-bottom ">
         <div class="col-4">
             <form action="/adm/pekerja">

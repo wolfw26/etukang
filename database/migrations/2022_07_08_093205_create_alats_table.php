@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('nama');
             $table->text('fungsi');
             $table->string('Merk')->nullable();
-            $table->string('status')->nullable();
             $table->string('kepemilikan');
             $table->string('satuan');
             $table->integer('harga_satuan');
+            $table->integer('stok')->nullable();
             $table->integer('sewa_id')->nullable();
             $table->integer('masuk_id')->nullable();
             $table->timestamps();

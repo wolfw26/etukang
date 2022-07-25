@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('nama_pekerja');
             $table->string('jabatan');
             $table->integer('gapok');
+            $table->integer('hari');
             $table->integer('lembur')->nullable();
             $table->integer('upah_lembur')->nullable();
             $table->integer('transport');
