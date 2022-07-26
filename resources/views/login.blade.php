@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title }}</title>
-
+    {{-- icon --}}
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -24,36 +26,52 @@
 
             }
         }
+        .active {
+            display: none;
+        }
+        .login{
+            height : 93.5vh; display : flex; flex-direction : column; align-items : center; justify-content : center; width : 100%;
+        }
     </style>
 </head>
 {{-- background=" {{ asset('img/login2.png') }}" --}}
-<body class="hold-transition login-page"  style="background-attachment: fixed; background-repeat: no-repeat; background-size: contain ; background : blue;">
-    <div class="container-fluid" style="height: 100% ;">
-        <div class="row" style="background-size: cover; background-attachment: fixed; background-position: -30vh -15rem;">
-            <div class="col-8 col-md-8 col-sm-12 " style="margin-top:25vh ; padding:4px;  ">
-                <div class="container-fluid ">
-                    <div class="container p-3">
-                        <div class="login-box mx-auto m-2 d-block bg-transparent">
-                            <div class="login-card-body  shadow-2xl">
+<body class="hold-transition"  style=" background : blue; overflow-x : hidden;">
+    <div >
+            <div style="display : flex  ;width : 100vw; height : 100vh; justify-content:space-between; align-items: center;">
+                        <div class="text-white text-center" style="width: 50%; display : flex ;flex-direction : column; justify-content : space-between ;height : 100%;  ">
+                            <div class="" style=" margin-top : 14rem;">
+                                <h1 style="font-weight: 600;"><span style="font-size: 62px; font-weight : bold;">E</span>tuk<i style="font-size: 22px; font-weight : 100; color :white;" class="fi fi-rs-home"></i>ng.</h1>
+                               
+                                <h3 style="font-weight: 100;"> Sistem Informasi Jasa Pembangunan Dan Renovasi</h3>
+                            </div>
+                            <button style="margin : 10px; position : fixed ; left : 2 ; bottom : 0; border : none; padding : 3px; background : none; color : white; height : 32px; border : white;"><a style="color : white;" href="/">Kembali Ke landing page </a></button>
+                        </div>
+                        <div   class=" d-block bg-transparent" style="background : white; width : 50%; ">
+                            <div class="login-card-body" >
                                 @if (session('loginError'))
-                                <div class="alert alert-warning d-flex justify-content-between">
+                                <div style="margin-top:4rem;" class="alert alert-warning d-flex justify-content-between">
                                     {{ session('loginError') }}
+                                    <button type="button" class="btn " data-dismiss="alert">x</button>
+                                </div>
+                                @endif
+                                @if (session('sukses'))
+                                <div style="margin-top:4rem;"  class="alert alert-success d-flex justify-content-between">
+                                    {{ session('sukses') }}
                                     <button type="button" class="btn btn-secondary" data-dismiss="alert">x</button>
                                 </div>
                                 @endif
                                 {{-- <div class="card-header rounded-top bg-navy text-center" style="background-color: gray; font-weight:900; height:100%; margin-bottom:2px">
                                     <a href="{{ asset('assets/index2.html') }}" style="color: white;">LOGIN</a>
                                 </div> --}}
-                                <h1>Login Di bawah</h1>
-                                <div class="card-body login-card-body  p-5" style="height: 40vh ;">
-                                    <form action="/" method="POST">
+                               
+                                <div id="left" class="p-5 login">
+                                    <h1>Login Di bawah</h1>
+                                    <form style="margin-top : 72px; width :90%;" action="/" method="POST">
                                         @csrf
-                                        <label for="name">Username</label>
-                                        <div class="input-group mb-3">
-
+                                        <div  class="input-group mb-3">
                                             <input placeholder="Username" type="text" class="form-control @error('name')
                                                 is-invalid
-                                            @enderror " name="name" required autocomplete="off" value=" {{ old('name') }} ">
+                                            @enderror" name="name" required  >
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="fas fa-envelope"></span>
@@ -66,7 +84,7 @@
                                             </div>
                                         </div>
                                         <div class="input-group mb-3">
-                                            <input type="password" class="form-control @error('password')
+                                            <input  type="password" class="form-control @error('password')
                                                 is-invalid
                                             @enderror " placeholder="Password" name="password" required>
                                             <div class="input-group-append">
@@ -80,143 +98,130 @@
                                             </div>
                                             @enderror
                                         </div>
-                                        <div class="col-4"><button type="submit" class="btn btn-outline-success">Masuk</button></div>
+                                        <p>Belum Punya Akun ? <a id="toggle" href="#">Daftar Disini</a> </p>
+                                        <button style="width : 100%; background : blue; color : white; border : none; padding : 12px; border-radius : 32px; font-weight : bold;" type="submit">Masuk</button>
                                     </form>
+                                    
                                 </div>
-                             
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col col-md col-sm-12 p-sm-5  p-0" id="right">
-                <div class="container-fluid border-left border-10" style="width: 50vh ; margin-right:0">
-                    <div class="card shadow-2xl shadow-inner shadow-md mt-2">
-                        <div class="card-header p-1">
-                            <div class="card-header rounded-top text-center p-3 bg-gray" style="font-weight:900; height:100%; font-size:20px; margin-bottom:2px">
-                                <a href="{{ asset('assets/index2.html') }}" style="color:white;text-shadow: 3px 2px 4px gray ">Registrasi</a>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            @if (session('sukses'))
-                            <div class="alert alert-success d-flex justify-content-between">
-                                {{ session('sukses') }}
-                                <button type="button" class="btn btn-secondary" data-dismiss="alert">x</button>
-                            </div>
-                            @endif
-                            <div class="card-body login-card-body ">
-                                <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control @error('nama') is-invalid
-                                            @enderror " placeholder="Nama Lengkap" name="nama" required autocomplete="off" value="{{ old('nama') }}">
-                                        @error('nama')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                        @enderror
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <input type="date" class="form-control mb-2" id="tanggal" name="tanggal" required data-toggle="datetimepicker">
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="input-group mb-3">
-                                                <input type="text" name="tempat_lahir" id="tempat_lahir" placeholder="Tempat Lahir" required class="form-control border-right @error('tempat_lahir')
-                                                    is-invalid
-                                                    @enderror">
+                                <div id="right" class="card-body active" style="max-height: 93.5vh; overflow-y : scroll;">
+                                    <div class="card-body login-card-body ">
+                                        <h1 >Registrasi Di bawah</h1>
+                                        <form style="margin-top : 32px;" action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control @error('nama') is-invalid
+                                                    @enderror " placeholder="Nama Lengkap" name="nama" required autocomplete="off" value="{{ old('nama') }}">
+                                                @error('nama')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
-                                        </div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <input type="date" class="form-control mb-2" id="tanggal" name="tanggal" required data-toggle="datetimepicker">
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="input-group mb-3">
+                                                        <input type="text" name="tempat_lahir" id="tempat_lahir" placeholder="Tempat Lahir" required class="form-control border-right @error('tempat_lahir')
+                                                            is-invalid
+                                                            @enderror">
+                                                    </div>
+                                                </div>
+                                            </div>
+        
+                                            <div class="input-group mb-3">
+                                                <input type="text" class="form-control @error('alamat') is-invalid
+                                                    @enderror " placeholder="Alamat Lengkap" name="alamat" required value="{{ old('alamat') }}" autocomplete="off">
+                                                @error('alamat')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
+                                            </div>
+                                            <div class="form-floating mb-3 mt-3">
+                                                <select class="form-select form-control" id="jk" name="jk">
+                                                    <option class="active" disabled>Jenis Kelamin</option>
+                                                    <option value="laki-laki">Laki-laki</option>
+                                                    <option value="perempuan">Perempuan</option>
+                                                </select>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input type="text" class="form-control @error('no_ktp') is-invalid
+                                                    @enderror " placeholder="No KTP" name="no_ktp" required autocomplete="off" value="{{ old('no_ktp') }}">
+                                                @error('no_ktp')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
+                                            </div>
+                                            <label for="foto_ktp">Foto KTP</label>
+                                            <div class="custom-file">
+                                                <input type="file" class="fornm-control" id="foto_ktp" name="foto_ktp" value=" {{ old('foto_ktp') }}">
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control @error('no_telp') is-invalid
+                                                    @enderror " placeholder="No telp" name="no_telp" required autocomplete="off" value="{{ old('no_telp') }}">
+                                                @error('no_telp')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
+                                            </div>
+        
+        
+        
+                                            <!-- <div class="form-floating mb-3 mt-3">
+                                                    <select class="form-select form-control" id="rule" name="rule">
+                                                        <option value="client">Client</option>
+                                                    </select>
+                                                </div> -->
+                                            <input type="hidden" name="rule" id="rule" value="client">
+                                            <div class="input-group mb-3">
+                                                <input type="text" class="form-control @error('username') is-invalid
+                                                    @enderror " placeholder="username" name="username" required autocomplete="off" value="{{ old('username') }}">
+                                                @error('username')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
+                                            </div>
+                                            <div class="input-group mb-3">
+                                                <input type="email" class="form-control @error('email')
+                                                        is-invalid
+                                                    @enderror " placeholder="Email" name="email" required autocomplete="off" value=" {{ old('email') }}">
+                                                @error('email')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
+                                            </div>
+        
+                                            <div class="input-group mb-3">
+                                                <input type="password" class="form-control @error('password')
+                                                        is-invalid
+                                                    @enderror" placeholder="Password" name="password" required>
+                                                @error('password')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
+        
+                                            </div>
+                                            <p>Sudah Punya Akun ? <a id="toggle_register" href="#">Login Disini</a> </p>
+                                            <button style="width : 100%; background : blue; color : white; border : none; padding : 12px; border-radius : 32px; font-weight : bold;" type="submit">Daftar</button>
+                                          
+                                        </form>
                                     </div>
-
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control @error('alamat') is-invalid
-                                            @enderror " placeholder="Alamat Lengkap" name="alamat" required value="{{ old('alamat') }}" autocomplete="off">
-                                        @error('alamat')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                        @enderror
-                                    </div>
-                                    <div class="form-floating mb-3 mt-3">
-                                        <select class="form-select form-control" id="jk" name="jk">
-                                            <option class="active" disabled>Jenis Kelamin</option>
-                                            <option value="laki-laki">Laki-laki</option>
-                                            <option value="perempuan">Perempuan</option>
-                                        </select>
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control @error('no_ktp') is-invalid
-                                            @enderror " placeholder="No KTP" name="no_ktp" required autocomplete="off" value="{{ old('no_ktp') }}">
-                                        @error('no_ktp')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                        @enderror
-                                    </div>
-                                    <label for="foto_ktp">Foto KTP</label>
-                                    <div class="custom-file">
-                                        <input type="file" class="fornm-control" id="foto_ktp" name="foto_ktp" value=" {{ old('foto_ktp') }}">
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <input type="number" class="form-control @error('no_telp') is-invalid
-                                            @enderror " placeholder="No telp" name="no_telp" required autocomplete="off" value="{{ old('no_telp') }}">
-                                        @error('no_telp')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                        @enderror
-                                    </div>
-
-
-
-                                    <!-- <div class="form-floating mb-3 mt-3">
-                                            <select class="form-select form-control" id="rule" name="rule">
-                                                <option value="client">Client</option>
-                                            </select>
-                                        </div> -->
-                                    <input type="hidden" name="rule" id="rule" value="client">
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control @error('username') is-invalid
-                                            @enderror " placeholder="username" name="username" required autocomplete="off" value="{{ old('username') }}">
-                                        @error('username')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                        @enderror
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <input type="email" class="form-control @error('email')
-                                                is-invalid
-                                            @enderror " placeholder="Email" name="email" required autocomplete="off" value=" {{ old('email') }}">
-                                        @error('email')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                        @enderror
-                                    </div>
-
-                                    <div class="input-group mb-3">
-                                        <input type="password" class="form-control @error('password')
-                                                is-invalid
-                                            @enderror" placeholder="Password" name="password" required>
-                                        @error('password')
-                                        <div class="invalid-feedback">
-                                            {{ $message }}
-                                        </div>
-                                        @enderror
-
-                                    </div>
-
-                                    <div class="col-4"><button type="submit" class="btn btn-outline-primary">Daftar</button></div>
-                                </form>
+                                </div>
+                                
                             </div>
                         </div>
-                    </div>
-
-                </div>
             </div>
-        </div>
+
+         
+
+       
         <!-- <div class="container-fluid mt-5">
             <div class="row">
                 <div class="col-12">
@@ -329,6 +334,25 @@
             $('#tanggal').datetimepicker({
                 dateFormat: 'yy-mm-dd'
             });
+        })
+
+      
+    </script>
+    <script>
+      var toggler = document.getElementById('toggle');
+      var toggler_register = document.getElementById('toggle_register');
+      var right = document.getElementById('right');
+      var left = document.getElementById('left');
+      console.log(toggler)
+        toggler.addEventListener('click',function(){
+            right.classList.toggle("active");
+            left.classList.toggle("active");
+            left.classList.toggle("login")
+        })
+        toggler_register.addEventListener('click',function(){
+            right.classList.toggle("active");
+            left.classList.toggle("active");
+            left.classList.toggle("login")
         })
     </script>
 </body>
