@@ -33,8 +33,15 @@ class RabController extends Controller
         $rab->nama_rab = $data['nama_rab'];
         $rab->kode_rab = $data['kode_rab'];
         $rab->proyek_id = $data['proyek_id'];
-        $rab->save();
-
+        $status = $rab->save();
+      
+        if($status){
+            request()->session()->flash('success','Aksi Berhasil Dilakukan');
+        }
+        else{
+            request()->session()->flash('error','Maaf Aksi Gagal dilakukan Dilakukan');
+        }
+       
         return redirect()->route('rab.index');
     }
 
@@ -42,7 +49,13 @@ class RabController extends Controller
     {
 
         $data = Rab::find($rab);
-        $data->delete();
+        $status =  $data->delete();
+        if($status){
+            request()->session()->flash('success','Aksi Berhasil Dilakukan');
+        }
+        else{
+            request()->session()->flash('error','Maaf Aksi Gagal dilakukan Dilakukan');
+        }
         return redirect()->back();
     }
 
@@ -77,9 +90,15 @@ class RabController extends Controller
         $rab->harga_satuan = $ahsp->total;
         $rab->total = $data['volume_rab'] * $ahsp->total;
         $rab->rab_id = $data['rab_id'];
-        $rab->save();
+        $status = $rab->save();
 
         $jumlah = Rab::find($data['rab_id']);
+        if($status){
+            request()->session()->flash('success','Aksi Berhasil Dilakukan');
+        }
+        else{
+            request()->session()->flash('error','Maaf Aksi Gagal dilakukan Dilakukan');
+        }
 
         // foreach ($ahs as $p) {
         //     echo $p;
@@ -107,7 +126,14 @@ class RabController extends Controller
     {
         $data = Rab::find($rab);
         $data = $data->datarab->find($datarab);
-        $data->update($request->all());
+        $status = $data->update($request->all());
+     
+        if($status){
+            request()->session()->flash('success','Aksi Berhasil Dilakukan');
+        }
+        else{
+            request()->session()->flash('error','Maaf Aksi Gagal dilakukan Dilakukan');
+        }
         return redirect()->back();
     }
 }

@@ -36,8 +36,15 @@ class AhspController extends Controller
     public function delete(Ahsp $id)
     {
         $data = Ahspdata::where('ahsp_id', $id->id);
-        $data->delete();
+        $status = $data->delete();
         $id->delete();
+      
+        if($status){
+            request()->session()->flash('success','Aksi Berhasil Dilakukan');
+        }
+        else{
+            request()->session()->flash('error','Maaf Aksi Gagal dilakukan Dilakukan');
+        }
         return redirect()->back()->with('sukses', 'Data Berhasil Terhapus');
     }
 
@@ -65,7 +72,14 @@ class AhspController extends Controller
         $jumlah = $id->total;
         $id->profit = $request->profit;
         $id->total = $request->profit / 100 * $jumlah;
-        $id->save();
+    
+        $status =   $id->save();
+        if($status){
+            request()->session()->flash('success','Aksi Berhasil Dilakukan');
+        }
+        else{
+            request()->session()->flash('error','Maaf Aksi Gagal dilakukan Dilakukan');
+        }
         return redirect()->back();
     }
 
@@ -94,8 +108,15 @@ class AhspController extends Controller
         $total->total_bahan = $bahan->sum('total');
         $total->total_alat = $alat->sum('total');
         $total->total = $total->total_upah + $total->total_bahan + $total->total_alat;
-        $total->save();
-
+      
+        $status = $total->save();
+        if($status){
+            request()->session()->flash('success','Aksi Berhasil Dilakukan');
+        }
+        else{
+            request()->session()->flash('error','Maaf Aksi Gagal dilakukan Dilakukan');
+        }
+   
 
         return redirect()->back()->with('sukses', "Data Berhasil ditambah ke  $total->kode_ahs ");
         // $data = $request->all();

@@ -51,8 +51,15 @@ class AhspdataController extends Controller
         $total->total_bahan = $bahan->sum('total');
         $total->total_alat = $alat->sum('total');
         $total->total = $jumlah->sum('total');
-        $total->save();
-
+       
+        $status = $total->save();
+        if($status){
+            request()->session()->flash('success','Aksi Berhasil Dilakukan');
+        }
+        else{
+            request()->session()->flash('error','Maaf Aksi Gagal dilakukan Dilakukan');
+        }
+   
 
         return redirect()->back()->with('sukses', 'Data Berhasil ');
     }
@@ -60,6 +67,7 @@ class AhspdataController extends Controller
     {
         $data = Ahspdata::find($id);
         $data->delete();
+        
         return redirect()->back()->with('hapus', 'Data Berhasil Terhapus');
     }
 }
