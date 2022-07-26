@@ -42,6 +42,7 @@ use App\Http\Livewire\Konfirmasi;
 use App\Http\Livewire\Laporan\GajiPekerja;
 use App\Http\Livewire\Laporan\Laporanalat;
 use App\Http\Livewire\Laporan\LaporanMaterial;
+use App\Http\Livewire\Laporan\Pembayaransewa;
 use App\Http\Livewire\MaterialIn;
 use App\Http\Livewire\MaterialOut;
 use App\Http\Livewire\Pekerja\PekerjaIndex;
@@ -147,6 +148,8 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         // LAPORAN ALAT
         Route::get('laporanAlat', Laporanalat::class)->name('laporanAlat');
         Route::get('laporanGaji', GajiPekerja::class)->name('laporanGaji');
+        // LAPORAN SEWA ALAT
+        Route::get('laporanPembayaranSewa', Pembayaransewa::class)->name('laporanPembayaranSewa');
 
         // dataGaji
         Route::get('dataGaji', Datagaji::class)->name('datagaji');
