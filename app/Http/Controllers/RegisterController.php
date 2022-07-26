@@ -36,6 +36,7 @@ class RegisterController extends Controller
         $client->no_telp = $data['no_telp'];
         $client->users_id = $user->id;
         $client->save();
+        
 
         return redirect()->back()->with('sukses', 'Registrasi Berhasil');
     }
