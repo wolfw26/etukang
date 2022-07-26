@@ -26,25 +26,26 @@
         }
     </style>
 </head>
-
-<body class="hold-transition login-page" background=" {{ asset('img/login2.png') }}" style="background-attachment: fixed; background-repeat: no-repeat; background-size: contain">
+{{-- background=" {{ asset('img/login2.png') }}" --}}
+<body class="hold-transition login-page"  style="background-attachment: fixed; background-repeat: no-repeat; background-size: contain ; background : blue;">
     <div class="container-fluid" style="height: 100% ;">
         <div class="row" style="background-size: cover; background-attachment: fixed; background-position: -30vh -15rem;">
             <div class="col-8 col-md-8 col-sm-12 " style="margin-top:25vh ; padding:4px;  ">
                 <div class="container-fluid ">
                     <div class="container p-3">
                         <div class="login-box mx-auto m-2 d-block bg-transparent">
-                            <div class="card bg-transparent shadow-2xl">
+                            <div class="login-card-body  shadow-2xl">
                                 @if (session('loginError'))
                                 <div class="alert alert-warning d-flex justify-content-between">
                                     {{ session('loginError') }}
                                     <button type="button" class="btn btn-secondary" data-dismiss="alert">x</button>
                                 </div>
                                 @endif
-                                <div class="card-header rounded-top bg-navy text-center" style="background-color: gray; font-weight:900; height:100%; margin-bottom:2px">
-                                    <a href="{{ asset('assets/index2.html') }}" style="color: white; text-shadow: 3px 2px 4px gray ">LOGIN</a>
-                                </div>
-                                <div class="card-body login-card-body  rounded-bottom p-5" style="height: 40vh ;">
+                                {{-- <div class="card-header rounded-top bg-navy text-center" style="background-color: gray; font-weight:900; height:100%; margin-bottom:2px">
+                                    <a href="{{ asset('assets/index2.html') }}" style="color: white;">LOGIN</a>
+                                </div> --}}
+                                <h1>Login Di bawah</h1>
+                                <div class="card-body login-card-body  p-5" style="height: 40vh ;">
                                     <form action="/" method="POST">
                                         @csrf
                                         <label for="name">Username</label>
@@ -82,9 +83,7 @@
                                         <div class="col-4"><button type="submit" class="btn btn-outline-success">Masuk</button></div>
                                     </form>
                                 </div>
-                                <div class="card-footer rounded-bottom bg-navy" style="background-color: gray;">
-
-                                </div>
+                             
                             </div>
                         </div>
                     </div>
@@ -105,7 +104,7 @@
                                 <button type="button" class="btn btn-secondary" data-dismiss="alert">x</button>
                             </div>
                             @endif
-                            <div class="card-body login-card-body  rounded-bottom">
+                            <div class="card-body login-card-body ">
                                 <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-floating mb-3">
@@ -324,6 +323,7 @@
     <!-- AdminLTE App -->
     <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
     <script>
+        // alert("hell")
         $(function() {
             //Date picker
             $('#tanggal').datetimepicker({
