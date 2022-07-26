@@ -32,7 +32,7 @@
                                             is-invalid
                                         @enderror">
                                         @error('tglawal')
-                                            {{ $message }}
+                                        {{ $message }}
                                         @enderror
                                     </td>
                                     <td>
@@ -40,7 +40,7 @@
                                             is-invalid
                                         @enderror">
                                         @error('tglakhr')
-                                            {{ $message }}
+                                        {{ $message }}
                                         @enderror
                                     </td>
                                 </tr>
@@ -68,7 +68,7 @@
                                 <tr>
                                     <th class="text-right">Jumlah Hari</th>
                                     <td scope="col">
-                                        <input wire:model="hari" type="text" readonly class="form-control">
+                                        <input wire:model="harikerja" type="text" readonly class="form-control">
                                     </td>
                                 </tr>
                                 <tr>
@@ -102,7 +102,7 @@
                                 <tr>
                                     <th class="text-right">Lembur</th>
                                     <td scope="col">
-                                        <input wire:model="lembur"  type="text" readonly class="ml-4 form-control-sm form-control">
+                                        <input wire:model="lembur" type="text" readonly class="ml-4 form-control-sm form-control">
                                     </td>
                                 </tr>
                                 <tr>
@@ -136,7 +136,7 @@
                                             is-invalid
                                         @enderror">
                                         @error('dibayar')
-                                            {{ $message }}
+                                        {{ $message }}
                                         @enderror
                                     </td>
                                 </tr>
@@ -164,31 +164,38 @@
                             <thead>
                                 <tr>
                                     <th>Nama Pekerja</th>
-                                    <th>Jabatan</th>
-                                    <th>Gaji Perhari</th>
-                                    <th>Uang Transport</th>
-                                    <th>Uang Makan</th>
-                                    <th>Jumlah Hari</th>
-                                    <th>Jumlah Lembur</th>
-                                    <th>Gaji lembur</th>
+                                    <th>Tanggal</th>
+                                    <th>Periode</th>
+                                    <th>Gaji <br> Perhari</th>
+                                    <th>Uang <br> Transport</th>
+                                    <th>Uang <br> Makan</th>
+                                    <th>Jumlah <br> Hari</th>
+                                    <th>Jumlah <br> Lembur</th>
+                                    <th>Gaji <br> lembur</th>
                                     <th>Total</th>
+                                    <th>Sisa</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ( $penggajian as $gaji )
-{{ $hari }}
-                                <tr>
-                                    <td>{{ $gaji->nama_pekerja }}</td>
-                                    <td>{{ $gaji->jabatan}}</td>
-                                    <td>{{ $gaji->gapok }}</td>
-                                    <td>{{ $gaji->transport }}</td>
-                                    <td>{{ $gaji->makan }}</td>
-                                    <td>@if($absen && $absen->count() > 0){{ $absen->count()  }}@endif</td>
+                                <tr class="text-center">
+                                    <td>{{ $gaji->nama_pekerja }} <br> <span class=" text-muted ">{{ $gaji->jabatan}}</span> </td>
+                                    <td>{{$gaji->tanggal}}</td>
+                                    <td>{{$gaji->tanggalAwal}} - {{$gaji->tanggalAkhir}} </td>
+                                    <td>{{ number_format($gaji->gapok) }}</td>
+                                    <td>{{ number_format($gaji->transport) }}</td>
+                                    <td>{{ number_format($gaji->makan) }}</td>
+                                    <td>{{$gaji->hari}}</td>
                                     <td>{{ $gaji->lembur }}</td>
-                                    <td>{{ $gaji->total }}</td>
+                                    <td>{{ number_format($gaji->upah_lembur) }}</td>
+                                    <td>{{ number_format($gaji->total) }}</td>
+                                    <td>{{ number_format($gaji->sisa) }}</td>
                                     <td>
-                                        <a class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                        @if ( $gaji->sisa > 0)
+                                        <a wire:click="lunas({{ $gaji->id }})" class="btn btn-sm bg-cyan"><i>Lunas</i></a>
+                                        @endif
+                                        <a class="btn btn-sm"><i class="fas fa-trash text-danger"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach

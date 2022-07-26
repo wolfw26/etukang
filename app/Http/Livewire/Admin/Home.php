@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Alatrusak;
 use App\Models\Alatsewa;
 use App\Models\Client;
 use App\Models\Material;
@@ -16,13 +17,15 @@ class Home extends Component
         $proyek = Proyek::all();
         $pekerja = Pekerja::all();
         $client = Client::all();
+        $alatrusak = Alatrusak::where('status', 'proses');
         return view('livewire.admin.home', [
             'title' => 'HOME',
             'proyek' => $proyek->count(),
             'client' => $client->count(),
             'pekerja' => $pekerja,
             'material' => Material::all(),
-            'sewa' => Alatsewa::all()
+            'sewa' => Alatsewa::all(),
+            'rusak' => $alatrusak
         ])
             ->extends('component.template', ['title' => 'Halaman Admin'])
             ->section('konten');

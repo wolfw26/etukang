@@ -47,9 +47,9 @@
 </div>
 @if ( $data && $data->count() > 0)
 <div class="container p-2">
-    <div class="card card-success card-outline">
+    <!-- <div class="card card-success card-outline">
         <div class="card-body"></div>
-    </div>
+    </div> -->
     <div class="row">
         @foreach ( $data as $d )
         <div class="col-6">

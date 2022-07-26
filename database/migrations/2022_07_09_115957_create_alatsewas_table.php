@@ -23,9 +23,14 @@ return new class extends Migration
             $table->string('merk')->nullable();
             $table->string('fungsi')->nullable();
             $table->integer('harga');
+            $table->integer('jumlah_hari')->nullable();
             $table->integer('jumlah');
             $table->string('satuan');
             $table->integer('harga_total');
+            $table->integer('dibayar');
+            $table->integer('sisa')->nullable();
+            $table->string('status')->nullable();
+            $table->foreignId('alats_id')->nullable();
             $table->timestamps();
         });
     }

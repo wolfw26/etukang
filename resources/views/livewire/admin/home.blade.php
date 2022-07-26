@@ -19,7 +19,9 @@
             <div class="col-12 col-sm-6 col-md-3">
                 <div class="info-box mb-3 mt-2 elevation-3">
                     <span class="info-box-icon bg-secondary elevation-1 d-flex justify-content-center">
-                        <i class="fas fa-mound"></i> <p><i class="fas fa-mound text-dark"></i></p></span>
+                        <i class="fas fa-mound"></i>
+                        <p><i class="fas fa-mound text-dark"></i></p>
+                    </span>
 
                     <div class="info-box-content">
                         <span class="info-box-text">Meterial</span>
@@ -74,7 +76,21 @@
                 </div>
                 <!-- /.info-box -->
             </div>
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3 mt-2 elevation-3">
+                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-hammer"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Alat Rusak</span>
+                        <span class="info-box-number">{{ $rusak->count() }}</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
         </div>
+
+
+
         <!-- /.row -->
         <div class="callout callout-info">
             <h5>Selamat Datang Admin {{ Auth::user()->name }}</h5>
@@ -86,45 +102,45 @@
                 <div class="col col-md-8 border-dark">
                     @if ( $sewa && $sewa->count() > 0)
 
-                            <div class="card card-outline card-navy">
-                                <div class="card-header">
-                                    Data Menyewa Alat
-                                </div>
-                                <div class="card-body table-responsive p-0"style="height: 570px;">
-                                    <table class="table table-bordered table-hover table-head-fixed text-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th>Nama Alat</th>
-                                                <th>Harga Satuan</th>
-                                                <th>Tanggal Mulai</th>
-                                                <th>Tanggal Selesai</th>
-                                                <th>Jumlah</th>
-                                                <th>Total</th>
-                                            </tr>
-                                        </thead>
-                                        @foreach ( $sewa as $sewas )
-                                        <tr>
-                                            <td>{{ $sewas->deskripsi  }}</td>
-                                            <td>{{ $sewas->harga  }}/{{ $sewas->satuan  }}</td>
-                                            <td>{{ $sewas->tanggal_mulai  }}</td>
-                                            <td>{{ $sewas->tanggal_selesai  }}</td>
-                                            <td>{{ $sewas->jumlah  }}{{ $sewas->satuan  }}</td>
-                                            <td>{{ 'Rp. '. number_format($sewas->harga_total)  }}</td>
-                                            {{-- <td>{{ Carbon\carbon::parse(now()->format('d-m-Y'))->diffInDays($sewas->tanggal_selesai,false) }}</td> --}}
+                    <div class="card card-outline card-navy">
+                        <div class="card-header">
+                            Data Menyewa Alat
+                        </div>
+                        <div class="card-body table-responsive p-0" style="height: 570px;">
+                            <table class="table table-bordered table-hover table-head-fixed text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Nama Alat</th>
+                                        <th>Harga Satuan</th>
+                                        <th>Tanggal Mulai</th>
+                                        <th>Tanggal Selesai</th>
+                                        <th>Jumlah</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                @foreach ( $sewa as $sewas )
+                                <tr>
+                                    <td>{{ $sewas->deskripsi  }}</td>
+                                    <td>{{ $sewas->harga  }}/{{ $sewas->satuan  }}</td>
+                                    <td>{{ $sewas->tanggal_mulai  }}</td>
+                                    <td>{{ $sewas->tanggal_selesai  }}</td>
+                                    <td>{{ $sewas->jumlah  }}{{ $sewas->satuan  }}</td>
+                                    <td>{{ 'Rp. '. number_format($sewas->harga_total)  }}</td>
+                                    {{-- <td>{{ Carbon\carbon::parse(now()->format('d-m-Y'))->diffInDays($sewas->tanggal_selesai,false) }}</td> --}}
 
-                                        </tr>
-                                        @endforeach
-                                    </table>
-                                </div>
-                            </div>
+                                </tr>
+                                @endforeach
+                            </table>
+                        </div>
+                    </div>
 
                     @endif
                 </div>
                 <div class="col-4">
                     <div class="card card-outline card-warning">
                         <div class="card-header text-center">Stok Material Habis</div>
-                        <div class="card-body p-2 table-responsive p-0"style="height: 570px;">
-                            <div class="table-responsive" >
+                        <div class="card-body p-2 table-responsive p-0" style="height: 570px;">
+                            <div class="table-responsive">
                                 <table class="table table-bordered table-hover table-head-fixed text-nowrap">
                                     <tbody>
                                         @foreach ( $material as $materials )

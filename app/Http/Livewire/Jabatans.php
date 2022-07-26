@@ -51,10 +51,25 @@ class Jabatans extends Component
         $data->makan = $this->makan;
         $data->save();
 
+        // $this->dispatchBrowserEvent('success', ['message' => 'Berhasil Menambahkan']);
+        $this->dispatchBrowserEvent('success', ['message' => 'Berhasil Di tambah']);
+
+
         $this->jabatan = null;
         $this->gapok = null;
         $this->transport = null;
         $this->makan = null;
+    }
+
+    public function hapus(Jabatan $jabatan)
+    {
+        $jabatan->delete();
+
+        // $this->dispatchBrowserEvent('success', ['message' => 'Berhasil Di hapus']);
+        $this->dispatchBrowserEvent(
+            'alert',
+            ['type' => 'success',  'message' => 'User Dihapus']
+        );
     }
 
 

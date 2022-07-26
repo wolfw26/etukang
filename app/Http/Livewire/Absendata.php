@@ -75,7 +75,7 @@ class Absendata extends Component
             'proyek' => Proyek::find($this->data),
             'pekerja' => Pekerja::all(),
             'datanama' => $datanama,
-            'absen' => Absen::with('datanama')->where('proyek_id', $this->data)->get()
+            'absen' => Absen::with('datanama')->where('proyek_id', $this->data)->latest()->get()
         ]);
     }
 }

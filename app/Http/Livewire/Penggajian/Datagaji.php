@@ -13,7 +13,7 @@ use App\Http\Livewire\Absen\Absensi;
 
 class Datagaji extends Component
 {
-    public $tglawal, $tglakhr, $nama, $namaPekerja, $jabatan, $gapok, $makan, $transport, $hari;
+    public $tglawal, $tglakhr, $nama, $namaPekerja, $jabatan, $gapok, $makan, $transport, $hari, $harikerja;
     public $lembur = 0, $upahLembur = 0, $bonus = 0, $potongan = 0, $total = 0, $dibayar = 0, $sisa = 0;
     public $absen;
 
@@ -24,6 +24,13 @@ class Datagaji extends Component
         'namaPekerja' => 'required',
         'dibayar' => 'required',
     ];
+
+    public function lunas(Penggajian $gaji)
+    {
+        $gaji->dibayar = $gaji->total;
+        $gaji->sisa = 0;
+        $gaji->save();
+    }
 
     public function cari(Pekerja $pekerja)
     {
@@ -44,6 +51,7 @@ class Datagaji extends Component
         $this->gapok = $pekerja->jabatan->gapok;
         $this->makan = $pekerja->jabatan->makan;
         $this->transport = $pekerja->jabatan->transport;
+        $this->harikerja = $this->absen->count();
         // lembur
         $this->hari = $lembur->sum('jumlah');
         $this->lembur = $lembur->count();
@@ -62,6 +70,7 @@ class Datagaji extends Component
         $gaji->nama_pekerja = $this->nama;
         $gaji->jabatan = $this->jabatan;
         $gaji->gapok = $this->gapok;
+        $gaji->hari = $this->harikerja;
         $gaji->transport = $this->transport;
         $gaji->makan = $this->makan;
         $gaji->bonus = $this->bonus;

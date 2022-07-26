@@ -44,8 +44,9 @@
                                 <td>
                                     <button wire:click="cariMasuk" class="btn btn-sm btn-success ml-2"> <i class="fas fa-plus"></i> Cari</button>
                                 </td>
+                                {{ $awalMasuk }} , {{ $akhirMasuk }}
                                 <td>
-                                    <a href="#" target="_blank" class="btn btn-sm btn-outline-warning ml-2" onclick="return printArea('masuk');"> <i class="fas fa-print"></i></a>
+                                    <a href="cetakalat/masuk/tglawl/{{ $awalMasuk }}/tglakhr/{{ $akhirMasuk }}" target="_blank" class="btn btn-sm btn-outline-warning ml-2"> <i class="fas fa-print"></i></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -62,7 +63,7 @@
                     @if ( $kategori == 'sewa')
                     <table>
                         <tbody>
-                            <a href="{{ route('laporanAlat') }}"  class="btn btn-sm btn-outline-warning m-3" onclick="return printArea('sewa');"> <i class="fas fa-print"></i></a>
+                            <a href="{{ route('laporanAlat') }}" class="btn btn-sm btn-outline-warning m-3" onclick="return printArea('sewa');"> <i class="fas fa-print"></i></a>
                         </tbody>
                     </table>
                     @endif
@@ -217,6 +218,7 @@
             window.print();
             document.body.innerHTML = oriPage;
         }
+
         function printArea(rusak) {
             var printPage = document.getElementById(rusak).innerHTML;
             var oriPage = document.body.innerHTML;

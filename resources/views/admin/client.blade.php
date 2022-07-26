@@ -126,7 +126,7 @@
                         <div class="col">
                             <div class="form-floating mb-3 mt-3">
                                 <label for="nama">1. Nama </label>
-                                <input type="text" class="form-control" id="nama" placeholder="Nama Proyek" name="nama" required>
+                                <input type="text" class="form-control" id="nama" placeholder="Nama Client" name="nama" required>
                             </div>
                             <div class="row">
                                 <div class="col-6">

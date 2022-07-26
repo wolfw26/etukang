@@ -290,6 +290,60 @@ class DatabaseSeeder extends Seeder
             'satuan' => 'pcs',
             'kepemilikan' => 'dimiliki',
         ]);
+        Alat::create([
+            'kode' => 'Ex-M-01',
+            'nama' => 'Excavator Mini PC 40',
+            'Merk' => '-',
+            'fungsi' => 'Excavator adalah alat berat yang digunakan untuk menggali tanah dalam jumlah yang besar',
+            'harga_satuan' => 160000,
+            'satuan' => 'jam',
+            'kepemilikan' => 'sewa',
+        ]);
+        Alat::create([
+            'kode' => 'Ex-M-02',
+            'nama' => 'Excavator Mini PC 50',
+            'Merk' => '-',
+            'fungsi' => 'Excavator adalah alat berat yang digunakan untuk menggali tanah dalam jumlah yang besar',
+            'harga_satuan' => 160000,
+            'satuan' => 'jam',
+            'kepemilikan' => 'sewa',
+        ]);
+        Alat::create([
+            'kode' => 'Ex-M-03',
+            'nama' => 'Excavator Mini PC 75',
+            'Merk' => '-',
+            'fungsi' => 'Excavator adalah alat berat yang digunakan untuk menggali tanah dalam jumlah yang besar',
+            'harga_satuan' => 170000,
+            'satuan' => 'jam',
+            'kepemilikan' => 'sewa',
+        ]);
+        Alat::create([
+            'kode' => 'Ex-M-04',
+            'nama' => 'Excavator Mini PC 100',
+            'Merk' => '-',
+            'fungsi' => 'Excavator adalah alat berat yang digunakan untuk menggali tanah dalam jumlah yang besar',
+            'harga_satuan' => 155000,
+            'satuan' => 'jam',
+            'kepemilikan' => 'sewa',
+        ]);
+        Alat::create([
+            'kode' => 'WL-01',
+            'nama' => 'Wheel Loader 0.8 m3',
+            'Merk' => 'Komatsu WA-70',
+            'fungsi' => '-',
+            'harga_satuan' => 120000,
+            'satuan' => 'jam',
+            'kepemilikan' => 'sewa',
+        ]);
+        Alat::create([
+            'kode' => 'BD-01',
+            'nama' => 'Bulldozer D20-3',
+            'Merk' => 'Komatsu',
+            'fungsi' => 'diperuntukkan mengolah tanah,  untuk membersihkan medan dari kayu, batu-batuan, sampai tonggak-tonggak pohon',
+            'harga_satuan' => 150000,
+            'satuan' => 'jam',
+            'kepemilikan' => 'sewa',
+        ]);
 
         $this->call([
             clientSeeder::class,
@@ -299,7 +353,7 @@ class DatabaseSeeder extends Seeder
             dataproyekSeeder::class,
             materialSeeder::class,
             // alatinSeeder::class,
-            alatsewa::class,
+            // alatsewa::class,
         ]);
     }
 }

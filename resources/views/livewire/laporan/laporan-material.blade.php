@@ -22,7 +22,7 @@
                 <div class="container-fluid m-3">
                     <div class="row">
                         <div class="col-4 p-3 m-0">
-                            <button target="_blank" class="btn btn-sm btn-outline-warning" value="Print" onclick="return printArea('area');"> <i class="fas fa-print"></i> Cetak</button>
+                            <a href="{{ route('cetakmaterial.all') }}" target="_blank" class="btn btn-sm btn-outline-warning" > <i class="fas fa-print"></i> Cetak</a>
                             {{-- <input type="button" value="Print" onclick="printPage();"> </input> --}}
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                     </div>
                     <button wire:click="kosong" class="btn btn-sm text-danger ">Reset</button>
 
-                    <a href="#" target="_blank" onclick="return printArea('area3');" class="btn btn-sm btn-outline-secondary mt-2"> <i class="fas fa-print"></i> Cetak</a>
+                    <a href="cetakmaterial/masuk/tglawl/{{ $tglawl }}/tglakhr/{{ $tglakhr }}" target="_blank"  class="btn btn-sm btn-outline-secondary mt-2"> <i class="fas fa-print"></i> Cetak</a>
                 </div>
                 @elseif ($modecetak == 'keluar')
                 <div class="row m-2">
@@ -116,10 +116,12 @@
                         <div class="card-body">
                             <table class="table table-bordered">
                                 <thead>
-                                    <tr>
+                                    <tr class="text-center">
                                         <th>Kode</th>
-                                        <th>Nama Material</th>
-                                        <th>Harga Satuan</th>
+                                        <th>Nama <br> Material</th>
+                                        <th>Harga <br> Satuan</th>
+                                        <th>Material <br> Masuk</th>
+                                        <th>Material <br> Keluar</th>
                                         <th>Stok</th>
                                         <th>Satuan</th>
                                     </tr>
@@ -129,7 +131,9 @@
                                     <tr>
                                         <td> {{ $materials->kode_material }} </td>
                                         <td>{{ $materials->nama_material }}</td>
-                                        <td>{{ 'Rp. '. $materials->harga_satuan }}</td>
+                                        <td class="text-center">{{ 'Rp. '. $materials->harga_satuan }}</td>
+                                        <td class="text-center">{{ $materials->materialin->sum('jumlah') }}</td>
+                                        <td class="text-center">{{ $materials->materialout->sum('jumlah') }}</td>
                                         <td>{{ $materials->stok_akhir }}</td>
                                         <td>
                                             <div class="badge badge-secondary">{{ $materials->satuan }}</div>
@@ -196,17 +200,20 @@
                                         <th>Tanggal</th>
                                         <th>Kode Material</th>
                                         <th>Nama Material</th>
+                                        <th>Jumlah Awal</th>
                                         <th>Jumlah Masuk</th>
                                         <th>Satuan</th>
                                         <th>Harga Satuan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if ( $data && $data->count() > 0 )
                                     @foreach ( $data as $materials )
                                     <tr>
                                         <td>{{ $materials->tanggal }} </td>
                                         <td>{{ $materials->kode_material }}</td>
                                         <td>{{ $materials->nama_material }}</td>
+                                        <td>{{ $materials->stok_awal }}</td>
                                         <td>{{ $materials->jumlah }}</td>
                                         <td>
                                             <div class="badge badge-success">{{ $materials->satuan }}</div>
@@ -214,7 +221,10 @@
                                         <td>{{ $materials->harga_satuan }}</td>
                                     </tr>
                                     @endforeach
+                                    @else
+                                    <div class="alert alert-info">Data <span class=" text-maroon">Kosong</span></div>
 
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -234,9 +244,11 @@
                                         <th>Tanggal</th>
                                         <th>Kode Material</th>
                                         <th>Nama Material</th>
-                                        <th>Jumlah Masuk</th>
+                                        <th>Jumlah Awal</th>
+                                        <th>Jumlah Keluar</th>
                                         <th>Satuan</th>
                                         <th>Harga Satuan</th>
+                                        <th>Proyek</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -245,11 +257,13 @@
                                         <td>{{ $materials->tanggal }} </td>
                                         <td>{{ $materials->kode_material }}</td>
                                         <td>{{ $materials->nama_material }}</td>
+                                        <td>{{ $materials->stok_awal }}</td>
                                         <td>{{ $materials->jumlah }}</td>
                                         <td>
                                             <div class="badge badge-warning">{{ $materials->satuan }}</div>
                                         </td>
                                         <td>{{ $materials->harga_satuan }}</td>
+                                        <td>{{ $materials->proyek->nama_proyek }}</td>
                                     </tr>
                                     @endforeach
 

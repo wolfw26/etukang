@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Ahsp;
 use App\Models\AhspData;
+use App\Models\Jabatan;
 use Livewire\Component;
 
 class TUpah extends Component
@@ -13,6 +14,7 @@ class TUpah extends Component
     public $volume;
     public $satuan;
     public $harga;
+    public $pilih;
 
     protected $rules = [
         'deskripsi' => 'required',
@@ -51,11 +53,19 @@ class TUpah extends Component
         $this->volume = null;
         $this->satuan = null;
         $this->harga = null;
+        $this->pilih = null;
 
         $this->emit('upahStore');
     }
     public function render()
     {
-        return view('livewire.t-upah');
+        if ($this->pilih != null) {
+            $jabatan = Jabatan::find($this->pilih);
+            $this->deskripsi = $jabatan->jabatan;
+            $this->harga = $jabatan->gapok;
+        }
+        return view('livewire.t-upah', [
+            'jabatan' => Jabatan::all()
+        ]);
     }
 }

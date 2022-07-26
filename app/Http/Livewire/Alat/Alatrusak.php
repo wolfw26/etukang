@@ -95,6 +95,7 @@ class Alatrusak extends Component
         $data->id_penambah = $pekerja->id;
         $data->status = 'proses';
         $data->tanggal = $this->tanggal;
+        $data->alats_id = $this->pilih;
         $data->save();
 
         $alat = $this->dataAlat;
@@ -107,6 +108,7 @@ class Alatrusak extends Component
         $this->nama = null;
         $this->tangal = null;
         $this->dataAlat = null;
+        $this->pilih = null;
     }
 
 

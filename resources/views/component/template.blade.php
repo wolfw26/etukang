@@ -203,7 +203,7 @@
         <!-- /.navbar -->
         <!-- style="background-image: url('img/batik-wayang.png');background-size:cover; -->
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-light elevation-4 bg-navy" style=" color:white; font-weight:700">
+        <aside class="main-sidebar sidebar-dark-light elevation-4 bg-navy pb-16" style=" color:white; font-weight:700">
             <!-- Brand Logo -->
             <a href=" {{ route('admin.home')}}" class="brand-link">
                 <!-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
@@ -237,7 +237,7 @@
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2" id="nav">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" id="nav-item">
+                    <ul class="nav nav-pills nav-sidebar flex-column mb-5" data-widget="treeview" role="menu" data-accordion="true" id="nav-item">
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
                         <li class="nav-header">Data</li>
@@ -307,6 +307,14 @@
                                     </a>
                                 </li>
                             </ul>
+                            <ul class="nav nav-treeview">
+                                <a href="{{ route('tukang.akun') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-user-shield"></i>
+                                    <p>
+                                        Tukang
+                                    </p>
+                                </a>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -337,6 +345,14 @@
                                     <a href="{{ route('datagaji') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Data Gaji pegawai</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Biaya Oprasional</p>
                                     </a>
                                 </li>
                             </ul>
@@ -434,14 +450,7 @@
                         </li>
 
 
-                        <li class="nav-item">
-                            <a href="{{ route('tukang.akun') }}" class="nav-link">
-                                <i class="nav-icon fas fa-user-shield"></i>
-                                <p>
-                                    Tukang
-                                </p>
-                            </a>
-                        </li>
+
 
                         <!-- <li class="nav-item">
                             <a href="{{ url('adm/biaya') }}" class="nav-link">
@@ -459,24 +468,6 @@
                                 </p>
                             </a>
                         </li> -->
-
-
-                        <li class="nav-item">
-                            <a href="{{ url('adm/rab/') }}" class="nav-link">
-                                <i class="fas fa-hammer nav-icon"></i>
-                                <p>
-                                    RAB
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ url('adm/ahsp') }}" class="nav-link">
-                                <i class="fas fa-hammer nav-icon"></i>
-                                <p>
-                                    AHSP
-                                </p>
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-house-user"></i>
@@ -550,6 +541,23 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ url('adm/rab/') }}" class="nav-link">
+                                <i class="fas fa-hammer nav-icon"></i>
+                                <p>
+                                    RAB
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('adm/ahsp') }}" class="nav-link">
+                                <i class="fas fa-hammer nav-icon"></i>
+                                <p>
+                                    AHSP
+                                </p>
+                            </a>
+                        </li>
+                        <li class=" nav-item mb-4"></li>
                         <!-- <li class="nav-item">
                             <a href="starter.html" class="nav-link">
                                 <i class="nav-icon fas fa-columns"></i>

@@ -36,15 +36,23 @@ class LaporanMaterial extends Component
             if ($this->tglawl == null && $this->tglakhr == null) {
                 $material = Material_in::all();
             } else {
-                $material1 = Material_in::first()->whereBetween('tanggal', [$this->tglawl, $this->tglakhr]);
-                $material = $material1->orderBy('id', 'asc')->get();
+                if (Material_in::all()->count() > 0) {
+                    $material1 = Material_in::first()->whereBetween('tanggal', [$this->tglawl, $this->tglakhr]);
+                    $material = $material1->orderBy('id', 'asc')->get();
+                } else {
+                    $material = [];
+                }
             }
         } elseif ($this->modecetak == 'keluar') {
             if ($this->tglawl == null && $this->tglakhr == null) {
                 $material = Materialout::all();
             } else {
-                $material1 = Materialout::first()->whereBetween('tanggal', [$this->tglawl, $this->tglakhr]);
-                $material = $material1->orderBy('id', 'asc')->get();
+                if (Materialout::all()->count() > 0) {
+                    $material1 = Materialout::first()->whereBetween('tanggal', [$this->tglawl, $this->tglakhr]);
+                    $material = $material1->orderBy('id', 'asc')->get();
+                } else {
+                    $material = [];
+                }
             }
         } else {
             $material = Material::all();
@@ -52,7 +60,9 @@ class LaporanMaterial extends Component
 
         return view('livewire.laporan.laporan-material', [
             'materials' => Material::all(),
-            'data' => $material
+            'data' => $material,
+            'material_masuk' => Material_in::all(),
+            'material_keluar' => Materialout::all()
         ])
             ->extends('component.template', ['title' => 'Laporan Material'])
             ->section('konten');

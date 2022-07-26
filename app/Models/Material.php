@@ -14,14 +14,14 @@ class Material extends Model
 
     public function materialin()
     {
-        $this->hasMany(Material_in::class, 'material_id');
+        return $this->hasMany(Material_in::class, 'material_id');
     }
     public function materialout()
     {
-        $this->hasMany(Materialout::class, 'material_id');
+        return $this->hasMany(Materialout::class, 'material_id');
     }
     public function stok()
     {
-        $this->hasMany(Stok::class, 'material_id');
+        return $this->hasMany(Stok::class, 'material_id');
     }
 }

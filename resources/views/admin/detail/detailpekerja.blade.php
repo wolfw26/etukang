@@ -38,7 +38,7 @@
                             <b>Foto KTP</p> <br>
                                 <div class="row">
                                     <div class="col-12 text-center">
-                                        <a><img src=" {{ asset($data->foto_ktp) }} " alt="" width="300px" height="200px"> </a>
+                                        <img style="height: 250px ;" class=" shadow-2xl img-responsive img-bordered rounded-sm elevation-1" src=" {{ asset( $data->foto_ktp) }} " alt="User profile picture">
                                     </div>
                                 </div>
                         </li>

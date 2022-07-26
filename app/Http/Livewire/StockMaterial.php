@@ -28,7 +28,7 @@ class StockMaterial extends Component
         return view('livewire.stock-material', [
             'title' => 'Stock',
             'data' =>  Material::latest()->where('kode_material', 'like', '%' . $this->cari . '%')
-                ->orWhere('nama_material', 'like', '%' . $this->cari . '%')->paginate(7)
+                ->orWhere('nama_material', 'like', '%' . $this->cari . '%')->paginate(30)
         ])
             ->extends('component.template', ['title' => 'Stock'])
             ->section('konten');

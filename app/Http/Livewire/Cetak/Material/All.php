@@ -10,9 +10,12 @@ class All extends Component
     public function render()
     {
         return view('livewire.cetak.material.all', [
-            'materials' => Material::all()
+            'data' => Material::all()
         ])
-            ->extends('component.template', ['title' => 'Cetak Material'])
-            ->section('konten');
+            ->extends('livewire.Cetak.template', [
+                'judul' => 'MATERIAL',
+                'tanggal' => "Tanggal : " . now()->format('d-M-Y')
+            ])
+            ->section('cetak');
     }
 }

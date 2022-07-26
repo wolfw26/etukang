@@ -9,7 +9,7 @@ class Alathome extends Component
 {
     public $ceksewa = False;
     public $kode, $nama, $fungsi = '-', $Merk = '-', $status, $satuan, $harga_satuan;
-    public $cari;
+    public $cari, $carisewa;
 
     protected $rules = [
         'kode' => 'required',
@@ -96,9 +96,12 @@ class Alathome extends Component
 
     public function render()
     {
-        $data = Alat::latest()->where('nama', 'like', '%' . $this->cari . '%');
+        $data = Alat::latest()->where('nama', 'like', '%' . $this->cari . '%')
+            ->where('kepemilikan', 'dimiliki');
         return view('livewire.alat.alathome', [
-            'data' => $data->get()
+            'data' => $data->get(),
+            'sewa' => Alat::latest()->where('kepemilikan', 'sewa')
+                ->where('nama', 'like', '%' . $this->carisewa . '%')->get()
         ])
             ->extends('component.template', ['title' => 'Data Alat'])
             ->section('konten');

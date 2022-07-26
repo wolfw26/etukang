@@ -12,6 +12,15 @@
                 </div>
                 <div class="modal-body">
                     <!-- <form wire:submit.prevent="tambahUpah"> -->
+                    <div class="mb-3">
+                        <label for="">Pilih Jabatan</label>
+                        <select wire:model="pilih" name="" id="" class="form-control form-control-sm">
+                            <option selected></option>
+                            @foreach ( $jabatan as $j )
+                                <option value="{{ $j->id }}">{{ $j->jabatan }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="form-floating mb-3">
                         <label for="deskripsi">Deskripsi</label>
                         <input wire:model="deskripsi" type="text" class="form-control @error('deskripsi')

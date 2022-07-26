@@ -7,7 +7,7 @@
 
         </div>
         <div class="col-2">
-            <div class="input-group m-2">
+            {{-- <div class="input-group m-2">
                 <select class="form-control" wire:model="pilihcetak" name="" id="">
                     <option selected>Per Item</option>
                     <option value="all" selected>Semua</option>
@@ -18,7 +18,7 @@
                     @endforeach
 
                 </select>
-            </div>
+            </div> --}}
         </div>
         <div class="col-4">
             <div class="ml-4">
@@ -36,7 +36,7 @@
         <!-- <div class="col"><button class="btn bg-gradient-primary  shadow-md" data-toggle="modal" data-target="#TambahMaterial">Tambah</button></div> -->
     </div>
     <div class="row mb-3">
-        <div class="col-4">
+        {{-- <div class="col-4">
         </div>
         <div class="col-3">
             <div class="input-group m-2">
@@ -51,7 +51,7 @@
         </div>
         <div class="col-3 m-2">
             <a target="_blank" href="/adm/material/cetak/{{ $pilihcetak }}" class="btn btn-outline-warning"> <i class="fas fa-print"></i> </a>
-        </div>
+        </div> --}}
         <!-- <div class="col"><button class="btn bg-gradient-primary  shadow-md" data-toggle="modal" data-target="#TambahMaterial">Tambah</button></div> -->
     </div>
     <div class="row mb-3">
@@ -100,7 +100,9 @@
                                 <td>{{ $m->kode_material }}</td>
                                 <td>{{ $m->nama_material }} </td>
                                 <td>{{ $m->stok_awal }} </td>
-                                <td>{{ $m->jumlah }} </td>
+                                <td>
+                                    <div class="badge badge-warning"><i class="fas fa-arrow-up fa-1x"></i>{{ $m->jumlah }}</div>
+                                </td>
                                 <td>
                                     <div class="badge badge-pill badge-success"> {{ $m->satuan }}</div>
                                 </td>

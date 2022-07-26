@@ -76,7 +76,20 @@
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="kategori" class="form-label">kategori AHS</label>
-                                                            <input value="{{ $d->kategori }}" type="text" class="form-control" name="kategori" id="kategori" placeholder="kategori AHS">
+                                                            <select valuu="{{ $d->kategori }}" name="kategori" id="kategori" class="form-control form-control-sm mb-3">
+                                                                <option value="Pekerjaan Persiapan">Pekerjaan Persiapan</option>
+                                                                <option value="Pekerjaan Pondasi">Pekerjaan Pondasi</option>
+                                                                <option value="Pekerjaan Beton">Pekerjaan Beton</option>
+                                                                <option value="Pekerjaan Pasangan Dinding">Pekerjaan Pasangan Dinding</option>
+                                                                <option value="Pekerjaan Atap">Pekerjaan Atap</option>
+                                                                <option value="Pekerjaan langit-Langit(Plapon)">Pekerjaan langit-Langit(Plapon)</option>
+                                                                <option value="Pekerjaan Lantai">Pekerjaan Lantai</option>
+                                                                <option value="Pekerjaan Kayu">Pekerjaan Kayu</option>
+                                                                <option value="Pekerjaan Kaca dan Kunci">Pekerjaan Kaca dan Kunci)</option>
+                                                                <option value="Pekerjaan Sanitasi">Pekerjaan Sanitasi</option>
+                                                                <option value="Pekerjaan Instalasi">Pekerjaan Instalasi</option>
+                                                                <option value="Pekerjaan Finishin dan Pengecatan">Pekerjaan Finishin dan Pengecatan</option>
+                                                            </select>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="satuan" class="form-label">satuan AHS</label>
@@ -112,20 +125,33 @@
                 <div class="card-body text-center" id="satu">
                     <form action="{{ route('ahsp.add') }}" method="POST">
                         @csrf
-                        <div class="form-floating mb-3 mt-3">
-                            <input type="text" name="kode_ahs" id="kode_ahs" placeholder="Kode Ahs">
+                        <div class=" mb-3">
+                            <input class="form-control form-control-sm" type="text" name="kode_ahs" id="kode_ahs" placeholder="Kode Ahs">
                         </div>
-                        <div class="form-floating mb-3 mt-3">
-                            <input type="text" name="nama_ahs" id="nama_ahs" placeholder="Nama AHs"><br>
+                        <div class=" mb-3">
+                            <input class="form-control form-control-sm" type="text" name="nama_ahs" id="nama_ahs" placeholder="Nama AHs"><br>
                         </div>
-                        <div class="form-floating mb-3 mt-3">
-                            <input type="text" name="satuan" id="satuan" placeholder="Satuan"><br>
+                        <div class=" mb-3">
+                            <input class="form-control form-control-sm" type="text" name="satuan" id="satuan" placeholder="Satuan"><br>
                         </div>
-                        <div class="form-floating mb-3 mt-3">
-                            <input type="text" name="kategori" id="kategori" placeholder="Kategori"><br>
+                        <div class="mb-3">
+                            <select name="kategori" id="kategori" class="form-control form-control-sm mb-3">
+                                <option value="Pekerjaan Persiapan">Pekerjaan Persiapan</option>
+                                <option value="Pekerjaan Pondasi">Pekerjaan Pondasi</option>
+                                <option value="Pekerjaan Beton">Pekerjaan Beton</option>
+                                <option value="Pekerjaan Pasangan Dinding">Pekerjaan Pasangan Dinding</option>
+                                <option value="Pekerjaan Atap">Pekerjaan Atap</option>
+                                <option value="Pekerjaan langit-Langit(Plapon)">Pekerjaan langit-Langit(Plapon)</option>
+                                <option value="Pekerjaan Lantai">Pekerjaan Lantai</option>
+                                <option value="Pekerjaan Kayu">Pekerjaan Kayu</option>
+                                <option value="Pekerjaan Kaca dan Kunci">Pekerjaan Kaca dan Kunci)</option>
+                                <option value="Pekerjaan Sanitasi">Pekerjaan Sanitasi</option>
+                                <option value="Pekerjaan Instalasi">Pekerjaan Instalasi</option>
+                                <option value="Pekerjaan Finishin dan Pengecatan">Pekerjaan Finishin dan Pengecatan</option>
+                            </select>
                         </div>
-                        <div class="form-floating mb-3 mt-3">
-                            <input type="text" name="profit" id="profit" placeholder="Profit"><br>
+                        <div class="mb-3">
+                            <input type="text" name="profit" id="profit" placeholder="Profit" class="form-control form-control-sm "><br>
                         </div>
                         <button type="submit">Buat</button>
                     </form>

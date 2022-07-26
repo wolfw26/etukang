@@ -188,7 +188,6 @@
                                         <th scope="col">Jumlah <br> Akhir</th>
                                         <th scope="col">Satuan <br> alat</th>
                                         <th scope="col">Jumlah <br> Harga</th>
-                                        <th scope="col">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -200,20 +199,20 @@
                                         <td scope="col">{{ 'Rp. ' .  number_format($d->harga,2) }}</td>
                                         <td scope="col">{{ $d->tempat }}</td>
                                         <td scope="col">{{ $d->stok_awal }}</td>
-                                        <td scope="col" class="text-right text-bold">{{ $d->jumlah }}</td>
+                                        <td scope="col" class="text-right text-bold"> <div class="badge badge-success"> <i class="fas fa-plus fa-1x"></i> {{ $d->jumlah }}</div></td>
                                         <td scope="col">{{ $d->stok }}</td>
                                         <td scope="col">
                                             <div class="badge badge-success">{{ $d->satuan }}</div>
                                         </td>
                                         <td scope="col">{{ 'Rp. ' . number_format($d->total_harga,2) }}</td>
-                                        <th scope="row">
+                                        {{-- <th scope="row">
                                             <a onclick="return confirm('Data {{ $d->keterangan }} Akan di Hapus') || event.stopImmediatePropagation()" wire:click="hapus({{ $d->id }})" class="btn btn-sm btn-outline-danger ">
                                                 <i class="fas fa-trash"></i>
                                             </a>
                                             <a wire:click="edit({{ $d->id }})" class="btn btn-sm bg-teal" data-toggle="modal" data-target="#editAlatin">
                                                 <i class="fas fa-edit" title="Edit"></i>
                                             </a>
-                                        </th>
+                                        </th> --}}
                                     </tr>
                                     @endforeach
                                 </tbody>

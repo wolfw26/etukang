@@ -40,6 +40,7 @@ class Alatin extends Component
     }
     public function update()
     {
+        $this->validate();
         $data = ModelsAlatin::find($this->id_data);
         $data->kode = $this->kode;
         $data->keterangan = $this->deskripsi;
