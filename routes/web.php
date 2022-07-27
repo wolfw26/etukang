@@ -47,6 +47,7 @@ use App\Http\Livewire\MaterialIn;
 use App\Http\Livewire\MaterialOut;
 use App\Http\Livewire\Pekerja\PekerjaIndex;
 use App\Http\Livewire\Penggajian\Datagaji;
+use App\Http\Livewire\Proyek\DetailProyek;
 use App\Http\Livewire\StockMaterial;
 use App\Http\Livewire\Tukang as LivewireTukang;
 use App\Models\Alatin;
@@ -129,6 +130,8 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         // --- LIVEWIRE ----
         //  -- LIVEWIRE --
         //   - LIVEWIRE -
+        // Proyek Detail
+        Route::get('detail/{id}', DetailProyek::class)->name('detailProyek');
         // Tukang
         Route::get('tukang', LivewireTukang::class)->name('tukang.akun');
         // Material-in Livewire

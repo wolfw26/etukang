@@ -85,7 +85,7 @@
                                 <a href="#" class="btn btn-sm bg-teal" title="edit">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="/adm/proyek/{{ $d->id }}" class="btn btn-sm btn-primary">
+                                <a href="{{ route('detailProyek', $d->id) }}" class="btn btn-sm btn-primary">
                                     <i class="fas fa-user"></i> Detail
                                 </a>
                                 <a href="{{ route('proyek')}}/del/{{ $d->id }}" class="btn btn-sm bg-danger" onclick="return confirm('Hapus Data Proyek  {{ $d->nama_proyek }} ');" title="hapus">

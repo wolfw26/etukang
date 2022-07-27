@@ -11,6 +11,7 @@
                     <tr>
                         <th> Tanggal Mulai</th>
                         <th> Tanggal selesai</th>
+                        <th> <a href="" class="btn btn-outline-warning"> <i class="fas fa-print"></i> </a> </th>
                     </tr>
                     <tr>
                         <td> <input wire:model="tglawal" type="date" class="form-control form-control-sm"> </td>
@@ -48,9 +49,10 @@
                                 <tr>
                                     <td class="text-center text-bold">{{ $sewa->kode }}</td>
                                     <td class="text-capitalize">{{ $sewa->deskripsi }} <br> {{ $sewa->merk }}</td>
+                                    <td>{{ $sewa->tempat_sewa }}</td>
                                     <td>{{ date('d-M-Y', strtotime($sewa->tanggal_mulai)) }}</td>
                                     <td>{{ date('d-M-Y', strtotime($sewa->tanggal_selesai)) }}</td>
-                                    <td>{{ 'Rp.' . number_format($sewa->harga) }}/{{ $sewa->satuan }}</td>
+                                    <td>{{ 'Rp.' . number_format($sewa->harga) }}/ {{ $sewa->satuan }}</td>
                                     <td>{{ $sewa->jumlah_hari }}</td>
                                     <td>{{ $sewa->jumlah }}</td>
                                     <td>{{ 'Rp. '. number_format($sewa->harga_total) }}</td>

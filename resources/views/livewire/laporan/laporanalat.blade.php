@@ -44,7 +44,6 @@
                                 <td>
                                     <button wire:click="cariMasuk" class="btn btn-sm btn-success ml-2"> <i class="fas fa-plus"></i> Cari</button>
                                 </td>
-                                {{ $awalMasuk }} , {{ $akhirMasuk }}
                                 <td>
                                     <a href="cetakalat/masuk/tglawl/{{ $awalMasuk }}/tglakhr/{{ $akhirMasuk }}" target="_blank" class="btn btn-sm btn-outline-warning ml-2"> <i class="fas fa-print"></i></a>
                                 </td>
@@ -184,12 +183,16 @@
                                         <td>{{ $masuk->kode }}</td>
                                         <td>{{ $masuk->keterangan }}</td>
                                         <td>{{ $masuk->merk }}</td>
-                                        <td>{{ $masuk->harga }}</td>
+                                        <td>{{ 'Rp.'. number_format($masuk->harga) }}</td>
                                         <td>{{ $masuk->jumlah }}/ {{ $masuk->satuan }}</td>
-                                        <td>{{ $masuk->total_harga }}</td>
+                                        <td>{{ 'Rp.'. number_format($masuk->total_harga) }}</td>
                                         <td>{{ $masuk->tempat }}</td>
                                     </tr>
                                     @endforeach
+                                    <tr>
+                                        <th colspan="6">Total</th>
+                                        <td class=" bg-gradient-success font-weight-bold">{{ 'Rp.'. number_format($data->sum('total_harga')) }}</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

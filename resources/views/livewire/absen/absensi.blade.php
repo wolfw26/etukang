@@ -27,11 +27,11 @@
 
                         <tr class=" m-2 text-decoration-none">
                             <td> <span class="text-primary">Total Absensi</span> : <span class="text-center text-bold">
-                                    @if ( $absen && $absen->count() > 0)
-                                    {{ $absen->count() }}
-                                    @else
-                                    0
-                                    @endif
+                                    {{-- @if ( $absen && $absen->count() > 0) --}}
+                                    {{ $p->absen->count() }}
+                                    {{-- @else --}}
+                                    {{-- 0 --}}
+                                    {{-- @endif --}}
                                 </span></td>
                         </tr> <br>
                         <tr class=" text-decoration-none m-2">

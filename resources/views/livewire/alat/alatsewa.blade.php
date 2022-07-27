@@ -191,7 +191,9 @@
 
                                 <tbody>
                                     @foreach ( $data as $d )
-                                    <tr>
+                                    <tr @if ( Carbon\Carbon::now()->diffInDays($d->tanggal_selesai,False) > 0)
+                                        class=" bg-gradient-orange text-light"
+                                    @endif >
                                         <th scope="row">
                                             @if ( $d->sisa > 0)
                                             <a wire:click="pelunasan({{ $d->id }})"  class="btn btn-sm btn-outline-primary" title="Pelunasan"><i class="fas fa-money-check"></i></a>
@@ -203,10 +205,10 @@
                                                 <i class="fas fa-edit" title="Edit"></i>
                                             </a>
                                         </th>
-                                        <td scope="col"> <i class=" text-bold ">{{ $d->kode }}</i> </td>
+                                        <td scope="col"> <i class=" text-bold "></i> {{ $d->kode }} </td>
                                         <td scope="col">{{ $d->deskripsi }}</td>
                                         <td scope="col">{{ $d->tempat_sewa }}</td>
-                                        <td scope="col">{{ date('d F Y', strtotime($d->tanggal_mulai)) }} <br>{{ date('d F Y', strtotime($d->tanggal_selesai)) }}</td>
+                                        <td scope="col">{{ date('d F Y', strtotime($d->tanggal_mulai)) }} <br>{{ date('d F Y', strtotime($d->tanggal_selesai,False)) }}</td>
                                         <td scope="col">Rp. {{ number_format($d->harga)  }}</td>
                                         <td scope="col">{{ $d->satuan }}</td>
                                         <td scope="col">{{ $d->jumlah }}</td>

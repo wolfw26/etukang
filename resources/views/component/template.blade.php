@@ -37,7 +37,7 @@
 <body class="hold-transition sidebar-mini layout-fixed">
     @include('component.modal.notification');
     <div class="wrapper">
-      
+
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
             <!-- <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60"> -->
@@ -641,7 +641,7 @@
 
             <!-- Main content -->
             <section class="content">
-                <div class="container-fluid m-3">
+                <div class="container-fluid p-0">
                     @yield('konten')
                 </div><!-- /.container-fluid -->
             </section>

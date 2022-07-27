@@ -22,7 +22,7 @@
                 <div class="container-fluid m-3">
                     <div class="row">
                         <div class="col-4 p-3 m-0">
-                            <a href="{{ route('cetakmaterial.all') }}" target="_blank" class="btn btn-sm btn-outline-warning" > <i class="fas fa-print"></i> Cetak</a>
+                            <a href="{{ route('cetakmaterial.all') }}" target="_blank" class="btn btn-sm btn-outline-warning"> <i class="fas fa-print"></i> Cetak</a>
                             {{-- <input type="button" value="Print" onclick="printPage();"> </input> --}}
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                     </div>
                     <button wire:click="kosong" class="btn btn-sm text-danger ">Reset</button>
 
-                    <a href="cetakmaterial/masuk/tglawl/{{ $tglawl }}/tglakhr/{{ $tglakhr }}" target="_blank"  class="btn btn-sm btn-outline-secondary mt-2"> <i class="fas fa-print"></i> Cetak</a>
+                    <a href="cetakmaterial/masuk/tglawl/{{ $tglawl }}/tglakhr/{{ $tglakhr }}" target="_blank" class="btn btn-sm btn-outline-secondary mt-2"> <i class="fas fa-print"></i> Cetak</a>
                 </div>
                 @elseif ($modecetak == 'keluar')
                 <div class="row m-2">
@@ -220,7 +220,11 @@
                                         </td>
                                         <td>{{ $materials->harga_satuan }}</td>
                                     </tr>
+
                                     @endforeach
+                                    <tr>
+                                        <th colspan="">Total</th>
+                                    </tr>
                                     @else
                                     <div class="alert alert-info">Data <span class=" text-maroon">Kosong</span></div>
 
