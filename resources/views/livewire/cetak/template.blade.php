@@ -47,6 +47,7 @@
                         <p class="text-center"> {{ $tanggal }}</p>
                     </div>
                 </div>
+                <i>Tanggal : {{ now()->format('d-F-Y') }}</i>
             </div>
             @yield('cetak')
         </div>

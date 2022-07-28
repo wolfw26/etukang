@@ -32,6 +32,7 @@ use App\Http\Livewire\Alat\Alatsewa as AlatAlatsewa;
 use App\Http\Livewire\Alatindex;
 use App\Http\Livewire\Cetak\Alat\Masuk as AlatMasuk;
 use App\Http\Livewire\Cetak\Material\All;
+use App\Http\Livewire\Cetak\Material\Keluar;
 use App\Http\Livewire\Cetak\Material\Masuk;
 use App\Http\Livewire\Cetak\Sewaalat;
 use App\Http\Livewire\Client\Client as ClientClient;
@@ -148,6 +149,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         Route::get('cetakmaterial/all', All::class)->name('cetakmaterial.all');
         // Cetak MATERIAL MASUK
         Route::get('cetakmaterial/masuk/tglawl/{awal}/tglakhr/{akhir}', Masuk::class)->name('cetakmaterial.masuk');
+        Route::get('cetakmaterial/keluar/tglawl/{awal}/tglakhr/{akhir}', Keluar::class)->name('cetakmaterial.keluar');
         Route::get('cetakalat/masuk/tglawl/{awal}/tglakhr/{akhir}', AlatMasuk::class)->name('cetakalat.masuk');
         Route::get('cetakSewaAlat', Sewaalat::class)->name('cetakalat.sewa');
         Route::get('cetakReancanaProyek', Sewaalat::class)->name('cetak.rencanaProyek');

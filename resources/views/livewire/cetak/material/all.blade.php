@@ -23,9 +23,9 @@
                                 <td class="text-center">{{ 'Rp. '. $materials->harga_satuan }}</td>
                                 <td class="text-center">{{ $materials->materialin->sum('jumlah') }}</td>
                                 <td class="text-center">{{ $materials->materialout->sum('jumlah') }}</td>
-                                <td>{{ $materials->stok_akhir }}</td>
-                                <td>
-                                    <div class="badge badge-secondary">{{ $materials->satuan }}</div>
+                                <td class=" font-bold">{{ $materials->stok_akhir }}</td>
+                                <td class="text-center">
+                                    {{ $materials->satuan }}
                                 </td>
                             </tr>
                             @endforeach
