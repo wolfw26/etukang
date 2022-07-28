@@ -5,39 +5,40 @@
             <div class="col-12">
                 <div class="card card-outline card-green">
                     <div class="card-body">
-                        <table class="table table-borderless">
+                        <h2>Proyek</h2>
+                        <table class="table table-border">
                             @foreach ( $proyek as $p )
                             <tr>
-                                <th scope="col">Nama Proyek :</th>
-                                <td scope="col"> {{ $p->nama_proyek }} </td>
+                                <th  style=" width : 12rem;">Nama Proyek</th>
+                                <td >:  {{ $p->nama_proyek }} </td>
                             </tr>
                             <tr>
-                                <th scope="col">Alamat :</th>
-                                <td scope="col"> {{ $p->alamat }} </td>
+                                <th  style=" width : 12rem;">Alamat</th>
+                                <td >:  {{ $p->alamat }} </td>
                             </tr>
                             <tr>
-                                <th scope="col">Jenis :</th>
-                                <td scope="col"> {{ $p->jenis_proyek }} </td>
+                                <th  style=" width : 12rem;">Jenis</th>
+                                <td >:  {{ $p->jenis_proyek }} </td>
                             </tr>
                             <tr>
-                                <th scope="col">Luas :</th>
-                                <td scope="col"> {{ $p->luas_tanah }} </td>
+                                <th  style=" width : 12rem;">Luas</th>
+                                <td >:  {{ $p->luas_tanah }} </td>
                             </tr>
                             <tr>
-                                <th scope="col">Lebar Rumah :</th>
-                                <td scope="col"> {{ $p->lebar_rumah }} </td>
+                                <th  style=" width : 12rem;">Lebar Rumah</th>
+                                <td >:  {{ $p->lebar_rumah }} </td>
                             </tr>
                             <tr>
-                                <th scope="col">Panjang Rumah :</th>
-                                <td scope="col"> {{ $p->panjang_rumah }} </td>
+                                <th  style=" width : 12rem;">Panjang Rumah</th>
+                                <td >:  {{ $p->panjang_rumah }} </td>
                             </tr>
                             <tr>
-                                <th scope="col">Satuan ukuran :</th>
-                                <td scope="col"> {{ $p->satuan }} </td>
+                                <th  style=" width : 12rem;">Satuan ukuran</th>
+                                <td >:  {{ $p->satuan }} </td>
                             </tr>
                             <tr>
-                                <th scope="col">Status Proyek :</th>
-                                <td scope="col"> {{ $p->status}} </td>
+                                <th  style=" width : 12rem;">Status Proyek</th>
+                                <td >:  {{ $p->status}} </td>
                             </tr>
                             @endforeach
 
@@ -45,9 +46,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-7">
+                
                 <div class="card card-outline card-green">
                     <div class="card-body">
+                        <h2>Daftar Material Proyek </h2>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -91,10 +94,44 @@
                                                             badge-success
                                                         @elseif( $d->stok_akhir > 5)
                                                             badge-warning
-
                                                         @endif ">{{ $d->stok_akhir}}
-                                    </div>
-                                    </td>
+                                          </div>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="card card-outline card-green">
+                    <div class="card-body">
+                        <h2>Daftar Absensi Pekerja </h2>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Tanggal Absen</th>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Deskripsi</th>
+                                    <th scope="col">Lembur</th>
+                                
+                                    <!-- <th scope="col">Stok Awal</th>
+                                    <th scope="col">Masuk</th>
+                                    <th scope="col">Keluar</th> -->
+                                    {{-- <th scope="col">Stok</th> --}}
+                                </tr>
+                            </thead>
+                            <tbody>
+                           
+                                @foreach ($absen as $d )
+                                <tr>
+                                  
+                                    <td class="text-bold"> <u> {{ $d->tanggal}}</u></td>
+                                    <td> ------ </td>
+                                    <td> {{ $d->deskripsi}}</td>
+                                    <td> ------ </td>
+                                 
                                     </tr>
                                     @endforeach
                                     </tbody>

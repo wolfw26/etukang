@@ -4,7 +4,9 @@ namespace App\Http\Livewire\Client;
 
 use App\Models\Client;
 use App\Models\Proyek;
+use App\Models\Absen;
 use App\Models\Materialout;
+use App\Models\Datanama;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -14,12 +16,7 @@ class Proyekadd extends Component
     public $nama_proyek, $jenis_proyek, $jabatan, $alamat, $luas_tanah, $panjang_rumah, $lebar_rumah, $satuan;
     public $idclient;
 
-<<<<<<< HEAD
 
-
-
-=======
->>>>>>> dev
     public function tambah()
     {
         $proyek = new Proyek;
@@ -58,7 +55,8 @@ class Proyekadd extends Component
        
         return view('livewire.client.proyekadd', [
             'proyek' => Proyek::where('client_id', $this->idclient->id)->get(),
-            'material' => Materialout::where('proyek_id', $this->id_proyek->id)->get()
+            'material' => Materialout::where('proyek_id', $this->id_proyek->id)->get(),
+            'absen' => Absen::with('datanama')->where('proyek_id', $this->id_proyek->id)->latest()->get()
         ])
             ->extends('usertemplate', [
                 'title' => 'Proyek',
