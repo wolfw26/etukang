@@ -31,7 +31,7 @@ class Masuk extends Component
         ])
             ->extends('livewire.Cetak.template', [
                 'judul' => 'MATERIAL',
-                'tanggal' => "  Dari Tanggal :" . " "  . $this->tglawl . "" . "   Sampai Tanggal : " . $this->tglakhr,
+                'tanggal' => "  Dari Tanggal :" . " "  . $this->tglawl . "" . "   Sampai : " . $this->tglakhr,
 
             ])
             ->section('cetak');

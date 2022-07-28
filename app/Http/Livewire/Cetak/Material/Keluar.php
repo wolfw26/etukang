@@ -21,10 +21,9 @@ class Keluar extends Component
         return view('livewire.cetak.material.keluar', [
             'data' => $material
         ])->extends('livewire.Cetak.template', [
-            'judul' => 'MATERIAL Out',
-            'tanggal' => "  Dari Tanggal :" . " "  . $this->tglawl . "" . "   Sampai Tanggal : " . $this->tglakhr,
+            'judul' => 'MATERIAL KELUAR',
+            'tanggal' => "  Dari Tanggal :" . " "  . date('d-M-Y', strtotime($this->tglawl)) . " - " . "   Sampai  : " . date('d-M-Y', strtotime($this->tglakhr)),
 
-        ])
-            ->section('cetak');
+        ])->section('cetak');
     }
 }

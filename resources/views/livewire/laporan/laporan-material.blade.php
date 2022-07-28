@@ -64,7 +64,7 @@
                     </div>
                     <button wire:click="kosong" class="btn btn-sm text-danger ">Reset</button>
 
-                    <a href="cetakmaterial/keluar/tglawl/{{ $tglawl }}/tglakhr/{{ $tglakhr }}" target="_blank" class="btn btn-sm btn-outline-warning" value="Print" onclick="return printArea('area4');"> <i class="fas fa-print"></i> Cetak</a>
+                    <a href="cetakmaterial/keluar/tglawl/{{ $tglawl }}/tglakhr/{{ $tglakhr }}" target="_blank" class="btn btn-sm btn-outline-warning" > <i class="fas fa-print"></i> Cetak</a>
                 </div>
                 @else
                 <div class="alert alert-secondary">Pilih Kategori Cetak</div>

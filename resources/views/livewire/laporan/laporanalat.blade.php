@@ -13,8 +13,9 @@
         <div class="row  p-2 rounded mb-3">
             <div class="col-4">
                 <div class="mb-3 mt-2">
+                    {{ $kategori }}
                     <select wire:model="kategori" name="" id="" class="form-control form-control-sm">
-                        <option value="0" selected> -- Kategori -- </option>
+                        <option value="0" selected> -- Alat -- </option>
                         <option value="masuk">Alat Masuk</option>
                         <option value="rusak">Alat rusak</option>
                         <option value="sewa">Sewa Alat</option>
@@ -201,6 +202,37 @@
                         @endif
                         @endif
                     </div>
+                    @if ($kategori == 0)
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr class=" elevation-1 text-center">
+                                <th>Kode</th>
+                                <th>Deskripsi <br> Alat</th>
+                                <th>Merk</th>
+                                <th>Kepemilikan</th>
+                                <th>Satuan</th>
+                                <th>Harga Satuan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if ( $data && $data->count() > 0)
+                            @foreach ( $data as $alat )
+                            <tr class="text-center">
+                                <td>{{ $alat->kode }}</td>
+                                <td>{{ $alat->nama }}</td>
+                                <td>{{ $alat->Merk }}</td>
+                                <td>{{ $alat->kepemilikan }}</td>
+                                <td>{{ $alat->satuan }}</td>
+                                <td>{{ 'Rp.'. number_format($alat->harga_satuan) }}</td>
+                            </tr>
+                            @endforeach
+                            @else
+                                <div class="alert alert-secondary text-center elevation-1"> Data Masih Belum Ditambah</div>
+                            @endif
+
+                        </tbody>
+                    </table>
+                    @endif
                 </div>
             </div>
         </div>

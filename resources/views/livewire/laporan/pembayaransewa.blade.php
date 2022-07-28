@@ -1,4 +1,7 @@
 <div>
+    @if ( $invoice && $invoice->count() > 0)
+
+
     <div class="container-fluid p-2">
         <div class="row mb-3">
             <div class="col-12">
@@ -79,4 +82,7 @@
             </div>
         </div>
     </div>
+    @else
+    <div class="alert alert-warning"> Data Belum ada</div>
+    @endif
 </div>

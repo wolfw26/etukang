@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Laporan;
 
+use App\Models\Alat;
 use App\Models\Alatin;
 use App\Models\Alatrusak;
 use App\Models\Alatsewa;
@@ -22,8 +23,6 @@ class Laporanalat extends Component
     {
         if ($this->awalMasuk != 0 && $this->akhirMasuk != 0) {
             $this->all = Alatin::whereBetween('tanggal', [$this->awalMasuk, $this->akhirMasuk])->get();
-        } else {
-            $this->all = [];
         }
     }
     public function render()
@@ -39,6 +38,13 @@ class Laporanalat extends Component
         if ($this->kategori == 'rusak') {
             $data = Alatrusak::all();
         }
+        if ($this->kategori == 0) {
+            $data = Alat::latest()->get();
+        }
+        if ($this->kategori == 'masuk' && $this->awalMasuk == 0 && $this->akhirMasuk == 0) {
+            $data = Alatin::all();
+        }
+
         return view('livewire.laporan.laporanalat', [
             'data' => $data,
             'proyek' => Proyek::all()
