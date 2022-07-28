@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Alathome extends Component
 {
-    public $ceksewa = False;
+    public $ceksewa;
     public $kode, $nama, $fungsi = '-', $Merk = '-', $status, $satuan, $harga_satuan;
     public $cari, $carisewa;
 

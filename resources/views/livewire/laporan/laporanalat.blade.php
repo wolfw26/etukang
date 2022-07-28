@@ -133,7 +133,7 @@
                             <table class="table table-bordered table-hover">
                                 <div class="row">
                                     <div class="col-12 text-center">
-                                        <h3>Data Sewa Alat</h3>
+                                        <h3>Data Alat</h3>
                                     </div>
                                 </div>
                                 <thead>
@@ -153,7 +153,7 @@
                                         <td>{{ $rusak->satuan }}</td>
                                         <td>{{ $rusak->nama }}</td>
                                         <td>{{ $rusak->status }}</td>
-                                        <td>{{ date_format('d-M-Y',strtotime($rusak->tanggal)) }}</td>
+                                        <td>{{ date('d-M-Y',strtotime($rusak->tanggal)) }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

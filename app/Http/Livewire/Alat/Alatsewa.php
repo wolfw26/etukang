@@ -11,13 +11,22 @@ use Livewire\Component;
 
 class Alatsewa extends Component
 {
-    public $deskripsi, $merk, $fungsi, $sewa, $tglm, $tgls, $harga, $satuan, $tharga, $jumlah, $jumlah_hari, $kode, $dibayar, $sisa;
+    public $menu;
+    public $deskripsi, $merk, $fungsi, $sewa, $tglm, $tgls, $harga, $satuan, $tharga, $jumlah, $jumlah_hari, $kode;
     public $id_sewa, $cari;
     protected $listeners = ['deleteConfirmed' => 'hapus'];
     public $date, $date2, $jarak;
     public $pilihalat;
 
 
+    public function alat()
+    {
+        $this->menu = 'alat';
+    }
+    public function invoice()
+    {
+        $this->menu = 'invoice';
+    }
     protected $rules = [
         'kode' => 'required',
         'deskripsi' => 'required',
@@ -27,7 +36,6 @@ class Alatsewa extends Component
         'harga' => 'required|integer',
         'satuan' => 'required',
         'jumlah' => 'required|integer',
-        'dibayar' => 'required|integer',
         'pilihalat' => 'required'
     ];
 
@@ -44,8 +52,6 @@ class Alatsewa extends Component
         $this->satuan = $id->satuan;
         $this->kode = $id->kode;
         $this->tharga = $id->harga_total;
-        $this->dibayar = $id->dibayar;
-        $this->sisa = $id->sisa;
     }
     public function update(ModelsAlatsewa $data)
     {
@@ -62,14 +68,6 @@ class Alatsewa extends Component
         $data->jumlah = $this->jumlah;
         $data->satuan = $this->satuan;
         $data->harga_total = ($this->harga * $this->jumlah_hari) * $this->jumlah;
-        $data->dibayar = $this->dibayar;
-        $data->sisa = $this->sisa;
-        if ($this->sisa > 1) {
-            $status = " belum lunas";
-        } else {
-            $status = 'Lunas';
-        }
-        $data->status = $status;
         $data->save();
 
 
@@ -87,8 +85,6 @@ class Alatsewa extends Component
         $this->jumlah = null;
         $this->satuan = null;
         $this->tharga = null;
-        $this->dibayar = null;
-        $this->sisa = null;
     }
     public function tambahSewa()
     {
@@ -107,14 +103,6 @@ class Alatsewa extends Component
         $data->jumlah = $this->jumlah;
         $data->satuan = $this->satuan;
         $data->harga_total = ($this->harga * $this->jumlah_hari) * $this->jumlah;
-        $data->dibayar = $this->dibayar;
-        $data->sisa = $this->sisa;
-        if ($this->sisa > 1) {
-            $status = " belum lunas";
-        } else {
-            $status = 'Lunas';
-        }
-        $data->status = $status;
         $data->save();
 
         // $id = $data->id;
@@ -143,8 +131,6 @@ class Alatsewa extends Component
         $this->jumlah = null;
         $this->satuan = null;
         $this->tharga = null;
-        $this->dibayar = null;
-        $this->sisa = null;
     }
     public function hapus($id)
     {
@@ -170,21 +156,20 @@ class Alatsewa extends Component
             $this->harga = $alat->harga_satuan;
             $this->satuan = $alat->satuan;
         }
-
-        if ($this->tglm != null && $this->tgls != null) {
-            $awal = Carbon::create($this->tglm);
-            $akhir = Carbon::create($this->tgls);
-            $this->jumlah_hari = $awal->diffInDays($akhir);
+        if ($this->satuan == 'hari') {
+            if ($this->tglm != null && $this->tgls != null) {
+                $awal = Carbon::create($this->tglm);
+                $akhir = Carbon::create($this->tgls);
+                $this->jumlah_hari = $awal->diffInDays($akhir);
+            }
+        } else {
+            $this->jumlah_hari = $this->jumlah_hari;
         }
         if ($this->harga != '' && $this->jumlah != '' && $this->jumlah_hari != null) {
             $this->tharga = ($this->harga * $this->jumlah_hari) * $this->jumlah;
         } else {
             $this->tharga = 0;
         };
-
-        if ($this->dibayar != null) {
-            $this->sisa = $this->tharga - $this->dibayar;
-        }
         // $dataedit = ModelsAlatsewa::find($this->edit);
         // $data = ModelsAlatsewa::find(1);
         // $waktu_selesai = Carbon::create($data->tanggal_selesai);

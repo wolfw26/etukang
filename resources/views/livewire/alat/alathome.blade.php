@@ -62,16 +62,36 @@
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div class="mb-3 mt-4 d-flex justify-content-left">
-                                    <input wire:model="ceksewa" type="checkbox" name="sewa" id="sewa" class="form-control-sm m-1">
-                                    <i class="text-bold mt-2">Sewa</i>
-                                </div>
-
                                 <div class="mb-3">
-                                    <label for="satuan" class="form-label">Satuan</label>
+                                    <select wire:model="ceksewa" name="" id="" class="form-control">
+                                        <option selected>Kategori</option>
+                                        <option value="sewa">SEWA</option>
+                                        <option value="beli">BELI</option>
+                                    </select>
+                                    {{-- <input wire:model="ceksewa" type="checkbox" name="sewa" id="sewa" class="form-control-sm m-1"> --}}
+                                    <!-- <i class="text-bold mt-2">Sewa</i> -->
+                                </div>
+                                <div class="mb-3">
+                                    <label for="">SATUAN</label> <br>
+                                    @if ( $ceksewa == 'sewa')
+                                        <select wire:model="satuan" name="" id="" class="form-control form-control-sm">
+                                            <option value="jam">JAM</option>
+                                            <option value="hari">HARI</option>
+                                        </select>
+                                    @else
+                                    <input wire:model="satuan" type="text" class="form-control form-control-sm">
+                                    @endif
+                                    {{-- <label for="satuan" class="form-label">Satuan</label>
+                                    @if ( $ceksewa == 'beli')
                                     <input wire:model="satuan" type="text" class="form-control form-control-sm @error('satuan')
                                         is-invalid
-                                    @enderror " id="satuan" placeholder="satuan Alat" required>
+                                        @enderror " id="satuan" placeholder="satuan Alat" required>
+                                    @elseif ( $ceksewa == "sewa")
+                                    <select wire:model="satuan" name="satuan" id="satuan" class="form-control">
+                                        <option value="hari">HARI</option>
+                                        <option value="jam">JAM</option>
+                                    </select>
+                                    @endif --}}
                                     @error('satuan')
                                     <p class="text-danger">
                                         {{ $message }}
@@ -94,7 +114,7 @@
                     </div>
                 </div>
             </div>
-            @if ( $ceksewa == 1)
+            {{-- @if ( $ceksewa == 1)
             <div class="col-6">
                 <div class="callout callout-info mt-5">
                     <h4>Jika Alat Menyewa</h4>
@@ -102,7 +122,7 @@
                     <p>(Jam / Hari / Bulan)</p>
                 </div>
             </div>
-            @endif
+            @endif --}}
             @if (session()->has('update'))
             <div class="col-3 p-2">
                 <div class="alert alert-success alert-dismissible">

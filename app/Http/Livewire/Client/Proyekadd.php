@@ -24,7 +24,7 @@ class Proyekadd extends Component
         $proyek->lebar_rumah = $this->lebar_rumah;
         $proyek->satuan = $this->satuan;
         $proyek->status = 'perencanaan';
-        $proyek->tukang_id = 0;
+        $proyek->pekerja_id = 0;
         $proyek->client_id = $this->idclient->id;
         $proyek->save();
 

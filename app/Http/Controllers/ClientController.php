@@ -6,9 +6,10 @@ use App\Models\User;
 use App\Models\Client;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-
 use function GuzzleHttp\Promise\all;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ClientController extends Controller
 {
@@ -29,7 +30,7 @@ class ClientController extends Controller
         $user = new User;
         $user->name = $data['name'];
         $user->email = $data['email'];
-        $user->password = $data['password'];
+        $user->password =  Hash::make($data['password']);
         $user->rule = 'client';
         $user->save();
 

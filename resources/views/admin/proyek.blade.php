@@ -68,8 +68,8 @@
                                 <p class="text-muted text-sm"><b>Pemilik: </b> {{ $d->client->nama }} </p><br>
                                 <ul class="ml-4 mb-0 fa-ul text-muted">
                                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Alamat: {{ $d->alamat }}</li>
-                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
-                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-home"></i></span> Status: </li>
+                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Telp #: {{ $d->client->no_telp }}</li>
+                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-home"></i></span> Status: {{ $d->status }}</li>
                                 </ul>
 
                             </div>

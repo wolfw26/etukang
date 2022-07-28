@@ -196,12 +196,12 @@
                         <div class="card-body">
                             <table class="table table-bordered">
                                 <thead>
-                                    <tr>
+                                    <tr class="text-center">
                                         <th>Tanggal</th>
                                         <th>Kode Material</th>
                                         <th>Nama Material</th>
-                                        <th>Jumlah Awal</th>
-                                        <th>Jumlah Masuk</th>
+                                        <th>Jumlah <br> Awal</th>
+                                        <th>Jumlah <br> Masuk</th>
                                         <th>Satuan</th>
                                         <th>Harga Satuan</th>
                                     </tr>
@@ -210,15 +210,15 @@
                                     @if ( $data && $data->count() > 0 )
                                     @foreach ( $data as $materials )
                                     <tr>
-                                        <td>{{ $materials->tanggal }} </td>
+                                        <td>{{ date('d-M-Y',strtotime($materials->tanggal)) }} </td>
                                         <td>{{ $materials->kode_material }}</td>
                                         <td>{{ $materials->nama_material }}</td>
                                         <td>{{ $materials->stok_awal }}</td>
-                                        <td>{{ $materials->jumlah }}</td>
+                                        <td class="text-center">{{ $materials->jumlah }}</td>
                                         <td>
                                             <div class="badge badge-success">{{ $materials->satuan }}</div>
                                         </td>
-                                        <td>{{ $materials->harga_satuan }}</td>
+                                        <td>{{ 'Rp. '. number_format($materials->harga_satuan) }}</td>
                                     </tr>
 
                                     @endforeach

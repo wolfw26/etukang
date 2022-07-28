@@ -27,9 +27,6 @@ return new class extends Migration
             $table->integer('jumlah');
             $table->string('satuan');
             $table->integer('harga_total');
-            $table->integer('dibayar');
-            $table->integer('sisa')->nullable();
-            $table->string('status')->nullable();
             $table->foreignId('alats_id')->nullable();
             $table->timestamps();
         });

@@ -33,10 +33,12 @@ use App\Http\Livewire\Alatindex;
 use App\Http\Livewire\Cetak\Alat\Masuk as AlatMasuk;
 use App\Http\Livewire\Cetak\Material\All;
 use App\Http\Livewire\Cetak\Material\Masuk;
+use App\Http\Livewire\Cetak\Sewaalat;
 use App\Http\Livewire\Client\Client as ClientClient;
 use App\Http\Livewire\Client\Proyekadd;
 use App\Http\Livewire\Client\Rab\RabHome;
 use App\Http\Livewire\DataAhs;
+use App\Http\Livewire\InvoiceData;
 use App\Http\Livewire\Jabatans;
 use App\Http\Livewire\Konfirmasi;
 use App\Http\Livewire\Laporan\GajiPekerja;
@@ -147,6 +149,9 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         // Cetak MATERIAL MASUK
         Route::get('cetakmaterial/masuk/tglawl/{awal}/tglakhr/{akhir}', Masuk::class)->name('cetakmaterial.masuk');
         Route::get('cetakalat/masuk/tglawl/{awal}/tglakhr/{akhir}', AlatMasuk::class)->name('cetakalat.masuk');
+        Route::get('cetakSewaAlat', Sewaalat::class)->name('cetakalat.sewa');
+        Route::get('cetakReancanaProyek', Sewaalat::class)->name('cetak.rencanaProyek');
+        Route::get('dataInvoice/{id}', InvoiceData::class)->name('invoice.data');
 
         // LAPORAN ALAT
         Route::get('laporanAlat', Laporanalat::class)->name('laporanAlat');

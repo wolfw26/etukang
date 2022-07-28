@@ -43,14 +43,13 @@ class RabController extends Controller
         $rab->kode_rab = $data['kode_rab'];
         $rab->proyek_id = $data['proyek_id'];
         $status = $rab->save();
-      
-        if($status){
-            request()->session()->flash('success','Aksi Berhasil Dilakukan');
+
+        if ($status) {
+            request()->session()->flash('success', 'Aksi Berhasil Dilakukan');
+        } else {
+            request()->session()->flash('error', 'Maaf Aksi Gagal dilakukan Dilakukan');
         }
-        else{
-            request()->session()->flash('error','Maaf Aksi Gagal dilakukan Dilakukan');
-        }
-       
+
         return redirect()->route('rab.index');
     }
 
@@ -59,11 +58,10 @@ class RabController extends Controller
 
         $data = Rab::find($rab);
         $status =  $data->delete();
-        if($status){
-            request()->session()->flash('success','Aksi Berhasil Dilakukan');
-        }
-        else{
-            request()->session()->flash('error','Maaf Aksi Gagal dilakukan Dilakukan');
+        if ($status) {
+            request()->session()->flash('success', 'Aksi Berhasil Dilakukan');
+        } else {
+            request()->session()->flash('error', 'Maaf Aksi Gagal dilakukan Dilakukan');
         }
         return redirect()->back();
     }
@@ -104,24 +102,23 @@ class RabController extends Controller
 
         $jumlah = Rab::find($data['rab_id']);
 
-                if($status){
-                    request()->session()->flash('success','Aksi Berhasil Dilakukan');
-                }
-                else{
-                    request()->session()->flash('error','Maaf Aksi Gagal dilakukan Dilakukan');
-                }
-        
-                // foreach ($ahs as $p) {
-                //     echo $p;
-                // }
-        
-                // $datarab = new DataRab();
-                // $datarab->rincian =
-                // $datarab->volume =
-                // $datarab->satuan =
-                // $datarab->harga_satuan =
-                // $datarab->total =
-                // $datarab->rab_id =;
+        if ($status) {
+            request()->session()->flash('success', 'Aksi Berhasil Dilakukan');
+        } else {
+            request()->session()->flash('error', 'Maaf Aksi Gagal dilakukan Dilakukan');
+        }
+
+        // foreach ($ahs as $p) {
+        //     echo $p;
+        // }
+
+        // $datarab = new DataRab();
+        // $datarab->rincian =
+        // $datarab->volume =
+        // $datarab->satuan =
+        // $datarab->harga_satuan =
+        // $datarab->total =
+        // $datarab->rab_id =;
         return redirect()->back();
     }
 
@@ -138,12 +135,11 @@ class RabController extends Controller
         $data = Rab::find($rab);
         $data = $data->datarab->find($datarab);
         $status = $data->update($request->all());
-     
-        if($status){
-            request()->session()->flash('success','Aksi Berhasil Dilakukan');
-        }
-        else{
-            request()->session()->flash('error','Maaf Aksi Gagal dilakukan Dilakukan');
+
+        if ($status) {
+            request()->session()->flash('success', 'Aksi Berhasil Dilakukan');
+        } else {
+            request()->session()->flash('error', 'Maaf Aksi Gagal dilakukan Dilakukan');
         }
         return redirect()->back();
     }
