@@ -8,7 +8,7 @@ class Client extends Component
 {
     public function render()
     {
-        return view('livewire.Client.Client')
+        return view('livewire.client.client')
             ->extends('usertemplate', [
                 'title' => 'Home'
             ])

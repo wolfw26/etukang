@@ -6,16 +6,20 @@ use App\Models\Client;
 use App\Models\Proyek;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class Proyekadd extends Component
 {
     public $nama_proyek, $jenis_proyek, $jabatan, $alamat, $luas_tanah, $panjang_rumah, $lebar_rumah, $satuan;
     public $idclient;
 
+  
+
+
     public function tambah()
     {
+          
         $proyek = new Proyek;
-
         $proyek->nama_proyek = $this->nama_proyek;
         $proyek->jenis_proyek = $this->jenis_proyek;
         $proyek->alamat = $this->alamat;
@@ -26,7 +30,15 @@ class Proyekadd extends Component
         $proyek->status = 'perencanaan';
         $proyek->pekerja_id = 0;
         $proyek->client_id = $this->idclient->id;
-        $proyek->save();
+        $status = $proyek->save();
+
+
+        if ($status) {
+            return request()->session()->flash('success', 'Aksi Berhasil Dilakukan');
+        } else {
+            return request()->session()->flash('error', 'Maaf Aksi Gagal dilakukan Dilakukan');
+        }
+
 
         $this->nama_proyek = null;
         $this->jenis_proyek = null;
