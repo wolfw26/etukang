@@ -45,6 +45,63 @@
                     </div>
                 </div>
             </div>
+            <div class="col-6">
+                <div class="card card-outline card-green">
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Aksi</th>
+                                    <th scope="col">Kode</th>
+                                    <th scope="col">Material</th>
+                                    <th scope="col">Satuan</th>
+                                    <th scope="col">Harga Satuan</th>
+                                    <!-- <th scope="col">Stok Awal</th>
+                                    <th scope="col">Masuk</th>
+                                    <th scope="col">Keluar</th> -->
+                                    <th scope="col">Stok</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach ($material as $d )
+                                <tr>
+                                    <th scope="row">
+                                        <a href=" /adm/material/d/{{ $d->id }} " onclick="return confirm('Hapus Data   {{ $d->nama_material }} ');" class="btn btn-sm bg-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                        <a wire:click="edit( {{ $d->id }})" data-toggle="modal" data-target="#tambahMaterial" class="btn btn-sm bg-teal">
+                                            <i class="fas fa-edit" title="Edit"></i>
+                                        </a>
+                                    </th>
+                                    <td class="text-bold"> <u> {{ $d->kode_material}}</u></td>
+                                    <td> {{ $d->nama_material}}</td>
+                                    <td>
+                                        <div class="badge badge-pill badge-success">{{ $d->satuan}}</div>
+                                    </td>
+                                    <td> {{ 'Rp.'. number_format($d->harga_satuan,2)}}</td>
+                                    <!-- <td> {{ $d->stok}}</td>
+                                    <td> {{ $d->masuk}}</td>
+                                    <td> {{ $d->keluar}}</td> -->
+                                    <td>
+                                        @if ( $d->stok_akhir < 1) <div class="badge badge-danger"> Stok Habis
+                                    </div>
+                                    @endif
+                                    <div class="badge @if ( $d->stok_akhir > 10)
+                                                            badge-success
+                                                        @elseif( $d->stok_akhir > 5)
+                                                            badge-warning
+
+                                                        @endif ">{{ $d->stok_akhir}}
+                                    </div>
+                                    </td>
+                                    </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                    </div>
+                </div>
+            </div>
         </div>
         @else
         <div class="row">
