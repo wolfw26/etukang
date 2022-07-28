@@ -73,7 +73,14 @@ class ProyekController extends Controller
         $proyek->status = 'perencanaan';
         $proyek->pekerja_id = $data['tukang'];
         $proyek->client_id = $data['client'];
-        $proyek->save();
+        $status = $proyek->save();
+
+        if ($status) {
+            request()->session()->flash('success', 'Aksi Berhasil Dilakukan');
+        } else {
+            request()->session()->flash('error', 'Maaf Aksi Gagal dilakukan Dilakukan');
+        }
+
         return redirect()->back()->with('tambah', 'Ditambahkan');
     }
     public function trash($id)

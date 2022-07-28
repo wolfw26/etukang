@@ -24,7 +24,6 @@ class RabHome extends Component
     {
         $id->status = "perbaiki";
         $id->save();
-
         $this->emit('konfirmasi');
     }
     public function render()
@@ -32,7 +31,24 @@ class RabHome extends Component
         $client = Auth::id();
         $data = Client::where('users_id', Auth::id())->first(); //Data Client
         $proyek = Proyek::where('client_id', $data->id)->first(); //Proyek dg ID client
+   
+        if($proyek == null){
+            $data = null;
+            $datarab = [];
+
+            return view('livewire.client.rab.rab-home', [
+                'datarab' => $datarab,
+                'rab' => $data
+            ])
+                ->extends(
+                    'usertemplate',
+                    ['title' => 'Rab']
+                )
+                ->section('main');
+
+        }
         $rab = Rab::where('proyek_id', $proyek->id)->first();
+       
         if ($rab == null) {
             $data = null;
             $datarab = [];

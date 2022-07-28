@@ -35,6 +35,10 @@
                                 <th scope="col">Satuan ukuran :</th>
                                 <td scope="col"> {{ $p->satuan }} </td>
                             </tr>
+                            <tr>
+                                <th scope="col">Status Proyek :</th>
+                                <td scope="col"> {{ $p->status}} </td>
+                            </tr>
                             @endforeach
 
                         </table>
@@ -86,7 +90,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="luas_tanah" class="form-label">Luas Tanah</label>
-                                <input wire:model="luas_tanah" type="text" class="form-control form-control-sm @error('luas_tanah')
+                                <input wire:model="luas_tanah" type="number" class="form-control form-control-sm @error('luas_tanah')
                                         is-invalid
                                     @enderror " id="luas_tanah" placeholder="luas_tanah" required>
                                 @error('luas_tanah')
@@ -99,7 +103,7 @@
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="panjang_rumah" class="form-label">Panjang Rumah</label>
-                                <input wire:model="panjang_rumah" type="text" class="form-control form-control-sm @error('panjang_rumah')
+                                <input wire:model="panjang_rumah" type="number" class="form-control form-control-sm @error('panjang_rumah')
                                         is-invalid
                                     @enderror " id="panjang_rumah" placeholder="panjang_rumah" required>
                                 @error('panjang_rumah')
@@ -110,7 +114,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="lebar_rumah" class="form-label">Lebar Rumah</label>
-                                <input wire:model="lebar_rumah" type="text" class="form-control form-control-sm @error('lebar_rumah')
+                                <input wire:model="lebar_rumah" type="number" class="form-control form-control-sm @error('lebar_rumah')
                                         is-invalid
                                     @enderror " id="lebar_rumah" placeholder="lebar_rumah" required>
                                 @error('lebar_rumah')
@@ -121,7 +125,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="satuan" class="form-label">Satuan</label>
-                                <input wire:model="satuan" type="text" class="form-control form-control-sm @error('satuan')
+                                <input wire:model="satuan" type="number" class="form-control form-control-sm @error('satuan')
                                         is-invalid
                                     @enderror " id="satuan" placeholder="satuan" required>
                                 @error('satuan')
