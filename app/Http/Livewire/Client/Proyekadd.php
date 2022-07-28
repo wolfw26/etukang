@@ -13,12 +13,11 @@ class Proyekadd extends Component
     public $nama_proyek, $jenis_proyek, $jabatan, $alamat, $luas_tanah, $panjang_rumah, $lebar_rumah, $satuan;
     public $idclient;
 
-  
+
 
 
     public function tambah()
     {
-          
         $proyek = new Proyek;
         $proyek->nama_proyek = $this->nama_proyek;
         $proyek->jenis_proyek = $this->jenis_proyek;
