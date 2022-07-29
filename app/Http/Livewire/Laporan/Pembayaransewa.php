@@ -11,15 +11,15 @@ class Pembayaransewa extends Component
     public $tglawal, $tglakhir;
     public $data;
 
-    public function cari()
-    {
-        $alat = invoice::first()->whereBetween('tanggal_invoice', [$this->tglawal, $this->tglakhir]);
-        $this->data = $alat->orderBy('id', 'asc')->get();
-    }
+    // public function cari()
+    // {
+    //     $alat = invoice::first()->whereBetween('tanggal_invoice', [$this->tglawal, $this->tglakhir]);
+    //     $this->data = $alat->orderBy('id', 'asc')->get();
+    // }
     public function render()
     {
         if ($this->tglawal != null && $this->tglakhir != null) {
-            $data = $this->data;
+            $data = invoice::first()->whereBetween('tanggal_invoice', [$this->tglawal, $this->tglakhir])->orderBy('id', 'asc')->get();
         } else {
             $data = invoice::latest()->get();
         }

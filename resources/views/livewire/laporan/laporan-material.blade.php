@@ -63,8 +63,10 @@
                         <input wire:model="tglakhr" type="date" class="form-control">
                     </div>
                     <button wire:click="kosong" class="btn btn-sm text-danger ">Reset</button>
+                     @if ( $tglawl != '' && $tglakhr != '' )
+                     <a href="cetakmaterial/keluar/tglawl/{{ $tglawl }}/tglakhr/{{ $tglakhr }}" target="_blank" class="btn btn-sm btn-outline-warning"> <i class="fas fa-print"></i> Cetak</a>
 
-                    <a href="cetakmaterial/keluar/tglawl/{{ $tglawl }}/tglakhr/{{ $tglakhr }}" target="_blank" class="btn btn-sm btn-outline-warning" > <i class="fas fa-print"></i> Cetak</a>
+                    @endif
                 </div>
                 @else
                 <div class="alert alert-secondary">Pilih Kategori Cetak</div>
@@ -258,7 +260,7 @@
                                 <tbody>
                                     @foreach ( $data as $materials )
                                     <tr>
-                                        <td>{{ $materials->tanggal }} </td>
+                                        <td>{{ date('d-M-Y',strtotime($materials->tanggal)) }} </td>
                                         <td>{{ $materials->kode_material }}</td>
                                         <td>{{ $materials->nama_material }}</td>
                                         <td>{{ $materials->stok_awal }}</td>
@@ -266,7 +268,7 @@
                                         <td>
                                             <div class="badge badge-warning">{{ $materials->satuan }}</div>
                                         </td>
-                                        <td>{{ $materials->harga_satuan }}</td>
+                                        <td>{{ 'Rp. '. number_format($materials->harga_satuan) }}</td>
                                         <td>{{ $materials->proyek->nama_proyek }}</td>
                                     </tr>
                                     @endforeach

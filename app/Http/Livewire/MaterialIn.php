@@ -21,6 +21,17 @@ class MaterialIn extends Component
     public $harga_satuan;
     public $pilihcetak;
 
+
+    protected $rules = [
+        'jumlah' => 'required',
+        'tanggal' => 'required',
+    ];
+
+    protected $messages = [
+        'jumlah.required' => 'Isi Jumlah Material',
+        'tanggal.required' => 'Tanggal Kosong',
+    ];
+
     public function render()
     {
         if (!empty($this->dropdown)) {
@@ -63,8 +74,7 @@ class MaterialIn extends Component
 
     public function store()
     {
-
-
+        $this->validate();
         Material_in::create([
             "tanggal" => $this->tanggal,
             'kode_material' => $this->kode,
@@ -73,6 +83,7 @@ class MaterialIn extends Component
             'satuan' => $this->satuan,
             'stok_awal' => $this->data->stok_akhir,
             'harga_satuan' => $this->harga_satuan,
+            'total' => $this->jumlah * $this->harga_satuan,
             'material_id' => $this->dropdown
         ]);
 

@@ -131,6 +131,11 @@
                         <div class="input-group input-group-sm">
                             <input wire:model="tanggal" type="date" class="form-control mb-2" id="tanggal" name="tanggal" required data-toggle="datetimepicker">
                         </div>
+                        @error('tanggal')
+                            <div class="text-danger">
+                                <i>{{ $message }}</i>
+                            </div>
+                        @enderror
                     </div>
 
                     <div class="input-group mb-3">
@@ -142,8 +147,13 @@
                                 </h4>
                             </option>
                             @endforeach
-                        </select>
+                        </select> <br>
                     </div>
+                    @error('dropdown')
+                        <div class="text-danger">
+                            <i>{{ $message }}</i>
+                        </div>
+                    @enderror
 
                     <div class="row">
                         <div class="col-9">
@@ -157,6 +167,11 @@
                         <div class="input-group input-group-sm mb-3">
                             <input wire:model="jumlah" type="number" class="form-control" id="jumlah" name="jumlah">
                         </div>
+                        @error('jumlah')
+                            <div class="text-danger">
+                                <i>{{ $message }}</i>
+                            </div>
+                        @enderror
                     </div>
                     <div class="input-group mb-3">
                         <label for="satuan">Satuan</label> <br>
@@ -178,6 +193,11 @@
                             @endforeach
                         </select>
                     </div>
+                    @error('proyek')
+                        <div class="text-danger">
+                            <i>{{ $message }}</i>
+                        </div>
+                    @enderror
                 </div>
                 <div class="card-footer">
                     <button wire:click="store" type="submit" class="btn btn-success">Tambahkan</button>

@@ -51,4 +51,8 @@ class Proyek extends Model
     {
         return $this->hasMany(GambarProyek::class, 'proyek_id', 'id');
     }
+    public function material()
+    {
+        return $this->hasMany(Materialout::class, 'proyek_id');
+    }
 }

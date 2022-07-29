@@ -14,6 +14,8 @@ class RegisterController extends Controller
         $data = $request->all();
         if (!isset($data['foto_ktp'])) {
             $data['foto_ktp'] = "client-img/default.png";
+        } else {
+            $data['foto_ktp'] = $request->file('foto_ktp')->store('client');
         }
         $email = $request->validate([
             'email' => 'required|unique:users|email'
@@ -36,7 +38,7 @@ class RegisterController extends Controller
         $client->no_telp = $data['no_telp'];
         $client->users_id = $user->id;
         $client->save();
-        
+
 
         return redirect()->back()->with('sukses', 'Registrasi Berhasil');
     }

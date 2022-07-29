@@ -1,6 +1,4 @@
 <div>
-    @if ( $invoice && $invoice->count() > 0)
-
 
     <div class="container-fluid p-2">
         <div class="row mb-3">
@@ -12,20 +10,27 @@
             <div class="col-4">
                 <table class="table table-bordered">
                     <tr>
-                        <th> Tanggal Mulai</th>
-                        <th> Tanggal selesai</th>
-                        <th> <a href="" class="btn btn-outline-warning"> <i class="fas fa-print"></i> </a> </th>
+                        <th> Tanggal Mulai Inv.</th>
+                        <th> Tanggal selesai Inv.</th>
+
                     </tr>
                     <tr>
                         <td> <input wire:model="tglawal" type="date" class="form-control form-control-sm"> </td>
                         <td> <input wire:model="tglakhir" type="date" class="form-control form-control-sm"> </td>
-                        <td> <button wire:click=" cari" class="btn btn-sm btn-success"> <i class="fas fa-search"></i> </button></td>
+                        {{-- <td> <button wire:click=" cari" class="btn btn-sm btn-success"> <i class="fas fa-search"></i> </button></td> --}}
+                        @if ( $tglawal != '' && $tglakhir != '')
+
+                        <th> <a target="_blank" href="cetakInvoice/{{ $tglawal }}/{{ $tglakhir }}" class="btn btn-outline-warning"> <i class="fas fa-print"></i> </a> </th>
+                        @else
+                        <th> <a target="_blank" href="cetakInvoice/{{ 0 }}/{{ 0 }}" class="btn btn-outline-warning"> <i class="fas fa-print"></i> </a> </th>
+                        @endif
                     </tr>
                 </table>
             </div>
             <div class="col-4"></div>
             <div class="col-4"></div>
         </div>
+        @if ( $invoice && $invoice->count() > 0)
         <div class="row">
             <div class="col-12">
                 <div class="card card-outline card-navy">
@@ -49,7 +54,7 @@
                                 <tr class="text-center">
                                     <td>{{ date('d-M-Y',strtotime($d->tanggal_invoice)) }}</td>
                                     <td>{{ date('d-M-Y',strtotime($d->tanggal_japo)) }}</td>
-                                    <td>{{ $d->kode }}</td>
+                                    <td>{{ $d->kode }} <br> <a class="badge badge-pill badge-warning btn"> <i class="fas fa-print fa-1x"></i></a></td>
                                     <td>{{ $d->deskripsi }}</td>
                                     <td>{{ $d->dari }}</td>
                                     <td>{{ number_format($d->total) }}</td>
@@ -81,8 +86,8 @@
                 </div>
             </div>
         </div>
+        @else
+        <div class="alert alert-warning"> Data Belum ada</div>
+        @endif
     </div>
-    @else
-    <div class="alert alert-warning"> Data Belum ada</div>
-    @endif
 </div>

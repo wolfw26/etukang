@@ -154,6 +154,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         Route::get('cetakSewaAlat', Sewaalat::class)->name('cetakalat.sewa');
         Route::get('cetakReancanaProyek', Sewaalat::class)->name('cetak.rencanaProyek');
         Route::get('dataInvoice/{id}', InvoiceData::class)->name('invoice.data');
+        Route::get('cetakInvoice/{awal}/{akhir}', Sewaalat::class)->name('cetak.sewaalat');
 
         // LAPORAN ALAT
         Route::get('laporanAlat', Laporanalat::class)->name('laporanAlat');

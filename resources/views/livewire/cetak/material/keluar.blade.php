@@ -10,7 +10,7 @@
                                 <th>Kode <br> Material</th>
                                 <th>Nama <br> Material</th>
                                 <th>Jumlah <br> Awal</th>
-                                <th>Jumlah <br> Masuk</th>
+                                <th>Jumlah <br> Terpakai</th>
                                 <th>Satuan</th>
                                 <th>Harga <br> Satuan</th>
                                 <th>Total</th>

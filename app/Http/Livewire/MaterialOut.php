@@ -23,6 +23,21 @@ class MaterialOut extends Component
     public $pilihcetak;
     public $proyek;
 
+
+    protected $rules = [
+        'jumlah' => 'required',
+        'tanggal' => 'required',
+        'proyek' => 'required',
+        'dropdown' => 'required',
+    ];
+
+    protected $messages = [
+        'jumlah.required' => 'Isi Jumlah Material',
+        'tanggal.required' => 'Tanggal Kosong',
+        'proyek.required' => 'Pilih Proyek',
+        'dropdown.required' => 'Pilih Proyek',
+    ];
+
     public function render()
     {
         if (!empty($this->dropdown)) {
@@ -66,6 +81,7 @@ class MaterialOut extends Component
 
     public function store()
     {
+        $this->validate();
 
         $material = Material::find($this->dropdown);
         if ($material->stok_akhir >= $this->jumlah) {
@@ -77,6 +93,7 @@ class MaterialOut extends Component
                 'satuan' => $this->satuan,
                 'stok_awal' => $this->data->stok_akhir,
                 'harga_satuan' => $this->harga_satuan,
+                'total' => $this->jumlah * $this->harga_satuan,
                 'material_id' => $this->dropdown,
                 'proyek_id' => $this->proyek
             ]);
