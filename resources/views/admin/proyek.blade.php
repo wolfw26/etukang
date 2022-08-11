@@ -53,12 +53,12 @@
             <div class="row g-0">
                 @foreach ( $data as $d )
                 <div class="col-12 col-sm-6 col-md-3 d-flex align-items-stretch flex-column">
-                    <div class="{{ $d->status ==  'dikerjakan' ? 'card-lime card-outline' : ''  }} card bg-light d-flex flex-fill
+                    <div class="{{ $d->status ==  'DIKERJAKAN' ? 'card-lime card-outline elevation-3'  : ''  }} card bg-light d-flex flex-fill
                     ">
                         <div class="card-header border-bottom-0 text-center" style="color: #cc3300; font-weight:700">
                             {{ $d->nama_proyek }}
                         </div>
-                        <div class="card-body pt-0">
+                        <div class="card-body pt-0 ">
 
                             <div class="text-center">
                                 <img src="{{ asset('img/alat.jpg') }}" alt="user-avatar" class="img-rounded shadow img-fluid ">
@@ -69,16 +69,24 @@
                                 <ul class="ml-4 mb-0 fa-ul text-muted">
                                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Alamat: {{ $d->alamat }}</li>
                                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Telp #: {{ $d->client->no_telp }}</li>
-                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-home"></i></span> Status: {{ $d->status }}</li>
+                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-home"></i></span> Status:
+                                        @if ( $d->status == 'SELESAI' )
+                                        <div class="badge badge-success"> SELESAI</div>
+                                    @else
+                                        {{ $d->status }}
+                                    @endif </li>
                                 </ul>
-
                             </div>
                         </div>
                         <div class="card-footer">
                             <div class="text-right">
-                                <a href="" class="btn btn-sm bg-secondary" title="Tambah Pemakian Material">
+                                @if ( $d->status == 'SELESAI')
+
+                                <a  class="btn bg-success btn-sm">{{ $d->status }}</a>
+                                @endif
+                                {{-- <a href="" class="btn  " title="Tambah Pemakian Material">
                                     Material
-                                </a>
+                                </a> --}}
                                 <a href="{{ route('proyek.rab',$d->id) }}" class="btn btn-sm bg-cyan" title="rab">
                                     RAB
                                 </a>

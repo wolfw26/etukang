@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('lebar_rumah');
             $table->string('satuan');
             $table->string('status');
+            $table->date('tanggal')->nullable();
             $table->date('tanggal_mulai')->nullable();
             $table->date('tanggal_selesai')->nullable();
             $table->foreignId('pekerja_id')->nullable();

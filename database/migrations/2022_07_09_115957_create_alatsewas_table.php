@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('kode');
             $table->string('deskripsi');
-            $table->string('tempat_sewa');
+            $table->string('tempat_sewa')->nullable();
             $table->date('tanggal_mulai')->nullable();
             $table->date('tanggal_selesai')->nullable();
             $table->string('merk')->nullable();

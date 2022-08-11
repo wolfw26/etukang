@@ -83,7 +83,7 @@
                                         <div class="d-flex">
 
                                             <a href=" {{ route('invoice.data',$d->id) }} " class="btn btn-sm bg-info">Detail</a>
-                                            <a class="btn text-danger"><i class="fas fa-trash"></i></a>
+                                            <a onclick="return confirm('Data {{ $d->deskripsi }} Akan di Hapus') || event.stopImmediatePropagation()" wire:click="hapus({{ $d->id }})" class="btn text-danger"><i class="fas fa-trash"></i></a>
                                         </div>
                                     </td>
                                     <td>

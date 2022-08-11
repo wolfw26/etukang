@@ -66,7 +66,7 @@
                                     <select wire:model="ceksewa" name="" id="" class="form-control">
                                         <option selected>Kategori</option>
                                         <option value="sewa">SEWA</option>
-                                        <option value="beli">BELI</option>
+                                        <option value="dimiliki">BELI</option>
                                     </select>
                                     {{-- <input wire:model="ceksewa" type="checkbox" name="sewa" id="sewa" class="form-control-sm m-1"> --}}
                                     <!-- <i class="text-bold mt-2">Sewa</i> -->
@@ -74,10 +74,10 @@
                                 <div class="mb-3">
                                     <label for="">SATUAN</label> <br>
                                     @if ( $ceksewa == 'sewa')
-                                        <select wire:model="satuan" name="" id="" class="form-control form-control-sm">
-                                            <option value="jam">JAM</option>
-                                            <option value="hari">HARI</option>
-                                        </select>
+                                    <select wire:model="satuan" name="" id="" class="form-control form-control-sm">
+                                        <option value="jam">JAM</option>
+                                        <option value="hari">HARI</option>
+                                    </select>
                                     @else
                                     <input wire:model="satuan" type="text" class="form-control form-control-sm">
                                     @endif

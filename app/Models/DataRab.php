@@ -15,4 +15,8 @@ class DataRab extends Model
     {
         return $this->belongsTo(Rab::class);
     }
+    public function rencana()
+    {
+        return $this->belongsTo(RencanaKerja::class, 'datarab_id');
+    }
 }

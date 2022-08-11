@@ -215,6 +215,7 @@
                                         <td scope="col">{{ $d->jumlah }}</td>
                                         <td scope="col">Rp. {{ number_format($d->harga_total) }}</td>
                                         <td scope="col">
+
                                             @foreach ( $d->invoiceAlat as $a )
                                             {{ $a->invoice->kode}}</td>
                                             @endforeach

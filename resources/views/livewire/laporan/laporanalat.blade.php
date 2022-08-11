@@ -13,7 +13,6 @@
         <div class="row  p-2 rounded mb-3">
             <div class="col-4">
                 <div class="mb-3 mt-2">
-                    {{ $kategori }}
                     <select wire:model="kategori" name="" id="" class="form-control form-control-sm">
                         <option value="0" selected> -- Alat -- </option>
                         <option value="masuk">Alat Masuk</option>
@@ -63,7 +62,7 @@
                     @if ( $kategori == 'sewa')
                     <table>
                         <tbody>
-                            <a href="{{ route('laporanAlat') }}" class="btn btn-sm btn-outline-warning m-3" onclick="return printArea('sewa');"> <i class="fas fa-print"></i></a>
+                            <a target="" href="{{ route('laporanAlat') }}" class="btn btn-sm btn-outline-warning m-3" onclick="return printArea('sewa');"> <i class="fas fa-print"></i></a>
                         </tbody>
                     </table>
                     @endif
@@ -118,8 +117,8 @@
                                         <td>{{ $sewa->kode }}</td>
                                         <td>{{ $sewa->deskripsi }}</td>
                                         <td>{{ $sewa->tempat_sewa }}</td>
-                                        <td>{{ $sewa->tanggal_mulai }}</td>
-                                        <td>{{ $sewa->tanggal_selesai }}</td>
+                                        <td>{{ date('d-M-Y',strtotime($sewa->tanggal_mulai)) }}</td>
+                                        <td>{{ date('d-M-Y',strtotime($sewa->tanggal_selesai)) }}</td>
                                         <td>{{ $sewa->merk }}</td>
                                         <td>{{'Rp.'. number_format($sewa->harga) }}/{{ $sewa->satuan }}</td>
                                         <td>{{ $sewa->jumlah }}-{{ $sewa->satuan }}</td>
@@ -180,7 +179,7 @@
                                 <tbody>
                                     @foreach ( $data as $masuk )
                                     <tr>
-                                        <td>{{ $masuk->tanggal }}</td>
+                                        <td>{{ date('d-M-Y',strtotime($masuk->tanggal)) }}</td>
                                         <td>{{ $masuk->kode }}</td>
                                         <td>{{ $masuk->keterangan }}</td>
                                         <td>{{ $masuk->merk }}</td>
@@ -210,6 +209,7 @@
                                 <th>Deskripsi <br> Alat</th>
                                 <th>Merk</th>
                                 <th>Kepemilikan</th>
+                                <th>Jumlah</th>
                                 <th>Satuan</th>
                                 <th>Harga Satuan</th>
                             </tr>
@@ -222,6 +222,7 @@
                                 <td>{{ $alat->nama }}</td>
                                 <td>{{ $alat->Merk }}</td>
                                 <td>{{ $alat->kepemilikan }}</td>
+                                <td>{{ $alat->stok }}</td>
                                 <td>{{ $alat->satuan }}</td>
                                 <td>{{ 'Rp.'. number_format($alat->harga_satuan) }}</td>
                             </tr>

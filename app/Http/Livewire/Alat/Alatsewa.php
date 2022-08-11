@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Alat;
 
 use App\Models\Alat;
 use App\Models\Alatsewa as ModelsAlatsewa;
+use App\Models\data_invoice;
+use App\Models\invoice;
 use Carbon\Carbon;
 use Database\Seeders\alatsewa as SeedersAlatsewa;
 use Livewire\Component;
@@ -49,9 +51,22 @@ class Alatsewa extends Component
         $this->tgls = $id->tanggal_selesai;
         $this->harga = $id->harga;
         $this->jumlah = $id->jumlah;
+        $this->jumlah_hari = $id->jumlah_hari;
         $this->satuan = $id->satuan;
         $this->kode = $id->kode;
         $this->tharga = $id->harga_total;
+    }
+    public function hapus($id)
+    {
+        $data = ModelsAlatsewa::find($id);
+        $datainvoice = data_invoice::where('alatsewas_id', $data->id)->first();
+        $this->emit('hapus', $data->id);
+        $datainvoice->delete();
+        $data->delete();
+        $invoice = invoice::find($datainvoice->invoices_id);
+        $invoice->total = $datainvoice->sum('total');
+        $invoice->sisa =   $datainvoice->sum('total') - $invoice->dibayar;
+        $invoice->save();
     }
     public function update(ModelsAlatsewa $data)
     {
@@ -69,7 +84,24 @@ class Alatsewa extends Component
         $data->satuan = $this->satuan;
         $data->harga_total = ($this->harga * $this->jumlah_hari) * $this->jumlah;
         $data->save();
+        $alat = $data->id;
 
+        $datainvoice = data_invoice::where('alatsewas_id', $data->id)->first();
+        $datainvoice->deskipsi = $data->deskripsi;
+        $datainvoice->harga = $data->harga;
+        $datainvoice->jumlah = $data->jumlah_hari;
+        $datainvoice->satuan = $data->satuan;
+        $datainvoice->total = $data->harga_total;
+        $datainvoice->alatsewas_id = $data->id;
+        $datainvoice->save();
+
+
+        $invoice = invoice::find($datainvoice->invoices_id);
+        $invoice->total = $datainvoice->sum('total');
+        $invoice->sisa =   $datainvoice->sum('total') - $invoice->dibayar;
+        $invoice->save();
+
+        $this->emit('UpdateAlat', $alat);
 
         session()->flash('berhasil', 'Berhasil Di ubah');
 
@@ -131,11 +163,6 @@ class Alatsewa extends Component
         $this->jumlah = null;
         $this->satuan = null;
         $this->tharga = null;
-    }
-    public function hapus($id)
-    {
-        $data = ModelsAlatsewa::find($id);
-        $data->delete();
     }
 
     public function pelunasan(ModelsAlatsewa $pelunasan)

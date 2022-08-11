@@ -17,6 +17,7 @@ class RabHome extends Component
     public function setuju(Rab $id)
     {
         $id->status = "setuju";
+        $id->tanggal = now();
         $id->save();
         $this->emit('konfirmasi');
     }
@@ -31,8 +32,8 @@ class RabHome extends Component
         $client = Auth::id();
         $data = Client::where('users_id', Auth::id())->first(); //Data Client
         $proyek = Proyek::where('client_id', $data->id)->first(); //Proyek dg ID client
-   
-        if($proyek == null){
+
+        if ($proyek == null) {
             $data = null;
             $datarab = [];
 
@@ -45,10 +46,9 @@ class RabHome extends Component
                     ['title' => 'Rab']
                 )
                 ->section('main');
-
         }
         $rab = Rab::where('proyek_id', $proyek->id)->first();
-       
+
         if ($rab == null) {
             $data = null;
             $datarab = [];

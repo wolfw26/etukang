@@ -11,7 +11,7 @@
             <div class="col-12">
                 <div class="card">
                     @if ($rab == null)
-                        <div class="alert alert-default-primary m-2">RAB Belum Dibuat</div>
+                    <div class="alert alert-default-primary m-2">RAB Belum Dibuat</div>
                     @else
                     {{-- @if ($status->rab->status = 'selesai')
 
@@ -27,23 +27,23 @@
                                 @if($rab->status == 'selesai')
                                 <button type="submit" wire:click="setuju({{ $rab->id }})" class="btn badge badge-pill badge-success float-right m-1">Setuju</button>
                                 <button type="submit" wire:click="perbaiki({{ $rab->id }})" class="btn badge badge-pill badge-warning float-right m-1">Perbaiki</button>
-                            @endif
+                                @endif
 
-                            @if($rab->status == 'perbaiki')
+                                @if($rab->status == 'perbaiki')
                                 <div class="badge badge-pill badge-primary float-right m-1">Sedang Diperbaiki</div>
-                            @endif
-                            @if($rab->status == null)
+                                @endif
+                                @if($rab->status == null)
                                 <div class="badge badge-pill badge-primary float-right m-1">Proses Pembuatan</div>
-                            @endif
-                            @if($rab->status == 'setuju')
+                                @endif
+                                @if($rab->status == 'setuju')
                                 <div class="badge badge-pill badge-success float-right m-1">Disetujui</div>
-                            @endif
+                                @endif
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
                         @if ($datarab->count() == 0)
-                            <div class="alert alert-default-info"> Proses Pembuatan</div>
+                        <div class="alert alert-default-info"> Proses Pembuatan</div>
                         @else
                         <table class="table table-bordered">
                             <thead>

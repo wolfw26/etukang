@@ -24,7 +24,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
             <div class="container-fluid p-3">
-                <a  class="navbar-brand d-flex">
+                <a class="navbar-brand d-flex">
                     <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                     <span class="brand-text font-weight-light">
                         <h2 class="text-uppercase text-gray"><u>{{ Auth::user()->name }}</u> </h2>
@@ -45,16 +45,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a href="{{ route('client.home') }}" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Contact</a>
-                        </li>
-                        <li class="nav-item">
                             <a href="{{ route('rab.home') }}" class="nav-link">RAB</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('client.proyek')}}" class="nav-link">MyProyek</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Tanggapan</a>
                         </li>
 
                     </ul>

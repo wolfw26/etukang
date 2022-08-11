@@ -1,5 +1,4 @@
 <div>
-
     <div class="container-fluid p-2">
         <div class="row mb-3">
             <div class="col-12">
@@ -54,7 +53,7 @@
                                 <tr class="text-center">
                                     <td>{{ date('d-M-Y',strtotime($d->tanggal_invoice)) }}</td>
                                     <td>{{ date('d-M-Y',strtotime($d->tanggal_japo)) }}</td>
-                                    <td>{{ $d->kode }} <br> <a class="badge badge-pill badge-warning btn"> <i class="fas fa-print fa-1x"></i></a></td>
+                                    <td>{{ $d->kode }} <br> <a href="{{ route('cetak.datainvoice',$d->id) }}" target="_blank" class="badge badge-pill badge-warning btn"> <i class="fas fa-print fa-1x"></i></a></td>
                                     <td>{{ $d->deskripsi }}</td>
                                     <td>{{ $d->dari }}</td>
                                     <td>{{ number_format($d->total) }}</td>

@@ -309,12 +309,14 @@
                                 </li>
                             </ul>
                             <ul class="nav nav-treeview">
-                                <a href="{{ route('tukang.akun') }}" class="nav-link">
-                                    <i class="nav-icon fas fa-user-shield"></i>
-                                    <p>
-                                        Tukang
-                                    </p>
-                                </a>
+                                <li class="nav-item">
+                                    <a href="{{ route('tukang.akun') }}" class="nav-link">
+                                        <i class="nav-icon fas fa-user-shield"></i>
+                                        <p>
+                                            Tukang
+                                        </p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -349,14 +351,14 @@
                                     </a>
                                 </li>
                             </ul>
-                            <ul class="nav nav-treeview">
+                            {{-- <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Biaya Oprasional</p>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul> --}}
                         </li>
                         <!-- <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -479,6 +481,14 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
+                                    <a href="{{ route('laporanRencana') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Laporan Rencana Proyek</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
                                     <a href="{{ route('laporanMaterial') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Laporan Material</p>
@@ -495,6 +505,22 @@
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
+                                    <a href="{{ route('laporanPembayaranSewa') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Laporan Pembayaran Sewa Alat</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('laporanBerjalan') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Laporan Proyek Berjalan</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
                                     <a href="{{ route('laporanGaji') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Laporan Gaji Pekerja</p>
@@ -503,31 +529,7 @@
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Laporan Riwayat Proyek</p>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Laporan Proyek Berjalan</p>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Laporan Rencana Proyek</p>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">
+                                    <a href="{{ route('laporanAnggaran') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Laporan Anggaran</p>
                                     </a>
@@ -535,12 +537,13 @@
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="{{ route('laporanPembayaranSewa') }}" class="nav-link">
+                                    <a href="{{ route('laporanRiwayat') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Laporan Pembayaran Sewa Alat</p>
+                                        <p>Laporan Riwayat Proyek</p>
                                     </a>
                                 </li>
                             </ul>
+
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('adm/rab/') }}" class="nav-link">
@@ -555,6 +558,14 @@
                                 <i class="fas fa-hammer nav-icon"></i>
                                 <p>
                                     AHSP
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('home.setting') }}" class="nav-link">
+                                <i class="fas fa-hammer nav-icon"></i>
+                                <p>
+                                    Home Setting
                                 </p>
                             </a>
                         </li>

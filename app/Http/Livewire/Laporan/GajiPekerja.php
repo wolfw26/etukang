@@ -8,18 +8,24 @@ use Livewire\Component;
 class GajiPekerja extends Component
 {
     public $tglawal, $tglakhir;
-    public $gaji;
+    public $upah;
 
     public function cari()
     {
-        $alat = Penggajian::first()->whereBetween('tanggal', [$this->tglawal, $this->tglakhir]);
-        $this->gaji = $alat->orderBy('id', 'asc')->get();
+        if ($this->tglawal != null && $this->tglakhir != null) {
+            $alat = Penggajian::first()->whereBetween('tanggal', [$this->tglawal, $this->tglakhir]);
+            $this->upah = $alat->orderBy('id', 'asc')->get();
+        } else {
+            $this->upah = Penggajian::all();
+        }
     }
     public function render()
     {
-        $gaji = Penggajian::all();
+        if ($this->tglawal == null && $this->tglakhir == null) {
+            $this->upah = Penggajian::all();
+        }
         return view('livewire.laporan.gaji-pekerja', [
-            'gaji' => $this->gaji
+            'gaji' => $this->upah
         ])
             ->extends('component.template', ['title' => 'Laporan Gaji Pekerja'])
             ->section('konten');

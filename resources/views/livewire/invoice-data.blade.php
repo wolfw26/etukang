@@ -7,7 +7,7 @@
                         <select wire:model="alatsewa" name="" id="" class="form-control form-control-sm">
                             <option selected> -- Alat disewa --</option>
                             @foreach ( $alat as $sewa )
-                                <option value="{{ $sewa->id }}">{{ $sewa->deskripsi }} - {{ $sewa->tempat_sewa }} - {{ $sewa->harga_total }}</option>
+                            <option value="{{ $sewa->id }}">{{ $sewa->deskripsi }} - {{ $sewa->tempat_sewa }} - {{ $sewa->harga_total }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-4"></div>
                         <div class="col-4">
-                            <img class=" img-thumbnail img-fluid rounded" src=" {{ asset( $invoice->image_invoice) }} " alt="Invoice picture">
+                            <img class=" img-thumbnail img-fluid rounded" src=" {{ asset( $invoice->image_invoice) }} " alt="Invoice picture" style="height: 300px">
                         </div>
                     </div>
                     <div class="row">

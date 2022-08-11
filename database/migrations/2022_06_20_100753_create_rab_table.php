@@ -15,9 +15,13 @@ return new class extends Migration
     {
         Schema::create('rab', function (Blueprint $table) {
             $table->id();
+            $table->date('tanggal')->nullable();
             $table->string('nama_rab');
             $table->string('kode_rab');
             $table->integer('jumlah')->nullable();
+            $table->string('satuan')->nullable();
+            $table->date('tanggal_mulai')->nullable();
+            $table->date('tangal_selesai')->nullable();
             $table->string('status')->nullable();
             $table->foreignId('proyek_id');
             $table->timestamps();

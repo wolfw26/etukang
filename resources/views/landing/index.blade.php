@@ -60,46 +60,40 @@
     <section class="about" id="about">
         <div class="deskripsi">
             <h2>Tentang Kami</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae quam cumque esse nam! Explicabo quaerat expedita fuga temporibus, ex sequi laboriosam dolore delectus accusantium adipisci! Maiores cupiditate praesentium exercitationem repellat?Eveniet sit, natus at consequuntur dolor animi cum aut? Quod iusto, libero natus a, consequuntur fugiat laboriosam tenetur exercitationem eius cumque eveniet perferendis eligendi aliquam voluptas quaerat porro dolor vel?
-            </p>
+            @if ( $tentang && $tentang->count() > 0)
 
-            <button class="button_login_2"> <a style="text-decoration : none; font-weight : 100;" href="/login">LIHAT LEBIH LANJUT</a></button>
+
+            <p>{{ $tentang->deskripsi }}
+            </p>
+            <p class=" text-muted text-uppercase">#{{ $tentang->judul }}</p>
+
+            {{-- <button class="button_login_2"> <a style="text-decoration : none; font-weight : 100;" href="/login">LIHAT LEBIH LANJUT</a></button> --}}
         </div>
         <div class="gambar">
-            <img src="{{asset('img/landing.jpg')}}" alt="landing.jpg" class="img">
+            <img src="{{asset($tentang->gambar)}}" alt="landing.jpg" class="img">
 
         </div>
+        @endif
     </section>
-    <section class="news" id="news">
+    <section class="row" id="news">
         <h2>Hasil Pekerjaan Kami</h2>
         <div class="services-cards">
+            <div class="row">
+                @foreach ( $gambar as $r )
+                <div class="col-4">
             <div class="services-card">
-                <img src="{{asset('img/alat.jpg')}}" alt="">
+                <img src="{{asset($r->image)}}" alt="">
                 <div class="text">
-                    <h3>Daily Scrum Meeting</h3>
-                    <span>Nov 18 2018</span>
-                    <p>In Scrum, on each day of a sprint, the team holds a daily scrum meeting called the “daily scrum.” Meetings are typically held in the same location and at the same time each day.</p>
+                    <h3>{{ $r->title }}</h3>
+                    <span>{{ date('d-F-Y',strtotime($r->created_at)) }}</span>
+                    <p>{{ $r->deskripsi }}</p>
                     <hr>
                 </div>
             </div>
-            <div class="services-card">
-                <img src="{{asset('img/batik-wayang.png')}}" alt="">
-                <div class="text">
-                    <h3>We Need an Intervention</h3>
-                    <span>Nov 19 2018</span>
-                    <p>Intervention is a powerful tool families can use to help their addicted love one enter treatment. The ultimate goal is to get the person to begin treatment for the addiction.</p>
-                    <hr>
-                </div>
+        </div>
+            @endforeach
             </div>
-            <div class="services-card">
-                <img src="{{asset('img/laptop.jpg')}}" alt="">
-                <div class="text">
-                    <h3>Will Marketers Answer?</h3>
-                    <span>Nov 20 2018</span>
-                    <p>How are your contacts trending month over month? Was the time you spent creating social media graphics for that campaign worth it? And what about your email marketing efforts?</p>
-                    <hr>
-                </div>
-            </div>
+
         </div>
     </section>
     <footer>

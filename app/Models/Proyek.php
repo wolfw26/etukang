@@ -25,7 +25,7 @@ class Proyek extends Model
 
     public function pekerja()
     {
-        return $this->belongsTo(Pekerja::class);
+        return $this->belongsTo(Pekerja::class, 'pekerja_id');
     }
     public function dataproyek()
     {
@@ -52,6 +52,14 @@ class Proyek extends Model
         return $this->hasMany(GambarProyek::class, 'proyek_id', 'id');
     }
     public function material()
+    {
+        return $this->hasMany(Materialout::class, 'proyek_id');
+    }
+    public function rencanakerja()
+    {
+        return $this->hasMany(RencanaKerja::class, 'proyek_id');
+    }
+    public function materialTerpakai()
     {
         return $this->hasMany(Materialout::class, 'proyek_id');
     }

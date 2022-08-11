@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class RabController extends Controller
 {
+    public function total($data)
+    {
+        $rab = Rab::find($data);
+        $datarab = DataRab::where('rab_id', $rab->id)->get();
+        $rab->nama_rab = $rab->nama_rab;
+        $rab->jumlah = $datarab->sum('total');
+        $rab->save();
+        return redirect()->back();
+    }
     public function index()
     {
         // foreach (Rab::all() as $data) {
@@ -38,9 +47,11 @@ class RabController extends Controller
     {
         $data = $request->all();
         $rab = new Rab;
-
+        $proyek = Proyek::find($data['proyek_id']);
         $rab->nama_rab = $data['nama_rab'];
         $rab->kode_rab = $data['kode_rab'];
+        $rab->tanggal_mulai = $proyek->tanggal_mulai;
+        $rab->tangal_selesai = $proyek->tanggal_selesai;
         $rab->proyek_id = $data['proyek_id'];
         $status = $rab->save();
 
@@ -74,12 +85,16 @@ class RabController extends Controller
             'title' => 'View RAB',
             'ahs' => Ahsp::all(),
             'data' => $data,
-            'rab_id' => $rab->id
+            'rab_id' => $rab->id,
+            'rabdata' => $rab
         ]);
     }
 
     public function Tambah(Request $request, $id)
     {
+        $request->validate([
+            'volume_rab' => 'required',
+        ]);
         // dd($request);
         $data = $request->all();
         // dd($data['ahs']);
@@ -92,7 +107,7 @@ class RabController extends Controller
         $rab = new DataRab;
         $rab->rincian = $ahsp->nama_ahs;
         $rab->volume = $data['volume_rab'];
-        $rab->satuan = "";
+        $rab->satuan = $ahsp->satuan;
         $rab->harga_satuan = $ahsp->total;
         $rab->total = $data['volume_rab'] * $ahsp->total;
         $rab->rab_id = $data['rab_id'];

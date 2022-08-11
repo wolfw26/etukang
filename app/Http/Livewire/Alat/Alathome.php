@@ -75,7 +75,7 @@ class Alathome extends Component
         $alat->nama = $this->nama;
         $alat->fungsi = $this->fungsi;
         $alat->Merk = $this->Merk;
-        $alat->kepemilikan = $kepemilikan;
+        $alat->kepemilikan = $this->ceksewa;
         $alat->satuan = $this->satuan;
         $alat->harga_satuan = $this->harga_satuan;
         $alat->save();

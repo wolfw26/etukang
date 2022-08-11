@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('dataproyek', function (Blueprint $table) {
             $table->id();
-            $table->String('nama_data');
-            $table->integer('jumlah');
-            $table->integer('panjang');
-            $table->integer('lebar');
-            $table->String('satuan');
+            $table->String('keterangan');
+            $table->string('deskripsi')->nullable();
+            $table->string('lain1')->nullable();
+            $table->string('lain2')->nullable();
+            $table->foreignId('client_id')->nullable();
             $table->foreignId('proyek_id');
             $table->timestamps();
         });

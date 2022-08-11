@@ -63,6 +63,14 @@ class InvoiceSewa extends Component
             request()->session()->flash('error', 'Maaf Aksi Gagal dilakukan Dilakukan');
         }
     }
+
+    public function hapus(invoice $invoice)
+    {
+        unlink(public_path('storage/' . $invoice->image_invoice));
+        $data = data_invoice::where('invoices_id', $invoice->id);
+        $data->delete();
+        $invoice->delete();
+    }
     public function unduh(invoice $image)
     {
         return response()->download(public_path('storage/' . $image->image_invoice));

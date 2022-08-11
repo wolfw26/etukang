@@ -53,16 +53,18 @@ class Datagaji extends Component
         $this->transport = $pekerja->jabatan->transport;
         $this->harikerja = $this->absen->count();
         // lembur
-        $this->hari = $lembur->sum('jumlah');
-        $this->lembur = $lembur->count();
+        $this->hari = $lembur->count();
+        $this->lembur = $lembur->sum('jumlah');
         $this->upahLembur = $pekerja->lembur->count() * ($this->gapok / 8);
         $this->total =  $this->gapok * $this->absen->count() + ($this->lembur * $this->upahLembur) + $this->bonus - $this->potongan;
     }
     public function tambah()
     {
         $this->validate();
+        $gapok = $this->gapok + $this->makan + $this->transport;
+        $lembur = $this->lembur * $this->upahLembur;
+        $total = $gapok * $this->absen->count() + ($this->lembur * $this->upahLembur) + $this->bonus;
 
-        $total = $this->gapok * $this->absen->count() + ($this->lembur * $this->upahLembur) + $this->bonus;
         $gaji = new Penggajian;
         $gaji->tanggalAwal = $this->tglawal;
         $gaji->tanggalAkhir = $this->tglakhr;
@@ -71,6 +73,8 @@ class Datagaji extends Component
         $gaji->jabatan = $this->jabatan;
         $gaji->gapok = $this->gapok;
         $gaji->hari = $this->harikerja;
+        $gaji->lembur = $this->lembur;
+        $gaji->upah_lembur = $lembur;
         $gaji->transport = $this->transport;
         $gaji->makan = $this->makan;
         $gaji->bonus = $this->bonus;
@@ -83,10 +87,15 @@ class Datagaji extends Component
 
         $this->absen = null;
     }
+
+    public function hapus(Penggajian $data)
+    {
+        $data->delete();
+    }
     public function render()
     {
         if ($this->namaPekerja != null && $this->absen != null) {
-            $this->total =  (int)$this->gapok * (int)$this->absen->count() + ((int)$this->lembur * (int)$this->upahLembur) + (int)$this->bonus - (int)$this->potongan;
+            $this->total =  ((int)$this->gapok + (int)$this->makan + (int)$this->transport) * (int)$this->absen->count() + ((int)$this->lembur * (int)$this->upahLembur) + (int)$this->bonus - (int)$this->potongan;
             $this->sisa = $this->total - $this->dibayar;
         }
         // if ($this->lembur != null) {

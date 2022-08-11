@@ -31,6 +31,12 @@ use App\Http\Livewire\Alat\Alatrusak;
 use App\Http\Livewire\Alat\Alatsewa as AlatAlatsewa;
 use App\Http\Livewire\Alatindex;
 use App\Http\Livewire\Cetak\Alat\Masuk as AlatMasuk;
+use App\Http\Livewire\Cetak\CetakAnggaran;
+use App\Http\Livewire\Cetak\CetakBerjalan;
+use App\Http\Livewire\Cetak\CetakRencana;
+use App\Http\Livewire\Cetak\CetakRiwayat;
+use App\Http\Livewire\Cetak\Gaji;
+use App\Http\Livewire\Cetak\Invoice;
 use App\Http\Livewire\Cetak\Material\All;
 use App\Http\Livewire\Cetak\Material\Keluar;
 use App\Http\Livewire\Cetak\Material\Masuk;
@@ -42,19 +48,29 @@ use App\Http\Livewire\DataAhs;
 use App\Http\Livewire\InvoiceData;
 use App\Http\Livewire\Jabatans;
 use App\Http\Livewire\Konfirmasi;
+use App\Http\Livewire\Landingpage;
 use App\Http\Livewire\Laporan\GajiPekerja;
 use App\Http\Livewire\Laporan\Laporanalat;
+use App\Http\Livewire\Laporan\LaporanAnggaran;
+use App\Http\Livewire\Laporan\LaporanBerjalan;
 use App\Http\Livewire\Laporan\LaporanMaterial;
+use App\Http\Livewire\Laporan\LaporanRencana;
+use App\Http\Livewire\Laporan\LaporanRiwayat;
 use App\Http\Livewire\Laporan\Pembayaransewa;
 use App\Http\Livewire\MaterialIn;
 use App\Http\Livewire\MaterialOut;
+use App\Http\Livewire\Pekerja\AbsenPekerja;
 use App\Http\Livewire\Pekerja\PekerjaIndex;
+use App\Http\Livewire\Pekerja\ProyekPekerja;
+use App\Http\Livewire\Pekerja\RencanaPekerja;
 use App\Http\Livewire\Penggajian\Datagaji;
 use App\Http\Livewire\Proyek\DetailProyek;
 use App\Http\Livewire\StockMaterial;
 use App\Http\Livewire\Tukang as LivewireTukang;
 use App\Models\Alatin;
 use App\Models\Alatsewa;
+use App\Models\Landing;
+use App\Models\Tentangkami;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -70,7 +86,9 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/',  function () {
     return view('landing.index', [
-        'title' => 'HOME'
+        'title' => 'HOME',
+        'tentang' => Tentangkami::where('status', 'aktif')->first(),
+        'gambar' => Landing::all()
     ]);
 });
 Route::post('/register', [RegisterController::class, 'store'])->name('register');
@@ -82,6 +100,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('login.logout')
 Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
 
     Route::group(['prefix' => 'adm'], function () {
+
 
         Route::get('/', Home::class)->name('admin.home');
         Route::get('/tukang/', [TukangController::class, 'index'])->name('tukang');
@@ -133,6 +152,8 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         // --- LIVEWIRE ----
         //  -- LIVEWIRE --
         //   - LIVEWIRE -
+        // Landing Page
+        Route::get('landingPage', Landingpage::class)->name('home.setting');
         // Proyek Detail
         Route::get('detail/{id}', DetailProyek::class)->name('detailProyek');
         // Tukang
@@ -152,15 +173,28 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         Route::get('cetakmaterial/keluar/tglawl/{awal}/tglakhr/{akhir}', Keluar::class)->name('cetakmaterial.keluar');
         Route::get('cetakalat/masuk/tglawl/{awal}/tglakhr/{akhir}', AlatMasuk::class)->name('cetakalat.masuk');
         Route::get('cetakSewaAlat', Sewaalat::class)->name('cetakalat.sewa');
-        Route::get('cetakReancanaProyek', Sewaalat::class)->name('cetak.rencanaProyek');
-        Route::get('dataInvoice/{id}', InvoiceData::class)->name('invoice.data');
+        Route::get('cetakRencanaProyek/{proyek}', CetakRencana::class)->name('cetak.rencana');
         Route::get('cetakInvoice/{awal}/{akhir}', Sewaalat::class)->name('cetak.sewaalat');
+        Route::get('cetakAnggaran/{proyek}', CetakAnggaran::class)->name('cetak.anggaran');
+        Route::get('cetakBerjalan/{proyek}', CetakBerjalan::class)->name('cetak.berjalan');
+        Route::get('cetakRiwayat/{proyek}', CetakRiwayat::class)->name('cetak.riwayat');
+        Route::get('cetakdataInvoice/{invoice}', Invoice::class)->name('cetak.datainvoice');
+        Route::get('cetakgaji/{awal}/{akhir}', Gaji::class)->name('cetak.gaji');
 
         // LAPORAN ALAT
         Route::get('laporanAlat', Laporanalat::class)->name('laporanAlat');
         Route::get('laporanGaji', GajiPekerja::class)->name('laporanGaji');
         // LAPORAN SEWA ALAT
+        Route::get('dataInvoice/{id}', InvoiceData::class)->name('invoice.data');
         Route::get('laporanPembayaranSewa', Pembayaransewa::class)->name('laporanPembayaranSewa');
+        // Laporan Anggaran
+        Route::get('laporanAnggaran', LaporanAnggaran::class)->name('laporanAnggaran');
+        // Laporan Riwayat Proyek
+        Route::get('laporanRiwayat', LaporanRiwayat::class)->name('laporanRiwayat');
+        // Laporan  Proyek Berjalan
+        Route::get('laporanBerjalan', LaporanBerjalan::class)->name('laporanBerjalan');
+        // Laporan Rencana
+        Route::get('laporanRencana', LaporanRencana::class)->name('laporanRencana');
 
         // dataGaji
         Route::get('dataGaji', Datagaji::class)->name('datagaji');
@@ -198,6 +232,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         Route::get('/rab/d/{rab:id}/{datarab:id}/d', [RabController::class, 'trash'])->name('rab.trash');
         Route::put('/rab/{rab:id}/{datarab:id}/u', [RabController::class, 'update'])->name('rab.update');
         Route::post('/rab/add/{id}', [RabController::class, 'Tambah'])->name('rab.add');
+        Route::get('/rab/sum/{id}', [RabController::class, 'total'])->name('rab.total');
 
         Route::get('/biaya/', function () {
             return view('admin.biaya', [
@@ -229,6 +264,9 @@ Route::group(['middleware' => ['auth', 'CekLevel:client']], function () {
 Route::group(['middleware' => ['auth', 'CekLevel:ketua']], function () {
     Route::group(['prefix' => 'tukang'], function () {
         Route::get('/', PekerjaIndex::class)->name('pekerja.index');
+        Route::get('ProyekPekerja', ProyekPekerja::class)->name('pekerja.proyek');
+        Route::get('AbsenPekerja', AbsenPekerja::class)->name('pekerja.absen');
+        Route::get('RencanaPekerja', RencanaPekerja::class)->name('pekerja.rencana');
     });
 });
 // ADMIN

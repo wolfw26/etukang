@@ -195,7 +195,7 @@
                                         @if ( $gaji->sisa > 0)
                                         <a wire:click="lunas({{ $gaji->id }})" class="btn btn-sm bg-cyan"><i>Lunas</i></a>
                                         @endif
-                                        <a class="btn btn-sm"><i class="fas fa-trash text-danger"></i></a>
+                                        <a onclick="return confirm('Data Gaji {{ $gaji->nama_pekerja }} Akan di Hapus') || event.stopImmediatePropagation()" wire:click="hapus({{ $gaji->id }})" class="btn btn-sm"><i class="fas fa-trash text-danger"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach

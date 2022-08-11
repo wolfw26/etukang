@@ -40,12 +40,12 @@
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
+                <!-- <li class="nav-item d-none d-sm-inline-block">
                     <a href="index3.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
-                </li>
+                </li> -->
             </ul>
             <div class="container-fluid">
                 @yield('navbar')
@@ -59,7 +59,7 @@
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image p-2"style="height: 30%; width: 100px; ">
+                    <div class="image p-2" style="height: 30%; width: 100px; ">
                         <img style="height: 100%; width: 100%; " src="{{ asset( $pekerja->image) }}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
@@ -69,7 +69,7 @@
 
 
                 <!-- SidebarSearch Form -->
-                <div class="form-inline">
+                <!-- <div class="form-inline">
                     <div class="input-group" data-widget="sidebar-search">
                         <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
                         <div class="input-group-append">
@@ -78,17 +78,57 @@
                             </button>
                         </div>
                     </div>
-                </div>
-
+                </div> -->
+                <nav class="mt-2" id="nav">
+                    <ul class="nav nav-pills nav-sidebar flex-column mb-5" data-widget="treeview" role="menu" data-accordion="true" id="nav-item">
+                        <!-- Add icons to the links using the .nav-icon class
+                        with font-awesome or any other icon font library -->
+                        <li class="nav-header">Data</li>
+                        <li class="nav-item">
+                            <a href="/tukang/" class="nav-link">
+                                <i class="fas fa-home nav-icon"></i>
+                                <p>Home</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pekerja.proyek') }}" class="nav-link">
+                                <i class="fas fa-hammer nav-icon"></i>
+                                <p>Proyek</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pekerja.absen') }}" class="nav-link">
+                                <i class="fas fa-book nav-icon"></i>
+                                <p>Absen</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pekerja.rencana') }}" class="nav-link">
+                                <i class="fas fa-book-open nav-icon"></i>
+                                <p>Rencana Kerja</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ url('adm/proyek') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Proyek</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="nav-item fixed-bottom m-5">
                             <form action="/logout" method="POST">
                                 @csrf
-                            <button type="submit"  class="btn btn-outline-danger btn-sm "><i class="fas fa-arrow-left"></i> Log-out</button>
-                        </form>
+                                <button type="submit" class="btn btn-outline-danger btn-sm "><i class="fas fa-arrow-left"></i> Log-out</button>
+                            </form>
                         </li>
                     </ul>
                 </nav>
@@ -99,27 +139,12 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
-                        </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard v1</li>
-                            </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
+
             <!-- /.content-header -->
 
             <!-- Main content -->
             <section class="content">
-                <div class="container-fluid">
+                <div class="container-fluid p-2">
                     @yield('konten')
                 </div><!-- /.container-fluid -->
             </section>
@@ -127,7 +152,7 @@
         </div>
         <!-- /.content-wrapper -->
         {{-- <footer class="main-footer">
-          
+
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.2.0

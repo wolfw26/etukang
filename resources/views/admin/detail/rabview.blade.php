@@ -1,15 +1,20 @@
 @extends('component.template')
 @section('konten')
 <div class="container-fluid">
-
+    <div class="callout callout-info text-center">
+        <h5 class=" font-bold">Rencana Anggaran Biaya {{ $rabdata->nama_rab }} </h5>
+    </div>
     <div class="row m-2">
         <div class="col-6">
             <table class="table table-borderless">
                 <thead>
                     <tr>
                         <th scope="col">Volume</th>
+                        <th>Satuan</th>
                         <th scope="col" class="w-35 ">Pilih AHS</th>
                         <th scope="col" class="w-20 ">Aksi</th>
+                        <th scope="col"> Total</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -19,23 +24,31 @@
                             <input type="hidden" name="rab_id" id="rab_id" value="{{ $rab_id }}">
                             <td>
                                 <div class="form-floating">
-                                    <input type="text" name="volume_rab" id="volume_rab" placeholder="Volume Pekerjaan">
+                                    <input type="text" name="volume_rab" id="volume_rab" placeholder="Volume Pekerjaan" required>
                                 </div>
+                                @error( 'volume_rab')
+                                    <div class="text-danger">
+                                        <p>{{ $message }}</p>
+                                    </div>
+                                @enderror
+                            </td>
+                            <td>
+
                             </td>
                             <td>
                                 <select class="form-select form-control" id="ahs" name="ahs" required>
                                     <option class=" active" disabled>AHS</option>
                                     @foreach ( $ahs as $d )
-                                    <option value="{{ $d->id }}">{{ $d->kode_ahs }} - {{ $d->nama_ahs }}</option>
+                                    <option value="{{ $d->id }}">{{ $d->kode_ahs }} -({{ $d->satuan }}) {{ $d->nama_ahs }}</option>
                                     @endforeach
-
-
                                 </select>
                             </td>
                             <td>
                                 <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i></button>
                             </td>
                         </form>
+
+                            <th> <a href="{{ route('rab.total',$rabdata->id) }}" class="btn btn-sm bg-cyan"> </i>Total Harga</button> </th>
 
                     </tr>
                 </tbody>

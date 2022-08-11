@@ -24,4 +24,8 @@ class Rab extends Model
     {
         return $this->hasMany(Konfirmasi::class, 'konfirmasi_id', 'id');
     }
+    public function rencanakerja()
+    {
+        return $this->hasMany(RencanaKerja::class, 'rab_id');
+    }
 }

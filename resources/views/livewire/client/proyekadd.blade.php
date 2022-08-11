@@ -1,110 +1,163 @@
 <div>
+
     <div class="container p-2 shadow-2xl shadow-sm shadow-inner">
         @if ($proyek && $proyek->count() > 0)
+
+        @if ( $proyek->status == 'PERENCANAAN')
+        <div class="alert alert-default-primary text-center"> DALAM PERENCANAAN </div>
+        @elseif ( $proyek->status == 'DIKERJAKAN')
+        <div class="alert alert-default-success text-center"> DALAM PENGERJAAN </div>
+        @elseif ( $proyek->status == 'SELESAI')
+        <div class="alert alert-success text-center"> SELESAI </div>
+        @else
+        <div class="alert alert-default-info text-center"> MENUNGGU PERSETUJUAN ADMIN </div>
+        @endif
+
         <div class="row">
-            <div class="col-12">
+            <div class="col-6">
                 <div class="card card-outline card-green">
                     <div class="card-body">
                         <h2>Proyek</h2>
                         <table class="table table-border">
-                            @foreach ( $proyek as $p )
+
                             <tr>
-                                <th  style=" width : 12rem;">Nama Proyek</th>
-                                <td >:  {{ $p->nama_proyek }} </td>
+                                <th style=" width : 12rem;">Nama Proyek</th>
+                                <td>: {{ $proyek->nama_proyek }} </td>
                             </tr>
                             <tr>
-                                <th  style=" width : 12rem;">Alamat</th>
-                                <td >:  {{ $p->alamat }} </td>
+                                <th style=" width : 12rem;">Alamat</th>
+                                <td>: {{ $proyek->alamat }} </td>
                             </tr>
                             <tr>
-                                <th  style=" width : 12rem;">Jenis</th>
-                                <td >:  {{ $p->jenis_proyek }} </td>
+                                <th style=" width : 12rem;">Jenis</th>
+                                <td>: {{ $proyek->jenis_proyek }} </td>
                             </tr>
                             <tr>
-                                <th  style=" width : 12rem;">Luas</th>
-                                <td >:  {{ $p->luas_tanah }} </td>
+                                <th style=" width : 12rem;">Luas</th>
+                                <td>: {{ $proyek->luas_tanah }} </td>
                             </tr>
                             <tr>
-                                <th  style=" width : 12rem;">Lebar Rumah</th>
-                                <td >:  {{ $p->lebar_rumah }} </td>
+                                <th style=" width : 12rem;">Lebar Rumah</th>
+                                <td>: {{ $proyek->lebar_rumah }} </td>
                             </tr>
                             <tr>
-                                <th  style=" width : 12rem;">Panjang Rumah</th>
-                                <td >:  {{ $p->panjang_rumah }} </td>
+                                <th style=" width : 12rem;">Panjang Rumah</th>
+                                <td>: {{ $proyek->panjang_rumah }} </td>
                             </tr>
                             <tr>
-                                <th  style=" width : 12rem;">Satuan ukuran</th>
-                                <td >:  {{ $p->satuan }} </td>
+                                <th style=" width : 12rem;">Satuan ukuran</th>
+                                <td>: {{ $proyek->satuan }} </td>
                             </tr>
                             <tr>
-                                <th  style=" width : 12rem;">Status Proyek</th>
-                                <td >:  {{ $p->status}} </td>
+                                <th style=" width : 12rem;">Nama Tukang</th>
+                                @if ( $proyek->pekerja_id != null )
+                                <td>: {{ $proyek->pekerja->nama}} </td>
+                                @endif
                             </tr>
-                            @endforeach
+                            @if ( $proyek->status == 'SELESAI')
+                            @foreach ( $proyek->rab as $rabs )
+                                <tr>
+                                    <th style=" width : 12rem;">BIAYA :</th>
+                                    <td>: {{ 'Rp. '. number_format($rabs->jumlah)}} </td>
+                                </tr>
+                                @endforeach
+                            @endif
+
+
 
                         </table>
+                        @if ( $proyek->status == 'PERENCANAAN')
+                        <div class="alert alert-default-secondary text-center">{{ $proyek->status }}</div>
+                        @elseif ( $proyek->status == 'DIKERJAKAN')
+                        <div class="alert alert-default-success text-center">{{ $proyek->status }}</div>
+                        @elseif ( $proyek->status == 'SELESAI')
+                        <div class="alert alert-default-info text-center">{{ $proyek->status }}</div>
+                        @endif
                     </div>
                 </div>
             </div>
-            <div class="col-7">
-                
+            <div class="col-6">
+                <div class="card card-outline card-navy">
+                    <div class="row">
+                        <div class="col-12 p-3">
+                            <div class="mb-3">
+                                <label for="">Keterangan Pekerjaan</label>
+                                <input wire:model="keteranganData" type="text" placeholder="Detail Permintaan Untuk Proyek Yang akan Dibuat" class="form-control form-control-sm">
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Deskripsi</label>
+                                <div class="form-floating">
+                                    <textarea type="text" wire:model="deskripsiData" class="form-control" placeholder="Jelaskan Rincian " id="floatingTextarea"></textarea>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <a class="btn btn-sm btn-success" wire:click="tambahData({{ $proyek->id }})"><i class="fas fa-plus"></i>Tambahkan</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card card-secondary m-1 p-0 table-responsive" style="height: 30vh;">
+                                <table class="table table-bordered table-head-fixed p-0 m-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Keterangan</th>
+                                            <th>Rincian</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ( $proyek->dataproyek as $dataProyek )
+
+                                        <tr>
+                                            <td>{{ $dataProyek->keterangan }}</td>
+                                            <td>{{ $dataProyek->deskripsi }}</td>
+                                            <td>
+                                                <a wire:click="HapusData({{ $dataProyek->id }})" class="btn text-danger" title="Hapus"> <i class="fas fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @if ( $proyek && $proyek->materialTerpakai->count() > 0)
+            <div class="col-6">
                 <div class="card card-outline card-green">
                     <div class="card-body">
                         <h2>Daftar Material Proyek </h2>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">Aksi</th>
+                                    <th scope="col">Tanggal</th>
                                     <th scope="col">Kode</th>
-                                    <th scope="col">Material</th>
-                                    <th scope="col">Satuan</th>
-                                    <th scope="col">Harga Satuan</th>
-                                    <!-- <th scope="col">Stok Awal</th>
-                                    <th scope="col">Masuk</th>
-                                    <th scope="col">Keluar</th> -->
-                                    <th scope="col">Stok</th>
+                                    <th scope="col">Nama Material</th>
+                                    <th scope="col">Jumlah</th>
+
                                 </tr>
                             </thead>
                             <tbody>
 
-                                @foreach ($material as $d )
+                                @foreach ($proyek->materialTerpakai as $d )
                                 <tr>
-                                    <th scope="row">
-                                        <a href=" /adm/material/d/{{ $d->id }} " onclick="return confirm('Hapus Data   {{ $d->nama_material }} ');" class="btn btn-sm bg-danger">
-                                            <i class="fas fa-trash"></i>
-                                        </a>
-                                        <a wire:click="edit( {{ $d->id }})" data-toggle="modal" data-target="#tambahMaterial" class="btn btn-sm bg-teal">
-                                            <i class="fas fa-edit" title="Edit"></i>
-                                        </a>
-                                    </th>
+                                    <td> <u> {{ date('d-M-Y',strtotime($d->tanggal))}}</u></td>
                                     <td class="text-bold"> <u> {{ $d->kode_material}}</u></td>
                                     <td> {{ $d->nama_material}}</td>
-                                    <td>
-                                        <div class="badge badge-pill badge-success">{{ $d->satuan}}</div>
-                                    </td>
-                                    <td> {{ 'Rp.'. number_format($d->harga_satuan,2)}}</td>
-                                    <!-- <td> {{ $d->stok}}</td>
-                                    <td> {{ $d->masuk}}</td>
-                                    <td> {{ $d->keluar}}</td> -->
-                                    <td>
-                                        @if ( $d->stok_akhir < 1) <div class="badge badge-danger"> Stok Habis
-                                    </div>
-                                    @endif
-                                    <div class="badge @if ( $d->stok_akhir > 10)
-                                                            badge-success
-                                                        @elseif( $d->stok_akhir > 5)
-                                                            badge-warning
-                                                        @endif ">{{ $d->stok_akhir}}
-                                          </div>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
+                                    <td> {{ $d->jumlah}} - {{ $d->satuan }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
+                @endif
             </div>
-            <div class="col-5">
+            <div class="col-6">
                 <div class="card card-outline card-green">
                     <div class="card-body">
                         <h2>Daftar Absensi Pekerja </h2>
@@ -112,10 +165,9 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Tanggal Absen</th>
-                                    <th scope="col">Nama</th>
+                                    <th scope="col">Jumlah Pekerja</th>
                                     <th scope="col">Deskripsi</th>
-                                    <th scope="col">Lembur</th>
-                                
+
                                     <!-- <th scope="col">Stok Awal</th>
                                     <th scope="col">Masuk</th>
                                     <th scope="col">Keluar</th> -->
@@ -123,19 +175,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                           
+
                                 @foreach ($absen as $d )
                                 <tr>
-                                  
+
                                     <td class="text-bold"> <u> {{ $d->tanggal}}</u></td>
-                                    <td> ------ </td>
+                                    <td> {{ $d->datanama->count() }} </td>
                                     <td> {{ $d->deskripsi}}</td>
-                                    <td> ------ </td>
-                                 
-                                    </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
+
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -154,10 +205,10 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="mb-3">
-                                <label for="nama_proyek" class="form-label">Nama Proyek</label>
+                                <label for="nama_proyek" class="form-label">Deskripsi Pekerjaan</label>
                                 <input wire:model="nama_proyek" type="text" class="form-control form-control-sm @error('nama_proyek')
                                         is-invalid
-                                    @enderror " id="nama_proyek" placeholder="nama_proyek" required>
+                                    @enderror " id="nama_proyek" placeholder="Deskripsi Pekerjaan Yang ingin di buat" required>
                                 @error('nama_proyek')
                                 <p class="text-danger">
                                     {{ $message }}
@@ -167,6 +218,7 @@
                             <div class="mb-3">
                                 <label for="jabatan" class="form-label">Jenis Pekerjaan</label>
                                 <select wire:model="jenis_proyek" name="" id="" class="form-control form-control-sm">
+                                    <option selected>- Jenis Proyek -</option>
                                     <option value="pembangunan">Pembangunan</option>
                                     <option value="renovasi">Renovasi</option>
                                 </select>
@@ -199,7 +251,7 @@
                                 <label for="panjang_rumah" class="form-label">Panjang Rumah</label>
                                 <input wire:model="panjang_rumah" type="number" class="form-control form-control-sm @error('panjang_rumah')
                                         is-invalid
-                                    @enderror " id="panjang_rumah" placeholder="panjang_rumah" required>
+                                    @enderror " id="panjang_rumah" placeholder="panjang bangunan" required>
                                 @error('panjang_rumah')
                                 <p class="text-danger">
                                     {{ $message }}
@@ -210,7 +262,7 @@
                                 <label for="lebar_rumah" class="form-label">Lebar Rumah</label>
                                 <input wire:model="lebar_rumah" type="number" class="form-control form-control-sm @error('lebar_rumah')
                                         is-invalid
-                                    @enderror " id="lebar_rumah" placeholder="lebar_rumah" required>
+                                    @enderror " id="lebar_rumah" placeholder="lebar bangunan" required>
                                 @error('lebar_rumah')
                                 <p class="text-danger">
                                     {{ $message }}
@@ -219,7 +271,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="satuan" class="form-label">Satuan</label>
-                                <input wire:model="satuan" type="number" class="form-control form-control-sm @error('satuan')
+                                <input wire:model="satuan" type="text" class="form-control form-control-sm @error('satuan')
                                         is-invalid
                                     @enderror " id="satuan" placeholder="satuan" required>
                                 @error('satuan')

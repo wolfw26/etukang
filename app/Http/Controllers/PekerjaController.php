@@ -65,6 +65,8 @@ class PekerjaController extends Controller
 
     public function delete(Pekerja $id)
     {
+        unlink(public_path('storage/' . $id->image));
+        unlink(public_path('storage/' . $id->foto_ktp));
         $id->delete();
         return redirect()->back()->with('hapus', 'Data Di hapus');
     }

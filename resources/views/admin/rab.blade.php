@@ -2,6 +2,9 @@
 
 @section('konten')
 <div class="container p-3 ">
+    <div class="callout callout-info text-center">
+        <h5 class=" font-bold text-center">Daftar RAB</h5>
+    </div>
     <div class="row bg-gray-light p-0">
         <div class="col-12">
             <div class="card card-outline card-navy">
@@ -25,6 +28,8 @@
                                 <th scope="col" class="w-25 p-3">Nama</th>
                                 <th scope="col" class="w-25 p-3">Kode RAB</th>
                                 <th scope="col">Nama Proyek</th>
+                                <th scope="col">Total Harga</th>
+
                                 <th scope="col">Konfirmasi</th>
                             </tr>
                         </thead>
@@ -47,6 +52,7 @@
                                 <td class=" text-bold">{{ $d->kode_rab }}</td>
 
                                 <td>{{ $d->proyekrab->nama_proyek}}</td>
+                                <td>{{ 'Rp. '. number_format($d->jumlah)}}</td>
                                 <td>
                                     @if ($d->status == null)
                                     <a href="{{ route('rab.konfirmasi',$d->id) }}" class="btn btn-outline-success btn-sm" title="Konfirmasi Ke Client"> <i class=" fas fa-arrow-circle-up p-2 "></i> </a>
@@ -55,7 +61,6 @@
                                     @elseif ($d->status == 'selesai')
                                     <div class="badge badge-pill badge-primary">Menunggu Persetujuan</div>
                                     @endif
-
                                 </td>
                             </tr>
                             @endif
@@ -68,7 +73,9 @@
     </div>
 
 
-
+    <div class="callout callout-success text-center">
+        <h5 class=" font-bold">RAB Di Setujui</h5>
+    </div>
     <div class="row mt-2">
         <div class="col-12">
             <div class="card card-outline card-success">

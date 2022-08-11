@@ -9,7 +9,10 @@
                                 <tr>
                                     <th>Tanggal Awal</th>
                                     <th>Tanggal Akhir</th>
-                                    <th> <a href="" class="btn btn-sm btn-outline-warning"> <i class="fas fa-print"></i> </a> </th>
+                                    @if ( $gaji && $gaji->count() > 0)
+                                    <th> <a target="_blank" href="cetakgaji/{{ $tglawal }}/{{ $tglakhir }}" class="btn btn-sm btn-outline-warning"> <i class="fas fa-print"></i> </a> </th>
+                                    @else
+                                    @endif
                                 </tr>
                                 <tr>
                                     <td>
@@ -78,6 +81,8 @@
                             <td class=" bg-warning font-weight-bold">{{ 'Rp.' .  number_format($gaji->sum('sisa')) }}</td>
                         </tr>
                     </tbody>
+                    @else
+                    <div class="alert alert-default-primary text-center"> DATA TIDAK DITEMUKAN</div>
                     @endif
                 </table>
             </div>

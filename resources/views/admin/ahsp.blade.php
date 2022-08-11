@@ -78,6 +78,7 @@
                                                             <label for="kategori" class="form-label">kategori AHS</label>
                                                             <select valuu="{{ $d->kategori }}" name="kategori" id="kategori" class="form-control form-control-sm mb-3">
                                                                 <option value="Pekerjaan Persiapan">Pekerjaan Persiapan</option>
+                                                                <option value="Pekerjaan Tanah">Pekerjaan Tanah</option>
                                                                 <option value="Pekerjaan Pondasi">Pekerjaan Pondasi</option>
                                                                 <option value="Pekerjaan Beton">Pekerjaan Beton</option>
                                                                 <option value="Pekerjaan Pasangan Dinding">Pekerjaan Pasangan Dinding</option>
@@ -137,6 +138,7 @@
                         <div class="mb-3">
                             <select name="kategori" id="kategori" class="form-control form-control-sm mb-3">
                                 <option value="Pekerjaan Persiapan">Pekerjaan Persiapan</option>
+                                <option value="Pekerjaan Tanah">Pekerjaan Tanah</option>
                                 <option value="Pekerjaan Pondasi">Pekerjaan Pondasi</option>
                                 <option value="Pekerjaan Beton">Pekerjaan Beton</option>
                                 <option value="Pekerjaan Pasangan Dinding">Pekerjaan Pasangan Dinding</option>
