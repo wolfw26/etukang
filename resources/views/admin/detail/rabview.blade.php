@@ -2,7 +2,9 @@
 @section('konten')
 <div class="container-fluid">
     <div class="callout callout-info text-center">
-        <h5 class=" font-bold">Rencana Anggaran Biaya {{ $rabdata->nama_rab }} </h5>
+        <h5 class=" font-bold">{{ $rabdata->nama_rab }} </h5>
+        <h5 class=" text-muted text-center"> Lebar : {{ $proyek->lebar_rumah }} {{ $proyek->satuan }}</h5>
+        <h5 class=" text-muted text-center"> Panjang : {{ $proyek->panjang_rumah }} {{ $proyek->satuan }}</h5>
     </div>
     <div class="row m-2">
         <div class="col-6">
@@ -14,7 +16,6 @@
                         <th scope="col" class="w-35 ">Pilih AHS</th>
                         <th scope="col" class="w-20 ">Aksi</th>
                         <th scope="col"> Total</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -27,9 +28,9 @@
                                     <input type="text" name="volume_rab" id="volume_rab" placeholder="Volume Pekerjaan" required>
                                 </div>
                                 @error( 'volume_rab')
-                                    <div class="text-danger">
-                                        <p>{{ $message }}</p>
-                                    </div>
+                                <div class="text-danger">
+                                    <p>{{ $message }}</p>
+                                </div>
                                 @enderror
                             </td>
                             <td>
@@ -47,9 +48,7 @@
                                 <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i></button>
                             </td>
                         </form>
-
-                            <th> <a href="{{ route('rab.total',$rabdata->id) }}" class="btn btn-sm bg-cyan"> </i>Total Harga</button> </th>
-
+                        <th> <a href="{{ route('rab.total',$rabdata->id) }}" class="btn btn-sm bg-cyan"> </i>Total Harga</button> </th>
                     </tr>
                 </tbody>
             </table>
@@ -85,8 +84,8 @@
                         <td>{{ $d->rincian }}</td>
                         <td>{{ $d->volume }}</td>
                         <td>{{ $d->satuan }}</td>
-                        <td>{{'Rp. '. number_format($d->harga_satuan,2) }}</td>
-                        <td>{{'Rp. '. number_format($d->total,2) }}</td>
+                        <td>{{'Rp. '. number_format($d->harga_satuan) }}</td>
+                        <td>{{'Rp. '. number_format($d->total) }}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -94,7 +93,7 @@
             <div class="container-fluid border border-dark">
                 <div class="row">
                     <div class="col-10 text-bold">Total Upah</div>
-                    <div class="col-2 text-bold  bg-gradient-secondary text-center"> {{'Rp. '.number_format( $data->sum('total'),2 )}} </div>
+                    <div class="col-2 text-bold  bg-gradient-secondary text-center"> {{'Rp. '.number_format( $data->sum('total') )}} </div>
                 </div>
 
             </div>

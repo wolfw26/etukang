@@ -4,12 +4,26 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Material;
+use Livewire\WithFileUploads;
+use App\Imports\MaterialImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Materialwire extends Component
 {
+    use WithFileUploads;
+    public $import;
     public $cari, $idAhsp, $materialall;
     public $kode, $material, $satuan, $harga;
 
+
+    public function importnow()
+    {
+        // $data = $this->import;
+        // $namafile = $data->getClientOriginalName();
+        // $data->store('MaterialData');
+        Excel::import(new MaterialImport, $this->import);
+        $this->import = null;
+    }
 
     public function edit(Material $id)
     {
@@ -40,7 +54,7 @@ class Materialwire extends Component
     {
         return view('livewire.materialwire', [
             'data' => Material::latest()->where('kode_material', 'like', '%' . $this->cari . '%')
-                ->orWhere('nama_material', 'like', '%' . $this->cari . '%')->paginate(7)
+                ->orWhere('nama_material', 'like', '%' . $this->cari . '%')->paginate(20)
         ])
             ->extends('component.template')
             ->section('konten');

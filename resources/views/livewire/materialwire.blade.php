@@ -18,8 +18,9 @@
         </div>
         <div class="col-6"></div>
         <div class="col">
-            <button class="btn bg-gradient-primary  shadow-md" data-toggle="modal" data-target="#TambahMaterial">Tambah</button>
-            <a target="_blank" href=" {{ route('material.cetakall') }} " class="btn btn-outline-warning"> <i class="fas fa-print shadow-md"></i> </a>
+            <button class="btn bg-gradient-success  shadow-md" data-toggle="modal" data-target="#TambahMaterial">Tambah</button>
+            <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#import">Import</button>
+            {{-- <a target="_blank" href=" {{ route('material.cetakall') }} " class="btn btn-outline-warning"> <i class="fas fa-print shadow-md"></i> </a> --}}
         </div>
 
     </div>
@@ -115,6 +116,23 @@
                     <button wire:click="editMaterial" type="submit" class="btn btn-primary">Tambah</button>
                 </div>
                 <!-- </form> -->
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div wire:ignore.self class="modal fade" id="import" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Import Data</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">x</button>
+                </div>
+                <div class="modal-body">
+                    <input wire:model="import" type="file" name="" id="">
+                </div>
+                <div class="modal-footer">
+                    <button wire:click="importnow" type="button" class="btn btn-primary">Import</button>
+                </div>
             </div>
         </div>
     </div>

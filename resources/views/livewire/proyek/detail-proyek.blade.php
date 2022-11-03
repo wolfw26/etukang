@@ -55,7 +55,7 @@
                                         <td>{{ $proyek->luas_tanah }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Panjang Bangunan : <br> Lebar Bangunan </th>
+                                        <th>Panjang : <br> Lebar : </th>
                                         <td>{{ $proyek->panjang_rumah }} <br> {{ $proyek->lebar_rumah }}</td>
                                     </tr>
                                     <tr>
@@ -151,7 +151,6 @@
                             <div class="col-7">
                                 <div class="row m-2">
                                     <div class="col-4">
-                                        {{ $pekerjaan }}
                                         <select wire:model="pekerjaan" name="" id="" class="form-control form-control-sm">
                                             <option selected>Tambah Rencana Kerja</option>
                                             @if ( $rab && $rab->count() > 0)
@@ -439,6 +438,8 @@
     </div>
 </div>
 </div>
+
+
 <!-- Modal -->
 <div wire:ignore.self class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

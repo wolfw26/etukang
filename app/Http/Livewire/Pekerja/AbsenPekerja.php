@@ -77,7 +77,8 @@ class AbsenPekerja extends Component
     }
     public function render()
     {
-        if ($this->proyek && $this->proyek > 0) {
+
+        if ($this->proyek && $this->proyek->count() > 0) {
             $absen = Absen::where('proyek_id', $this->proyek->id)->get();
         } else {
             $absen = [];

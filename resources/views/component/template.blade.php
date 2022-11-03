@@ -546,6 +546,14 @@
 
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('material.suplier') }}" class="nav-link">
+                                <i class="fas fa-hammer nav-icon"></i>
+                                <p>
+                                    Suplier
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ url('adm/rab/') }}" class="nav-link">
                                 <i class="fas fa-hammer nav-icon"></i>
                                 <p>

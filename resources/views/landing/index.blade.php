@@ -31,6 +31,7 @@
                         <li><a class="page-scroll" href="#home">Home</a></li>
                         <li><a class="page-scroll" href="#about">About Us</a></li>
                         <li><a class="page-scroll" href="#news">Portofolio</a></li>
+                        <li><a class="page-scroll" href="{{ route('cekharga') }}">Cek Harga Rumah</a></li>
                     </ul>
                 </div>
             </div>
@@ -48,7 +49,7 @@
                 <br>
                 <p class="small">Bersama Kami Membangun Negeri</p>
                 {{-- <button class="button_login"> --}}
-                    <a class="badge  badge-pill badge-warning"  style="text-decoration : none; font-weight : 50;" href="/login">MASUK</a>
+                <a class="badge  badge-pill badge-warning" style="text-decoration : none; font-weight : 50;" href="/login">MASUK</a>
                 {{-- </button> --}}
                 {{-- <p class="arab">>بسم الله الرحمن الرحيم --}}
 
@@ -75,27 +76,31 @@
         </div>
         @endif
     </section>
-    <section class="row" id="news">
+    <section class="news" id="news">
         <h2>Hasil Pekerjaan Kami</h2>
         <div class="services-cards">
             <div class="row">
                 @foreach ( $gambar as $r )
-                <div class="col-4">
-            <div class="services-card">
-                <img src="{{asset($r->image)}}" alt="">
-                <div class="text">
-                    <h3>{{ $r->title }}</h3>
-                    <span>{{ date('d-F-Y',strtotime($r->created_at)) }}</span>
-                    <p>{{ $r->deskripsi }}</p>
-                    <hr>
+                <div class="col-4 m-5">
+                    <div class="services-card">
+                        <img src="{{asset($r->image)}}" alt="">
+                        <div class="text">
+                            <h3>{{ $r->title }}</h3>
+                            <span>{{ date('d-F-Y',strtotime($r->created_at)) }}</span>
+                            <p>{{ $r->deskripsi }}</p>
+                            <hr>
+                        </div>
+                    </div>
                 </div>
+                @endforeach
             </div>
-        </div>
-            @endforeach
-            </div>
-
         </div>
     </section>
+    <div class="row">
+        <div class="col-12">
+                    @livewire('cek-harga')
+        </div>
+    </div>
     <footer>
         <div>
             E<span style="font-size:42px;font-weight : 100;"> Tukang_</span>

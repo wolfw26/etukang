@@ -54,14 +54,14 @@
                                 <td>: {{ $proyek->pekerja->nama}} </td>
                                 @endif
                             </tr>
-                            @if ( $proyek->status == 'SELESAI')
+                            {{-- @if ( $proyek->status == 'SELESAI')
                             @foreach ( $proyek->rab as $rabs )
                                 <tr>
                                     <th style=" width : 12rem;">BIAYA :</th>
                                     <td>: {{ 'Rp. '. number_format($rabs->jumlah)}} </td>
                                 </tr>
                                 @endforeach
-                            @endif
+                            @endif --}}
 
 
 

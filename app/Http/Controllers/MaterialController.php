@@ -10,6 +10,11 @@ use Illuminate\Routing\Route;
 
 class MaterialController extends Controller
 {
+    public function materialapi()
+    {
+        $data = Material::all();
+        return response()->json($data, 200);
+    }
     public function index()
     {
         return view('admin.material', [

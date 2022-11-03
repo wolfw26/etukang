@@ -66,7 +66,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">Aksi</th>
+                            {{-- <th scope="col">Aksi</th> --}}
                             <th scope="col">Tanggal</th>
                             <th scope="col">Kode</th>
                             <th scope="col">Material</th>
@@ -74,19 +74,20 @@
                             <th scope="col">Jumlah</th>
                             <th scope="col">Satuan</th>
                             <th scope="col">Harga Satuan</th>
+                            <th scope="col">Suplier</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ( $materialin as $m )
                         <tr>
-                            <th scope="row">
+                            {{-- <th scope="row">
                                 <a wire:click="hapus({{ $m->id }})" onclick="return confirm('Hapus Data {{ $m->nama_material }}  ');" class="btn btn-sm bg-danger">
                                     <i class="fas fa-trash"></i>
                                 </a>
                                 <a wire:click="edit({{ $m->id }})" href="" class="btn btn-sm bg-teal">
                                     <i class="fas fa-edit" title="Edit"></i>
                                 </a>
-                            </th>
+                            </th> --}}
                             <td> <i>{{ date('d F Y', strtotime($m->tanggal)) }}</i> </td>
                             <td>{{ $m->kode_material }}</td>
                             <td>{{ $m->nama_material }} </td>
@@ -98,6 +99,10 @@
                                 <div class="badge badge-pill badge-success">{{ $m->satuan }}</div>
                             </td>
                             <td>Rp. {{ number_format($m->harga_satuan,2) }} </td>
+                            <td>
+                                @if ( $m->suplier && $m->suplier->count() > 0)
+                                {{ $m->suplier->nama }}</td>
+                                @endif
                         </tr>
                         @endforeach
                     </tbody>
@@ -167,6 +172,17 @@
                     <label for="satuan">Harga Satuan</label> <br>
                     <div class="input-group input-group-sm ">
                         <input wire:model="harga_satuan" type="number" class="form-control" id="satuan" name="satuan">
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <label for="satuan">Suplier</label> <br>
+                    <div class="input-group input-group-sm ">
+                        <select wire:model="sup" name="" id="" class="form-control form-control-sm">
+                            <option selected>-- Pilih Suplier --</option>
+                            @foreach ( $suplier as $s )
+                            <option value="{{ $s->id }}">{{ $s->kode }} - {{ $s->nama }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
             </div>

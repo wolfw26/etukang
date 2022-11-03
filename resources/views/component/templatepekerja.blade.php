@@ -108,6 +108,12 @@
                                 <p>Rencana Kerja</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pekerja.komplain') }}" class="nav-link">
+                                <i class="fas fa-book-open nav-icon"></i>
+                                <p>Komplain</p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
 

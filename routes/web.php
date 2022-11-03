@@ -1,77 +1,81 @@
 <?php
 
-use app\Http\Middleware;
+use App\Models\Alatin;
 use App\Models\Client;
 use App\Models\Proyek;
 use App\Models\Tukang;
+use App\Models\Landing;
 use App\Models\Pekerja;
+use app\Http\Middleware;
+use App\Models\Alatsewa;
+use App\Models\Tentangkami;
+use App\Http\Livewire\DataAhs;
+use App\Http\Livewire\Suplier;
+use App\Http\Livewire\CekHarga;
+use App\Http\Livewire\Jabatans;
+use App\Http\Livewire\Absendata;
+use App\Http\Livewire\Alatindex;
+use App\Http\Livewire\Admin\Home;
+use App\Http\Livewire\Cetak\Gaji;
+use App\Http\Livewire\Konfirmasi;
+use App\Http\Livewire\MaterialIn;
+use App\Http\Livewire\InvoiceData;
+use App\Http\Livewire\Landingpage;
+use App\Http\Livewire\MaterialOut;
 use Illuminate\Routing\Controller;
+use App\Http\Livewire\Absen\Absensi;
+use App\Http\Livewire\Alat\Alathome;
+use App\Http\Livewire\Cetak\Invoice;
+use App\Http\Livewire\StockMaterial;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Livewire\Alat\Alatrusak;
+use App\Http\Livewire\Cetak\Sewaalat;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Client\Komplain;
 use App\Http\Controllers\AhsController;
 use App\Http\Controllers\RabController;
+use App\Http\Livewire\Client\Proyekadd;
 use App\Http\Controllers\AhspController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\LoginController;
+use App\Http\Livewire\Cetak\CetakRencana;
+use App\Http\Livewire\Cetak\CetakRiwayat;
+use App\Http\Livewire\Cetak\Material\All;
+use App\Http\Livewire\Client\Rab\RabHome;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProyekController;
 use App\Http\Controllers\TukangController;
+use App\Http\Livewire\Cetak\CetakAnggaran;
+use App\Http\Livewire\Cetak\CetakBerjalan;
+use App\Http\Livewire\Laporan\GajiPekerja;
+use App\Http\Livewire\Laporan\Laporanalat;
+use App\Http\Livewire\Penggajian\Datagaji;
+use App\Http\Livewire\Proyek\DetailProyek;
 use App\Http\Controllers\DataAhsController;
 use App\Http\Controllers\PekerjaController;
+use App\Http\Livewire\Cetak\Material\Masuk;
+use App\Http\Livewire\Pekerja\AbsenPekerja;
+use App\Http\Livewire\Pekerja\PekerjaIndex;
 use App\Http\Controllers\AhspdataController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Livewire\Absen\Absensi;
-use App\Http\Livewire\Absendata;
-use App\Http\Livewire\Admin\Home;
-use App\Http\Livewire\Alat\Alathome;
-use App\Http\Livewire\Alat\Alatin as AlatAlatin;
-use App\Http\Livewire\Alat\Alatindex as AlatAlatindex;
-use App\Http\Livewire\Alat\Alatrusak;
-use App\Http\Livewire\Alat\Alatsewa as AlatAlatsewa;
-use App\Http\Livewire\Alatindex;
-use App\Http\Livewire\Cetak\Alat\Masuk as AlatMasuk;
-use App\Http\Livewire\Cetak\CetakAnggaran;
-use App\Http\Livewire\Cetak\CetakBerjalan;
-use App\Http\Livewire\Cetak\CetakRencana;
-use App\Http\Livewire\Cetak\CetakRiwayat;
-use App\Http\Livewire\Cetak\Gaji;
-use App\Http\Livewire\Cetak\Invoice;
-use App\Http\Livewire\Cetak\Material\All;
 use App\Http\Livewire\Cetak\Material\Keluar;
-use App\Http\Livewire\Cetak\Material\Masuk;
-use App\Http\Livewire\Cetak\Sewaalat;
-use App\Http\Livewire\Client\Client as ClientClient;
-use App\Http\Livewire\Client\Proyekadd;
-use App\Http\Livewire\Client\Rab\RabHome;
-use App\Http\Livewire\DataAhs;
-use App\Http\Livewire\InvoiceData;
-use App\Http\Livewire\Jabatans;
-use App\Http\Livewire\Konfirmasi;
-use App\Http\Livewire\Landingpage;
-use App\Http\Livewire\Laporan\GajiPekerja;
-use App\Http\Livewire\Laporan\Laporanalat;
-use App\Http\Livewire\Laporan\LaporanAnggaran;
-use App\Http\Livewire\Laporan\LaporanBerjalan;
-use App\Http\Livewire\Laporan\LaporanMaterial;
+use App\Http\Livewire\Pekerja\ProyekPekerja;
 use App\Http\Livewire\Laporan\LaporanRencana;
 use App\Http\Livewire\Laporan\LaporanRiwayat;
 use App\Http\Livewire\Laporan\Pembayaransewa;
-use App\Http\Livewire\MaterialIn;
-use App\Http\Livewire\MaterialOut;
-use App\Http\Livewire\Pekerja\AbsenPekerja;
-use App\Http\Livewire\Pekerja\PekerjaIndex;
-use App\Http\Livewire\Pekerja\ProyekPekerja;
 use App\Http\Livewire\Pekerja\RencanaPekerja;
-use App\Http\Livewire\Penggajian\Datagaji;
-use App\Http\Livewire\Proyek\DetailProyek;
-use App\Http\Livewire\StockMaterial;
+use App\Http\Livewire\Laporan\LaporanAnggaran;
+use App\Http\Livewire\Laporan\LaporanBerjalan;
+use App\Http\Livewire\Laporan\LaporanMaterial;
 use App\Http\Livewire\Tukang as LivewireTukang;
-use App\Models\Alatin;
-use App\Models\Alatsewa;
-use App\Models\Landing;
-use App\Models\Tentangkami;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Livewire\Alat\Alatin as AlatAlatin;
+use App\Http\Livewire\Alat\Alatsewa as AlatAlatsewa;
+use App\Http\Livewire\Cetak\Alat\Masuk as AlatMasuk;
+use App\Http\Livewire\Client\Client as ClientClient;
+use App\Http\Livewire\Alat\Alatindex as AlatAlatindex;
+use App\Http\Livewire\Pekerja\Komplain as PekerjaKomplain;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,13 +88,17 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/',  function () {
-    return view('landing.index', [
-        'title' => 'HOME',
-        'tentang' => Tentangkami::where('status', 'aktif')->first(),
-        'gambar' => Landing::all()
-    ]);
+// Route::get('/',  function () {
+//     return view('landing.index', [
+//         'title' => 'HOME',
+//         'tentang' => Tentangkami::where('status', 'aktif')->first(),
+//         'gambar' => Landing::all()
+//     ]);
+// });
+Route::get('/', function () {
+    return view('landing-page.landingPage');
 });
+Route::get('cekharga', CekHarga::class)->name('cekharga');
 Route::post('/register', [RegisterController::class, 'store'])->name('register');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/', [LoginController::class, 'login'])->name('login.log');
@@ -234,6 +242,9 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         Route::post('/rab/add/{id}', [RabController::class, 'Tambah'])->name('rab.add');
         Route::get('/rab/sum/{id}', [RabController::class, 'total'])->name('rab.total');
 
+        // Suplier
+        Route::get('suplier', Suplier::class)->name('material.suplier');
+
         Route::get('/biaya/', function () {
             return view('admin.biaya', [
                 'title' => 'HOME'
@@ -248,6 +259,8 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
 });
 
 
+// CLIENT
+
 Route::group(['middleware' => ['auth', 'CekLevel:client']], function () {
     Route::group(['prefix' => 'client'], function () {
         // Route::get('/', function () {
@@ -258,15 +271,18 @@ Route::group(['middleware' => ['auth', 'CekLevel:client']], function () {
         Route::get('/', ClientClient::class)->name('client.home');
         Route::get('/rab/', RabHome::class)->name('rab.home');
         Route::get('/proyek/', Proyekadd::class)->name('client.proyek');
+        Route::get('/komplain/', Komplain::class)->name('client.komplain');
     });
 });
 
+// PEKERJA
 Route::group(['middleware' => ['auth', 'CekLevel:ketua']], function () {
     Route::group(['prefix' => 'tukang'], function () {
         Route::get('/', PekerjaIndex::class)->name('pekerja.index');
         Route::get('ProyekPekerja', ProyekPekerja::class)->name('pekerja.proyek');
         Route::get('AbsenPekerja', AbsenPekerja::class)->name('pekerja.absen');
         Route::get('RencanaPekerja', RencanaPekerja::class)->name('pekerja.rencana');
+        Route::get('Komplain', PekerjaKomplain::class)->name('pekerja.komplain');
     });
 });
 // ADMIN

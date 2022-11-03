@@ -58,6 +58,7 @@
                         <div class="card-header border-bottom-0 text-center" style="color: #cc3300; font-weight:700">
                             {{ $d->nama_proyek }}
                         </div>
+
                         <div class="card-body pt-0 ">
 
                             <div class="text-center">
@@ -68,21 +69,24 @@
                                 <p class="text-muted text-sm"><b>Pemilik: </b> {{ $d->client->nama }} </p><br>
                                 <ul class="ml-4 mb-0 fa-ul text-muted">
                                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Alamat: {{ $d->alamat }}</li>
-                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Telp #: {{ $d->client->no_telp }}</li>
+                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Telp : {{ $d->client->no_telp }}</li>
                                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-home"></i></span> Status:
                                         @if ( $d->status == 'SELESAI' )
                                         <div class="badge badge-success"> SELESAI</div>
-                                    @else
+                                        @else
                                         {{ $d->status }}
-                                    @endif </li>
+                                        @endif
+                                    </li>
                                 </ul>
+
                             </div>
+                            <h5 class=" font-italic text-muted text-center">{{ date('d-F-Y',strtotime($d->created_at)) }}</h5>
                         </div>
                         <div class="card-footer">
                             <div class="text-right">
                                 @if ( $d->status == 'SELESAI')
 
-                                <a  class="btn bg-success btn-sm">{{ $d->status }}</a>
+                                <a class="btn bg-success btn-sm">{{ $d->status }}</a>
                                 @endif
                                 {{-- <a href="" class="btn  " title="Tambah Pemakian Material">
                                     Material

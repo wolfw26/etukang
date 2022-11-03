@@ -49,7 +49,7 @@
                                     </a>
                                 </th>
                                 <td>{{ $d->nama_rab }}</td>
-                                <td class=" text-bold">{{ $d->kode_rab }}</td>
+                                <td class=" text-bold">{{ $d->kode_rab }} <br> {{ $d->proyekrab->client->nama }}</td>
 
                                 <td>{{ $d->proyekrab->nama_proyek}}</td>
                                 <td>{{ 'Rp. '. number_format($d->jumlah)}}</td>
@@ -146,7 +146,7 @@
                     <select class="form-control form-select m-1" id="proyek_id" name="proyek_id">
                         <option selected>Pilih Proyek</option>
                         @foreach ( $proyek as $p )
-                        <option value="{{ $p->id }}">{{ $p->nama_proyek }}</option>
+                        <option value="{{ $p->id }}">{{ $p->nama_proyek }} {{ '('. $p->client->nama . ')' }}</option>
                         @endforeach
                     </select>
                 </div>

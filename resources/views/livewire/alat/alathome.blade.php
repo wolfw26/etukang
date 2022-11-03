@@ -458,7 +458,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <div wire:click="update({{ $alat->id }})" class="mb-3 text-center">
+                                                    <div wire:click="update({{ $sewas->id }})" class="mb-3 text-center">
                                                         <button class="btn btn-outline-success mt-3">Update</button>
                                                     </div>
                                                 </div>

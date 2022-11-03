@@ -41,4 +41,7 @@
             </div>
         </div>
     </div>
+    <script>
+        window.print();
+    </script>
 </div>

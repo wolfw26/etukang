@@ -60,7 +60,7 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">Aksi</th>
+                                    {{-- <th scope="col">Aksi</th> --}}
                                     <th scope="col">Kode</th>
                                     <th scope="col">Material</th>
                                     <th scope="col">Satuan</th>
@@ -75,14 +75,14 @@
 
                                 @foreach ($data as $d )
                                 <tr>
-                                    <th scope="row">
+                                    {{-- <th scope="row">
                                         <a href=" /adm/material/d/{{ $d->id }} " onclick="return confirm('Hapus Data   {{ $d->nama_material }} ');" class="btn btn-sm bg-danger">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                         <a wire:click="edit( {{ $d->id }})" data-toggle="modal" data-target="#tambahMaterial" class="btn btn-sm bg-teal">
                                             <i class="fas fa-edit" title="Edit"></i>
                                         </a>
-                                    </th>
+                                    </th> --}}
                                     <td class="text-bold"> <u> {{ $d->kode_material}}</u></td>
                                     <td> {{ $d->nama_material}}</td>
                                     <td>

@@ -1,5 +1,6 @@
 <div>
-    @if ( $proyek && $Proyek->count() > 0)
+
+    @if ( $proyek && $proyek->count() > 0)
     <div class="container">
         <div class="card card-default elevation-2">
             <div class="card-body p-1">

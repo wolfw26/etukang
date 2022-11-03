@@ -86,7 +86,9 @@ class RabController extends Controller
             'ahs' => Ahsp::all(),
             'data' => $data,
             'rab_id' => $rab->id,
-            'rabdata' => $rab
+            'rabdata' => $rab,
+            'proyek' => $rab->proyekrab
+
         ]);
     }
 

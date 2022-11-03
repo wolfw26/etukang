@@ -1,0 +1,131 @@
+:root {
+  --Inter: "Inter", sans-serif;
+  --DMSans: "DM Sans", sans-serif;
+  --Opensans: "Open Sans", sans-serif;
+  --Poppins: "Poppins", sans-serif;
+  --Rancho: "Rancho", cursive;
+  --Merri: "Merriweather", serif;
+  --MainColor: #232536;
+  --Kuning: #ffd050;
+  --Ungu: #592ea9;
+  --Darkgray: #4c4c4c;
+  --MediumGray: #6d6e76;
+  --Lightyellow: #fbf6ea;
+  --Lavender: #f4f0f8;
+}
+
+a {
+  text-decoration: none;
+}
+body {
+  width: 1530px;
+  margin: 0;
+  padding: 0;
+  color: lightskyblue;
+}
+.container .nav-bar {
+  width: 100%;
+  display: flex;
+  padding: 3px;
+  background: var(--MainColor);
+  position: relative;
+}
+
+.container .nav-bar .logo {
+  position: relative;
+  left: 25px;
+  font-family: var(--Inter);
+  font-size: 15px;
+}
+.container .nav-bar .logo h2 {
+  font-weight: 400;
+  font-size: 25px;
+  color: var(--Lavender);
+}
+.container .nav-bar .menu {
+  padding: 20px;
+  position: relative;
+  left: 35%;
+}
+.container .nav-bar .menu a {
+  margin: 10px;
+  font-family: var(--Poppins);
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--Lavender);
+}
+.container .nav-bar .menu a:hover {
+  border-bottom: 1px solid var(--Lavender);
+}
+.container .nav-bar .menu button {
+  height: 30px;
+  background: var(--MainColor);
+  border: 1px solid white;
+  color: var(--Lavender);
+  margin-left: 10px;
+  border-radius: 5px;
+}
+.container .nav-bar .menu button:hover {
+  background: var(--Lavender);
+  transition: 0.5s;
+}
+.container .nav-bar .menu button:hover a {
+  color: var(--MainColor);
+  transition: 0.5s;
+}
+header {
+  width: 100%;
+  background-position: right;
+  background-image: url("img-landing/house.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 90vh;
+}
+header .card-header {
+  background: rgba(128, 128, 128, 0.195);
+  width: 600px;
+  height: auto;
+  position: relative;
+  left: 5%;
+  top: 20%;
+  padding: 10px;
+  /* border-radius: 5px;
+  box-shadow: 2px 2px 3px var(--Lavender); */
+}
+header .card-header h2 {
+  font-size: 40px;
+  text-shadow: 2px 2px 1px white;
+  color: var(--Kuning);
+  font-weight: 800;
+  font-family: var(--Poppins);
+  letter-spacing: 5px;
+  line-height: 35px;
+}
+header .card-header span {
+  color: black;
+  font-size: 18px;
+  font-family: var(--Opensans);
+  font-weight: 900;
+  line-height: 35px;
+  text-shadow: 2px 2px 4px var(--Lightyellow);
+}
+header button {
+  background: var(--MainColor);
+  height: 40px;
+  width: 200px;
+  position: relative;
+  left: 15%;
+  top: 25%;
+  font-weight: 700;
+  font-family: var(--Merri);
+  border-radius: 10px;
+}
+header button a {
+  color: white;
+}
+header button:hover {
+  background: var(--Kuning);
+}
+header button:hover a {
+  color: var(--MainColor);
+}

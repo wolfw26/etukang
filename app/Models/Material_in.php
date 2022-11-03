@@ -15,4 +15,8 @@ class Material_in extends Model
     {
         return $this->belongsTo(Material::class);
     }
+    public function suplier()
+    {
+        return $this->belongsTo(Suplier::class, 'suplier_id', 'id');
+    }
 }

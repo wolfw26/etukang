@@ -24,4 +24,8 @@ class Material extends Model
     {
         return $this->hasMany(Stok::class, 'material_id');
     }
+    public function suplier()
+    {
+        $this->belongsTo(Suplier::class, 'id');
+    }
 }

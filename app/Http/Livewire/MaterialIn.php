@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Material;
 use App\Models\Material_in;
 use App\Models\Stok;
+use App\Models\Suplier;
 
 class MaterialIn extends Component
 {
@@ -19,7 +20,7 @@ class MaterialIn extends Component
     public $jumlah;
     public $satuan;
     public $harga_satuan;
-    public $pilihcetak;
+    public $pilihcetak, $sup;
 
 
     protected $rules = [
@@ -62,6 +63,7 @@ class MaterialIn extends Component
         // }
 
         return view('livewire.material-in', [
+            'suplier' => Suplier::all(),
             'materialw' => $data,
             'materialtgl' => $data2,
             'material' => Material::all(),
@@ -84,7 +86,8 @@ class MaterialIn extends Component
             'stok_awal' => $this->data->stok_akhir,
             'harga_satuan' => $this->harga_satuan,
             'total' => $this->jumlah * $this->harga_satuan,
-            'material_id' => $this->dropdown
+            'material_id' => $this->dropdown,
+            'suplier_id' => $this->sup
         ]);
 
         $data = $this->data;
@@ -114,6 +117,7 @@ class MaterialIn extends Component
         $this->jumlah = null;
         $this->satuan = null;
         $this->harga_satuan = null;
+        $this->sup = null;
     }
     public function hapus(Material_in $id)
     {

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer('harga_satuan');
             $table->integer('total')->nullable();
             $table->foreignId('material_id');
+            $table->foreignId('suplier_id');
             $table->timestamps();
         });
     }
