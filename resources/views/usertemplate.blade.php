@@ -56,6 +56,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="nav-item">
                             <a href="{{ route('client.pekerjaan') }}" class="nav-link">Pekerjaan</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('client.monitoring') }}" class="nav-link">Monitoring</a>
+                        </li>
 
                     </ul>
 

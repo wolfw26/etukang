@@ -39,6 +39,7 @@ use App\Http\Controllers\AhspController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\userController;
 use App\Http\Livewire\Client\HasilKerja;
+use App\Http\Livewire\Client\Monitoring;
 use App\Http\Controllers\LoginController;
 use App\Http\Livewire\Cetak\CetakRencana;
 use App\Http\Livewire\Cetak\CetakRiwayat;
@@ -280,6 +281,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:client']], function () {
         Route::get('/proyek/', Proyekadd::class)->name('client.proyek');
         Route::get('/komplain/', Komplain::class)->name('client.komplain');
         Route::get('/pekerjaan/', HasilKerja::class)->name('client.pekerjaan');
+        Route::get('/monitoring/', Monitoring::class)->name('client.monitoring');
     });
 });
 
