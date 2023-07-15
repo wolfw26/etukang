@@ -11,4 +11,9 @@ class Komplain extends Model
 
     protected $guarded = ['id'];
     protected $table = 'komplains';
+
+    public function Client()
+    {
+        return $this->hasMany(Client::class);
+    }
 }

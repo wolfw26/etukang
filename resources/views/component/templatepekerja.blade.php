@@ -114,6 +114,12 @@
                                 <p>Komplain</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('pekerja.laporan') }}" class="nav-link">
+                                <i class="fas fa-book-open nav-icon"></i>
+                                <p>LAPORAN HARIAN</p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
 

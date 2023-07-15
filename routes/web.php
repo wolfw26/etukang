@@ -38,6 +38,7 @@ use App\Http\Livewire\Client\Proyekadd;
 use App\Http\Controllers\AhspController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\userController;
+use App\Http\Livewire\Client\HasilKerja;
 use App\Http\Controllers\LoginController;
 use App\Http\Livewire\Cetak\CetakRencana;
 use App\Http\Livewire\Cetak\CetakRiwayat;
@@ -61,7 +62,9 @@ use App\Http\Controllers\AhspdataController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Livewire\Cetak\Material\Keluar;
+use App\Http\Livewire\Pekerja\LaporanHarian;
 use App\Http\Livewire\Pekerja\ProyekPekerja;
+use App\Http\Controllers\pengaduanController;
 use App\Http\Livewire\Laporan\LaporanRencana;
 use App\Http\Livewire\Laporan\LaporanRiwayat;
 use App\Http\Livewire\Laporan\Pembayaransewa;
@@ -242,6 +245,10 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
         Route::post('/rab/add/{id}', [RabController::class, 'Tambah'])->name('rab.add');
         Route::get('/rab/sum/{id}', [RabController::class, 'total'])->name('rab.total');
 
+        // PENGADUAN
+        Route::get('/pengaduan', [pengaduanController::class, 'index'])->name('pengaduan.index');
+        Route::get('/pengaduan/{id}', [pengaduanController::class, 'show'])->name('pengaduan.show');
+
         // Suplier
         Route::get('suplier', Suplier::class)->name('material.suplier');
 
@@ -272,6 +279,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:client']], function () {
         Route::get('/rab/', RabHome::class)->name('rab.home');
         Route::get('/proyek/', Proyekadd::class)->name('client.proyek');
         Route::get('/komplain/', Komplain::class)->name('client.komplain');
+        Route::get('/pekerjaan/', HasilKerja::class)->name('client.pekerjaan');
     });
 });
 
@@ -283,6 +291,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:ketua']], function () {
         Route::get('AbsenPekerja', AbsenPekerja::class)->name('pekerja.absen');
         Route::get('RencanaPekerja', RencanaPekerja::class)->name('pekerja.rencana');
         Route::get('Komplain', PekerjaKomplain::class)->name('pekerja.komplain');
+        Route::get('LaporanHarian', LaporanHarian::class)->name('pekerja.laporan');
     });
 });
 // ADMIN

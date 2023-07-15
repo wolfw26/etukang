@@ -4,7 +4,7 @@
             <div class="col-md-8 m-2">
                 <div class="card">
                     <div class="card-body elevation-2">
-                        <h2 class=" text-center text-cyan mb-4">Beri Tahu Kami</h2>
+                        <h2 class=" text-center text-cyan mb-4">Beri Tahu Admin</h2>
                         <div class="row d-flex flex-col justify-content-around">
                             <div class="col-md-3"></div>
                             <div class="col-md-3">
@@ -29,12 +29,18 @@
                         @foreach ($data as $d )
                         <div class="card">
                             <div class="card-body elevation-2">
-                                <div class="row">
-                                    <div class="col-md-4">
+                                <div class="row border border-bottom p-2">
+                                    <div class="col-md-4 d-flex flex-col justify-content-md-start align-items-center">
+                                        <img class="img-fluid" src="{{ asset($proyek->client->foto_ktp) }}" alt="" style="width: 90px; height: 90px">
+                                        <h3 class=" float-left m-2 text-muted ">{{ $proyek->client->nama }}</h3>
+                                    </div>
+                                </div>
+                                <div class="row d-flex flex-col justify-content-around">
+                                    <div class="col-md-4 p-5 m-2">
                                         <h3 class=" text-center">{{ $d->title }}</h3>
                                         <p class=" text-center text-maroon">{{ $d->deskripsi }}</p>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 border m-2">
                                         <img class=" img-fluid img-rounded mb-4" src="{{ asset($d->image) }}" alt="" srcset="">
                                     </div>
                                 </div>

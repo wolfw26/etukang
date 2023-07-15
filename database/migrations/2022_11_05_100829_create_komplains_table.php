@@ -19,8 +19,8 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->string('image');
             $table->string('status')->nullable();
-            $table->integer('proyek_id');
-            $table->integer('client_id');
+            $table->foreignId('proyek_id');
+            $table->foreignId('client_id');
             $table->timestamps();
         });
     }

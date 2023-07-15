@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('keterangan');
             $table->text('deskripsi');
             $table->string('image')->nullable();
-            $table->integer('proyek_id')->nullable();
-            $table->integer('pekerja_id')->nullable();
+            $table->foreignId('proyek_id')->nullable();
+            $table->foreignId('pekerja_id')->nullable();
             $table->timestamps();
         });
     }

@@ -23,6 +23,10 @@ class Client extends Model
         //         ->orwhere('alamat', 'like', '%' . $cari . '%');
         // });
     }
+    public function komplain()
+    {
+        return $this->belongsTo(Komplain::class);
+    }
 
     public function konfirmasi()
     {

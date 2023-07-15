@@ -570,6 +570,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('pengaduan.index') }}" class="nav-link">
+                                <i class="fas fa-hammer nav-icon"></i>
+                                <p>
+                                    Pengaduan
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('home.setting') }}" class="nav-link">
                                 <i class="fas fa-hammer nav-icon"></i>
                                 <p>
