@@ -13,10 +13,129 @@
   --Lightyellow: #fbf6ea;
   --Lavender: #f4f0f8;
 }
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: lightskyblue;
+}
 
 a {
   text-decoration: none;
 }
+.container .nav-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--MainColor);
+  position: relative;
+}
+
+.container .nav-bar .logo {
+  text-align: center;
+  margin: 3px 3px 1px 1px;
+  flex: 1;
+  left: 15px;
+  position: relative;
+  left: 10px;
+  font-family: var(--Inter);
+  font-size: 15px;
+}
+.container .nav-bar .logo h2 {
+  font-weight: 200;
+  font-size: 15px;
+  color: var(--Lavender);
+  margin: 0;
+}
+.container .nav-bar .menu {
+  text-align: center;
+  flex: 2;
+  margin: 1px;
+  padding: 20px;
+}
+.container .nav-bar .menu a {
+  margin: 3px;
+  font-size: 15px;
+  font-family: var(--Poppins);
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--Lavender);
+}
+.container .nav-bar .menu a:hover {
+  border-bottom: 1px solid var(--Lavender);
+}
+.container .nav-bar .menu button {
+  background: var(--MainColor);
+  border: 1px solid white;
+  color: var(--Lavender);
+  margin-left: 5px;
+  border-radius: 5px;
+}
+.container .nav-bar .menu button:hover {
+  background: var(--Lavender);
+  transition: 0.5s;
+}
+.container .nav-bar .menu button:hover a {
+  color: var(--MainColor);
+  transition: 0.5s;
+}
+header {
+  width: 100%;
+  background-position: right;
+  background-image: url("img-landing/house.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 90vh;
+}
+header .card-header {
+  background: rgba(128, 128, 128, 0.195);
+  width: 600px;
+  height: auto;
+  position: relative;
+  left: 5%;
+  top: 20%;
+  padding: 10px;
+  /* border-radius: 5px;
+  box-shadow: 2px 2px 3px var(--Lavender); */
+}
+header .card-header h2 {
+  font-size: 40px;
+  text-shadow: 2px 2px 1px white;
+  color: var(--Kuning);
+  font-weight: 800;
+  font-family: var(--Poppins);
+  letter-spacing: 5px;
+  line-height: 35px;
+}
+header .card-header span {
+  color: black;
+  font-size: 18px;
+  font-family: var(--Opensans);
+  font-weight: 900;
+  line-height: 35px;
+  text-shadow: 2px 2px 4px var(--Lightyellow);
+}
+header button {
+  background: var(--MainColor);
+  height: 40px;
+  width: 200px;
+  position: relative;
+  left: 15%;
+  top: 25%;
+  font-weight: 700;
+  font-family: var(--Merri);
+  border-radius: 10px;
+}
+header button a {
+  color: white;
+}
+header button:hover {
+  background: var(--Kuning);
+}
+header button:hover a {
+  color: var(--MainColor);
+}
+@media only screen and (min-width: 768px){
 body {
   width: 1530px;
   margin: 0;
@@ -44,8 +163,6 @@ body {
 }
 .container .nav-bar .menu {
   padding: 20px;
-  position: relative;
-  left: 35%;
 }
 .container .nav-bar .menu a {
   margin: 10px;
@@ -129,3 +246,5 @@ header button:hover {
 header button:hover a {
   color: var(--MainColor);
 }
+}
+

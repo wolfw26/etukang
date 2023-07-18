@@ -1,5 +1,5 @@
 <div>
-    <section class="row mb-2 p-5 border rounded ">
+    <section class="row mb-2 p-md-5 border rounded ">
         <div class="col-1"></div>
         <!-- Head and Form Input Monitoring -->
         <div class="col-10 ">
@@ -34,35 +34,42 @@
             </div>
         </div>
         <div class="col-1"></div>
-        <div class="row container-fluid p-4 border mt-lg-4 mt-2">
+        <div class="row container-fluid p-md-4 border mt-lg-4 mt-2">
             <div class="col-12">
-                <div class="card-body">
-                    <div class="card-body table-responsive p-0" style="height: 430px;">
-                        <table class="table  text-nowrap">
-                            <thead>
-                                <tr>
-                                    <th>No.</th>
-                                    <th>Keterangan</th>
-                                    <th>Deskripsi</th>
-                                    <th>Gambar/Foto</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>1.</th>
-                                    <td>Pekerjaan Awal</td>
-                                    <td>Pembuatan Batas pekerjaan,pengukuran</td>
-                                    <td>https://www/fotobangunan.jpg/uploud</td>
-                                    <td class=" d-inline-flex justify-content-between">
-                                        <a href="http://" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i></a>
-                                        <a href="http://" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
-                                        <a href="http://" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-sm table-bordered table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Keterangan</th>
+                                <th>Deskripsi</th>
+                                <th>Gambar/Foto</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>1.</th>
+                                <td class=" d-flex justify-content-around">
+                                    <a href="http://" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
+                                    <a href="http://" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                </td>
+                                <td>Pekerjaan Awal</td>
+                                <td>Pembuatan Batas pekerjaan,pengukuran</td>
+                                <td>https://www/fotobangunan.jpg/uploud</td>
+                            </tr>
+                            <tr>
+                                <th>2.</th>
+                                <td class=" d-flex justify-content-around">
+                                    <a href="http://" class="btn btn-sm btn-warning"><i class="fas fa-sm fa-edit"></i></a>
+                                    <a href="http://" class="btn btn-sm btn-danger"><i class="fas fa-sm fa-trash"></i></a>
+                                </td>
+                                <td>Pekerjaan Awal</td>
+                                <td>Pembuatan Batas pekerjaan,pengukuran</td>
+                                <td>https://www/fotobangunan.jpg/uploud</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
