@@ -1,30 +1,41 @@
 <div>
+    @if (session()->has('message'))
+            <div class="alert {{ session('alert') }}">
+                {{ session('message') }}
+            </div>
+            @endif
     <section class="row mb-2 p-md-5 border rounded ">
-        <div class="col-1"></div>
+        <div class="col-1">
+
+        </div>
         <!-- Head and Form Input Monitoring -->
         <div class="col-10 ">
-            <h1 class="text-center">Monitoring Pekerjaan Harian</h1>
+            <h1 class="text-center">Monitoring Pekerjaan Harian </h1>
             <div class="row">
                 <div class="col-md-8 col-6">
-                    <form wire:submit.prevent="save">
+                    <form wire:submit.prevent="Tambah">
                         <div class="mb-3">
                             <label for="" class="form-label">Keterangan</label>
-                            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="Keterangan Pekerjaan">
+                            <input wire:model="keterangan" type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="Keterangan Pekerjaan">
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Deskripsi</label>
-                            <input type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="Deskripsi Pekerjaan">
+                            <input wire:model="deskripsi" type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="Deskripsi Pekerjaan">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Komentar</label>
+                            <input wire:model="komentar" type="text" class="form-control form-control-sm" id="exampleFormControlInput1" placeholder="Deskripsi Pekerjaan">
                         </div>
                         <div class="mb-3">
                             <label for="formFileSm" class="form-label">Gambar/Foto Pekerjaan</label>
-                            <input wire:model="photo" class="form-control form-control-sm" id="formFileSm" type="file">
+                            <input wire:model="image" class="form-control form-control-sm" id="formFileSm" type="file">
                         </div>
                         <button type="submit">Save</button>
                     </form>
                 </div>
                 <div class="col-md-4 col-6 border">
-                    @if ($photo)
-                    <img src=" {{ $photo->temporaryUrl() }} " class="img-fluid" alt="...">
+                    @if ($image)
+                    <img src=" {{ $image->temporaryUrl() }} " class="img-fluid" alt="...">
                     @else
                     <div class="alert alert-default-warning">Belum Ada Foto Dipilih</div>
                     @endif
@@ -46,26 +57,19 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($data as $no => $e )
                             <tr>
-                                <th>1.</th>
+                                <th>{{ $no }}</th>
                                 <td class=" d-flex justify-content-around">
                                     <a href="http://" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></a>
-                                    <a href="http://" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                    <button wire:click="Hapus({{ $e->id }})" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                                 </td>
-                                <td>Pekerjaan Awal</td>
-                                <td>Pembuatan Batas pekerjaan,pengukuran</td>
-                                <td>https://www/fotobangunan.jpg/uploud</td>
+                                <td>{{ $e->keterangan }}</td>
+                                <td>{{ $e->deskripsi }}</td>
+                                <td>{{ $e->gambar }}</td>
                             </tr>
-                            <tr>
-                                <th>2.</th>
-                                <td class=" d-flex justify-content-around">
-                                    <a href="http://" class="btn btn-sm btn-warning"><i class="fas fa-sm fa-edit"></i></a>
-                                    <a href="http://" class="btn btn-sm btn-danger"><i class="fas fa-sm fa-trash"></i></a>
-                                </td>
-                                <td>Pekerjaan Awal</td>
-                                <td>Pembuatan Batas pekerjaan,pengukuran</td>
-                                <td>https://www/fotobangunan.jpg/uploud</td>
-                            </tr>
+                            @endforeach
+
                         </tbody>
                     </table>
                 </div>
