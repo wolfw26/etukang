@@ -1,250 +1,217 @@
 :root {
-  --Inter: "Inter", sans-serif;
-  --DMSans: "DM Sans", sans-serif;
-  --Opensans: "Open Sans", sans-serif;
-  --Poppins: "Poppins", sans-serif;
-  --Rancho: "Rancho", cursive;
-  --Merri: "Merriweather", serif;
-  --MainColor: #232536;
-  --Kuning: #ffd050;
-  --Ungu: #592ea9;
-  --Darkgray: #4c4c4c;
-  --MediumGray: #6d6e76;
-  --Lightyellow: #fbf6ea;
-  --Lavender: #f4f0f8;
-}
-body {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  color: lightskyblue;
+  --rokkit: 'Rokkitt', serif;
+  --sacramento: 'Sacramento', cursive;
+  --work: 'Work Sans', sans-serif;
+  --main-color: rgb(255, 208, 0);
+  /* --main-color: rgb(255, 193, 77); */
 }
 
-a {
-  text-decoration: none;
-}
-.container .nav-bar {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  background: var(--MainColor);
-  position: relative;
+
+.text-main {
+  font-family: var(--rokkit);
 }
 
-.container .nav-bar .logo {
-  text-align: center;
-  margin: 3px 3px 1px 1px;
-  flex: 1;
-  left: 15px;
-  position: relative;
-  left: 10px;
-  font-family: var(--Inter);
-  font-size: 15px;
+.color-main {
+  color: var(--main-color);
+  text-shadow: 2px 2px 3px rgba(250, 248, 245, 0.747);
 }
-.container .nav-bar .logo h2 {
-  font-weight: 200;
-  font-size: 15px;
-  color: var(--Lavender);
-  margin: 0;
+
+.bg-main {
+  background-color: var(--main-color);
 }
-.container .nav-bar .menu {
-  text-align: center;
-  flex: 2;
-  margin: 1px;
-  padding: 20px;
+
+nav {
+  background-color: var(--main-color);
+  font-family: var(--work);
 }
-.container .nav-bar .menu a {
-  margin: 3px;
-  font-size: 15px;
-  font-family: var(--Poppins);
-  font-weight: 600;
-  text-decoration: none;
-  color: var(--Lavender);
-}
-.container .nav-bar .menu a:hover {
-  border-bottom: 1px solid var(--Lavender);
-}
-.container .nav-bar .menu button {
-  background: var(--MainColor);
-  border: 1px solid white;
-  color: var(--Lavender);
-  margin-left: 5px;
-  border-radius: 5px;
-}
-.container .nav-bar .menu button:hover {
-  background: var(--Lavender);
-  transition: 0.5s;
-}
-.container .nav-bar .menu button:hover a {
-  color: var(--MainColor);
-  transition: 0.5s;
-}
-header {
-  width: 100%;
-  background-position: right;
-  background-image: url("img-landing/house.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 90vh;
-}
-header .card-header {
-  background: rgba(128, 128, 128, 0.195);
-  width: 600px;
-  height: auto;
-  position: relative;
-  left: 5%;
-  top: 20%;
-  padding: 10px;
-  /* border-radius: 5px;
-  box-shadow: 2px 2px 3px var(--Lavender); */
-}
-header .card-header h2 {
-  font-size: 40px;
-  text-shadow: 2px 2px 1px white;
-  color: var(--Kuning);
-  font-weight: 800;
-  font-family: var(--Poppins);
-  letter-spacing: 5px;
-  line-height: 35px;
-}
-header .card-header span {
+
+nav h3 {
   color: black;
-  font-size: 18px;
-  font-family: var(--Opensans);
-  font-weight: 900;
-  line-height: 35px;
-  text-shadow: 2px 2px 4px var(--Lightyellow);
-}
-header button {
-  background: var(--MainColor);
-  height: 40px;
-  width: 200px;
-  position: relative;
-  left: 15%;
-  top: 25%;
   font-weight: 700;
-  font-family: var(--Merri);
-  border-radius: 10px;
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.856);
 }
-header button a {
-  color: white;
-}
-header button:hover {
-  background: var(--Kuning);
-}
-header button:hover a {
-  color: var(--MainColor);
-}
-@media only screen and (min-width: 768px){
-body {
-  width: 1530px;
-  margin: 0;
-  padding: 0;
-  color: lightskyblue;
-}
-.container .nav-bar {
-  width: 100%;
-  display: flex;
-  padding: 3px;
-  background: var(--MainColor);
+
+#Menu ul li {
   position: relative;
 }
 
-.container .nav-bar .logo {
-  position: relative;
-  left: 25px;
-  font-family: var(--Inter);
-  font-size: 15px;
-}
-.container .nav-bar .logo h2 {
-  font-weight: 400;
-  font-size: 25px;
-  color: var(--Lavender);
-}
-.container .nav-bar .menu {
-  padding: 20px;
-}
-.container .nav-bar .menu a {
-  margin: 10px;
-  font-family: var(--Poppins);
-  font-weight: 600;
-  text-decoration: none;
-  color: var(--Lavender);
-}
-.container .nav-bar .menu a:hover {
-  border-bottom: 1px solid var(--Lavender);
-}
-.container .nav-bar .menu button {
-  height: 30px;
-  background: var(--MainColor);
-  border: 1px solid white;
-  color: var(--Lavender);
-  margin-left: 10px;
-  border-radius: 5px;
-}
-.container .nav-bar .menu button:hover {
-  background: var(--Lavender);
-  transition: 0.5s;
-}
-.container .nav-bar .menu button:hover a {
-  color: var(--MainColor);
-  transition: 0.5s;
-}
-header {
-  width: 100%;
-  background-position: right;
-  background-image: url("img-landing/house.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 90vh;
-}
-header .card-header {
-  background: rgba(128, 128, 128, 0.195);
-  width: 600px;
-  height: auto;
-  position: relative;
-  left: 5%;
-  top: 20%;
-  padding: 10px;
-  /* border-radius: 5px;
-  box-shadow: 2px 2px 3px var(--Lavender); */
-}
-header .card-header h2 {
-  font-size: 40px;
-  text-shadow: 2px 2px 1px white;
-  color: var(--Kuning);
-  font-weight: 800;
-  font-family: var(--Poppins);
-  letter-spacing: 5px;
-  line-height: 35px;
-}
-header .card-header span {
+#Menu ul li a {
   color: black;
-  font-size: 18px;
-  font-family: var(--Opensans);
-  font-weight: 900;
-  line-height: 35px;
-  text-shadow: 2px 2px 4px var(--Lightyellow);
-}
-header button {
-  background: var(--MainColor);
-  height: 40px;
-  width: 200px;
-  position: relative;
-  left: 15%;
-  top: 25%;
-  font-weight: 700;
-  font-family: var(--Merri);
-  border-radius: 10px;
-}
-header button a {
-  color: white;
-}
-header button:hover {
-  background: var(--Kuning);
-}
-header button:hover a {
-  color: var(--MainColor);
-}
+  padding-bottom: 5px;
+  transition: all 0.3s;
 }
 
+#Menu ul li a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  transition: width 0.3s ease;
+}
+
+#Menu ul li a:hover::before {
+  width: 100%;
+}
+
+#main {
+  z-index: -1;
+  margin-bottom: 0;
+}
+
+
+.main-image {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.274);
+  /* Warna lapisan transparan */
+  z-index: 1;
+}
+
+
+.main-tagline {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  position: absolute;
+  font-family: var(--rokkit);
+  top: 30%;
+  left: 50%;
+  /* transform: translateY(-100%); */
+  max-width: 600px;
+  /* background-color: burlywood; */
+  z-index: 2;
+}
+
+.main-tagline h2 {
+  color: rgba(255, 255, 255, 0);
+  text-shadow: none;
+  animation: fadeInH2 3s ease forwards;
+}
+
+/* #login-btn {
+  z-index: 999;
+  background-color: aqua;
+} */
+
+#main::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  /* Sesuaikan dengan tinggi yang diinginkan */
+  background-color: rgba(255, 255, 0, 0.5);
+  /* Warna kuning yang sesuai dengan latar belakang #tentang */
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(245, 245, 245));
+  /* Menyisipkan di depan elemen #main */
+  /* filter: blur(5px); */
+  /* Atur efek blur sesuai kebutuhan Anda */
+}
+
+
+@keyframes fadeInH2 {
+  to {
+    color: var(--main-color);
+    text-shadow: 2px 2px 3px rgba(245, 168, 26, 0.747);
+    /* Warna teks akhir (terang) */
+  }
+}
+
+.main-tagline p {
+  font-size: 20px;
+  /* text-shadow: 2px 2px 3px gray; */
+  color: rgba(255, 255, 255, 0);
+  text-shadow: none;
+  animation: typeWriterP 6s steps(50) forwards;
+}
+
+@keyframes typeWriterP {
+  0% {
+    color: transparent;
+    /* Warna teks awal (buram) */
+  }
+
+  100% {
+    color: aliceblue;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.699);
+    /* Warna teks akhir (terang) */
+  }
+}
+
+
+/* TENTANG */
+
+#tentang {
+  background-color: whitesmoke;
+}
+
+#card-tentang .card {
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: opacity 1s ease, transform 0.5s ease;
+}
+
+#kontak {
+  padding: 10px 20px 3px 20px;
+  text-shadow: 3px 4px 3px rgb(255, 255, 255);
+}
+
+#kontak ul {
+  margin: 0;
+}
+
+#kontak ul li {
+  text-decoration: none;
+  font-family: var(--rokkit);
+}
+
+
+
+
+
+/* Pengaturan elemen di layar mobile */
+@media (max-width: 767px) {
+  .main-tagline {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    position: absolute;
+    font-family: var(--rokkit);
+    top: 30%;
+    left: 15%;
+    /* transform: translateY(-100%); */
+    max-width: 300px;
+    /* background-color: burlywood; */
+    /* mix-blend-mode: multiply; */
+    z-index: 2;
+  }
+
+  #Menu ul li a:hover::before {
+    width: 30%;
+  }
+
+  .main-tagline h2 {
+    font-size: 25px;
+    /* text-shadow: 2px 2px 3px gray; */
+  }
+
+  .main-tagline p {
+    font-size: 15px;
+    /* text-shadow: 2px 2px 3px gray; */
+  }
+}

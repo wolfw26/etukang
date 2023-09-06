@@ -41,7 +41,6 @@
                         <div class="text-white text-center" style="width: 50%; display : flex ;flex-direction : column; justify-content : space-between ;height : 100%;  ">
                             <div class="" style=" margin-top : 14rem;">
                                 <h1 style="font-weight: 600;"><span style="font-size: 62px; font-weight : bold;">E</span>tuk<i style="font-size: 22px; font-weight : 100; color :white;" class="fi fi-rs-home"></i>ng.</h1>
-                               
                                 <h3 style="font-weight: 100;"> Sistem Informasi Jasa Pembangunan Dan Renovasi</h3>
                             </div>
                             <button style="margin : 10px; position : fixed ; left : 2 ; bottom : 0; border : none; padding : 3px; background : none; color : white; height : 32px; border : white;"><a style="color : white;" href="/">Kembali Ke landing page </a></button>
@@ -63,7 +62,7 @@
                                 {{-- <div class="card-header rounded-top bg-navy text-center" style="background-color: gray; font-weight:900; height:100%; margin-bottom:2px">
                                     <a href="{{ asset('assets/index2.html') }}" style="color: white;">LOGIN</a>
                                 </div> --}}
-                               
+
                                 <div id="left" class="p-5 login">
                                     <h1>Login Di bawah</h1>
                                     <form style="margin-top : 72px; width :90%;" action="/" method="POST">
@@ -101,7 +100,7 @@
                                         <p>Belum Punya Akun ? <a id="toggle" href="#">Daftar Disini</a> </p>
                                         <button style="width : 100%; background : blue; color : white; border : none; padding : 12px; border-radius : 32px; font-weight : bold;" type="submit">Masuk</button>
                                     </form>
-                                    
+
                                 </div>
                                 <div id="right" class="card-body active" style="max-height: 93.5vh; overflow-y : scroll;">
                                     <div class="card-body login-card-body ">
@@ -129,7 +128,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-        
+
                                             <div class="input-group mb-3">
                                                 <input type="text" class="form-control @error('alamat') is-invalid
                                                     @enderror " placeholder="Alamat Lengkap" name="alamat" required value="{{ old('alamat') }}" autocomplete="off">
@@ -168,9 +167,9 @@
                                                 </div>
                                                 @enderror
                                             </div>
-        
-        
-        
+
+
+
                                             <!-- <div class="form-floating mb-3 mt-3">
                                                     <select class="form-select form-control" id="rule" name="rule">
                                                         <option value="client">Client</option>
@@ -196,7 +195,7 @@
                                                 </div>
                                                 @enderror
                                             </div>
-        
+
                                             <div class="input-group mb-3">
                                                 <input type="password" class="form-control @error('password')
                                                         is-invalid
@@ -206,22 +205,22 @@
                                                     {{ $message }}
                                                 </div>
                                                 @enderror
-        
+
                                             </div>
                                             <p>Sudah Punya Akun ? <a id="toggle_register" href="#">Login Disini</a> </p>
                                             <button style="width : 100%; background : blue; color : white; border : none; padding : 12px; border-radius : 32px; font-weight : bold;" type="submit">Daftar</button>
-                                          
+
                                         </form>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
             </div>
 
-         
 
-       
+
+
         <!-- <div class="container-fluid mt-5">
             <div class="row">
                 <div class="col-12">
@@ -336,7 +335,7 @@
             });
         })
 
-      
+
     </script>
     <script>
       var toggler = document.getElementById('toggle');

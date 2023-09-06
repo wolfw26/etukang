@@ -101,7 +101,7 @@ use App\Http\Livewire\Pekerja\Komplain as PekerjaKomplain;
 // });
 Route::get('/', function () {
     return view('landing-page.landingPage');
-});
+})->name('landing');
 Route::get('cekharga', CekHarga::class)->name('cekharga');
 Route::post('/register', [RegisterController::class, 'store'])->name('register');
 Route::get('/login', [LoginController::class, 'index'])->name('login');

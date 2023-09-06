@@ -36,10 +36,10 @@ class DatabaseSeeder extends Seeder
             'rule' => 'admin'
         ]);
         User::create([
-            'name' => 'whitewolf',
-            'email' => 'whitewolf@example.com',
-            'password' => Hash::make('admin1234'),
-            'rule' => 'admin'
+            'name' => 'klien1',
+            'email' => 'klien1@example.com',
+            'password' => Hash::make('11111111'),
+            'rule' => 'client'
         ]);
         // Jabatan::create([
         //     'jabatan' => 'Kepala Tukang',

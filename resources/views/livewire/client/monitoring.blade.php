@@ -46,6 +46,7 @@
         <div class="row container-fluid p-md-4 border mt-lg-4 mt-2">
             <div class="col-12">
                 <div class="card-body table-responsive">
+                    @if (count($data) > 0)
                     <table class="table table-sm table-bordered table-striped table-hover" id="table" data-show-columns="true" data-search="true" data-url="json/data1.json" data-mobile-responsive="true" data-check-on-init="true">
                         <thead>
                             <tr>
@@ -72,6 +73,11 @@
 
                         </tbody>
                     </table>
+                    @else
+                    <div class="alert alert-secondary">
+                        <p>DATA KOSONG</p>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>
